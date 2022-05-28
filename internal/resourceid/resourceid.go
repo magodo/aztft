@@ -35,6 +35,12 @@ type ResourceId interface {
 
 	// String returns the resource id literal.
 	String() string
+
+	// Equal checkes the equality of two resource id. They are regarded as equal only when all the components are equal.
+	Equal(ResourceId) bool
+
+	// EqualScope checkes the equality of two resource id without taking the Names() into consideration.
+	EqualScope(ResourceId) bool
 }
 
 func ParseResourceId(id string) (ResourceId, error) {
@@ -149,6 +155,16 @@ func (TenantId) String() string {
 	return "/"
 }
 
+func (TenantId) Equal(oid ResourceId) bool {
+	_, ok := oid.(TenantId)
+	return ok
+}
+
+func (TenantId) EqualScope(oid ResourceId) bool {
+	_, ok := oid.(TenantId)
+	return ok
+}
+
 func (TenantId) isRootScope() {}
 
 // SubscriptionId represents the subscription scope
@@ -181,6 +197,16 @@ func (SubscriptionId) Names() []string {
 
 func (id SubscriptionId) String() string {
 	return "/subscriptions/" + id.Id
+}
+
+func (id SubscriptionId) Equal(oid ResourceId) bool {
+	oSubId, ok := oid.(SubscriptionId)
+	return ok && oSubId.Id == id.Id
+}
+
+func (id SubscriptionId) EqualScope(oid ResourceId) bool {
+	_, ok := oid.(SubscriptionId)
+	return ok
 }
 
 func (SubscriptionId) isRootScope() {}
@@ -219,6 +245,16 @@ func (id ResourceGroup) String() string {
 	return "/subscriptions/" + id.SubscriptionId + "/resourceGroups/" + id.Name
 }
 
+func (id ResourceGroup) Equal(oid ResourceId) bool {
+	oRgId, ok := oid.(ResourceGroup)
+	return ok && oRgId.SubscriptionId == id.SubscriptionId && oRgId.Name == id.Name
+}
+
+func (id ResourceGroup) EqualScope(oid ResourceId) bool {
+	_, ok := oid.(ResourceGroup)
+	return ok
+}
+
 func (ResourceGroup) isRootScope() {}
 
 // ManagementGroup represents the management group scope
@@ -251,6 +287,16 @@ func (ManagementGroup) Names() []string {
 
 func (id ManagementGroup) String() string {
 	return formatScope(id.Provider(), id.Types(), []string{id.Name})
+}
+
+func (id ManagementGroup) Equal(oid ResourceId) bool {
+	oMgId, ok := oid.(ManagementGroup)
+	return ok && oMgId.Name == id.Name
+}
+
+func (id ManagementGroup) EqualScope(oid ResourceId) bool {
+	_, ok := oid.(ManagementGroup)
+	return ok
 }
 
 func (ManagementGroup) isRootScope() {}
@@ -301,6 +347,58 @@ func (id ScopedResourceId) String() string {
 	}
 	builder.WriteString(formatScope(id.Provider(), id.Types(), id.Names()))
 	return builder.String()
+}
+
+func (id ScopedResourceId) Equal(oid ResourceId) bool {
+	oRid, ok := oid.(ScopedResourceId)
+	if !ok {
+		return false
+	}
+	if !id.Scope.Equal(oRid.Scope) {
+		return false
+	}
+	if id.Namespace != oRid.Namespace {
+		return false
+	}
+	if len(id.ResourceTypes) != len(oRid.ResourceTypes) {
+		return false
+	}
+	for i := 0; i < len(id.ResourceTypes); i++ {
+		if id.ResourceTypes[i] != oRid.ResourceTypes[i] {
+			return false
+		}
+	}
+	if len(id.ResourceNames) != len(oRid.ResourceNames) {
+		return false
+	}
+	for i := 0; i < len(id.ResourceNames); i++ {
+		if id.ResourceNames[i] != oRid.ResourceNames[i] {
+			return false
+		}
+	}
+	return true
+}
+
+func (id ScopedResourceId) EqualScope(oid ResourceId) bool {
+	oRid, ok := oid.(ScopedResourceId)
+	if !ok {
+		return false
+	}
+	if !id.Scope.EqualScope(oRid.Scope) {
+		return false
+	}
+	if id.Namespace != oRid.Namespace {
+		return false
+	}
+	if len(id.ResourceTypes) != len(oRid.ResourceTypes) {
+		return false
+	}
+	for i := 0; i < len(id.ResourceTypes); i++ {
+		if id.ResourceTypes[i] != oRid.ResourceTypes[i] {
+			return false
+		}
+	}
+	return true
 }
 
 func formatScope(provider string, types []string, names []string) string {

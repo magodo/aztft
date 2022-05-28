@@ -201,6 +201,196 @@ func TestResourceId_Parent(t *testing.T) {
 	}
 }
 
+func TestResourceId_Equal(t *testing.T) {
+	cases := []struct {
+		name   string
+		id     ResourceId
+		oid    ResourceId
+		expect bool
+	}{
+		{
+			name:   "Tenant equals to Tenant",
+			id:     TenantId{},
+			oid:    TenantId{},
+			expect: true,
+		},
+		{
+			name:   "Tenant not equals to Subscription",
+			id:     TenantId{},
+			oid:    SubscriptionId{Id: "sub1"},
+			expect: false,
+		},
+		{
+			name:   "Subscription equals to subscription with same id",
+			id:     SubscriptionId{Id: "sub1"},
+			oid:    SubscriptionId{Id: "sub1"},
+			expect: true,
+		},
+		{
+			name:   "Subscription not equals to subscription with different id",
+			id:     SubscriptionId{Id: "sub1"},
+			oid:    SubscriptionId{Id: "sub2"},
+			expect: false,
+		},
+		{
+			name:   "Resource Group equals to Resource Group with same subscription id and resource group name",
+			id:     ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
+			oid:    ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
+			expect: true,
+		},
+		{
+			name:   "Resource Group not equals to Resource Group with different subscription id and resource group name",
+			id:     ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
+			oid:    ResourceGroup{SubscriptionId: "sub2", Name: "rg2"},
+			expect: false,
+		},
+		{
+			name:   "Management Group equals to Management Group with same name",
+			id:     ManagementGroup{Name: "mg1"},
+			oid:    ManagementGroup{Name: "mg1"},
+			expect: true,
+		},
+		{
+			name:   "Management Group not equals to Management Group with different name",
+			id:     ManagementGroup{Name: "mg1"},
+			oid:    ManagementGroup{Name: "mg2"},
+			expect: false,
+		},
+		{
+			name: "Root Scoped Resource under tenant equals to itself",
+			id: ScopedResourceId{
+				Scope:         TenantId{},
+				Namespace:     "Microsoft.Foo",
+				ResourceTypes: []string{"foos"},
+				ResourceNames: []string{"foo1"},
+			},
+			oid: ScopedResourceId{
+				Scope:         TenantId{},
+				Namespace:     "Microsoft.Foo",
+				ResourceTypes: []string{"foos"},
+				ResourceNames: []string{"foo1"},
+			},
+			expect: true,
+		},
+		{
+			name: "Root Scoped Resource under tenant not equals to different resource id",
+			id: ScopedResourceId{
+				Scope:         TenantId{},
+				Namespace:     "Microsoft.Foo",
+				ResourceTypes: []string{"foos"},
+				ResourceNames: []string{"foo1"},
+			},
+			oid: ScopedResourceId{
+				Scope:         TenantId{},
+				Namespace:     "Microsoft.Foo",
+				ResourceTypes: []string{"bars"},
+				ResourceNames: []string{"bar1"},
+			},
+			expect: false,
+		},
+	}
+
+	for _, tt := range cases {
+		t.Run(tt.name, func(t *testing.T) {
+			require.Equal(t, tt.expect, tt.id.Equal(tt.oid))
+		})
+	}
+}
+
+func TestResourceId_EqualScope(t *testing.T) {
+	cases := []struct {
+		name   string
+		id     ResourceId
+		oid    ResourceId
+		expect bool
+	}{
+		{
+			name:   "Tenant equals scope to Tenant",
+			id:     TenantId{},
+			oid:    TenantId{},
+			expect: true,
+		},
+		{
+			name:   "Tenant not equals scope to Subscription",
+			id:     TenantId{},
+			oid:    SubscriptionId{Id: "sub1"},
+			expect: false,
+		},
+		{
+			name:   "Subscription equals scope to subscription with different id",
+			id:     SubscriptionId{Id: "sub1"},
+			oid:    SubscriptionId{Id: "sub2"},
+			expect: true,
+		},
+		{
+			name:   "Resource Group equals scope to Resource Group with different subscription id and resource group name",
+			id:     ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
+			oid:    ResourceGroup{SubscriptionId: "sub2", Name: "rg2"},
+			expect: true,
+		},
+		{
+			name:   "Management Group equals scope to Management Group with different name",
+			id:     ManagementGroup{Name: "mg1"},
+			oid:    ManagementGroup{Name: "mg2"},
+			expect: true,
+		},
+		{
+			name: "Root Scoped Resource under tenant equals scopes to different sub-type name",
+			id: ScopedResourceId{
+				Scope:         TenantId{},
+				Namespace:     "Microsoft.Foo",
+				ResourceTypes: []string{"foos"},
+				ResourceNames: []string{"foo1"},
+			},
+			oid: ScopedResourceId{
+				Scope:         TenantId{},
+				Namespace:     "Microsoft.Foo",
+				ResourceTypes: []string{"foos"},
+				ResourceNames: []string{"foo2"},
+			},
+			expect: true,
+		},
+		{
+			name: "Parent Scoped Resource under tenant not equals scopes to different sub-type type",
+			id: ScopedResourceId{
+				Scope:         TenantId{},
+				Namespace:     "Microsoft.Foo",
+				ResourceTypes: []string{"foos"},
+				ResourceNames: []string{"foo1"},
+			},
+			oid: ScopedResourceId{
+				Scope:         TenantId{},
+				Namespace:     "Microsoft.Foo",
+				ResourceTypes: []string{"bars"},
+				ResourceNames: []string{"bar1"},
+			},
+			expect: false,
+		},
+		{
+			name: "Parent Scoped Resource under tenant not equals scopes to its child Scoped Resource",
+			id: ScopedResourceId{
+				Scope:         TenantId{},
+				Namespace:     "Microsoft.Foo",
+				ResourceTypes: []string{"foos"},
+				ResourceNames: []string{"foo1"},
+			},
+			oid: ScopedResourceId{
+				Scope:         TenantId{},
+				Namespace:     "Microsoft.Foo",
+				ResourceTypes: []string{"foos", "bars"},
+				ResourceNames: []string{"foo1", "bar1"},
+			},
+			expect: false,
+		},
+	}
+
+	for _, tt := range cases {
+		t.Run(tt.name, func(t *testing.T) {
+			require.Equal(t, tt.expect, tt.id.EqualScope(tt.oid))
+		})
+	}
+}
+
 func TestParseResourceId(t *testing.T) {
 	cases := []struct {
 		name   string
