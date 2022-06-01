@@ -19,7 +19,7 @@ type ResourceId interface {
 
 	// Provider returns the provider namespace of this resource id.
 	// For scoped resource, it is the provider namespace of its routing scope, i.e. the scope of the resource itself.
-	// For root scopes, it is the builtin provider namespace: "Microsoft.Resources".
+	// For root scopes, it is a builtin provider namespace, e.g. "Microsoft.Resources".
 	Provider() string
 
 	// Types returns the resource type array of this resource.
