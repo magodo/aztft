@@ -35,100 +35,100 @@ func TestResourceId_String(t *testing.T) {
 		{
 			name: "Scoped Resource under tenant",
 			input: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos", "bars"},
-				ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos", "bars"},
+				AttrNames:       []string{"foo1", "bar1"},
 			},
 			expect: "/providers/Microsoft.Foo/foos/foo1/bars/bar1",
 		},
 		{
 			name: "Scoped Resource under subscription",
 			input: ScopedResourceId{
-				Scope:         SubscriptionId{Id: "sub1"},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos", "bars"},
-				ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: SubscriptionId{Id: "sub1"},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos", "bars"},
+				AttrNames:       []string{"foo1", "bar1"},
 			},
 			expect: "/subscriptions/sub1/providers/Microsoft.Foo/foos/foo1/bars/bar1",
 		},
 		{
 			name: "Scoped Resource under resource group",
 			input: ScopedResourceId{
-				Scope:         ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos", "bars"},
-				ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos", "bars"},
+				AttrNames:       []string{"foo1", "bar1"},
 			},
 			expect: "/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Foo/foos/foo1/bars/bar1",
 		},
 		{
 			name: "Scoped Resource under management group",
 			input: ScopedResourceId{
-				Scope:         ManagementGroup{Name: "mg1"},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos", "bars"},
-				ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: ManagementGroup{Name: "mg1"},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos", "bars"},
+				AttrNames:       []string{"foo1", "bar1"},
 			},
 			expect: "/providers/Microsoft.Management/managementGroups/mg1/providers/Microsoft.Foo/foos/foo1/bars/bar1",
 		},
 		{
 			name: "Scoped Resource under another scoped resource which under tenant",
 			input: ScopedResourceId{
-				Scope: ScopedResourceId{
-					Scope:         TenantId{},
-					Namespace:     "Microsoft.Foo",
-					ResourceTypes: []string{"foos", "bars"},
-					ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: ScopedResourceId{
+					AttrParentScope: TenantId{},
+					AttrProvider:    "Microsoft.Foo",
+					AttrTypes:       []string{"foos", "bars"},
+					AttrNames:       []string{"foo1", "bar1"},
 				},
-				Namespace:     "Microsoft.Baz",
-				ResourceTypes: []string{"bazs"},
-				ResourceNames: []string{"baz1"},
+				AttrProvider: "Microsoft.Baz",
+				AttrTypes:    []string{"bazs"},
+				AttrNames:    []string{"baz1"},
 			},
 			expect: "/providers/Microsoft.Foo/foos/foo1/bars/bar1/providers/Microsoft.Baz/bazs/baz1",
 		},
 		{
 			name: "Scoped Resource under another scoped resource which under subscription",
 			input: ScopedResourceId{
-				Scope: ScopedResourceId{
-					Scope:         SubscriptionId{Id: "sub1"},
-					Namespace:     "Microsoft.Foo",
-					ResourceTypes: []string{"foos", "bars"},
-					ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: ScopedResourceId{
+					AttrParentScope: SubscriptionId{Id: "sub1"},
+					AttrProvider:    "Microsoft.Foo",
+					AttrTypes:       []string{"foos", "bars"},
+					AttrNames:       []string{"foo1", "bar1"},
 				},
-				Namespace:     "Microsoft.Baz",
-				ResourceTypes: []string{"bazs"},
-				ResourceNames: []string{"baz1"},
+				AttrProvider: "Microsoft.Baz",
+				AttrTypes:    []string{"bazs"},
+				AttrNames:    []string{"baz1"},
 			},
 			expect: "/subscriptions/sub1/providers/Microsoft.Foo/foos/foo1/bars/bar1/providers/Microsoft.Baz/bazs/baz1",
 		},
 		{
 			name: "Scoped Resource under another scoped resource which under resource group",
 			input: ScopedResourceId{
-				Scope: ScopedResourceId{
-					Scope:         ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
-					Namespace:     "Microsoft.Foo",
-					ResourceTypes: []string{"foos", "bars"},
-					ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: ScopedResourceId{
+					AttrParentScope: ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
+					AttrProvider:    "Microsoft.Foo",
+					AttrTypes:       []string{"foos", "bars"},
+					AttrNames:       []string{"foo1", "bar1"},
 				},
-				Namespace:     "Microsoft.Baz",
-				ResourceTypes: []string{"bazs"},
-				ResourceNames: []string{"baz1"},
+				AttrProvider: "Microsoft.Baz",
+				AttrTypes:    []string{"bazs"},
+				AttrNames:    []string{"baz1"},
 			},
 			expect: "/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Foo/foos/foo1/bars/bar1/providers/Microsoft.Baz/bazs/baz1",
 		},
 		{
 			name: "Scoped Resource under another scoped resource which under management group",
 			input: ScopedResourceId{
-				Scope: ScopedResourceId{
-					Scope:         ManagementGroup{Name: "mg1"},
-					Namespace:     "Microsoft.Foo",
-					ResourceTypes: []string{"foos", "bars"},
-					ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: ScopedResourceId{
+					AttrParentScope: ManagementGroup{Name: "mg1"},
+					AttrProvider:    "Microsoft.Foo",
+					AttrTypes:       []string{"foos", "bars"},
+					AttrNames:       []string{"foo1", "bar1"},
 				},
-				Namespace:     "Microsoft.Baz",
-				ResourceTypes: []string{"bazs"},
-				ResourceNames: []string{"baz1"},
+				AttrProvider: "Microsoft.Baz",
+				AttrTypes:    []string{"bazs"},
+				AttrNames:    []string{"baz1"},
 			},
 			expect: "/providers/Microsoft.Management/managementGroups/mg1/providers/Microsoft.Foo/foos/foo1/bars/bar1/providers/Microsoft.Baz/bazs/baz1",
 		},
@@ -170,26 +170,26 @@ func TestResourceId_Parent(t *testing.T) {
 		{
 			name: "Root Scoped Resource under tenant",
 			input: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos"},
-				ResourceNames: []string{"foo1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos"},
+				AttrNames:       []string{"foo1"},
 			},
 			expect: nil,
 		},
 		{
 			name: "Child Scoped Resource under tenant",
 			input: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos", "bars"},
-				ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos", "bars"},
+				AttrNames:       []string{"foo1", "bar1"},
 			},
 			expect: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos"},
-				ResourceNames: []string{"foo1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos"},
+				AttrNames:       []string{"foo1"},
 			},
 		},
 	}
@@ -259,32 +259,32 @@ func TestResourceId_Equal(t *testing.T) {
 		{
 			name: "Root Scoped Resource under tenant equals to itself",
 			id: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos"},
-				ResourceNames: []string{"foo1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos"},
+				AttrNames:       []string{"foo1"},
 			},
 			oid: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos"},
-				ResourceNames: []string{"foo1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos"},
+				AttrNames:       []string{"foo1"},
 			},
 			expect: true,
 		},
 		{
 			name: "Root Scoped Resource under tenant not equals to different resource id",
 			id: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos"},
-				ResourceNames: []string{"foo1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos"},
+				AttrNames:       []string{"foo1"},
 			},
 			oid: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"bars"},
-				ResourceNames: []string{"bar1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"bars"},
+				AttrNames:       []string{"bar1"},
 			},
 			expect: false,
 		},
@@ -297,7 +297,7 @@ func TestResourceId_Equal(t *testing.T) {
 	}
 }
 
-func TestResourceId_EqualScope(t *testing.T) {
+func TestResourceId_ScopeEqual(t *testing.T) {
 	cases := []struct {
 		name   string
 		id     ResourceId
@@ -337,48 +337,48 @@ func TestResourceId_EqualScope(t *testing.T) {
 		{
 			name: "Root Scoped Resource under tenant equals scopes to different sub-type name",
 			id: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos"},
-				ResourceNames: []string{"foo1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos"},
+				AttrNames:       []string{"foo1"},
 			},
 			oid: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos"},
-				ResourceNames: []string{"foo2"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos"},
+				AttrNames:       []string{"foo2"},
 			},
 			expect: true,
 		},
 		{
 			name: "Parent Scoped Resource under tenant not equals scopes to different sub-type type",
 			id: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos"},
-				ResourceNames: []string{"foo1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos"},
+				AttrNames:       []string{"foo1"},
 			},
 			oid: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"bars"},
-				ResourceNames: []string{"bar1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"bars"},
+				AttrNames:       []string{"bar1"},
 			},
 			expect: false,
 		},
 		{
 			name: "Parent Scoped Resource under tenant not equals scopes to its child Scoped Resource",
 			id: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos"},
-				ResourceNames: []string{"foo1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos"},
+				AttrNames:       []string{"foo1"},
 			},
 			oid: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos", "bars"},
-				ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos", "bars"},
+				AttrNames:       []string{"foo1", "bar1"},
 			},
 			expect: false,
 		},
@@ -386,7 +386,65 @@ func TestResourceId_EqualScope(t *testing.T) {
 
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
-			require.Equal(t, tt.expect, tt.id.EqualScope(tt.oid))
+			require.Equal(t, tt.expect, tt.id.ScopeEqual(tt.oid))
+		})
+	}
+}
+
+func TestResourceId_ScopeString(t *testing.T) {
+	cases := []struct {
+		name   string
+		id     ResourceId
+		expect string
+	}{
+		{
+			name:   "Tenant",
+			id:     TenantId{},
+			expect: "/",
+		},
+		{
+			name:   "Subscription",
+			id:     SubscriptionId{Id: "sub1"},
+			expect: "/subscriptions",
+		},
+		{
+			name:   "Resource Group",
+			id:     ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
+			expect: "/subscriptions/resourceGroups",
+		},
+		{
+			name:   "Management Group",
+			id:     ManagementGroup{Name: "mg1"},
+			expect: "/Microsoft.Management/managementGroups",
+		},
+		{
+			name: "Root Scoped Resource under tenant",
+			id: ScopedResourceId{
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos"},
+				AttrNames:       []string{"foo1"},
+			},
+			expect: "/Microsoft.Foo/foos",
+		},
+		{
+			name: "Child Scoped Resource under resource group with",
+			id: ScopedResourceId{
+				AttrParentScope: ResourceGroup{
+					SubscriptionId: "sub1",
+					Name:           "rg1",
+				},
+				AttrProvider: "Microsoft.Foo",
+				AttrTypes:    []string{"foos", "bars"},
+				AttrNames:    []string{"foo1", "bar1"},
+			},
+			expect: "/subscriptions/resourceGroups/Microsoft.Foo/foos/bars",
+		},
+	}
+
+	for _, tt := range cases {
+		t.Run(tt.name, func(t *testing.T) {
+			require.Equal(t, tt.expect, tt.id.ScopeString())
 		})
 	}
 }
@@ -432,100 +490,100 @@ func TestParseResourceId(t *testing.T) {
 			name:  "Scoped Resource under tenant",
 			input: "/providers/Microsoft.Foo/foos/foo1/bars/bar1",
 			expect: ScopedResourceId{
-				Scope:         TenantId{},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos", "bars"},
-				ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: TenantId{},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos", "bars"},
+				AttrNames:       []string{"foo1", "bar1"},
 			},
 		},
 		{
 			name:  "Scoped Resource under subscription",
 			input: "/subscriptions/sub1/providers/Microsoft.Foo/foos/foo1/bars/bar1",
 			expect: ScopedResourceId{
-				Scope:         SubscriptionId{Id: "sub1"},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos", "bars"},
-				ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: SubscriptionId{Id: "sub1"},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos", "bars"},
+				AttrNames:       []string{"foo1", "bar1"},
 			},
 		},
 		{
 			name:  "Scoped Resource under resource group",
 			input: "/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Foo/foos/foo1/bars/bar1",
 			expect: ScopedResourceId{
-				Scope:         ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos", "bars"},
-				ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos", "bars"},
+				AttrNames:       []string{"foo1", "bar1"},
 			},
 		},
 		{
 			name:  "Scoped Resource under management group",
 			input: "/providers/Microsoft.Management/managementGroups/mg1/providers/Microsoft.Foo/foos/foo1/bars/bar1",
 			expect: ScopedResourceId{
-				Scope:         ManagementGroup{Name: "mg1"},
-				Namespace:     "Microsoft.Foo",
-				ResourceTypes: []string{"foos", "bars"},
-				ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: ManagementGroup{Name: "mg1"},
+				AttrProvider:    "Microsoft.Foo",
+				AttrTypes:       []string{"foos", "bars"},
+				AttrNames:       []string{"foo1", "bar1"},
 			},
 		},
 		{
 			name:  "Scoped Resource under another scoped resource which under tenant",
 			input: "/providers/Microsoft.Foo/foos/foo1/bars/bar1/providers/Microsoft.Baz/bazs/baz1",
 			expect: ScopedResourceId{
-				Scope: ScopedResourceId{
-					Scope:         TenantId{},
-					Namespace:     "Microsoft.Foo",
-					ResourceTypes: []string{"foos", "bars"},
-					ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: ScopedResourceId{
+					AttrParentScope: TenantId{},
+					AttrProvider:    "Microsoft.Foo",
+					AttrTypes:       []string{"foos", "bars"},
+					AttrNames:       []string{"foo1", "bar1"},
 				},
-				Namespace:     "Microsoft.Baz",
-				ResourceTypes: []string{"bazs"},
-				ResourceNames: []string{"baz1"},
+				AttrProvider: "Microsoft.Baz",
+				AttrTypes:    []string{"bazs"},
+				AttrNames:    []string{"baz1"},
 			},
 		},
 		{
 			name:  "Scoped Resource under another scoped resource which under subscription",
 			input: "/subscriptions/sub1/providers/Microsoft.Foo/foos/foo1/bars/bar1/providers/Microsoft.Baz/bazs/baz1",
 			expect: ScopedResourceId{
-				Scope: ScopedResourceId{
-					Scope:         SubscriptionId{Id: "sub1"},
-					Namespace:     "Microsoft.Foo",
-					ResourceTypes: []string{"foos", "bars"},
-					ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: ScopedResourceId{
+					AttrParentScope: SubscriptionId{Id: "sub1"},
+					AttrProvider:    "Microsoft.Foo",
+					AttrTypes:       []string{"foos", "bars"},
+					AttrNames:       []string{"foo1", "bar1"},
 				},
-				Namespace:     "Microsoft.Baz",
-				ResourceTypes: []string{"bazs"},
-				ResourceNames: []string{"baz1"},
+				AttrProvider: "Microsoft.Baz",
+				AttrTypes:    []string{"bazs"},
+				AttrNames:    []string{"baz1"},
 			},
 		},
 		{
 			name:  "Scoped Resource under another scoped resource which under resource group",
 			input: "/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Foo/foos/foo1/bars/bar1/providers/Microsoft.Baz/bazs/baz1",
 			expect: ScopedResourceId{
-				Scope: ScopedResourceId{
-					Scope:         ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
-					Namespace:     "Microsoft.Foo",
-					ResourceTypes: []string{"foos", "bars"},
-					ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: ScopedResourceId{
+					AttrParentScope: ResourceGroup{SubscriptionId: "sub1", Name: "rg1"},
+					AttrProvider:    "Microsoft.Foo",
+					AttrTypes:       []string{"foos", "bars"},
+					AttrNames:       []string{"foo1", "bar1"},
 				},
-				Namespace:     "Microsoft.Baz",
-				ResourceTypes: []string{"bazs"},
-				ResourceNames: []string{"baz1"},
+				AttrProvider: "Microsoft.Baz",
+				AttrTypes:    []string{"bazs"},
+				AttrNames:    []string{"baz1"},
 			},
 		},
 		{
 			name:  "Scoped Resource under another scoped resource which under management group",
 			input: "/providers/Microsoft.Management/managementGroups/mg1/providers/Microsoft.Foo/foos/foo1/bars/bar1/providers/Microsoft.Baz/bazs/baz1",
 			expect: ScopedResourceId{
-				Scope: ScopedResourceId{
-					Scope:         ManagementGroup{Name: "mg1"},
-					Namespace:     "Microsoft.Foo",
-					ResourceTypes: []string{"foos", "bars"},
-					ResourceNames: []string{"foo1", "bar1"},
+				AttrParentScope: ScopedResourceId{
+					AttrParentScope: ManagementGroup{Name: "mg1"},
+					AttrProvider:    "Microsoft.Foo",
+					AttrTypes:       []string{"foos", "bars"},
+					AttrNames:       []string{"foo1", "bar1"},
 				},
-				Namespace:     "Microsoft.Baz",
-				ResourceTypes: []string{"bazs"},
-				ResourceNames: []string{"baz1"},
+				AttrProvider: "Microsoft.Baz",
+				AttrTypes:    []string{"bazs"},
+				AttrNames:    []string{"baz1"},
 			},
 		},
 		{
