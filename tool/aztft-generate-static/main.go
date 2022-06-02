@@ -8,6 +8,7 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
+	"github.com/magodo/aztft/aztft"
 	"log"
 	"os"
 	"path"
@@ -91,48 +92,6 @@ var CaughtErrors = map[string]*ErrorInfo{
 
 const usage = `aztft-generate-static <provider root dir>`
 
-type MapItems map[string]MapItem
-
-type MapItem struct {
-	ManagementPlane *MapManagementPlane `json:"management_plane,omitempty"`
-	DataPlane       *MapDataPlane       `json:"data_plane,omitempty"`
-}
-
-const ScopeAny string = "any"
-
-type MapManagementPlane struct {
-	// ParentScope is the parent scope in its scope string literal form.
-	// Specially:
-	// - This is empty for root scope resource ids
-	// - A special string "any" means any scope
-	ParentScopes []string `json:"scopes,omitempty"`
-	Provider     string   `json:"provider"`
-	Types        []string `json:"types"`
-}
-
-type MapDataPlane struct {
-}
-
-// type ScopeManagementPlane string
-
-// const (
-// 	ManagementPlaneScopeRoot            ScopeManagementPlane = "root"
-// 	ManagementPlaneScopeTenant          ScopeManagementPlane = "tenant"
-// 	ManagementPlaneScopeManagementGroup ScopeManagementPlane = "management_group"
-// 	ManagementPlaneScopeSubscription    ScopeManagementPlane = "subscription"
-// 	ManagementPlaneScopeResourceGroup   ScopeManagementPlane = "resource_group"
-// )
-
-// type ScopeDataPlane string
-
-// const (
-// 	DataPlaneScopeKeyVault            ScopeDataPlane = "keyvault"
-// 	DataPlaneScopeStorageAccountBlob  ScopeDataPlane = "storage_account_blob"
-// 	DataPlaneScopeStorageAccountTable ScopeDataPlane = "storage_account_table"
-// 	DataPlaneScopeStorageAccountFile  ScopeDataPlane = "storage_account_file"
-// 	DataPlaneScopeStorageAccountQueue ScopeDataPlane = "storage_account_queue"
-// )
-
 func main() {
 	if len(os.Args) != 2 {
 		fmt.Println(usage)
@@ -205,14 +164,14 @@ func main() {
 		}
 	}
 
-	mapItems := MapItems{}
+	mapItems := aztft.TF2ARMIdMapItems{}
 	for rtype, id := range m {
 		var scopes []string
 		if _, ok := id.(resourceid.RootScope); !ok {
 			scopes = []string{id.ParentScope().ScopeString()}
 		}
-		mapItems[rtype] = MapItem{
-			ManagementPlane: &MapManagementPlane{
+		mapItems[rtype] = aztft.TF2ARMIdMapItem{
+			ManagementPlane: &aztft.MapManagementPlane{
 				ParentScopes: scopes,
 				Provider:     id.Provider(),
 				Types:        id.Types(),
@@ -246,7 +205,7 @@ func parse(line string) (string, resourceid.ResourceId, error) {
 		return rtype, nil, ErrDataPlaneId
 	}
 
-	// Return an empty MapItem for the synthetic resources, which are mostly binding/association resources.
+	// Return an empty TF2ARMIdMapItem for the synthetic resources, which are mostly binding/association resources.
 	if strings.ContainsAny(idRaw, ";|") {
 		return rtype, nil, ErrSyntheticId
 	}
