@@ -48,7 +48,7 @@ type ResourceId interface {
 
 func ParseResourceId(id string) (ResourceId, error) {
 	if id == "/" {
-		return TenantId{}, nil
+		return &TenantId{}, nil
 	}
 	if !strings.HasPrefix(id, "/") {
 		return nil, fmt.Errorf(`id should start with "/"`)
@@ -61,20 +61,20 @@ func ParseResourceId(id string) (ResourceId, error) {
 		}
 	}
 
-	var rootScope RootScope = TenantId{}
+	var rootScope RootScope = &TenantId{}
 	if len(segs) >= 4 && segs[0] == "subscriptions" && strings.EqualFold(segs[2], "resourcegroups") {
-		rootScope = ResourceGroup{
+		rootScope = &ResourceGroup{
 			SubscriptionId: segs[1],
 			Name:           segs[3],
 		}
 		segs = segs[4:]
 	} else if len(segs) >= 2 && segs[0] == "subscriptions" {
-		rootScope = SubscriptionId{
+		rootScope = &SubscriptionId{
 			Id: segs[1],
 		}
 		segs = segs[2:]
 	} else if len(segs) >= 4 && segs[0] == "providers" && segs[1] == "Microsoft.Management" && strings.EqualFold(segs[2], "managementgroups") {
-		rootScope = ManagementGroup{
+		rootScope = &ManagementGroup{
 			Name: segs[3],
 		}
 		segs = segs[4:]
@@ -112,7 +112,7 @@ func ParseResourceId(id string) (ResourceId, error) {
 				break
 			}
 		}
-		rid = ScopedResourceId{
+		rid = &ScopedResourceId{
 			AttrParentScope: rid,
 			AttrProvider:    provider,
 			AttrTypes:       types,
@@ -132,47 +132,47 @@ type RootScope interface {
 // TenantId represents the tenant scope, which is a pesudo resource id.
 type TenantId struct{}
 
-var _ RootScope = TenantId{}
+var _ RootScope = &TenantId{}
 
-func (TenantId) ParentScope() ResourceId {
+func (*TenantId) ParentScope() ResourceId {
 	return nil
 }
 
-func (TenantId) Parent() ResourceId {
+func (*TenantId) Parent() ResourceId {
 	return nil
 }
 
-func (TenantId) Provider() string {
+func (*TenantId) Provider() string {
 	return "Microsoft.Resources"
 }
 
-func (TenantId) Types() []string {
+func (*TenantId) Types() []string {
 	return []string{"tenants"}
 }
 
-func (TenantId) Names() []string {
+func (*TenantId) Names() []string {
 	return nil
 }
 
-func (TenantId) String() string {
+func (*TenantId) String() string {
 	return "/"
 }
 
-func (TenantId) Equal(oid ResourceId) bool {
-	_, ok := oid.(TenantId)
+func (*TenantId) Equal(oid ResourceId) bool {
+	_, ok := oid.(*TenantId)
 	return ok
 }
 
-func (TenantId) ScopeEqual(oid ResourceId) bool {
-	_, ok := oid.(TenantId)
+func (*TenantId) ScopeEqual(oid ResourceId) bool {
+	_, ok := oid.(*TenantId)
 	return ok
 }
 
-func (id TenantId) ScopeString() string {
+func (id *TenantId) ScopeString() string {
 	return scopeString(id)
 }
 
-func (TenantId) isRootScope() {}
+func (*TenantId) isRootScope() {}
 
 // SubscriptionId represents the subscription scope
 type SubscriptionId struct {
@@ -180,47 +180,47 @@ type SubscriptionId struct {
 	Id string
 }
 
-var _ RootScope = SubscriptionId{}
+var _ RootScope = &SubscriptionId{}
 
-func (SubscriptionId) ParentScope() ResourceId {
+func (*SubscriptionId) ParentScope() ResourceId {
 	return nil
 }
 
-func (SubscriptionId) Provider() string {
+func (*SubscriptionId) Provider() string {
 	return "Microsoft.Resources"
 }
 
-func (SubscriptionId) Parent() ResourceId {
+func (*SubscriptionId) Parent() ResourceId {
 	return nil
 }
 
-func (SubscriptionId) Types() []string {
+func (*SubscriptionId) Types() []string {
 	return []string{"subscriptions"}
 }
 
-func (SubscriptionId) Names() []string {
+func (*SubscriptionId) Names() []string {
 	return nil
 }
 
-func (id SubscriptionId) String() string {
+func (id *SubscriptionId) String() string {
 	return "/subscriptions/" + id.Id
 }
 
-func (id SubscriptionId) Equal(oid ResourceId) bool {
-	oSubId, ok := oid.(SubscriptionId)
+func (id *SubscriptionId) Equal(oid ResourceId) bool {
+	oSubId, ok := oid.(*SubscriptionId)
 	return ok && oSubId.Id == id.Id
 }
 
-func (id SubscriptionId) ScopeEqual(oid ResourceId) bool {
-	_, ok := oid.(SubscriptionId)
+func (id *SubscriptionId) ScopeEqual(oid ResourceId) bool {
+	_, ok := oid.(*SubscriptionId)
 	return ok
 }
 
-func (id SubscriptionId) ScopeString() string {
+func (id *SubscriptionId) ScopeString() string {
 	return scopeString(id)
 }
 
-func (SubscriptionId) isRootScope() {}
+func (*SubscriptionId) isRootScope() {}
 
 // ResourceGroup represents the resource group scope
 type ResourceGroup struct {
@@ -230,47 +230,47 @@ type ResourceGroup struct {
 	Name string
 }
 
-var _ RootScope = ResourceGroup{}
+var _ RootScope = &ResourceGroup{}
 
-func (ResourceGroup) ParentScope() ResourceId {
+func (*ResourceGroup) ParentScope() ResourceId {
 	return nil
 }
 
-func (ResourceGroup) Parent() ResourceId {
+func (*ResourceGroup) Parent() ResourceId {
 	return nil
 }
 
-func (ResourceGroup) Provider() string {
+func (*ResourceGroup) Provider() string {
 	return "Microsoft.Resources"
 }
 
-func (ResourceGroup) Types() []string {
+func (*ResourceGroup) Types() []string {
 	return []string{"subscriptions", "resourceGroups"}
 }
 
-func (ResourceGroup) Names() []string {
+func (*ResourceGroup) Names() []string {
 	return nil
 }
 
-func (id ResourceGroup) String() string {
+func (id *ResourceGroup) String() string {
 	return "/subscriptions/" + id.SubscriptionId + "/resourceGroups/" + id.Name
 }
 
-func (id ResourceGroup) Equal(oid ResourceId) bool {
-	oRgId, ok := oid.(ResourceGroup)
+func (id *ResourceGroup) Equal(oid ResourceId) bool {
+	oRgId, ok := oid.(*ResourceGroup)
 	return ok && oRgId.SubscriptionId == id.SubscriptionId && oRgId.Name == id.Name
 }
 
-func (id ResourceGroup) ScopeEqual(oid ResourceId) bool {
-	_, ok := oid.(ResourceGroup)
+func (id *ResourceGroup) ScopeEqual(oid ResourceId) bool {
+	_, ok := oid.(*ResourceGroup)
 	return ok
 }
 
-func (id ResourceGroup) ScopeString() string {
+func (id *ResourceGroup) ScopeString() string {
 	return scopeString(id)
 }
 
-func (ResourceGroup) isRootScope() {}
+func (*ResourceGroup) isRootScope() {}
 
 // ManagementGroup represents the management group scope
 type ManagementGroup struct {
@@ -278,50 +278,50 @@ type ManagementGroup struct {
 	Name string
 }
 
-var _ RootScope = ResourceGroup{}
+var _ RootScope = &ManagementGroup{}
 
-func (ManagementGroup) ParentScope() ResourceId {
+func (*ManagementGroup) ParentScope() ResourceId {
 	return nil
 }
 
-func (ManagementGroup) Parent() ResourceId {
+func (*ManagementGroup) Parent() ResourceId {
 	return nil
 }
 
-func (ManagementGroup) Provider() string {
+func (*ManagementGroup) Provider() string {
 	return "Microsoft.Management"
 }
 
-func (ManagementGroup) Types() []string {
+func (*ManagementGroup) Types() []string {
 	return []string{"managementGroups"}
 }
 
-func (ManagementGroup) Names() []string {
+func (*ManagementGroup) Names() []string {
 	return nil
 }
 
-func (id ManagementGroup) String() string {
+func (id *ManagementGroup) String() string {
 	return formatScope(id.Provider(), id.Types(), []string{id.Name})
 }
 
-func (id ManagementGroup) Equal(oid ResourceId) bool {
-	oMgId, ok := oid.(ManagementGroup)
+func (id *ManagementGroup) Equal(oid ResourceId) bool {
+	oMgId, ok := oid.(*ManagementGroup)
 	return ok && oMgId.Name == id.Name
 }
 
-func (id ManagementGroup) ScopeEqual(oid ResourceId) bool {
-	_, ok := oid.(ManagementGroup)
+func (id *ManagementGroup) ScopeEqual(oid ResourceId) bool {
+	_, ok := oid.(*ManagementGroup)
 	return ok
 }
 
-func (id ManagementGroup) ScopeString() string {
+func (id *ManagementGroup) ScopeString() string {
 	return scopeString(id)
 }
 
 func (ManagementGroup) isRootScope() {}
 
 // ScopedResourceId represents a resource id that is scoped within a root scope or another scoped resource.
-var _ ResourceId = ScopedResourceId{}
+var _ ResourceId = &ScopedResourceId{}
 
 type ScopedResourceId struct {
 	AttrParentScope ResourceId
@@ -330,16 +330,16 @@ type ScopedResourceId struct {
 	AttrNames       []string
 }
 
-func (id ScopedResourceId) ParentScope() ResourceId {
+func (id *ScopedResourceId) ParentScope() ResourceId {
 	return id.AttrParentScope
 }
 
-func (id ScopedResourceId) Parent() ResourceId {
+func (id *ScopedResourceId) Parent() ResourceId {
 	length := len(id.AttrTypes)
 	if length == 1 {
 		return nil
 	}
-	return ScopedResourceId{
+	return &ScopedResourceId{
 		AttrParentScope: id.AttrParentScope,
 		AttrProvider:    id.AttrProvider,
 		AttrTypes:       id.AttrTypes[0 : length-1],
@@ -347,29 +347,29 @@ func (id ScopedResourceId) Parent() ResourceId {
 	}
 }
 
-func (id ScopedResourceId) Provider() string {
+func (id *ScopedResourceId) Provider() string {
 	return id.AttrProvider
 }
 
-func (id ScopedResourceId) Types() []string {
+func (id *ScopedResourceId) Types() []string {
 	return id.AttrTypes
 }
 
-func (id ScopedResourceId) Names() []string {
+func (id *ScopedResourceId) Names() []string {
 	return id.AttrNames
 }
 
-func (id ScopedResourceId) String() string {
+func (id *ScopedResourceId) String() string {
 	builder := strings.Builder{}
-	if _, ok := id.ParentScope().(TenantId); !ok {
+	if _, ok := id.ParentScope().(*TenantId); !ok {
 		builder.WriteString(id.ParentScope().String())
 	}
 	builder.WriteString(formatScope(id.Provider(), id.Types(), id.Names()))
 	return builder.String()
 }
 
-func (id ScopedResourceId) Equal(oid ResourceId) bool {
-	oRid, ok := oid.(ScopedResourceId)
+func (id *ScopedResourceId) Equal(oid ResourceId) bool {
+	oRid, ok := oid.(*ScopedResourceId)
 	if !ok {
 		return false
 	}
@@ -398,8 +398,8 @@ func (id ScopedResourceId) Equal(oid ResourceId) bool {
 	return true
 }
 
-func (id ScopedResourceId) ScopeEqual(oid ResourceId) bool {
-	oRid, ok := oid.(ScopedResourceId)
+func (id *ScopedResourceId) ScopeEqual(oid ResourceId) bool {
+	oRid, ok := oid.(*ScopedResourceId)
 	if !ok {
 		return false
 	}
@@ -420,8 +420,38 @@ func (id ScopedResourceId) ScopeEqual(oid ResourceId) bool {
 	return true
 }
 
-func (id ScopedResourceId) ScopeString() string {
+func (id *ScopedResourceId) ScopeString() string {
 	return scopeString(id)
+}
+
+// Normalize normalizes the invariant parts (e.g. Provider, Types) of the id  based on the input scope string.
+// The input scope string must be the same as calling the `ScopeString` of this id, except the casing.
+// Note that the root scope can't be normalized at this moment.
+func (id *ScopedResourceId) Normalize(scopeStr string) error {
+	if !strings.EqualFold(id.ScopeString(), scopeStr) {
+		return fmt.Errorf("Mismatch scope string (%q) for id %q", scopeStr, id.String())
+	}
+
+	traverseScopes(id, func(id ResourceId) {
+		if id.ParentScope() == nil {
+			if _, ok := id.(*TenantId); !ok {
+				scopeStr = strings.TrimPrefix(scopeStr, id.ScopeString())
+			}
+			return
+		}
+		segs := []string{id.Provider()}
+		segs = append(segs, id.Types()...)
+		thisScopeStrLen := len("/" + strings.Join(segs, "/"))
+
+		var thisScopeStr string
+		thisScopeStr, scopeStr = scopeStr[0:thisScopeStrLen], scopeStr[thisScopeStrLen:]
+
+		segs = strings.Split(strings.TrimPrefix(thisScopeStr, "/"), "/")
+		rid := id.(*ScopedResourceId)
+		rid.AttrProvider = segs[0]
+		rid.AttrTypes = segs[1:]
+	})
+	return nil
 }
 
 func formatScope(provider string, types []string, names []string) string {
@@ -441,33 +471,34 @@ func formatScope(provider string, types []string, names []string) string {
 func scopeString(id ResourceId) string {
 	var segs []string
 
-	func() {
-		for ; id != nil; id = id.ParentScope() {
-			id := id
-			// Special handling of the root scopes.
-			if id.ParentScope() == nil {
-				var startingSegs []string
-				switch id.(type) {
-				case TenantId:
-				case SubscriptionId:
-					startingSegs = id.Types()
-				case ResourceGroup:
-					startingSegs = id.Types()
-				case ManagementGroup:
-					startingSegs = []string{id.Provider()}
-					startingSegs = append(startingSegs, id.Types()...)
-				}
-				defer func() {
-					segs = append(segs, startingSegs...)
-				}()
-				continue
+	traverseScopes(id, func(id ResourceId) {
+		if id.ParentScope() == nil {
+			var startingSegs []string
+			switch id.(type) {
+			case *TenantId:
+			case *SubscriptionId:
+				startingSegs = id.Types()
+			case *ResourceGroup:
+				startingSegs = id.Types()
+			case *ManagementGroup:
+				startingSegs = []string{id.Provider()}
+				startingSegs = append(startingSegs, id.Types()...)
 			}
-			defer func() {
-				segs = append(segs, id.Provider())
-				segs = append(segs, id.Types()...)
-			}()
+			segs = append(segs, startingSegs...)
+			return
 		}
-	}()
+		segs = append(segs, id.Provider())
+		segs = append(segs, id.Types()...)
+	})
 
 	return "/" + strings.Join(segs, "/")
+}
+
+func traverseScopes(id ResourceId, f func(ResourceId)) {
+	for ; id != nil; id = id.ParentScope() {
+		id := id
+		defer func() {
+			f(id)
+		}()
+	}
 }
