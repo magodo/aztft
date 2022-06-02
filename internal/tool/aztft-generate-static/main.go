@@ -101,13 +101,13 @@ type MapItem struct {
 const ScopeAny string = "any"
 
 type MapManagementPlane struct {
-	// Scope is the parent scope in its string literal form.
+	// ParentScope is the parent scope in its scope string literal form.
 	// Specially:
 	// - This is empty for root scope resource ids
 	// - A special string "any" means any scope
-	Scopes   []string `json:"scopes,omitempty"`
-	Provider string   `json:"provider"`
-	Types    []string `json:"types"`
+	ParentScopes []string `json:"scopes,omitempty"`
+	Provider     string   `json:"provider"`
+	Types        []string `json:"types"`
 }
 
 type MapDataPlane struct {
@@ -209,13 +209,13 @@ func main() {
 	for rtype, id := range m {
 		var scopes []string
 		if _, ok := id.(resourceid.RootScope); !ok {
-			scopes = []string{id.ParentScope().String()}
+			scopes = []string{id.ParentScope().ScopeString()}
 		}
 		mapItems[rtype] = MapItem{
 			ManagementPlane: &MapManagementPlane{
-				Scopes:   scopes,
-				Provider: id.Provider(),
-				Types:    id.Types(),
+				ParentScopes: scopes,
+				Provider:     id.Provider(),
+				Types:        id.Types(),
 			},
 		}
 	}
@@ -224,7 +224,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	fmt.Println(string(b))
 }
 
