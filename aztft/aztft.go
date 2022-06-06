@@ -18,9 +18,16 @@ type TF2ARMIdMapItem struct {
 	ManagementPlane *MapManagementPlane `json:"management_plane,omitempty"`
 }
 
-// ToARM2TFMapping builds the mapping from "<provider>/<types>" to "<parent scope string> | any" to matched Terraform resource type(s)
-func (mps TF2ARMIdMapItems) ToARM2TFMapping() (map[string]map[string][]string, error) {
-	out := map[string]map[string][]string{}
+type ARMId2TFMapItem struct {
+	ResourceType string
+	Formatter    string
+}
+
+// From "<provider>/<types>" to "<parent scope string> | any" to the matched map item(s)
+type ARMId2TFMapItems map[string]map[string][]ARMId2TFMapItem
+
+func (mps TF2ARMIdMapItems) ToARM2TFMapping() (ARMId2TFMapItems, error) {
+	out := ARMId2TFMapItems{}
 	for rt, item := range mps {
 		if item.ManagementPlane == nil {
 			continue
@@ -32,21 +39,27 @@ func (mps TF2ARMIdMapItems) ToARM2TFMapping() (map[string]map[string][]string, e
 
 		b, ok := out[k1]
 		if !ok {
-			b = map[string][]string{}
+			b = map[string][]ARMId2TFMapItem{}
 			out[k1] = b
 		}
 
 		// The id represents a root scope
 		if mm.ParentScopes == nil {
 			k2 := ""
-			b[k2] = append(b[k2], rt)
+			b[k2] = append(b[k2], ARMId2TFMapItem{
+				ResourceType: rt,
+				Formatter:    mm.Formatter,
+			})
 			continue
 		}
 
 		// The id represents a scoped resource
 		for _, ps := range mm.ParentScopes {
 			k2 := strings.ToUpper(ps)
-			b[k2] = append(b[k2], rt)
+			b[k2] = append(b[k2], ARMId2TFMapItem{
+				ResourceType: rt,
+				Formatter:    mm.Formatter,
+			})
 		}
 	}
 	return out, nil
@@ -62,6 +75,7 @@ type MapManagementPlane struct {
 	ParentScopes []string `json:"scopes,omitempty"`
 	Provider     string   `json:"provider"`
 	Types        []string `json:"types"`
+	Formatter    string   `json:"formatter"`
 }
 
 func Run() error {
@@ -77,7 +91,11 @@ func Run() error {
 	for k1, b := range arm2tfMps {
 		for k2, l := range b {
 			if len(l) > 1 {
-				fmt.Printf("multiple matches found for %s/%s: %v\n", k2, k1, l)
+				resourceTypes := []string{}
+				for _, item := range l {
+					resourceTypes = append(resourceTypes, item.ResourceType)
+				}
+				fmt.Printf("multiple matches found for %s in scope of %s: %v\n", k1, k2, resourceTypes)
 			}
 		}
 	}

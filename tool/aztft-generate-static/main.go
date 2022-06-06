@@ -8,12 +8,13 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"github.com/magodo/aztft/aztft"
 	"log"
 	"os"
 	"path"
 	"strconv"
 	"strings"
+
+	"github.com/magodo/aztft/aztft"
 
 	"errors"
 
@@ -175,6 +176,7 @@ func main() {
 				ParentScopes: scopes,
 				Provider:     id.Provider(),
 				Types:        id.Types(),
+				Formatter:    id.ScopeString(),
 			},
 		}
 	}
@@ -216,20 +218,4 @@ func parse(line string) (string, resourceid.ResourceId, error) {
 	}
 
 	return rtype, id, nil
-	// // Identify the scope
-	// var scope ScopeManagementPlane
-	// if id.ParentScope() == nil {
-	// 	scope = ManagementPlaneScopeRoot
-	// } else {
-	// 	switch id.ParentScope().(type) {
-	// 	case resourceid.TenantId:
-	// 		scope = ManagementPlaneScopeTenant
-	// 	case resourceid.ManagementGroup:
-	// 		scope = ManagementPlaneScopeManagementGroup
-	// 	case resourceid.SubscriptionId:
-	// 		scope = ManagementPlaneScopeSubscription
-	// 	case resourceid.ResourceGroup:
-	// 		scope = ManagementPlaneScopeResourceGroup
-	// 	}
-	// }
 }
