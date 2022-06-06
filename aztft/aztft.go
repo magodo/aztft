@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"strings"
+
+	"github.com/magodo/aztft/internal/resourceid"
 )
 
 var (
@@ -33,9 +35,7 @@ func (mps TF2ARMIdMapItems) ToARM2TFMapping() (ARMId2TFMapItems, error) {
 			continue
 		}
 		mm := item.ManagementPlane
-		segs := []string{mm.Provider}
-		segs = append(segs, mm.Types...)
-		k1 := strings.ToUpper(strings.Join(segs, "/"))
+		k1 := buildRoutingScopeKey(mm.Provider, mm.Types)
 
 		b, ok := out[k1]
 		if !ok {
@@ -78,14 +78,15 @@ type MapManagementPlane struct {
 	Formatter    string   `json:"formatter"`
 }
 
-func Run() error {
+// internal use only
+func inspect() error {
 	var tf2armMps TF2ARMIdMapItems
 	if err := json.Unmarshal(mappingContent, &tf2armMps); err != nil {
-		return err
+		panic(err.Error())
 	}
 	arm2tfMps, err := tf2armMps.ToARM2TFMapping()
 	if err != nil {
-		return err
+		panic(err.Error())
 	}
 	_ = arm2tfMps
 	for k1, b := range arm2tfMps {
@@ -100,4 +101,50 @@ func Run() error {
 		}
 	}
 	return nil
+}
+
+func Resolve(idStr string) ([]string, error) {
+	id, err := resourceid.ParseResourceId(idStr)
+	if err != nil {
+		return nil, fmt.Errorf("Invalid resource id: %v", err)
+	}
+	var tf2armMps TF2ARMIdMapItems
+	if err := json.Unmarshal(mappingContent, &tf2armMps); err != nil {
+		panic(err.Error())
+	}
+	arm2tfMps, err := tf2armMps.ToARM2TFMapping()
+	if err != nil {
+		panic(err.Error())
+	}
+
+	k1 := buildRoutingScopeKey(id.Provider(), id.Types())
+
+	b, ok := arm2tfMps[k1]
+	if !ok {
+		return nil, nil
+	}
+
+	var k2 string
+	if id.ParentScope() != nil {
+		k2 = strings.ToUpper(id.ParentScope().ScopeString())
+	}
+
+	l, ok := b[k2]
+	if !ok {
+		return nil, nil
+	}
+
+	// TODO: For ARM resource ID that has different format than the TF resource id, need transformation.
+
+	var out []string
+	for _, item := range l {
+		out = append(out, item.ResourceType)
+	}
+	return out, nil
+}
+
+func buildRoutingScopeKey(provider string, types []string) string {
+	segs := []string{provider}
+	segs = append(segs, types...)
+	return strings.ToUpper(strings.Join(segs, "/"))
 }
