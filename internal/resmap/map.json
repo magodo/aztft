@@ -1,17 +1,4 @@
 {
-  "app_service_source_control_slot": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "sites",
-        "slots"
-      ],
-      "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites/slots"
-    }
-  },
   "azurerm_aadb2c_directory": {
     "management_plane": {
       "scopes": [
@@ -839,6 +826,19 @@
       "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites"
     }
   },
+  "azurerm_app_service_source_control_slot": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Web",
+      "types": [
+        "sites",
+        "slots"
+      ],
+      "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites/slots"
+    }
+  },
   "azurerm_app_service_source_control_token": {
     "management_plane": {
       "scopes": [
@@ -1422,6 +1422,31 @@
         "botServices"
       ],
       "formatter": "/subscriptions/resourceGroups/Microsoft.BotService/botServices"
+    }
+  },
+  "azurerm_capacity_reservation": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Compute",
+      "types": [
+        "capacityReservationGroups",
+        "capacityReservations"
+      ],
+      "formatter": "/subscriptions/resourceGroups/Microsoft.Compute/capacityReservationGroups/capacityReservations"
+    }
+  },
+  "azurerm_capacity_reservation_group": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Compute",
+      "types": [
+        "capacityReservationGroups"
+      ],
+      "formatter": "/subscriptions/resourceGroups/Microsoft.Compute/capacityReservationGroups"
     }
   },
   "azurerm_cdn_endpoint": {
@@ -3480,6 +3505,18 @@
       "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites"
     }
   },
+  "azurerm_function_app_active_slot": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Web",
+      "types": [
+        "sites"
+      ],
+      "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites"
+    }
+  },
   "azurerm_function_app_function": {
     "management_plane": {
       "scopes": [
@@ -4356,6 +4393,19 @@
         "sites"
       ],
       "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites"
+    }
+  },
+  "azurerm_linux_function_app_slot": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Web",
+      "types": [
+        "sites",
+        "slots"
+      ],
+      "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites/slots"
     }
   },
   "azurerm_linux_virtual_machine": {
@@ -5347,6 +5397,18 @@
         "scheduledQueryRules"
       ],
       "formatter": "/subscriptions/resourceGroups/Microsoft.Insights/scheduledQueryRules"
+    }
+  },
+  "azurerm_monitor_workbook": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Insights",
+      "types": [
+        "workbooks"
+      ],
+      "formatter": "/subscriptions/resourceGroups/Microsoft.Insights/workbooks"
     }
   },
   "azurerm_mssql_database": {
@@ -9040,6 +9102,18 @@
       "formatter": "/subscriptions/resourceGroups/Microsoft.Network/vpnSites"
     }
   },
+  "azurerm_web_app_active_slot": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Web",
+      "types": [
+        "sites"
+      ],
+      "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites"
+    }
+  },
   "azurerm_web_app_hybrid_connection": {
     "management_plane": {
       "scopes": [
@@ -9103,6 +9177,19 @@
       "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites"
     }
   },
+  "azurerm_windows_function_app_slot": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Web",
+      "types": [
+        "sites",
+        "slots"
+      ],
+      "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites/slots"
+    }
+  },
   "azurerm_windows_virtual_machine": {
     "management_plane": {
       "scopes": [
@@ -9137,56 +9224,6 @@
         "sites"
       ],
       "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites"
-    }
-  },
-  "function_app_active_slot": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "sites"
-      ],
-      "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites"
-    }
-  },
-  "linux_function_app_slot": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "sites",
-        "slots"
-      ],
-      "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites/slots"
-    }
-  },
-  "web_app_active_slot": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "sites"
-      ],
-      "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites"
-    }
-  },
-  "windows_function_app_slot": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "sites",
-        "slots"
-      ],
-      "formatter": "/subscriptions/resourceGroups/Microsoft.Web/sites/slots"
     }
   }
 }
