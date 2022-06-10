@@ -47,7 +47,7 @@ type MapManagementPlane struct {
 	Provider     string   `json:"provider"`
 	Types        []string `json:"types"`
 
-	// ImportSpecs is a list of valid import specs. They are used to normalize the transformed TF reosurce id, for resolving casing differences (as terraform is case sensitive).
+	// ImportSpecs is a list of ScopeString of valid import specs. They are used to normalize the transformed TF reosurce id, for resolving casing differences (as terraform is case sensitive).
 	// Each item should correspond to the item in the ParentScopes, representing a valid import spec in that parent scope.
 	// Exceptionally, this might be empty given no import spec is available. This maybe because the parent scope is "any", or this is a root scope resource id.
 	ImportSpecs []string `json:"import_specs,omitempty"`
