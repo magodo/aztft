@@ -512,6 +512,9 @@ func formatScope(provider string, types []string, names []string) string {
 func scopeString(id ResourceId) string {
 	var out string
 	traverseScopes(id, func(id ResourceId) {
+		if _, ok := id.(*TenantId); ok {
+			return
+		}
 		out += id.RouteScopeString()
 	})
 	return out
