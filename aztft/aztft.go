@@ -2,7 +2,7 @@ package aztft
 
 import (
 	"fmt"
-	"github.com/magodo/aztft/internal"
+	"github.com/magodo/aztft/internal/resmap"
 	"strings"
 
 	"github.com/magodo/aztft/internal/resourceid"
@@ -13,9 +13,9 @@ func Resolve(idStr string) ([]string, error) {
 	if err != nil {
 		return nil, fmt.Errorf("invalid resource id: %v", err)
 	}
-	k1 := internal.BuildRoutingScopeKey(id.Provider(), id.Types())
+	k1 := resmap.BuildRoutingScopeKey(id.Provider(), id.Types())
 
-	b, ok := internal.ARMId2TFMap[k1]
+	b, ok := resmap.ARMId2TFMap[k1]
 	if !ok {
 		return nil, nil
 	}

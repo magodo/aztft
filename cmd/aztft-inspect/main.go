@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/magodo/aztft/internal"
+	"github.com/magodo/aztft/internal/resmap"
 )
 
 func main() {
-	for k1, b := range internal.ARMId2TFMap {
+	for k1, b := range resmap.ARMId2TFMap {
 		for k2, l := range b {
 			if len(l) > 1 {
 				resourceTypes := []string{}
