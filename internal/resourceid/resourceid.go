@@ -42,8 +42,11 @@ type ResourceId interface {
 	// ScopeEqual checkes the equality of two resource id without taking the Names() into consideration.
 	ScopeEqual(ResourceId) bool
 
-	// ScopeString returns the string literal of the resource id without taking the Names() into consideration.
+	// ScopeString returns the string literal of the resource id without taking the Names() into consideration, for the whole resource id.
 	ScopeString() string
+
+	// RouteScopeString is similar as ScopeString, but only for the router scope (i.e. the last scope).
+	RouteScopeString() string
 }
 
 func ParseResourceId(id string) (ResourceId, error) {
@@ -62,18 +65,18 @@ func ParseResourceId(id string) (ResourceId, error) {
 	}
 
 	var rootScope RootScope = &TenantId{}
-	if len(segs) >= 4 && segs[0] == "subscriptions" && strings.EqualFold(segs[2], "resourcegroups") {
+	if len(segs) >= 4 && strings.EqualFold(segs[0], "subscriptions") && strings.EqualFold(segs[2], "resourcegroups") {
 		rootScope = &ResourceGroup{
 			SubscriptionId: segs[1],
 			Name:           segs[3],
 		}
 		segs = segs[4:]
-	} else if len(segs) >= 2 && segs[0] == "subscriptions" {
+	} else if len(segs) >= 2 && strings.EqualFold(segs[0], "subscriptions") {
 		rootScope = &SubscriptionId{
 			Id: segs[1],
 		}
 		segs = segs[2:]
-	} else if len(segs) >= 4 && segs[0] == "providers" && segs[1] == "Microsoft.Management" && strings.EqualFold(segs[2], "managementgroups") {
+	} else if len(segs) >= 4 && strings.EqualFold(segs[0], "providers") && strings.EqualFold(segs[1], "Microsoft.Management") && strings.EqualFold(segs[2], "managementgroups") {
 		rootScope = &ManagementGroup{
 			Name: segs[3],
 		}
@@ -82,7 +85,7 @@ func ParseResourceId(id string) (ResourceId, error) {
 
 	var rid ResourceId = rootScope
 	for len(segs) != 0 {
-		if segs[0] != "providers" {
+		if !strings.EqualFold(segs[0], "providers") {
 			return nil, fmt.Errorf(`scopes should be split by "/providers/"`)
 		}
 		segs = segs[1:]
@@ -95,7 +98,7 @@ func ParseResourceId(id string) (ResourceId, error) {
 
 		var types, names []string
 
-		if len(segs) == 0 || segs[0] == "providers" {
+		if len(segs) == 0 || strings.EqualFold(segs[0], "providers") {
 			return nil, fmt.Errorf("missing sub-type type")
 		}
 		for len(segs) != 0 {
@@ -108,7 +111,7 @@ func ParseResourceId(id string) (ResourceId, error) {
 			names = append(names, segs[0])
 			segs = segs[1:]
 
-			if len(segs) != 0 && segs[0] == "providers" {
+			if len(segs) != 0 && strings.EqualFold(segs[0], "providers") {
 				break
 			}
 		}
@@ -169,7 +172,11 @@ func (*TenantId) ScopeEqual(oid ResourceId) bool {
 }
 
 func (id *TenantId) ScopeString() string {
-	return scopeString(id)
+	return "/"
+}
+
+func (id *TenantId) RouteScopeString() string {
+	return id.ScopeString()
 }
 
 func (*TenantId) isRootScope() {}
@@ -217,7 +224,11 @@ func (id *SubscriptionId) ScopeEqual(oid ResourceId) bool {
 }
 
 func (id *SubscriptionId) ScopeString() string {
-	return scopeString(id)
+	return "/subscriptions"
+}
+
+func (id *SubscriptionId) RouteScopeString() string {
+	return id.ScopeString()
 }
 
 func (*SubscriptionId) isRootScope() {}
@@ -267,7 +278,11 @@ func (id *ResourceGroup) ScopeEqual(oid ResourceId) bool {
 }
 
 func (id *ResourceGroup) ScopeString() string {
-	return scopeString(id)
+	return "/subscriptions/resourceGroups"
+}
+
+func (id *ResourceGroup) RouteScopeString() string {
+	return id.ScopeString()
 }
 
 func (*ResourceGroup) isRootScope() {}
@@ -315,7 +330,14 @@ func (id *ManagementGroup) ScopeEqual(oid ResourceId) bool {
 }
 
 func (id *ManagementGroup) ScopeString() string {
-	return scopeString(id)
+	var segs []string
+	segs = append(segs, id.Provider())
+	segs = append(segs, id.Types()...)
+	return "/" + strings.Join(segs, "/")
+}
+
+func (id *ManagementGroup) RouteScopeString() string {
+	return id.ScopeString()
 }
 
 func (ManagementGroup) isRootScope() {}
@@ -424,12 +446,19 @@ func (id *ScopedResourceId) ScopeString() string {
 	return scopeString(id)
 }
 
+func (id *ScopedResourceId) RouteScopeString() string {
+	var segs []string
+	segs = append(segs, id.Provider())
+	segs = append(segs, id.Types()...)
+	return "/" + strings.Join(segs, "/")
+}
+
 // Normalize normalizes the invariant parts (e.g. Provider, Types) of the id  based on the input scope string.
 // The input scope string must be the same as calling the `ScopeString` of this id, except the casing.
 // Note that the root scope can't be normalized at this moment.
 func (id *ScopedResourceId) Normalize(scopeStr string) error {
 	if !strings.EqualFold(id.ScopeString(), scopeStr) {
-		return fmt.Errorf("Mismatch scope string (%q) for id %q", scopeStr, id.String())
+		return fmt.Errorf("mismatch scope string (%q) for id %q", scopeStr, id.String())
 	}
 
 	traverseScopes(id, func(id ResourceId) {
@@ -454,6 +483,18 @@ func (id *ScopedResourceId) Normalize(scopeStr string) error {
 	return nil
 }
 
+// NormalizeRouteScope is similar to Normalize, while only for the current route scope, and didn't affect the parent scopes.
+// The input scope string must be the same as the ScopeString of this of this id with its parent scope's ScopeString prefix trimmed, except the casing.
+func (id *ScopedResourceId) NormalizeRouteScope(scopeStr string) error {
+	if !strings.EqualFold(id.RouteScopeString(), scopeStr) {
+		return fmt.Errorf("mismatch route scope string (%q) for id %q", scopeStr, id.String())
+	}
+	segs := strings.Split(strings.TrimPrefix(scopeStr, "/"), "/")
+	id.AttrProvider = segs[0]
+	id.AttrTypes = segs[1:]
+	return nil
+}
+
 func formatScope(provider string, types []string, names []string) string {
 	if len(types) != len(names) {
 		panic(fmt.Sprintf("invalid input: len(%v) != len(%v)", types, names))
@@ -469,31 +510,14 @@ func formatScope(provider string, types []string, names []string) string {
 }
 
 func scopeString(id ResourceId) string {
-	var segs []string
-
+	var out string
 	traverseScopes(id, func(id ResourceId) {
-		if id.ParentScope() == nil {
-			var startingSegs []string
-			switch id.(type) {
-			case *TenantId:
-			case *SubscriptionId:
-				startingSegs = id.Types()
-			case *ResourceGroup:
-				startingSegs = id.Types()
-			case *ManagementGroup:
-				startingSegs = []string{id.Provider()}
-				startingSegs = append(startingSegs, id.Types()...)
-			}
-			segs = append(segs, startingSegs...)
-			return
-		}
-		segs = append(segs, id.Provider())
-		segs = append(segs, id.Types()...)
+		out += id.RouteScopeString()
 	})
-
-	return "/" + strings.Join(segs, "/")
+	return out
 }
 
+// traverScopes traverse the scopes of the given resource id from the root scope to the router scope.
 func traverseScopes(id ResourceId, f func(ResourceId)) {
 	for ; id != nil; id = id.ParentScope() {
 		id := id

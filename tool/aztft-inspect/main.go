@@ -6,6 +6,8 @@ import (
 )
 
 func main() {
+	resmap.Init()
+
 	for k1, b := range resmap.ARMId2TFMap {
 		for k2, l := range b {
 			if len(l) > 1 {

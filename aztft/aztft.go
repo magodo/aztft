@@ -3,6 +3,7 @@ package aztft
 import (
 	"fmt"
 	"github.com/magodo/aztft/internal/resmap"
+	"sort"
 	"strings"
 
 	"github.com/magodo/aztft/internal/resourceid"
@@ -14,7 +15,9 @@ func Resolve(idStr string) ([]string, error) {
 	if err != nil {
 		return nil, fmt.Errorf("invalid resource id: %v", err)
 	}
-	k1 := resmap.BuildRoutingScopeKey(id.Provider(), id.Types())
+	k1 := strings.ToUpper(id.RouteScopeString())
+
+	resmap.Init()
 
 	b, ok := resmap.ARMId2TFMap[k1]
 	if !ok {
@@ -38,5 +41,6 @@ func Resolve(idStr string) ([]string, error) {
 	for _, item := range l {
 		out = append(out, item.ResourceType)
 	}
+	sort.Strings(out)
 	return out, nil
 }

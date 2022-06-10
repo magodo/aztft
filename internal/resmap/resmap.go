@@ -4,6 +4,7 @@ import (
 	_ "embed"
 	"encoding/json"
 	"strings"
+	"sync"
 )
 
 var (
@@ -11,17 +12,21 @@ var (
 	mappingContent []byte
 
 	ARMId2TFMap armId2TFMap
+
+	once sync.Once
 )
 
-func init() {
-	var m TF2ARMIdMap
-	if err := json.Unmarshal(mappingContent, &m); err != nil {
-		panic(err.Error())
-	}
-	var err error
-	if ARMId2TFMap, err = m.toARM2TFMap(); err != nil {
-		panic(err.Error())
-	}
+func Init() {
+	once.Do(func() {
+		var m TF2ARMIdMap
+		if err := json.Unmarshal(mappingContent, &m); err != nil {
+			panic(err.Error())
+		}
+		var err error
+		if ARMId2TFMap, err = m.toARM2TFMap(); err != nil {
+			panic(err.Error())
+		}
+	})
 }
 
 // TF2ARMIdMap maps from TF resource type to the ARM item
@@ -41,7 +46,11 @@ type MapManagementPlane struct {
 	ParentScopes []string `json:"scopes,omitempty"`
 	Provider     string   `json:"provider"`
 	Types        []string `json:"types"`
-	Formatter    string   `json:"formatter"`
+
+	// ImportSpecs is a list of valid import specs. They are used to normalize the transformed TF reosurce id, for resolving casing differences (as terraform is case sensitive).
+	// Each item should correspond to the item in the ParentScopes, representing a valid import spec in that parent scope.
+	// Exceptionally, this might be empty given no import spec is available. This maybe because the parent scope is "any", or this is a root scope resource id.
+	ImportSpecs []string `json:"import_specs,omitempty"`
 }
 
 // armId2TFMap maps from "<provider>/<types>" (routing scope) to "<parent scope string> | any" to the TF item(s)
@@ -49,7 +58,7 @@ type armId2TFMap map[string]map[string][]armId2TFMapItem
 
 type armId2TFMapItem struct {
 	ResourceType string
-	Formatter    string
+	ImportSpec   string
 }
 
 func (mps TF2ARMIdMap) toARM2TFMap() (armId2TFMap, error) {
@@ -59,7 +68,7 @@ func (mps TF2ARMIdMap) toARM2TFMap() (armId2TFMap, error) {
 			continue
 		}
 		mm := item.ManagementPlane
-		k1 := BuildRoutingScopeKey(mm.Provider, mm.Types)
+		k1 := buildRoutingScopeKey(mm.Provider, mm.Types, mm.ParentScopes == nil)
 
 		b, ok := out[k1]
 		if !ok {
@@ -72,25 +81,33 @@ func (mps TF2ARMIdMap) toARM2TFMap() (armId2TFMap, error) {
 			k2 := ""
 			b[k2] = append(b[k2], armId2TFMapItem{
 				ResourceType: rt,
-				Formatter:    mm.Formatter,
 			})
 			continue
 		}
 
 		// The id represents a scoped resource
-		for _, ps := range mm.ParentScopes {
+		for i, ps := range mm.ParentScopes {
 			k2 := strings.ToUpper(ps)
-			b[k2] = append(b[k2], armId2TFMapItem{
+			item := armId2TFMapItem{
 				ResourceType: rt,
-				Formatter:    mm.Formatter,
-			})
+			}
+			if ps != ScopeAny {
+				if len(mm.ImportSpecs) <= i {
+					panic("malformed import specs for " + rt)
+				}
+				item.ImportSpec = mm.ImportSpecs[i]
+			}
+			b[k2] = append(b[k2], item)
 		}
 	}
 	return out, nil
 }
 
-func BuildRoutingScopeKey(provider string, types []string) string {
+func buildRoutingScopeKey(provider string, types []string, isRootScope bool) string {
+	if isRootScope && provider == "Microsoft.Resources" {
+		return "/" + strings.ToUpper(strings.Join(types, "/"))
+	}
 	segs := []string{provider}
 	segs = append(segs, types...)
-	return strings.ToUpper(strings.Join(segs, "/"))
+	return "/" + strings.ToUpper(strings.Join(segs, "/"))
 }
