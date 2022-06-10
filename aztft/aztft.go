@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/magodo/aztft/internal/resourceid"
+	"github.com/magodo/aztft/internal/transformid"
 )
 
 func Resolve(idStr string) ([]string, error) {
@@ -30,7 +31,8 @@ func Resolve(idStr string) ([]string, error) {
 		return nil, nil
 	}
 
-	// TODO: For ARM resource ID that has different format than the TF resource id, need transformation.
+	// For ARM resource ID that has different format than the TF resource id, need transformation.
+	id = transformid.TransformId(id)
 
 	var out []string
 	for _, item := range l {
