@@ -977,7 +977,7 @@
         "sourceControls"
       ],
       "import_specs": [
-        "//Microsoft.Web/sourceControls"
+        "/Microsoft.Web/sourceControls"
       ]
     }
   },
@@ -6146,7 +6146,7 @@
         "diagnosticSettings"
       ],
       "import_specs": [
-        "//Microsoft.AADIAM/diagnosticSettings"
+        "/Microsoft.AADIAM/diagnosticSettings"
       ]
     }
   },
@@ -7073,7 +7073,7 @@
         "tenantConfigurations"
       ],
       "import_specs": [
-        "//Microsoft.Portal/tenantConfigurations"
+        "/Microsoft.Portal/tenantConfigurations"
       ]
     }
   },
@@ -8510,7 +8510,7 @@
         "sourceControls"
       ],
       "import_specs": [
-        "//Microsoft.Web/sourceControls"
+        "/Microsoft.Web/sourceControls"
       ]
     }
   },
@@ -9587,7 +9587,7 @@
         "aliases"
       ],
       "import_specs": [
-        "//Microsoft.Subscription/aliases"
+        "/Microsoft.Subscription/aliases"
       ]
     }
   },
@@ -9994,7 +9994,7 @@
         "deployments"
       ],
       "import_specs": [
-        "//Microsoft.Resources/deployments"
+        "/Microsoft.Resources/deployments"
       ]
     }
   },
