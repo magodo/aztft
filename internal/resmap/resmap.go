@@ -14,7 +14,7 @@ var (
 )
 
 func init() {
-	var m tf2ARMIdMap
+	var m TF2ARMIdMap
 	if err := json.Unmarshal(mappingContent, &m); err != nil {
 		panic(err.Error())
 	}
@@ -24,16 +24,16 @@ func init() {
 	}
 }
 
-// tf2ARMIdMap maps from TF resource type to the ARM item
-type tf2ARMIdMap map[string]tf2ARMIdMapItem
+// TF2ARMIdMap maps from TF resource type to the ARM item
+type TF2ARMIdMap map[string]TF2ARMIdMapItem
 
-type tf2ARMIdMapItem struct {
-	ManagementPlane *mapManagementPlane `json:"management_plane,omitempty"`
+type TF2ARMIdMapItem struct {
+	ManagementPlane *MapManagementPlane `json:"management_plane,omitempty"`
 }
 
 const ScopeAny string = "any"
 
-type mapManagementPlane struct {
+type MapManagementPlane struct {
 	// ParentScope is the parent scope in its scope string literal form.
 	// Specially:
 	// - This is empty for root scope resource ids
@@ -52,13 +52,7 @@ type armId2TFMapItem struct {
 	Formatter    string
 }
 
-func BuildRoutingScopeKey(provider string, types []string) string {
-	segs := []string{provider}
-	segs = append(segs, types...)
-	return strings.ToUpper(strings.Join(segs, "/"))
-}
-
-func (mps tf2ARMIdMap) toARM2TFMap() (armId2TFMap, error) {
+func (mps TF2ARMIdMap) toARM2TFMap() (armId2TFMap, error) {
 	out := armId2TFMap{}
 	for rt, item := range mps {
 		if item.ManagementPlane == nil {
@@ -93,4 +87,10 @@ func (mps tf2ARMIdMap) toARM2TFMap() (armId2TFMap, error) {
 		}
 	}
 	return out, nil
+}
+
+func BuildRoutingScopeKey(provider string, types []string) string {
+	segs := []string{provider}
+	segs = append(segs, types...)
+	return strings.ToUpper(strings.Join(segs, "/"))
 }

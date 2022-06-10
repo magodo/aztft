@@ -8,13 +8,12 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
+	"github.com/magodo/aztft/internal/resmap"
 	"log"
 	"os"
 	"path"
 	"strconv"
 	"strings"
-
-	"github.com/magodo/aztft/aztft"
 
 	"errors"
 
@@ -165,14 +164,14 @@ func main() {
 		}
 	}
 
-	mapItems := aztft.TF2ARMIdMapItems{}
+	mapItems := resmap.TF2ARMIdMap{}
 	for rtype, id := range m {
 		var scopes []string
 		if _, ok := id.(resourceid.RootScope); !ok {
 			scopes = []string{id.ParentScope().ScopeString()}
 		}
-		mapItems[rtype] = aztft.TF2ARMIdMapItem{
-			ManagementPlane: &aztft.MapManagementPlane{
+		mapItems[rtype] = resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
 				ParentScopes: scopes,
 				Provider:     id.Provider(),
 				Types:        id.Types(),
