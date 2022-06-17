@@ -1334,6 +1334,22 @@
       ]
     }
   },
+  "azurerm_backup_container_storage_account": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.RecoveryServices",
+      "types": [
+        "vaults",
+        "backupFabrics",
+        "protectionContainers"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/providers/Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers"
+      ]
+    }
+  },
   "azurerm_backup_policy_file_share": {
     "management_plane": {
       "scopes": [
@@ -1764,6 +1780,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Cdn/profiles"
+      ]
+    }
+  },
+  "azurerm_cdn_frontdoor_rule_set": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Cdn",
+      "types": [
+        "profiles",
+        "ruleSets"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Cdn/profiles/ruleSets"
       ]
     }
   },
@@ -6192,6 +6223,17 @@
       ]
     }
   },
+  "azurerm_monitor_diagnostic_setting": {
+    "management_plane": {
+      "scopes": [
+        "any"
+      ],
+      "provider": "Microsoft.Insights",
+      "types": [
+        "diagnosticSettings"
+      ]
+    }
+  },
   "azurerm_monitor_log_profile": {
     "management_plane": {
       "scopes": [
@@ -6274,20 +6316,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Insights/scheduledQueryRules"
-      ]
-    }
-  },
-  "azurerm_monitor_workbook": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Insights",
-      "types": [
-        "workbooks"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Insights/workbooks"
       ]
     }
   },
@@ -7659,6 +7687,17 @@
       ]
     }
   },
+  "azurerm_resource_policy_assignment": {
+    "management_plane": {
+      "scopes": [
+        "any"
+      ],
+      "provider": "Microsoft.Authorization",
+      "types": [
+        "policyAssignments"
+      ]
+    }
+  },
   "azurerm_resource_policy_exemption": {
     "management_plane": {
       "scopes": [
@@ -7684,6 +7723,17 @@
       ],
       "import_specs": [
         "/subscriptions/Microsoft.Authorization/roleAssignments"
+      ]
+    }
+  },
+  "azurerm_role_definition": {
+    "management_plane": {
+      "scopes": [
+        "any"
+      ],
+      "provider": "Microsoft.Authorization",
+      "types": [
+        "roleDefinitions"
       ]
     }
   },
@@ -9142,6 +9192,18 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Storage/storageAccounts/managementPolicies"
+      ]
+    }
+  },
+  "azurerm_storage_object_replication": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts",
+        "objectReplicationPolicies"
       ]
     }
   },

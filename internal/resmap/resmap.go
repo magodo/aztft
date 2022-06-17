@@ -91,10 +91,13 @@ func (mps TF2ARMIdMap) toARM2TFMap() (armId2TFMap, error) {
 			item := armId2TFMapItem{
 				ResourceType: rt,
 			}
-			if ps != ScopeAny {
-				if len(mm.ImportSpecs) <= i {
-					panic("malformed import specs for " + rt)
-				}
+			// Not every item has import spec, this might due to multiple reasons, e.g.:
+			// - The TF resource id is synthetic
+			// - The TF resource id is under any scope
+			// - The TF resource id is a data plane URL
+			// - etc...
+			// For the items without ImportSpec, it needs a special handling to construct the import spec.
+			if len(mm.ImportSpecs) > i {
 				item.ImportSpec = mm.ImportSpecs[i]
 			}
 			b[k2] = append(b[k2], item)

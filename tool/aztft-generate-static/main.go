@@ -8,12 +8,13 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"github.com/magodo/aztft/internal/resmap"
 	"log"
 	"os"
 	"path"
 	"strconv"
 	"strings"
+
+	"github.com/magodo/aztft/internal/resmap"
 
 	"errors"
 
@@ -54,6 +55,35 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	"azurerm_network_interface_nat_rule_association":                                 {caughtErr: ErrSyntheticId},
 	"azurerm_network_interface_backend_address_pool_association":                     {caughtErr: ErrSyntheticId},
 	"azurerm_nat_gateway_public_ip_prefix_association":                               {caughtErr: ErrSyntheticId},
+	"azurerm_disk_pool_managed_disk_attachment":                                      {caughtErr: ErrSyntheticId},
+
+	// Data plane only resources
+	"azurerm_storage_share_file":                                     {caughtErr: ErrDataPlaneId},
+	"azurerm_storage_share_directory":                                {caughtErr: ErrDataPlaneId},
+	"azurerm_storage_table_entity":                                   {caughtErr: ErrDataPlaneId},
+	"azurerm_storage_blob":                                           {caughtErr: ErrDataPlaneId},
+	"azurerm_key_vault_certificate":                                  {caughtErr: ErrDataPlaneId},
+	"azurerm_storage_data_lake_gen2_path":                            {caughtErr: ErrDataPlaneId},
+	"azurerm_storage_data_lake_gen2_filesystem":                      {caughtErr: ErrDataPlaneId},
+	"azurerm_key_vault_managed_storage_account":                      {caughtErr: ErrDataPlaneId},
+	"azurerm_key_vault_managed_storage_account_sas_token_definition": {caughtErr: ErrDataPlaneId},
+	"azurerm_key_vault_certificate_issuer":                           {caughtErr: ErrDataPlaneId},
+	"azurerm_synapse_role_assignment":                                {caughtErr: ErrSyntheticId},
+
+	// This is due to document error, will be fixed once https://github.com/hashicorp/terraform-provider-azurerm/pull/17282 is merged.
+	"azurerm_hpc_cache_blob_target": {caughtErr: ErrDuplicateImportSpec},
+	// This is due to document error, will be fixed once https://github.com/hashicorp/terraform-provider-azurerm/pull/17282 is merged.
+	"azurerm_linux_web_app": {caughtErr: ErrDuplicateImportSpec},
+	// This is not a azure resource, but an operation like abstract resource. Skip it.
+	"azurerm_resource_provider_registration": {caughtErr: ErrParseIdFailed},
+	// This is deprecated since v3.0
+	"azurerm_policy_remediation": {caughtErr: ErrDuplicateImportSpec},
+	// This is deprecated since v3.0.
+	"azurerm_security_center_server_vulnerability_assessment": {caughtErr: ErrDuplicateImportSpec},
+	// This represents a property in key vault resource, which means it doesn't have a resource ID in Azure. Just ignore it.
+	"azurerm_key_vault_access_policy": {caughtErr: ErrDuplicateImportSpec},
+	// This represents a property in disk pool iscsi target resource, which means it doesn't have a resource ID in Azure. Just ignore it.
+	"azurerm_disk_pool_iscsi_target_lun": {caughtErr: ErrSyntheticId},
 
 	"azurerm_backup_protected_vm": {
 		mapItem: &resmap.TF2ARMIdMapItem{
@@ -66,7 +96,6 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrSyntheticId,
 	},
-
 	"azurerm_backup_protected_file_share": {
 		mapItem: &resmap.TF2ARMIdMapItem{
 			ManagementPlane: &resmap.MapManagementPlane{
@@ -78,7 +107,17 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrSyntheticId,
 	},
-
+	"azurerm_backup_container_storage_account": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.RecoveryServices",
+				Types:        []string{"vaults", "backupFabrics", "protectionContainers"},
+				ImportSpecs:  []string{"/subscriptions/resourceGroups/providers/Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers"},
+			},
+		},
+		caughtErr: ErrSyntheticId,
+	},
 	"azurerm_policy_definition": {
 		mapItem: &resmap.TF2ARMIdMapItem{
 			ManagementPlane: &resmap.MapManagementPlane{
@@ -107,41 +146,128 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrDuplicateImportSpec,
 	},
-
-	"azurerm_storage_share":                                          {caughtErr: ErrDataPlaneId},
-	"azurerm_key_vault_certificate":                                  {caughtErr: ErrDataPlaneId},
-	"azurerm_storage_data_lake_gen2_path":                            {caughtErr: ErrDataPlaneId},
-	"azurerm_storage_share_file":                                     {caughtErr: ErrDataPlaneId},
-	"azurerm_storage_container":                                      {caughtErr: ErrDataPlaneId},
-	"azurerm_key_vault_key":                                          {caughtErr: ErrDataPlaneId},
-	"azurerm_storage_queue":                                          {caughtErr: ErrDataPlaneId},
-	"azurerm_storage_blob":                                           {caughtErr: ErrDataPlaneId},
-	"azurerm_key_vault_secret":                                       {caughtErr: ErrDataPlaneId},
-	"azurerm_storage_share_directory":                                {caughtErr: ErrDataPlaneId},
-	"azurerm_key_vault_managed_storage_account":                      {caughtErr: ErrDataPlaneId},
-	"azurerm_storage_data_lake_gen2_filesystem":                      {caughtErr: ErrDataPlaneId},
-	"azurerm_storage_table":                                          {caughtErr: ErrDataPlaneId},
-	"azurerm_storage_table_entity":                                   {caughtErr: ErrDataPlaneId},
-	"azurerm_key_vault_managed_storage_account_sas_token_definition": {caughtErr: ErrDataPlaneId},
-	"azurerm_key_vault_certificate_issuer":                           {caughtErr: ErrDataPlaneId},
-
-	"azurerm_policy_remediation":                              {caughtErr: ErrDuplicateImportSpec},
-	"azurerm_app_configuration_feature":                       {caughtErr: ErrDuplicateImportSpec},
-	"azurerm_app_configuration_key":                           {caughtErr: ErrDuplicateImportSpec},
-	"azurerm_linux_web_app":                                   {caughtErr: ErrDuplicateImportSpec},
-	"azurerm_security_center_server_vulnerability_assessment": {caughtErr: ErrDuplicateImportSpec},
-	"azurerm_key_vault_access_policy":                         {caughtErr: ErrDuplicateImportSpec},
-	"azurerm_hpc_cache_blob_target":                           {caughtErr: ErrDuplicateImportSpec},
-
-	"azurerm_monitor_diagnostic_setting":        {caughtErr: ErrSyntheticId},
-	"azurerm_synapse_role_assignment":           {caughtErr: ErrSyntheticId},
-	"azurerm_disk_pool_iscsi_target_lun":        {caughtErr: ErrSyntheticId},
-	"azurerm_storage_object_replication":        {caughtErr: ErrSyntheticId},
-	"azurerm_resource_policy_assignment":        {caughtErr: ErrParseIdFailed},
-	"azurerm_backup_container_storage_account":  {caughtErr: ErrSyntheticId},
-	"azurerm_disk_pool_managed_disk_attachment": {caughtErr: ErrSyntheticId},
-	"azurerm_resource_provider_registration":    {caughtErr: ErrParseIdFailed},
-	"azurerm_role_definition":                   {caughtErr: ErrSyntheticId},
+	"azurerm_app_configuration_feature": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.AppConfiguration",
+				Types:        []string{"configurationStores", "AppConfigurationFeature", "Label"},
+				ImportSpecs:  []string{"/subscriptions/resourceGroups/Microsoft.AppConfiguration/configurationStores/AppConfigurationFeature/Label"},
+			},
+		},
+		caughtErr: ErrDuplicateImportSpec,
+	},
+	"azurerm_app_configuration_key": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.AppConfiguration",
+				Types:        []string{"configurationStores", "AppConfigurationKey", "Label"},
+				ImportSpecs:  []string{"/subscriptions/resourceGroups/Microsoft.AppConfiguration/configurationStores/AppConfigurationKey/Label"},
+			},
+		},
+		caughtErr: ErrDuplicateImportSpec,
+	},
+	"azurerm_monitor_diagnostic_setting": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{resmap.ScopeAny},
+				Provider:     "Microsoft.Insights",
+				Types:        []string{"diagnosticSettings"},
+			},
+		},
+		caughtErr: ErrSyntheticId,
+	},
+	"azurerm_storage_object_replication": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Storage",
+				Types:        []string{"storageAccounts", "objectReplicationPolicies"},
+			},
+		},
+		caughtErr: ErrSyntheticId,
+	},
+	"azurerm_resource_policy_assignment": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{resmap.ScopeAny},
+				Provider:     "Microsoft.Authorization",
+				Types:        []string{"policyAssignments"},
+			},
+		},
+		caughtErr: ErrParseIdFailed,
+	},
+	"azurerm_role_definition": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{resmap.ScopeAny},
+				Provider:     "Microsoft.Authorization",
+				Types:        []string{"roleDefinitions"},
+			},
+		},
+		caughtErr: ErrSyntheticId,
+	},
+	"azurerm_storage_share": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Storage",
+				Types:        []string{"storageAccounts", "fileServices", "shares"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_storage_container": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Storage",
+				Types:        []string{"storageAccounts", "blobServices", "containers"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_storage_queue": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Storage",
+				Types:        []string{"storageAccounts", "queueServices", "queues"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_storage_table": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Storage",
+				Types:        []string{"storageAccounts", "tableServices", "tables"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_key_vault_key": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.KeyVault",
+				Types:        []string{"vaults", "keys"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_key_vault_secret": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.KeyVault",
+				Types:        []string{"vaults", "secrets"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
 }
 
 const usage = `aztft-generate-static <provider root dir>`
@@ -190,8 +316,6 @@ func main() {
 				}
 
 				log.Fatalf("%s parse error: %v\n", rtype, err)
-				// log.Printf("%s parse error: %v\n", rtype, err)
-				// continue
 			}
 			if _, ok := m[rtype]; ok {
 				// Skip this if the duplication is already caught
@@ -201,8 +325,6 @@ func main() {
 				}
 
 				log.Fatalf("%s duplicate import spec found\n", rtype)
-				// log.Printf("%s duplicate import spec found\n", rtype)
-				// continue
 			}
 			m[rtype] = id
 		}
