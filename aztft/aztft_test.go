@@ -1,8 +1,9 @@
 package aztft
 
 import (
-	"github.com/stretchr/testify/require"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestResolve(t *testing.T) {
@@ -66,7 +67,7 @@ func TestResolve(t *testing.T) {
 
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
-			actual, err := Resolve(tt.input)
+			actual, err := Query(tt.input, false)
 			if tt.err != "" {
 				require.EqualError(t, err, tt.err)
 				return

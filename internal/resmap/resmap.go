@@ -57,9 +57,9 @@ type MapManagementPlane struct {
 }
 
 // armId2TFMap maps from "<provider>/<types>" (routing scope) to "<parent scope string> | any" to the TF item(s)
-type armId2TFMap map[string]map[string][]armId2TFMapItem
+type armId2TFMap map[string]map[string][]ARMId2TFMapItem
 
-type armId2TFMapItem struct {
+type ARMId2TFMapItem struct {
 	ResourceType string
 	ImportSpec   string
 }
@@ -78,14 +78,14 @@ func (mps TF2ARMIdMap) toARM2TFMap() (armId2TFMap, error) {
 
 		b, ok := out[k1]
 		if !ok {
-			b = map[string][]armId2TFMapItem{}
+			b = map[string][]ARMId2TFMapItem{}
 			out[k1] = b
 		}
 
 		// The id represents a root scope
 		if mm.ParentScopes == nil {
 			k2 := ""
-			b[k2] = append(b[k2], armId2TFMapItem{
+			b[k2] = append(b[k2], ARMId2TFMapItem{
 				ResourceType: rt,
 			})
 			continue
@@ -94,7 +94,7 @@ func (mps TF2ARMIdMap) toARM2TFMap() (armId2TFMap, error) {
 		// The id represents a scoped resource
 		for i, ps := range mm.ParentScopes {
 			k2 := strings.ToUpper(ps)
-			item := armId2TFMapItem{
+			item := ARMId2TFMapItem{
 				ResourceType: rt,
 			}
 			// Not every item has import spec, this might due to multiple reasons, e.g.:

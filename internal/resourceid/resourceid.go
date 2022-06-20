@@ -6,6 +6,11 @@ import (
 )
 
 type ResourceId interface {
+	// RootScope returns the root scope of this resource.
+	// For scoped resource, it is the including root scope resource id.
+	// For root scopes, it returns itself.
+	RootScope() RootScope
+
 	// ParentScope returns the parent scope of this resource. Normally, scopes are seperated by "/providers/".
 	// This is nil if the resource itself is a root scope.
 	// E.g.
@@ -137,6 +142,10 @@ type TenantId struct{}
 
 var _ RootScope = &TenantId{}
 
+func (id *TenantId) RootScope() RootScope {
+	return id
+}
+
 func (*TenantId) ParentScope() ResourceId {
 	return nil
 }
@@ -188,6 +197,10 @@ type SubscriptionId struct {
 }
 
 var _ RootScope = &SubscriptionId{}
+
+func (id *SubscriptionId) RootScope() RootScope {
+	return id
+}
 
 func (*SubscriptionId) ParentScope() ResourceId {
 	return nil
@@ -243,6 +256,10 @@ type ResourceGroup struct {
 
 var _ RootScope = &ResourceGroup{}
 
+func (id *ResourceGroup) RootScope() RootScope {
+	return id
+}
+
 func (*ResourceGroup) ParentScope() ResourceId {
 	return nil
 }
@@ -294,6 +311,10 @@ type ManagementGroup struct {
 }
 
 var _ RootScope = &ManagementGroup{}
+
+func (id *ManagementGroup) RootScope() RootScope {
+	return id
+}
 
 func (*ManagementGroup) ParentScope() ResourceId {
 	return nil
@@ -350,6 +371,14 @@ type ScopedResourceId struct {
 	AttrProvider    string
 	AttrTypes       []string
 	AttrNames       []string
+}
+
+func (id *ScopedResourceId) RootScope() RootScope {
+	var rid ResourceId = id
+	for rid.ParentScope() != nil {
+		rid = rid.ParentScope()
+	}
+	return rid.(RootScope)
 }
 
 func (id *ScopedResourceId) ParentScope() ResourceId {
