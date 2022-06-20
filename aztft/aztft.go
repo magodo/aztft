@@ -2,9 +2,10 @@ package aztft
 
 import (
 	"fmt"
-	"github.com/magodo/aztft/internal/resmap"
 	"sort"
 	"strings"
+
+	"github.com/magodo/aztft/internal/resmap"
 
 	"github.com/magodo/aztft/internal/resourceid"
 	"github.com/magodo/aztft/internal/transformid"
@@ -31,7 +32,10 @@ func Resolve(idStr string) ([]string, error) {
 
 	l, ok := b[k2]
 	if !ok {
-		return nil, nil
+		l, ok = b[strings.ToUpper(resmap.ScopeAny)]
+		if !ok {
+			return nil, nil
+		}
 	}
 
 	// For ARM resource ID that has different format than the TF resource id, need transformation.
