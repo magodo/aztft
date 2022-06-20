@@ -863,6 +863,8 @@
     }
   },
   "azurerm_app_service_plan": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_service_plan`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -968,6 +970,8 @@
     }
   },
   "azurerm_app_service_source_control_token": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_source_control_token`",
     "management_plane": {
       "scopes": [
         "/"
@@ -1827,6 +1831,8 @@
     }
   },
   "azurerm_cognitive_account_customer_managed_key": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -2321,6 +2327,8 @@
     }
   },
   "azurerm_dashboard": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_portal_dashboard`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -3837,6 +3845,8 @@
     }
   },
   "azurerm_eventhub_namespace_customer_managed_key": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -4859,6 +4869,8 @@
     }
   },
   "azurerm_kusto_cluster_customer_managed_key": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -5244,6 +5256,8 @@
     }
   },
   "azurerm_log_analytics_cluster_customer_managed_key": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -5801,6 +5815,8 @@
     }
   },
   "azurerm_managed_disk_sas_token": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -7865,6 +7881,8 @@
     }
   },
   "azurerm_security_center_server_vulnerability_assessment": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_security_center_server_vulnerability_assessment_virtual_machine`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines"
@@ -8429,6 +8447,8 @@
     }
   },
   "azurerm_signalr_service_network_acl": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -8497,10 +8517,13 @@
       ],
       "provider": "Microsoft.RecoveryServices",
       "types": [
-        "vaults"
+        "vaults",
+        "replicationFabrics",
+        "replicationProtectionContainers",
+        "replicationProtectionContainerMappings"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults"
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings"
       ]
     }
   },
@@ -8890,6 +8913,8 @@
     }
   },
   "azurerm_sql_database": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_mssql_database`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -8905,6 +8930,8 @@
     }
   },
   "azurerm_sql_elasticpool": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_mssql_elasticpool`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -8920,6 +8947,8 @@
     }
   },
   "azurerm_sql_failover_group": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_mssql_failover_group`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -8935,6 +8964,8 @@
     }
   },
   "azurerm_sql_firewall_rule": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_mssql_firewall_rule`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -8950,6 +8981,8 @@
     }
   },
   "azurerm_sql_managed_database": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_mssql_managed_database`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -8965,6 +8998,8 @@
     }
   },
   "azurerm_sql_managed_instance": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_mssql_managed_instance`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -8979,6 +9014,8 @@
     }
   },
   "azurerm_sql_managed_instance_active_directory_administrator": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_mssql_managed_instance_active_directory_administrator`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -8994,6 +9031,8 @@
     }
   },
   "azurerm_sql_managed_instance_failover_group": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_mssql_managed_instance_failover_group`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -9009,6 +9048,8 @@
     }
   },
   "azurerm_sql_server": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_mssql_server`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -9023,6 +9064,8 @@
     }
   },
   "azurerm_sql_virtual_network_rule": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_mssql_virtual_network_rule`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -9109,6 +9152,8 @@
     }
   },
   "azurerm_storage_account_customer_managed_key": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -9123,6 +9168,8 @@
     }
   },
   "azurerm_storage_account_network_rules": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -9152,6 +9199,8 @@
     }
   },
   "azurerm_storage_disks_pool": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_disk_pool`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -9581,6 +9630,8 @@
     }
   },
   "azurerm_subnet_nat_gateway_association": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -9596,6 +9647,8 @@
     }
   },
   "azurerm_subnet_network_security_group_association": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -9611,6 +9664,8 @@
     }
   },
   "azurerm_subnet_route_table_association": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -10688,6 +10743,8 @@
     }
   },
   "azurerm_web_pubsub_network_acl": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"

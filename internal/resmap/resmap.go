@@ -34,6 +34,9 @@ type TF2ARMIdMap map[string]TF2ARMIdMapItem
 
 type TF2ARMIdMapItem struct {
 	ManagementPlane *MapManagementPlane `json:"management_plane,omitempty"`
+
+	// Indicates whether this TF resource is removed/deprecated
+	IsRemoved bool `json:"is_removed"`
 }
 
 const ScopeAny string = "any"
@@ -64,6 +67,9 @@ type armId2TFMapItem struct {
 func (mps TF2ARMIdMap) toARM2TFMap() (armId2TFMap, error) {
 	out := armId2TFMap{}
 	for rt, item := range mps {
+		if item.IsRemoved {
+			continue
+		}
 		if item.ManagementPlane == nil {
 			continue
 		}
