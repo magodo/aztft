@@ -75,3 +75,11 @@ func (b *ClientBuilder) NewVirtualMachinesClient(subscriptionId string) (*armcom
 		clientOpt,
 	)
 }
+
+func (b *ClientBuilder) NewVirtualMachineScaleSetsClient(subscriptionId string) (*armcompute.VirtualMachineScaleSetsClient, error) {
+	return armcompute.NewVirtualMachineScaleSetsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}

@@ -11,9 +11,12 @@ import (
 
 type resolveFunc func(*client.ClientBuilder, resourceid.ResourceId) (string, error)
 
-var resolvers = map[string]map[string]resolveFunc{
+var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.COMPUTE/VIRTUALMACHINES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveVirtualMachines,
+	},
+	"/MICROSOFT.COMPUTE/VIRTUALMACHINESCALESETS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveVirtualMachineScaleSets,
 	},
 }
 
@@ -57,7 +60,7 @@ func Resolve(id resourceid.ResourceId) (*resmap.ARMId2TFMapItem, error) {
 		return nil, fmt.Errorf("new API client builder: %v", err)
 	}
 
-	if m, ok := resolvers[routeKey]; ok {
+	if m, ok := Resolvers[routeKey]; ok {
 		if f, ok := m[parentScopeKey]; ok {
 			rt, err := f(b, id)
 			if err != nil {
