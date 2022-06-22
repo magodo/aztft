@@ -18,6 +18,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.COMPUTE/VIRTUALMACHINESCALESETS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveVirtualMachineScaleSets,
 	},
+	"/MICROSOFT.DEVTESTLAB/LABS/VIRTUALMACHINES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDevTestVirtualMachines,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
