@@ -4633,6 +4633,8 @@
     }
   },
   "azurerm_iothub_endpoint_eventhub": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -4648,6 +4650,8 @@
     }
   },
   "azurerm_iothub_endpoint_servicebus_queue": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -4663,6 +4667,8 @@
     }
   },
   "azurerm_iothub_endpoint_servicebus_topic": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -4678,6 +4684,8 @@
     }
   },
   "azurerm_iothub_endpoint_storage_container": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
