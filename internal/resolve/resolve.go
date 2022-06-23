@@ -33,6 +33,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.SYNAPSE/WORKSPACES/INTEGRATIONRUNTIMES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveSynapseIntegrationRuntimes,
 	},
+	"/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/ENDPOINTS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDigitalTwinsEndpoints,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
