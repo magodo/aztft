@@ -8602,6 +8602,8 @@
     }
   },
   "azurerm_spring_cloud_active_deployment": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
