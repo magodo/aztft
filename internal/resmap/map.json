@@ -7725,14 +7725,11 @@
   "azurerm_resource_policy_exemption": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups"
+        "any"
       ],
       "provider": "Microsoft.Authorization",
       "types": [
         "policyExemptions"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Authorization/policyExemptions"
       ]
     }
   },
