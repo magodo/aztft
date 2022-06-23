@@ -14,6 +14,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/dataprotection/armdataprotection"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/devtestlabs/armdevtestlabs"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse"
 )
 
 type ClientBuilder struct {
@@ -105,6 +106,14 @@ func (b *ClientBuilder) NewRecoveryServicesBackupProtectionPoliciesClient(subscr
 
 func (b *ClientBuilder) NewDataProtectionBackupPoliciesClient(subscriptionId string) (*armdataprotection.BackupPoliciesClient, error) {
 	return armdataprotection.NewBackupPoliciesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewSynapseIntegrationRuntimesClient(subscriptionId string) (*armsynapse.IntegrationRuntimesClient, error) {
+	return armsynapse.NewIntegrationRuntimesClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,
