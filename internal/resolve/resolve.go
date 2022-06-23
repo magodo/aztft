@@ -21,40 +21,24 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.DEVTESTLAB/LABS/VIRTUALMACHINES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDevTestVirtualMachines,
 	},
+	"/MICROSOFT.APIMANAGEMENT/SERVICE/IDENTITYPROVIDERS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveApiManagementIdentities,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
-func Resolve(id resourceid.ResourceId) (*resmap.ARMId2TFMapItem, error) {
-	resmap.Init()
-
-	ambiguiteMap := map[string]map[string][]resmap.ARMId2TFMapItem{}
-	for routeKey, b := range resmap.ARMId2TFMap {
-		for parentScopeKey, l := range b {
-			if len(l) > 1 {
-				m, ok := ambiguiteMap[routeKey]
-				if !ok {
-					m = map[string][]resmap.ARMId2TFMapItem{}
-					ambiguiteMap[routeKey] = m
-				}
-				m[parentScopeKey] = l
-			}
-		}
+func Resolve(id resourceid.ResourceId, candidates []resmap.ARMId2TFMapItem) (*resmap.ARMId2TFMapItem, error) {
+	if len(candidates) == 0 {
+		return nil, fmt.Errorf("no candidates")
+	}
+	if len(candidates) == 1 {
+		return &candidates[0], nil
 	}
 
 	routeKey := strings.ToUpper(id.RouteScopeString())
 	var parentScopeKey string
 	if id.ParentScope() != nil {
 		parentScopeKey = strings.ToUpper(id.ParentScope().ScopeString())
-	}
-
-	var ambiguiteList []resmap.ARMId2TFMapItem
-	if m, ok := ambiguiteMap[routeKey]; ok {
-		ambiguiteList = m[parentScopeKey]
-	}
-
-	// Ensure the input resource id belongs to the known ambiguaties which is derived from converting the static resource mapping from TF2ARM to ARM2TF.
-	if len(ambiguiteList) == 0 {
-		return nil, fmt.Errorf("%q is not a known ambiguate resource id", id.String())
 	}
 
 	// Ensure the API client can be built.
@@ -69,7 +53,7 @@ func Resolve(id resourceid.ResourceId) (*resmap.ARMId2TFMapItem, error) {
 			if err != nil {
 				return nil, fmt.Errorf("resolving %q: %v", id, err)
 			}
-			for _, item := range ambiguiteList {
+			for _, item := range candidates {
 				if item.ResourceType == rt {
 					return &item, nil
 				}
@@ -78,5 +62,5 @@ func Resolve(id resourceid.ResourceId) (*resmap.ARMId2TFMapItem, error) {
 		}
 	}
 
-	return nil, fmt.Errorf("the work to disambiguate for %q is in progress", id)
+	return nil, fmt.Errorf("no resolver found for %q (WIP)", id)
 }

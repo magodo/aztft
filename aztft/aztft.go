@@ -42,7 +42,7 @@ func Query(idStr string, allowAPI bool) ([]string, error) {
 	}
 
 	if len(l) > 1 && allowAPI {
-		item, err := resolve.Resolve(id)
+		item, err := resolve.Resolve(id, l)
 		if err != nil {
 			return nil, err
 		}
