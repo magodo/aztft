@@ -27,6 +27,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.RECOVERYSERVICES/VAULTS/BACKUPPOLICIES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveRecoveryServicesBackupProtectionPolicies,
 	},
+	"/MICROSOFT.DATAPROTECTION/BACKUPVAULTS/BACKUPPOLICIES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDataProtectionBackupPolicies,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
