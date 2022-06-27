@@ -123,6 +123,14 @@ func (b *ClientBuilder) NewDataProtectionBackupPoliciesClient(subscriptionId str
 	)
 }
 
+func (b *ClientBuilder) NewDataProtectionBackupInstancesClient(subscriptionId string) (*armdataprotection.BackupInstancesClient, error) {
+	return armdataprotection.NewBackupInstancesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewSynapseIntegrationRuntimesClient(subscriptionId string) (*armsynapse.IntegrationRuntimesClient, error) {
 	return armsynapse.NewIntegrationRuntimesClient(
 		subscriptionId,
