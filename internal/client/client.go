@@ -20,6 +20,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/operationalinsights/armoperationalinsights"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagecache/armstoragecache"
@@ -204,6 +205,14 @@ func (b *ClientBuilder) NewBotServiceBotsClient(subscriptionId string) (*armbots
 
 func (b *ClientBuilder) NewSecurityInsightsDataConnectorsClient(subscriptionId string) (*armsecurityinsights.DataConnectorsClient, error) {
 	return armsecurityinsights.NewDataConnectorsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewOperationalInsightsDataSourcesClient(subscriptionId string) (*armoperationalinsights.DataSourcesClient, error) {
+	return armoperationalinsights.NewDataSourcesClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,
