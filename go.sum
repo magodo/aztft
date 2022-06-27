@@ -10,6 +10,8 @@ github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice v
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice v1.0.0/go.mod h1:avvc5/7qR4taCvAhOM7KFXuEHhAU0Wek9YX7sh9H3EM=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automation/armautomation v0.6.0 h1:u0gaKivsSN9nJlgR4JeUnCnvPP9vXoM8Dv9IlgWvcD0=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automation/armautomation v0.6.0/go.mod h1:n7pLvw0SL+4fmVfzkWpg1ZNY6dwjsXD5eZHoxwkYbxA=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/botservice/armbotservice v0.5.0 h1:v2TuEnO4GzivkMXMWM2szyHwi7tWGQ6V8WG07UJfjv8=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/botservice/armbotservice v0.5.0/go.mod h1:9I3Ckw/UPxF2tuJ4scHISF8Rgi16lkRFrCimkJhUFIY=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute v1.0.0 h1:/Di3vB4sNeQ+7A8efjUVENvyB945Wruvstucqp7ZArg=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute v1.0.0/go.mod h1:gM3K25LQlsET3QR+4V74zxCsFAy0r6xMNN9n80SZn+4=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datafactory/armdatafactory v1.2.0 h1:hOebVKxf8TYh7ZkYEPBchcrAK7n2wVWCRtSnn3fEp3k=

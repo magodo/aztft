@@ -12,6 +12,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automation/armautomation"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/botservice/armbotservice"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datafactory/armdatafactory"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/dataprotection/armdataprotection"
@@ -186,6 +187,14 @@ func (b *ClientBuilder) NewStorageCacheTargetsClient(subscriptionId string) (*ar
 
 func (b *ClientBuilder) NewAutomationConnectionClient(subscriptionId string) (*armautomation.ConnectionClient, error) {
 	return armautomation.NewConnectionClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewBotServiceBotsClient(subscriptionId string) (*armbotservice.BotsClient, error) {
+	return armbotservice.NewBotsClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,

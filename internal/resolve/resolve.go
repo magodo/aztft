@@ -57,6 +57,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.AUTOMATION/AUTOMATIONACCOUNTS/CONNECTIONS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAutomationConnections,
 	},
+	"/MICROSOFT.BOTSERVICE/BOTSERVICES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveBotServiceBots,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
