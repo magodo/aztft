@@ -10,6 +10,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datafactory/armdatafactory"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/dataprotection/armdataprotection"
@@ -132,6 +133,14 @@ func (b *ClientBuilder) NewDigitalTwinsEndpointsClient(subscriptionId string) (*
 
 func (b *ClientBuilder) NewDataFactoryTriggersClient(subscriptionId string) (*armdatafactory.TriggersClient, error) {
 	return armdatafactory.NewTriggersClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewAppServiceCertificatesClient(subscriptionId string) (*armappservice.CertificatesClient, error) {
+	return armappservice.NewCertificatesClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,
