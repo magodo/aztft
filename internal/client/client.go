@@ -11,6 +11,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automation/armautomation"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datafactory/armdatafactory"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/dataprotection/armdataprotection"
@@ -177,6 +178,14 @@ func (b *ClientBuilder) NewTimeSeriesInsightEnvironmentsClient(subscriptionId st
 
 func (b *ClientBuilder) NewStorageCacheTargetsClient(subscriptionId string) (*armstoragecache.StorageTargetsClient, error) {
 	return armstoragecache.NewStorageTargetsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewAutomationConnectionClient(subscriptionId string) (*armautomation.ConnectionClient, error) {
+	return armautomation.NewConnectionClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,

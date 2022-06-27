@@ -19,6 +19,7 @@ require (
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/internal v1.0.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice v1.0.0 // indirect
+	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automation/armautomation v0.6.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto v1.0.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning v1.0.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagecache/armstoragecache v1.0.0 // indirect
