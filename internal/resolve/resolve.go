@@ -36,6 +36,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/ENDPOINTS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDigitalTwinsEndpoints,
 	},
+	"/MICROSOFT.DATAFACTORY/FACTORIES/TRIGGERS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDataFactoryTriggers,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
