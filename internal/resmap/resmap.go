@@ -36,7 +36,7 @@ type TF2ARMIdMapItem struct {
 	ManagementPlane *MapManagementPlane `json:"management_plane,omitempty"`
 
 	// Indicates whether this TF resource is removed/deprecated
-	IsRemoved bool `json:"is_removed"`
+	IsRemoved bool `json:"is_removed,omitempty"`
 }
 
 const ScopeAny string = "any"

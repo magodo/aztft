@@ -70,10 +70,6 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	"azurerm_key_vault_certificate_issuer":                           {caughtErr: ErrDataPlaneId},
 	"azurerm_synapse_role_assignment":                                {caughtErr: ErrSyntheticId},
 
-	// This is due to document error, will be fixed once https://github.com/hashicorp/terraform-provider-azurerm/pull/17282 is merged.
-	"azurerm_hpc_cache_blob_target": {caughtErr: ErrDuplicateImportSpec},
-	// This is due to document error, will be fixed once https://github.com/hashicorp/terraform-provider-azurerm/pull/17282 is merged.
-	"azurerm_linux_web_app": {caughtErr: ErrDuplicateImportSpec},
 	// This is not a azure resource, but an operation like abstract resource. Skip it.
 	"azurerm_resource_provider_registration": {caughtErr: ErrParseIdFailed},
 	// This is deprecated since v3.0

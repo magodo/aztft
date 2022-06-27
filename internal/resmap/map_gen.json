@@ -4375,6 +4375,21 @@
       ]
     }
   },
+  "azurerm_hpc_cache_nfs_target": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StorageCache",
+      "types": [
+        "caches",
+        "storageTargets"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.StorageCache/caches/storageTargets"
+      ]
+    }
+  },
   "azurerm_image": {
     "management_plane": {
       "scopes": [
@@ -4786,6 +4801,18 @@
       ]
     }
   },
+  "azurerm_key_vault_key": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.KeyVault",
+      "types": [
+        "vaults",
+        "keys"
+      ]
+    }
+  },
   "azurerm_key_vault_managed_hardware_security_module": {
     "management_plane": {
       "scopes": [
@@ -4797,6 +4824,18 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.KeyVault/managedHSMs"
+      ]
+    }
+  },
+  "azurerm_key_vault_secret": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.KeyVault",
+      "types": [
+        "vaults",
+        "secrets"
       ]
     }
   },
@@ -5198,6 +5237,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Web/sites"
+      ]
+    }
+  },
+  "azurerm_linux_web_app_slot": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Web",
+      "types": [
+        "sites",
+        "slots"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Web/sites/slots"
       ]
     }
   },
@@ -9151,6 +9205,19 @@
       ]
     }
   },
+  "azurerm_storage_container": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts",
+        "blobServices",
+        "containers"
+      ]
+    }
+  },
   "azurerm_storage_disks_pool": {
     "management_plane": {
       "scopes": [
@@ -9207,6 +9274,32 @@
       ]
     }
   },
+  "azurerm_storage_queue": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts",
+        "queueServices",
+        "queues"
+      ]
+    }
+  },
+  "azurerm_storage_share": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts",
+        "fileServices",
+        "shares"
+      ]
+    }
+  },
   "azurerm_storage_sync": {
     "management_plane": {
       "scopes": [
@@ -9249,6 +9342,19 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.StorageSync/storageSyncServices/syncGroups"
+      ]
+    }
+  },
+  "azurerm_storage_table": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts",
+        "tableServices",
+        "tables"
       ]
     }
   },
@@ -10769,6 +10875,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Web/sites"
+      ]
+    }
+  },
+  "azurerm_windows_web_app_slot": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Web",
+      "types": [
+        "sites",
+        "slots"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Web/sites/slots"
       ]
     }
   }
