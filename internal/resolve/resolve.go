@@ -42,6 +42,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.WEB/CERTIFICATES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppServiceCertificates,
 	},
+	"/MICROSOFT.KUSTO/CLUSTERS/DATABASES/DATACONNECTIONS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveKustoDataConnections,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.

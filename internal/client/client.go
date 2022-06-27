@@ -16,6 +16,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/dataprotection/armdataprotection"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/devtestlabs/armdevtestlabs"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse"
 )
@@ -141,6 +142,14 @@ func (b *ClientBuilder) NewDataFactoryTriggersClient(subscriptionId string) (*ar
 
 func (b *ClientBuilder) NewAppServiceCertificatesClient(subscriptionId string) (*armappservice.CertificatesClient, error) {
 	return armappservice.NewCertificatesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewKustoDataConnectionsClient(subscriptionId string) (*armkusto.DataConnectionsClient, error) {
+	return armkusto.NewDataConnectionsClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,
