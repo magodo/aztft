@@ -19,6 +19,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagecache/armstoragecache"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/timeseriesinsights/armtimeseriesinsights"
 )
@@ -168,6 +169,14 @@ func (b *ClientBuilder) NewMachineLearningComputeClient(subscriptionId string) (
 
 func (b *ClientBuilder) NewTimeSeriesInsightEnvironmentsClient(subscriptionId string) (*armtimeseriesinsights.EnvironmentsClient, error) {
 	return armtimeseriesinsights.NewEnvironmentsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewStorageCacheTargetsClient(subscriptionId string) (*armstoragecache.StorageTargetsClient, error) {
+	return armstoragecache.NewStorageTargetsClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,

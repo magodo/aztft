@@ -51,6 +51,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.TIMESERIESINSIGHTS/ENVIRONMENTS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveTimeSeriesInsightsEnvironment,
 	},
+	"/MICROSOFT.STORAGECACHE/CACHES/STORAGETARGETS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveStorageCacheTargets,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
