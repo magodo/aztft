@@ -45,6 +45,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.KUSTO/CLUSTERS/DATABASES/DATACONNECTIONS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveKustoDataConnections,
 	},
+	"/MICROSOFT.MACHINELEARNINGSERVICES/WORKSPACES/COMPUTES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveMachineLearningComputes,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
