@@ -6,6 +6,8 @@ github.com/Azure/azure-sdk-for-go/sdk/internal v1.0.0 h1:jp0dGvZ7ZK0mgqnTSClMxa5
 github.com/Azure/azure-sdk-for-go/sdk/internal v1.0.0/go.mod h1:eWRD7oawr1Mu1sLCawqVc0CUiF43ia3qQMxLscsKQ9w=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/apimanagement/armapimanagement v1.0.0 h1:Ai3+BE11JvwQ2PxLGNKAfMNSceYXjeijReLJiCouO6o=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/apimanagement/armapimanagement v1.0.0/go.mod h1:gr6fiHmIii3Zw3riWMSr+P0tWTz4hfqTVcFttdi2JBo=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appplatform/armappplatform v1.0.0 h1:wgU84WluDEsqrgw/ZYLcOHN/NNaFAWa6EAUyzxasNeE=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appplatform/armappplatform v1.0.0/go.mod h1:yGK8WOLcIMXyT84rwf1EL3y5QU4XYYwczK70uWfBFmQ=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice v1.0.0 h1:kRX8I0dWAcpW6Vq0m90CgV+qw4O1vXodgwrhoPr1RWs=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice v1.0.0/go.mod h1:avvc5/7qR4taCvAhOM7KFXuEHhAU0Wek9YX7sh9H3EM=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automation/armautomation v0.6.0 h1:u0gaKivsSN9nJlgR4JeUnCnvPP9vXoM8Dv9IlgWvcD0=
@@ -33,8 +35,6 @@ github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/operationalinsights/armope
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup v1.0.0 h1:MgsdbI063vhtsJMMCZSY6TcxFopiEhPMJEJ2L5iDva0=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup v1.0.0/go.mod h1:65T59IeW3MusDYTq3zjvzzipDyct3UbWTZVL31go+Ww=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources v1.0.0 h1:ECsQtyERDVz3NP3kvDOTLvbQhqWp/x9EsGKtb4ogUr8=
-github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights v1.0.0 h1:sAUIe2t9BjwxGoZdfozf2t/c7eSPvvtnFUlX3QFH7+A=
-github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights v1.0.0/go.mod h1:0HY+nsM6MynrITInWtieXohsF2e6P1RK5c3Qu0RBa1M=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2 v2.0.0-beta.1 h1:9mTTrRpS9YeiH3n0FwWBCOd9Sg6AdQYwcpRCjK3+WQ4=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2 v2.0.0-beta.1/go.mod h1:+Vn4YGqMk8/urNMX3IMR2lggm5cKqRQN13pUkqcfgyA=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagecache/armstoragecache v1.0.0 h1:3UQFOxKO93+20/+4mZweaGTbICtgQDRchk946N6/mvI=

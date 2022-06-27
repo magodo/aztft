@@ -69,6 +69,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.OPERATIONALINSIGHTS/WORKSPACES/DATASOURCES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveOperationalInsightsDataSources,
 	},
+	"/MICROSOFT.APPPLATFORM/SPRING/APPS/BINDINGS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppPlatformBindings,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.

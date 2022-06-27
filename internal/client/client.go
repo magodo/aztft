@@ -10,6 +10,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appplatform/armappplatform"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automation/armautomation"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/botservice/armbotservice"
@@ -221,6 +222,14 @@ func (b *ClientBuilder) NewSecurityInsightsDataConnectorsClient(subscriptionId s
 
 func (b *ClientBuilder) NewOperationalInsightsDataSourcesClient(subscriptionId string) (*armoperationalinsights.DataSourcesClient, error) {
 	return armoperationalinsights.NewDataSourcesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewAppPlatformBindingsClient(subscriptionId string) (*armappplatform.BindingsClient, error) {
+	return armappplatform.NewBindingsClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,
