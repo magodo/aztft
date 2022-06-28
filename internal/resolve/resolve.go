@@ -6,10 +6,10 @@ import (
 
 	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/aztft/internal/resmap"
-	"github.com/magodo/aztft/internal/resourceid"
+	"github.com/magodo/armid"
 )
 
-type resolveFunc func(*client.ClientBuilder, resourceid.ResourceId) (string, error)
+type resolveFunc func(*client.ClientBuilder, armid.ResourceId) (string, error)
 
 var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.COMPUTE/VIRTUALMACHINES": {
@@ -75,7 +75,7 @@ var Resolvers = map[string]map[string]resolveFunc{
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
-func Resolve(id resourceid.ResourceId, candidates []resmap.ARMId2TFMapItem) (*resmap.ARMId2TFMapItem, error) {
+func Resolve(id armid.ResourceId, candidates []resmap.ARMId2TFMapItem) (*resmap.ARMId2TFMapItem, error) {
 	if len(candidates) == 0 {
 		return nil, fmt.Errorf("no candidates")
 	}

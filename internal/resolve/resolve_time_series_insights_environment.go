@@ -6,11 +6,11 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/timeseriesinsights/armtimeseriesinsights"
 	"github.com/magodo/aztft/internal/client"
-	"github.com/magodo/aztft/internal/resourceid"
+	"github.com/magodo/armid"
 )
 
-func resolveTimeSeriesInsightsEnvironment(b *client.ClientBuilder, id resourceid.ResourceId) (string, error) {
-	resourceGroupId := id.RootScope().(*resourceid.ResourceGroup)
+func resolveTimeSeriesInsightsEnvironment(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewTimeSeriesInsightEnvironmentsClient(resourceGroupId.SubscriptionId)
 	if err != nil {
 		return "", err

@@ -6,11 +6,11 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datafactory/armdatafactory"
 	"github.com/magodo/aztft/internal/client"
-	"github.com/magodo/aztft/internal/resourceid"
+	"github.com/magodo/armid"
 )
 
-func resolveDataFactoryTriggers(b *client.ClientBuilder, id resourceid.ResourceId) (string, error) {
-	resourceGroupId := id.RootScope().(*resourceid.ResourceGroup)
+func resolveDataFactoryTriggers(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewDataFactoryTriggersClient(resourceGroupId.SubscriptionId)
 	if err != nil {
 		return "", err

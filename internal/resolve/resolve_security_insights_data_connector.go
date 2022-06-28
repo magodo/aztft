@@ -6,11 +6,11 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2"
 	"github.com/magodo/aztft/internal/client"
-	"github.com/magodo/aztft/internal/resourceid"
+	"github.com/magodo/armid"
 )
 
-func resolveSecurityInsightsDataConnectors(b *client.ClientBuilder, id resourceid.ResourceId) (string, error) {
-	resourceGroupId := id.RootScope().(*resourceid.ResourceGroup)
+func resolveSecurityInsightsDataConnectors(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewSecurityInsightsDataConnectorsClient(resourceGroupId.SubscriptionId)
 	if err != nil {
 		return "", err

@@ -5,11 +5,11 @@ import (
 	"fmt"
 
 	"github.com/magodo/aztft/internal/client"
-	"github.com/magodo/aztft/internal/resourceid"
+	"github.com/magodo/armid"
 )
 
-func resolveAppServiceCertificates(b *client.ClientBuilder, id resourceid.ResourceId) (string, error) {
-	resourceGroupId := id.RootScope().(*resourceid.ResourceGroup)
+func resolveAppServiceCertificates(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewAppServiceCertificatesClient(resourceGroupId.SubscriptionId)
 	if err != nil {
 		return "", err

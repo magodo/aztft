@@ -18,7 +18,7 @@ import (
 
 	"errors"
 
-	"github.com/magodo/aztft/internal/resourceid"
+	"github.com/magodo/armid"
 )
 
 var (
@@ -286,7 +286,7 @@ func main() {
 	}
 	dir.Close()
 
-	m := map[string]resourceid.ResourceId{}
+	m := map[string]armid.ResourceId{}
 
 	for _, entry := range entries {
 		p := path.Join(rDir, entry)
@@ -339,7 +339,7 @@ func main() {
 	mapItems := resmap.TF2ARMIdMap{}
 	for rtype, id := range m {
 		var scopes []string
-		if _, ok := id.(resourceid.RootScope); !ok {
+		if _, ok := id.(armid.RootScope); !ok {
 			scopes = []string{id.ParentScope().ScopeString()}
 		}
 		mapItems[rtype] = resmap.TF2ARMIdMapItem{
@@ -364,7 +364,7 @@ func main() {
 	fmt.Println(string(b))
 }
 
-func parse(line string) (string, resourceid.ResourceId, error) {
+func parse(line string) (string, armid.ResourceId, error) {
 	fields := strings.Fields(line)
 	if len(fields) != 4 {
 		return "", nil, fmt.Errorf("%s: %w", line, ErrMalformedImportSpec)
@@ -388,7 +388,7 @@ func parse(line string) (string, resourceid.ResourceId, error) {
 		return rtype, nil, ErrSyntheticId
 	}
 
-	id, err := resourceid.ParseResourceId(idRaw)
+	id, err := armid.ParseResourceId(idRaw)
 	if err != nil {
 		return rtype, nil, fmt.Errorf("%w: %v", ErrParseIdFailed, err)
 	}

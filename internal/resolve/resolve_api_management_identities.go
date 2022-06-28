@@ -6,10 +6,10 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/apimanagement/armapimanagement"
 	"github.com/magodo/aztft/internal/client"
-	"github.com/magodo/aztft/internal/resourceid"
+	"github.com/magodo/armid"
 )
 
-func resolveApiManagementIdentities(b *client.ClientBuilder, id resourceid.ResourceId) (string, error) {
+func resolveApiManagementIdentities(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	it := id.Names()[1]
 	switch strings.ToUpper(it) {
 	case strings.ToUpper(string(armapimanagement.IdentityProviderTypeAAD)):
