@@ -2582,6 +2582,8 @@
     }
   },
   "azurerm_data_factory_integration_runtime_managed": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_data_factory_integration_runtime_azure_ssis`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"

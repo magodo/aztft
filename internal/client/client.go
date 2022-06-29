@@ -183,6 +183,14 @@ func (b *ClientBuilder) NewDataFactoryLinkedServicesClient(subscriptionId string
 	)
 }
 
+func (b *ClientBuilder) NewDataFactoryIntegrationRuntimesClient(subscriptionId string) (*armdatafactory.IntegrationRuntimesClient, error) {
+	return armdatafactory.NewIntegrationRuntimesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewAppServiceCertificatesClient(subscriptionId string) (*armappservice.CertificatesClient, error) {
 	return armappservice.NewCertificatesClient(
 		subscriptionId,
