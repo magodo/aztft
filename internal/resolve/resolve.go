@@ -87,6 +87,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.DATASHARE/ACCOUNTS/SHARES/DATASETS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDatashareDatasets,
 	},
+	"/MICROSOFT.HDINSIGHT/CLUSTERS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveHDInsightClusters,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
