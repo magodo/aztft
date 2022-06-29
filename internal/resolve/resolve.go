@@ -48,6 +48,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.DATAFACTORY/FACTORIES/DATASETS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDataFactoryDatasets,
 	},
+	"/MICROSOFT.DATAFACTORY/FACTORIES/LINKEDSERVICES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDataFactoryLinkedServices,
+	},
 	"/MICROSOFT.WEB/CERTIFICATES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppServiceCertificates,
 	},
