@@ -220,6 +220,14 @@ func (b *ClientBuilder) NewSecurityInsightsDataConnectorsClient(subscriptionId s
 	)
 }
 
+func (b *ClientBuilder) NewSecurityInsightsAlertRulesClient(subscriptionId string) (*armsecurityinsights.AlertRulesClient, error) {
+	return armsecurityinsights.NewAlertRulesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewOperationalInsightsDataSourcesClient(subscriptionId string) (*armoperationalinsights.DataSourcesClient, error) {
 	return armoperationalinsights.NewDataSourcesClient(
 		subscriptionId,

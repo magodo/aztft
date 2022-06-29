@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/magodo/armid"
 	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/aztft/internal/resmap"
-	"github.com/magodo/armid"
 )
 
 type resolveFunc func(*client.ClientBuilder, armid.ResourceId) (string, error)
@@ -65,6 +65,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	},
 	"/MICROSOFT.SECURITYINSIGHTS/DATACONNECTORS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS/MICROSOFT.OPERATIONALINSIGHTS/WORKSPACES": resolveSecurityInsightsDataConnectors,
+	},
+	"/MICROSOFT.SECURITYINSIGHTS/ALERTRULES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS/MICROSOFT.OPERATIONALINSIGHTS/WORKSPACES": resolveSecurityInsightsAlertRules,
 	},
 	"/MICROSOFT.OPERATIONALINSIGHTS/WORKSPACES/DATASOURCES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveOperationalInsightsDataSources,
