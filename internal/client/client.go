@@ -221,6 +221,14 @@ func (b *ClientBuilder) NewBotServiceBotsClient(subscriptionId string) (*armbots
 	)
 }
 
+func (b *ClientBuilder) NewBotServiceChannelsClient(subscriptionId string) (*armbotservice.ChannelsClient, error) {
+	return armbotservice.NewChannelsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewSecurityInsightsDataConnectorsClient(subscriptionId string) (*armsecurityinsights.DataConnectorsClient, error) {
 	return armsecurityinsights.NewDataConnectorsClient(
 		subscriptionId,
