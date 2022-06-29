@@ -310,3 +310,11 @@ func (b *ClientBuilder) NewStreamAnalyticsOutputsClient(subscriptionId string) (
 		clientOpt,
 	)
 }
+
+func (b *ClientBuilder) NewStreamAnalyticsFunctionsClient(subscriptionId string) (*armstreamanalytics.FunctionsClient, error) {
+	return armstreamanalytics.NewFunctionsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
