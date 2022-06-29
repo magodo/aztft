@@ -81,6 +81,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.APPPLATFORM/SPRING/APPS/BINDINGS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppPlatformBindings,
 	},
+	"/MICROSOFT.APPPLATFORM/SPRING/APPS/DEPLOYMENTS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppPlatformDeployments,
+	},
 	"/MICROSOFT.DATASHARE/ACCOUNTS/SHARES/DATASETS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDatashareDatasets,
 	},

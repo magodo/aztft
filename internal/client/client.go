@@ -261,6 +261,14 @@ func (b *ClientBuilder) NewAppPlatformBindingsClient(subscriptionId string) (*ar
 	)
 }
 
+func (b *ClientBuilder) NewAppPlatformDeploymentsClient(subscriptionId string) (*armappplatform.DeploymentsClient, error) {
+	return armappplatform.NewDeploymentsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewDatashareDatasetsClient(subscriptionId string) (*armdatashare.DataSetsClient, error) {
 	return armdatashare.NewDataSetsClient(
 		subscriptionId,

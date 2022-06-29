@@ -8,6 +8,8 @@ github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/apimanagement/armapimanage
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/apimanagement/armapimanagement v1.0.0/go.mod h1:gr6fiHmIii3Zw3riWMSr+P0tWTz4hfqTVcFttdi2JBo=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appplatform/armappplatform v1.0.0 h1:wgU84WluDEsqrgw/ZYLcOHN/NNaFAWa6EAUyzxasNeE=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appplatform/armappplatform v1.0.0/go.mod h1:yGK8WOLcIMXyT84rwf1EL3y5QU4XYYwczK70uWfBFmQ=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appplatform/armappplatform v1.1.0-beta.1 h1:hQJe8H6ZruSIWEzoNCB/GH9gGa7ntRDqaebxj8UeguI=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appplatform/armappplatform v1.1.0-beta.1/go.mod h1:yGK8WOLcIMXyT84rwf1EL3y5QU4XYYwczK70uWfBFmQ=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice v1.0.0 h1:kRX8I0dWAcpW6Vq0m90CgV+qw4O1vXodgwrhoPr1RWs=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice v1.0.0/go.mod h1:avvc5/7qR4taCvAhOM7KFXuEHhAU0Wek9YX7sh9H3EM=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automation/armautomation v0.6.0 h1:u0gaKivsSN9nJlgR4JeUnCnvPP9vXoM8Dv9IlgWvcD0=
