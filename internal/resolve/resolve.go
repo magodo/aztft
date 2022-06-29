@@ -96,6 +96,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/INPUTS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveStreamAnalyticsInputs,
 	},
+	"/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/OUTPUTS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveStreamAnalyticsOutputs,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.

@@ -9455,10 +9455,10 @@
       "provider": "Microsoft.StreamAnalytics",
       "types": [
         "streamingjobs",
-        "outputs"
+        "functions"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/outputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/functions"
       ]
     }
   },

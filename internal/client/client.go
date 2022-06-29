@@ -302,3 +302,11 @@ func (b *ClientBuilder) NewStreamAnalyticsInputsClient(subscriptionId string) (*
 		clientOpt,
 	)
 }
+
+func (b *ClientBuilder) NewStreamAnalyticsOutputsClient(subscriptionId string) (*armstreamanalytics.OutputsClient, error) {
+	return armstreamanalytics.NewOutputsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
