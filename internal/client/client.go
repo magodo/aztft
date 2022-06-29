@@ -17,6 +17,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datafactory/armdatafactory"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/dataprotection/armdataprotection"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datashare/armdatashare"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/devtestlabs/armdevtestlabs"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto"
@@ -238,6 +239,14 @@ func (b *ClientBuilder) NewOperationalInsightsDataSourcesClient(subscriptionId s
 
 func (b *ClientBuilder) NewAppPlatformBindingsClient(subscriptionId string) (*armappplatform.BindingsClient, error) {
 	return armappplatform.NewBindingsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewDatashareDatasetsClient(subscriptionId string) (*armdatashare.DataSetsClient, error) {
+	return armdatashare.NewDataSetsClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,
