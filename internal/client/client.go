@@ -198,6 +198,14 @@ func (b *ClientBuilder) NewTimeSeriesInsightEnvironmentsClient(subscriptionId st
 	)
 }
 
+func (b *ClientBuilder) NewTimeSeriesInsightEventSourcesClient(subscriptionId string) (*armtimeseriesinsights.EventSourcesClient, error) {
+	return armtimeseriesinsights.NewEventSourcesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewStorageCacheTargetsClient(subscriptionId string) (*armstoragecache.StorageTargetsClient, error) {
 	return armstoragecache.NewStorageTargetsClient(
 		subscriptionId,
