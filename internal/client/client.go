@@ -167,6 +167,14 @@ func (b *ClientBuilder) NewDataFactoryTriggersClient(subscriptionId string) (*ar
 	)
 }
 
+func (b *ClientBuilder) NewDataFactoryDatasetsClient(subscriptionId string) (*armdatafactory.DatasetsClient, error) {
+	return armdatafactory.NewDatasetsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewAppServiceCertificatesClient(subscriptionId string) (*armappservice.CertificatesClient, error) {
 	return armappservice.NewCertificatesClient(
 		subscriptionId,
