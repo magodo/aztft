@@ -109,6 +109,14 @@ func (b *ClientBuilder) NewDevTestVirtualMachinesClient(subscriptionId string) (
 	)
 }
 
+func (b *ClientBuilder) NewRecoveryservicesBackupProtectedItemsClient(subscriptionId string) (*armrecoveryservicesbackup.ProtectedItemsClient, error) {
+	return armrecoveryservicesbackup.NewProtectedItemsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewRecoveryServicesBackupProtectionPoliciesClient(subscriptionId string) (*armrecoveryservicesbackup.ProtectionPoliciesClient, error) {
 	return armrecoveryservicesbackup.NewProtectionPoliciesClient(
 		subscriptionId,
