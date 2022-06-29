@@ -27,6 +27,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagecache/armstoragecache"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/streamanalytics/armstreamanalytics"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/timeseriesinsights/armtimeseriesinsights"
 )
@@ -288,6 +289,14 @@ func (b *ClientBuilder) NewDatashareDatasetsClient(subscriptionId string) (*armd
 
 func (b *ClientBuilder) NewHDInsightClustersClient(subscriptionId string) (*armhdinsight.ClustersClient, error) {
 	return armhdinsight.NewClustersClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewStreamAnalyticsInputsClient(subscriptionId string) (*armstreamanalytics.InputsClient, error) {
+	return armstreamanalytics.NewInputsClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,

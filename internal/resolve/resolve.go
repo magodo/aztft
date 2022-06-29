@@ -93,6 +93,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.HDINSIGHT/CLUSTERS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveHDInsightClusters,
 	},
+	"/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/INPUTS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveStreamAnalyticsInputs,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
