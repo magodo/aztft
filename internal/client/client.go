@@ -368,3 +368,11 @@ func (b *ClientBuilder) NewAppServiceWebAppsClient(subscriptionId string) (*arma
 		clientOpt,
 	)
 }
+
+func (b *ClientBuilder) NewAppServiceEnvironmentsClient(subscriptionId string) (*armappservice.EnvironmentsClient, error) {
+	return armappservice.NewEnvironmentsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}

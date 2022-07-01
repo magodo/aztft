@@ -126,6 +126,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.WEB/SITES/HYBRIDCONNECTIONNAMESPACES/RELAYS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppServiceSiteHybridConnections,
 	},
+	"/MICROSOFT.WEB/HOSTINGENVIRONMENTS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppServiceEnvironemnts,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
