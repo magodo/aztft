@@ -9,7 +9,24 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveStreamAnalyticsOutputs(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type streamAnalyticsOutputsResolver struct{}
+
+func (streamAnalyticsOutputsResolver) ResourceTypes() []string {
+	return []string{
+		"azurerm_stream_analytics_output_servicebus_topic",
+		"azurerm_stream_analytics_output_blob",
+		"azurerm_stream_analytics_output_mssql",
+		"azurerm_stream_analytics_output_table",
+		"azurerm_stream_analytics_output_cosmosdb",
+		"azurerm_stream_analytics_output_servicebus_queue",
+		"azurerm_stream_analytics_output_eventhub",
+		"azurerm_stream_analytics_output_powerbi",
+		"azurerm_stream_analytics_output_synapse",
+		"azurerm_stream_analytics_output_function",
+	}
+}
+
+func (streamAnalyticsOutputsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewStreamAnalyticsOutputsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

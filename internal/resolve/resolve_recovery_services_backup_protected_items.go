@@ -9,7 +9,13 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveRecoveryServicesBackupProtectedItems(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type recoveryServicesBackupProtectedItemsResolver struct{}
+
+func (recoveryServicesBackupProtectedItemsResolver) ResourceTypes() []string {
+	return []string{"azurerm_backup_protected_vm", "azurerm_backup_protected_file_share"}
+}
+
+func (recoveryServicesBackupProtectedItemsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewRecoveryservicesBackupProtectedItemsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

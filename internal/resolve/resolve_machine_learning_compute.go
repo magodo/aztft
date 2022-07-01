@@ -5,11 +5,22 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveMachineLearningComputes(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type machineLearningComputesResolver struct{}
+
+func (machineLearningComputesResolver) ResourceTypes() []string {
+	return []string{
+		"azurerm_machine_learning_compute_instance",
+		"azurerm_machine_learning_synapse_spark",
+		"azurerm_machine_learning_compute_cluster",
+		"azurerm_machine_learning_inference_cluster",
+	}
+}
+
+func (machineLearningComputesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewMachineLearningComputeClient(resourceGroupId.SubscriptionId)
 	if err != nil {

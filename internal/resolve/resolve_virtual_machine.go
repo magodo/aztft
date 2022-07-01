@@ -4,11 +4,17 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveVirtualMachines(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type virtualMachinesResolver struct{}
+
+func (virtualMachinesResolver) ResourceTypes() []string {
+	return []string{"azurerm_linux_virtual_machine", "azurerm_windows_virtual_machine"}
+}
+
+func (virtualMachinesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewVirtualMachinesClient(resourceGroupId.SubscriptionId)
 	if err != nil {

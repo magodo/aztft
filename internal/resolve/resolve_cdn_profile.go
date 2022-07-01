@@ -9,7 +9,13 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveCdnProfiles(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type cdnProfilesResolver struct{}
+
+func (cdnProfilesResolver) ResourceTypes() []string {
+	return []string{"azurerm_cdn_frontdoor_profile", "azurerm_cdn_profile"}
+}
+
+func (cdnProfilesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewCdnProfilesClient(resourceGroupId.SubscriptionId)
 	if err != nil {

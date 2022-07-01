@@ -4,11 +4,22 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveAutomationConnections(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type automationConnectionsResolver struct{}
+
+func (automationConnectionsResolver) ResourceTypes() []string {
+	return []string{
+		"azurerm_automation_connection_service_principal",
+		"azurerm_automation_connection_certificate",
+		"azurerm_automation_connection_classic_certificate",
+		"azurerm_automation_connection",
+	}
+}
+
+func (automationConnectionsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewAutomationConnectionClient(resourceGroupId.SubscriptionId)
 	if err != nil {

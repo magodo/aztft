@@ -5,11 +5,17 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveVirtualMachineScaleSets(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type virtualMachineScaleSetsResolver struct{}
+
+func (virtualMachineScaleSetsResolver) ResourceTypes() []string {
+	return []string{"azurerm_orchestrated_virtual_machine_scale_set", "azurerm_linux_virtual_machine_scale_set", "azurerm_windows_virtual_machine_scale_set"}
+}
+
+func (virtualMachineScaleSetsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewVirtualMachineScaleSetsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

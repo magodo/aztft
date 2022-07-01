@@ -8,7 +8,13 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveAppServiceEnvironemnts(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type appServiceEnvironemntsResolver struct{}
+
+func (appServiceEnvironemntsResolver) ResourceTypes() []string {
+	return []string{"azurerm_app_service_environment", "azurerm_app_service_environment_v3"}
+}
+
+func (appServiceEnvironemntsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewAppServiceEnvironmentsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

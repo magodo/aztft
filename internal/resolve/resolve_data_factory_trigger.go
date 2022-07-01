@@ -5,11 +5,22 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datafactory/armdatafactory"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveDataFactoryTriggers(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type dataFactoryTriggersResolver []struct{}
+
+func (dataFactoryTriggersResolver) ResourceTypes() []string {
+	return []string{
+		"azurerm_data_factory_trigger_blob_event",
+		"azurerm_data_factory_schedule_trigger",
+		"azurerm_data_factory_trigger_custom_event",
+		"azurerm_data_factory_trigger_tumbling_window",
+	}
+}
+
+func (dataFactoryTriggersResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewDataFactoryTriggersClient(resourceGroupId.SubscriptionId)
 	if err != nil {

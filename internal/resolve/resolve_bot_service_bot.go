@@ -5,11 +5,17 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/botservice/armbotservice"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveBotServiceBots(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type botServiceBotsResolver struct{}
+
+func (botServiceBotsResolver) ResourceTypes() []string {
+	return []string{"azurerm_bot_service_azure_bot", "azurerm_bot_channels_registration", "azurerm_bot_web_app"}
+}
+
+func (botServiceBotsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewBotServiceBotsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

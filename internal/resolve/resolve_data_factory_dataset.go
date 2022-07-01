@@ -9,7 +9,26 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveDataFactoryDatasets(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type dataFactoryDatasetsResolver struct{}
+
+func (dataFactoryDatasetsResolver) ResourceTypes() []string {
+	return []string{
+		"azurerm_data_factory_dataset_postgresql",
+		"azurerm_data_factory_dataset_snowflake",
+		"azurerm_data_factory_dataset_parquet",
+		"azurerm_data_factory_custom_dataset",
+		"azurerm_data_factory_dataset_json",
+		"azurerm_data_factory_dataset_azure_blob",
+		"azurerm_data_factory_dataset_delimited_text",
+		"azurerm_data_factory_dataset_cosmosdb_sqlapi",
+		"azurerm_data_factory_dataset_sql_server_table",
+		"azurerm_data_factory_dataset_http",
+		"azurerm_data_factory_dataset_binary",
+		"azurerm_data_factory_dataset_mysql",
+	}
+}
+
+func (dataFactoryDatasetsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewDataFactoryDatasetsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

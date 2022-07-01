@@ -11,26 +11,26 @@ var (
 	//go:embed map.json
 	mappingContent []byte
 
-	ARMId2TFMap armId2TFMap
+	TF2ARMIdMap TF2ARMIdMapType
+	ARMId2TFMap ARMId2TFMapType
 
 	once sync.Once
 )
 
 func Init() {
 	once.Do(func() {
-		var m TF2ARMIdMap
-		if err := json.Unmarshal(mappingContent, &m); err != nil {
+		if err := json.Unmarshal(mappingContent, &TF2ARMIdMap); err != nil {
 			panic(err.Error())
 		}
 		var err error
-		if ARMId2TFMap, err = m.toARM2TFMap(); err != nil {
+		if ARMId2TFMap, err = TF2ARMIdMap.toARM2TFMap(); err != nil {
 			panic(err.Error())
 		}
 	})
 }
 
-// TF2ARMIdMap maps from TF resource type to the ARM item
-type TF2ARMIdMap map[string]TF2ARMIdMapItem
+// TF2ARMIdMapType maps from TF resource type to the ARM item
+type TF2ARMIdMapType map[string]TF2ARMIdMapItem
 
 type TF2ARMIdMapItem struct {
 	ManagementPlane *MapManagementPlane `json:"management_plane,omitempty"`
@@ -56,16 +56,16 @@ type MapManagementPlane struct {
 	ImportSpecs []string `json:"import_specs,omitempty"`
 }
 
-// armId2TFMap maps from "<provider>/<types>" (routing scope) to "<parent scope string> | any" to the TF item(s)
-type armId2TFMap map[string]map[string][]ARMId2TFMapItem
+// ARMId2TFMapType maps from "<provider>/<types>" (routing scope) to "<parent scope string> | any" to the TF item(s)
+type ARMId2TFMapType map[string]map[string][]ARMId2TFMapItem
 
 type ARMId2TFMapItem struct {
 	ResourceType string
 	ImportSpec   string
 }
 
-func (mps TF2ARMIdMap) toARM2TFMap() (armId2TFMap, error) {
-	out := armId2TFMap{}
+func (mps TF2ARMIdMapType) toARM2TFMap() (ARMId2TFMapType, error) {
+	out := ARMId2TFMapType{}
 	for rt, item := range mps {
 		if item.IsRemoved {
 			continue

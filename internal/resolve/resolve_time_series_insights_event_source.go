@@ -9,7 +9,13 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveTimeSeriesInsightsEventSources(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type timeSeriesInsightsEventSourcesResolver struct{}
+
+func (timeSeriesInsightsEventSourcesResolver) ResourceTypes() []string {
+	return []string{"azurerm_iot_time_series_insights_event_source_iothub", "azurerm_iot_time_series_insights_event_source_eventhub"}
+}
+
+func (timeSeriesInsightsEventSourcesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewTimeSeriesInsightEventSourcesClient(resourceGroupId.SubscriptionId)
 	if err != nil {

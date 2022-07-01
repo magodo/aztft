@@ -4,11 +4,17 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveAppPlatformBindings(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type appPlatformBindingsResolver struct{}
+
+func (appPlatformBindingsResolver) ResourceTypes() []string {
+	return []string{"azurerm_spring_cloud_app_cosmosdb_association", "azurerm_spring_cloud_app_redis_association", "azurerm_spring_cloud_app_mysql_association"}
+}
+
+func (appPlatformBindingsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewAppPlatformBindingsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

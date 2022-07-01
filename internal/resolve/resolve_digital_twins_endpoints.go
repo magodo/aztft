@@ -5,11 +5,17 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveDigitalTwinsEndpoints(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type digitalTwinsEndpointsResolver struct{}
+
+func (digitalTwinsEndpointsResolver) ResourceTypes() []string {
+	return []string{"azurerm_digital_twins_endpoint_eventgrid", "azurerm_digital_twins_endpoint_eventhub", "azurerm_digital_twins_endpoint_servicebus"}
+}
+
+func (digitalTwinsEndpointsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewDigitalTwinsEndpointsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

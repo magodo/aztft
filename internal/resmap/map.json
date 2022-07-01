@@ -10567,6 +10567,8 @@
     }
   },
   "azurerm_virtual_machine": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_linux_virtual_machine` and `azurerm_windows_virtual_machine`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -10611,6 +10613,8 @@
     }
   },
   "azurerm_virtual_machine_scale_set": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_linux_virtual_machine_scale_set` and `azurerm_windows_virtual_machine_scale_set`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"

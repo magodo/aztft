@@ -9,7 +9,24 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveBotServiceChannels(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type botServiceChannelsResolver struct{}
+
+func (botServiceChannelsResolver) ResourceTypes() []string {
+	return []string{
+		"azurerm_bot_channel_directline",
+		"azurerm_bot_channel_sms",
+		"azurerm_bot_channel_line",
+		"azurerm_bot_channel_alexa",
+		"azurerm_bot_channel_direct_line_speech",
+		"azurerm_bot_channel_slack",
+		"azurerm_bot_channel_facebook",
+		"azurerm_bot_channel_email",
+		"azurerm_bot_channel_ms_teams",
+		"azurerm_bot_channel_web_chat",
+	}
+}
+
+func (botServiceChannelsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewBotServiceChannelsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

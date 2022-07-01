@@ -5,11 +5,17 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveSynapseIntegrationRuntimes(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type synapseIntegrationRuntimesResolver struct{}
+
+func (synapseIntegrationRuntimesResolver) ResourceTypes() []string {
+	return []string{"azurerm_synapse_integration_runtime_azure", "azurerm_synapse_integration_runtime_self_hosted"}
+}
+
+func (synapseIntegrationRuntimesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewSynapseIntegrationRuntimesClient(resourceGroupId.SubscriptionId)
 	if err != nil {

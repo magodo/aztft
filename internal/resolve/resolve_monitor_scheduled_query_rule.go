@@ -9,7 +9,13 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveMonitorScheduledQueryRules(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type monitorScheduledQueryRulesResolver struct{}
+
+func (monitorScheduledQueryRulesResolver) ResourceTypes() []string {
+	return []string{"azurerm_monitor_scheduled_query_rules_alert", "azurerm_monitor_scheduled_query_rules_log"}
+}
+
+func (monitorScheduledQueryRulesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewMonitorScheduledQueryRulesClient(resourceGroupId.SubscriptionId)
 	if err != nil {

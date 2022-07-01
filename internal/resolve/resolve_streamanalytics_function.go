@@ -9,7 +9,13 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveStreamAnalyticsFunctions(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type streamAnalyticsFunctionsResolver struct{}
+
+func (streamAnalyticsFunctionsResolver) ResourceTypes() []string {
+	return []string{"azurerm_stream_analytics_function_javascript_uda", "azurerm_stream_analytics_function_javascript_udf"}
+}
+
+func (streamAnalyticsFunctionsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewStreamAnalyticsFunctionsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

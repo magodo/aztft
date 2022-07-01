@@ -5,11 +5,17 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveDataProtectionBackupInstances(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type dataProtectionBackupInstancesResolver struct{}
+
+func (dataProtectionBackupInstancesResolver) ResourceTypes() []string {
+	return []string{"azurerm_data_protection_backup_instance_postgresql", "azurerm_data_protection_backup_instance_disk", "azurerm_data_protection_backup_instance_blob_storage"}
+}
+
+func (dataProtectionBackupInstancesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewDataProtectionBackupInstancesClient(resourceGroupId.SubscriptionId)
 	if err != nil {

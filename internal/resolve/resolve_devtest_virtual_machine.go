@@ -4,11 +4,17 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveDevTestVirtualMachines(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type devTestVirtualMachinesResolver struct{}
+
+func (devTestVirtualMachinesResolver) ResourceTypes() []string {
+	return []string{"azurerm_dev_test_linux_virtual_machine", "azurerm_dev_test_windows_virtual_machine"}
+}
+
+func (devTestVirtualMachinesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewDevTestVirtualMachinesClient(resourceGroupId.SubscriptionId)
 	if err != nil {

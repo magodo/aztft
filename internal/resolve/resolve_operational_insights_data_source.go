@@ -5,11 +5,17 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/operationalinsights/armoperationalinsights"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveOperationalInsightsDataSources(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type operationalInsightsDataSourcesResolver struct{}
+
+func (operationalInsightsDataSourcesResolver) ResourceTypes() []string {
+	return []string{"azurerm_log_analytics_datasource_windows_performance_counter", "azurerm_log_analytics_datasource_windows_event"}
+}
+
+func (operationalInsightsDataSourcesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewOperationalInsightsDataSourcesClient(resourceGroupId.SubscriptionId)
 	if err != nil {

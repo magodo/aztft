@@ -5,11 +5,17 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/timeseriesinsights/armtimeseriesinsights"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveTimeSeriesInsightsEnvironment(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type timeSeriesInsightsEnvironmentResolver struct{}
+
+func (timeSeriesInsightsEnvironmentResolver) ResourceTypes() []string {
+	return []string{"azurerm_iot_time_series_environment", "azurerm_iot_time_series_insights_gen2_environment"}
+}
+
+func (timeSeriesInsightsEnvironmentResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewTimeSeriesInsightEnvironmentsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

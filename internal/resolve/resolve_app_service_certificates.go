@@ -4,11 +4,17 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveAppServiceCertificates(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type appServiceCertificatesResolver struct{}
+
+func (appServiceCertificatesResolver) ResourceTypes() []string {
+	return []string{"azurerm_app_service_certificate", "azurerm_app_service_managed_certificate"}
+}
+
+func (appServiceCertificatesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewAppServiceCertificatesClient(resourceGroupId.SubscriptionId)
 	if err != nil {

@@ -5,11 +5,17 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagecache/armstoragecache"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveStorageCacheTargets(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type storageCacheTargetsResolver struct{}
+
+func (storageCacheTargetsResolver) ResourceTypes() []string {
+	return []string{"azurerm_hpc_cache_blob_nfs_target", "azurerm_hpc_cache_blob_target", "azurerm_hpc_cache_nfs_target"}
+}
+
+func (storageCacheTargetsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewStorageCacheTargetsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

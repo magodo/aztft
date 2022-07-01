@@ -5,11 +5,24 @@ import (
 	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/apimanagement/armapimanagement"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveApiManagementIdentities(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type apiManagementIdentitiesResolver struct{}
+
+func (apiManagementIdentitiesResolver) ResourceTypes() []string {
+	return []string{
+		"azurerm_api_management_identity_provider_aad",
+		"azurerm_api_management_identity_provider_aadb2c",
+		"azurerm_api_management_identity_provider_facebook",
+		"azurerm_api_management_identity_provider_google",
+		"azurerm_api_management_identity_provider_microsoft",
+		"azurerm_api_management_identity_provider_twitter",
+	}
+}
+
+func (apiManagementIdentitiesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	it := id.Names()[1]
 	switch strings.ToUpper(it) {
 	case strings.ToUpper(string(armapimanagement.IdentityProviderTypeAAD)):

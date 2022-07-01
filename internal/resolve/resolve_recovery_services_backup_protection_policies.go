@@ -5,11 +5,17 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveRecoveryServicesBackupProtectionPolicies(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type recoveryServicesBackupProtectionPoliciesResolver struct{}
+
+func (recoveryServicesBackupProtectionPoliciesResolver) ResourceTypes() []string {
+	return []string{"azurerm_backup_policy_vm", "azurerm_backup_policy_file_share"}
+}
+
+func (recoveryServicesBackupProtectionPoliciesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewRecoveryServicesBackupProtectionPoliciesClient(resourceGroupId.SubscriptionId)
 	if err != nil {

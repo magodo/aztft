@@ -9,7 +9,13 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveDataFactoryIntegrationRuntimes(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type dataFactoryIntegrationRuntimesResolver struct{}
+
+func (dataFactoryIntegrationRuntimesResolver) ResourceTypes() []string {
+	return []string{"azurerm_data_factory_integration_runtime_azure_ssis", "azurerm_data_factory_integration_runtime_azure", "azurerm_data_factory_integration_runtime_self_hosted"}
+}
+
+func (dataFactoryIntegrationRuntimesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewDataFactoryIntegrationRuntimesClient(resourceGroupId.SubscriptionId)
 	if err != nil {

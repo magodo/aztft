@@ -9,7 +9,19 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveAppServiceSites(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type appServiceSitesResolver struct{}
+
+func (appServiceSitesResolver) ResourceTypes() []string {
+	return []string{
+		"azurerm_logic_app_standard",
+		"azurerm_linux_function_app",
+		"azurerm_windows_function_app",
+		"azurerm_linux_web_app",
+		"azurerm_windows_web_app",
+	}
+}
+
+func (appServiceSitesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewAppServiceWebAppsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

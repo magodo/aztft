@@ -5,11 +5,17 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveKustoDataConnections(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type kustoDataConnectionsResolver struct{}
+
+func (kustoDataConnectionsResolver) ResourceTypes() []string {
+	return []string{"azurerm_kusto_eventgrid_data_connection", "azurerm_kusto_eventhub_data_connection", "azurerm_kusto_iothub_data_connection"}
+}
+
+func (kustoDataConnectionsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewKustoDataConnectionsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

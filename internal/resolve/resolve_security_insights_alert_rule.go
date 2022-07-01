@@ -9,7 +9,18 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveSecurityInsightsAlertRules(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type securityInsightsAlertRulesResolver struct{}
+
+func (securityInsightsAlertRulesResolver) ResourceTypes() []string {
+	return []string{
+		"azurerm_sentinel_alert_rule_fusion",
+		"azurerm_sentinel_alert_rule_machine_learning_behavior_analytics",
+		"azurerm_sentinel_alert_rule_ms_security_incident",
+		"azurerm_sentinel_alert_rule_scheduled",
+	}
+}
+
+func (securityInsightsAlertRulesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewSecurityInsightsAlertRulesClient(resourceGroupId.SubscriptionId)
 	if err != nil {

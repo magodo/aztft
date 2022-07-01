@@ -336,7 +336,7 @@ func main() {
 		}
 	}
 
-	mapItems := resmap.TF2ARMIdMap{}
+	mapItems := resmap.TF2ARMIdMapType{}
 	for rtype, id := range m {
 		var scopes []string
 		if _, ok := id.(armid.RootScope); !ok {

@@ -7,9 +7,15 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveAppServiceSiteHybridConnections(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type appServiceSiteHybridConnectionsResolver struct{}
+
+func (appServiceSiteHybridConnectionsResolver) ResourceTypes() []string {
+	return []string{"azurerm_web_app_hybrid_connection", "azurerm_function_app_hybrid_connection"}
+}
+
+func (appServiceSiteHybridConnectionsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	// Resolve the resource type by resolving its parent resource, i.e. the sites.
-	rt, err := resolveAppServiceSites(b, id.Parent().Parent())
+	rt, err := appServiceSitesResolver{}.Resolve(b, id.Parent().Parent())
 	if err != nil {
 		return "", err
 	}

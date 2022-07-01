@@ -9,7 +9,18 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveDatashareDatasets(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type datashareDatasetsResolver struct{}
+
+func (datashareDatasetsResolver) ResourceTypes() []string {
+	return []string{
+		"azurerm_data_share_dataset_kusto_cluster",
+		"azurerm_data_share_dataset_data_lake_gen2",
+		"azurerm_data_share_dataset_kusto_database",
+		"azurerm_data_share_dataset_blob_storage",
+	}
+}
+
+func (datashareDatasetsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewDatashareDatasetsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

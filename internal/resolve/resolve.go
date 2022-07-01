@@ -9,125 +9,128 @@ import (
 	"github.com/magodo/aztft/internal/resmap"
 )
 
-type resolveFunc func(*client.ClientBuilder, armid.ResourceId) (string, error)
+type resolver interface {
+	Resolve(*client.ClientBuilder, armid.ResourceId) (string, error)
+	ResourceTypes() []string
+}
 
-var Resolvers = map[string]map[string]resolveFunc{
+var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.COMPUTE/VIRTUALMACHINES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveVirtualMachines,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": virtualMachinesResolver{},
 	},
 	"/MICROSOFT.COMPUTE/VIRTUALMACHINESCALESETS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveVirtualMachineScaleSets,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": virtualMachineScaleSetsResolver{},
 	},
 	"/MICROSOFT.DEVTESTLAB/LABS/VIRTUALMACHINES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDevTestVirtualMachines,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": devTestVirtualMachinesResolver{},
 	},
 	"/MICROSOFT.APIMANAGEMENT/SERVICE/IDENTITYPROVIDERS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveApiManagementIdentities,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": apiManagementIdentitiesResolver{},
 	},
 	"/MICROSOFT.RECOVERYSERVICES/VAULTS/BACKUPPOLICIES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveRecoveryServicesBackupProtectionPolicies,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": recoveryServicesBackupProtectionPoliciesResolver{},
 	},
 	"/MICROSOFT.RECOVERYSERVICES/VAULTS/BACKUPFABRICS/PROTECTIONCONTAINERS/PROTECTEDITEMS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveRecoveryServicesBackupProtectedItems,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": recoveryServicesBackupProtectedItemsResolver{},
 	},
 	"/MICROSOFT.DATAPROTECTION/BACKUPVAULTS/BACKUPPOLICIES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDataProtectionBackupPolicies,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": dataProtectionBackupPoliciesResolver{},
 	},
 	"/MICROSOFT.DATAPROTECTION/BACKUPVAULTS/BACKUPINSTANCES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDataProtectionBackupInstances,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": dataProtectionBackupInstancesResolver{},
 	},
 	"/MICROSOFT.SYNAPSE/WORKSPACES/INTEGRATIONRUNTIMES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveSynapseIntegrationRuntimes,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": synapseIntegrationRuntimesResolver{},
 	},
 	"/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/ENDPOINTS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDigitalTwinsEndpoints,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": digitalTwinsEndpointsResolver{},
 	},
 	"/MICROSOFT.DATAFACTORY/FACTORIES/TRIGGERS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDataFactoryTriggers,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": dataFactoryTriggersResolver{},
 	},
 	"/MICROSOFT.DATAFACTORY/FACTORIES/DATASETS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDataFactoryDatasets,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": dataFactoryDatasetsResolver{},
 	},
 	"/MICROSOFT.DATAFACTORY/FACTORIES/LINKEDSERVICES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDataFactoryLinkedServices,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": dataFactoryLinkedServicesResolver{},
 	},
 	"/MICROSOFT.DATAFACTORY/FACTORIES/INTEGRATIONRUNTIMES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDataFactoryIntegrationRuntimes,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": dataFactoryIntegrationRuntimesResolver{},
 	},
 	"/MICROSOFT.KUSTO/CLUSTERS/DATABASES/DATACONNECTIONS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveKustoDataConnections,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": kustoDataConnectionsResolver{},
 	},
 	"/MICROSOFT.MACHINELEARNINGSERVICES/WORKSPACES/COMPUTES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveMachineLearningComputes,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": machineLearningComputesResolver{},
 	},
 	"/MICROSOFT.TIMESERIESINSIGHTS/ENVIRONMENTS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveTimeSeriesInsightsEnvironment,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": timeSeriesInsightsEnvironmentResolver{},
 	},
 	"/MICROSOFT.TIMESERIESINSIGHTS/ENVIRONMENTS/EVENTSOURCES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveTimeSeriesInsightsEventSources,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": timeSeriesInsightsEventSourcesResolver{},
 	},
 	"/MICROSOFT.STORAGECACHE/CACHES/STORAGETARGETS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveStorageCacheTargets,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": storageCacheTargetsResolver{},
 	},
 	"/MICROSOFT.AUTOMATION/AUTOMATIONACCOUNTS/CONNECTIONS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAutomationConnections,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": automationConnectionsResolver{},
 	},
 	"/MICROSOFT.BOTSERVICE/BOTSERVICES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveBotServiceBots,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": botServiceBotsResolver{},
 	},
 	"/MICROSOFT.BOTSERVICE/BOTSERVICES/CHANNELS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveBotServiceChannels,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": botServiceChannelsResolver{},
 	},
 	"/MICROSOFT.SECURITYINSIGHTS/DATACONNECTORS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS/MICROSOFT.OPERATIONALINSIGHTS/WORKSPACES": resolveSecurityInsightsDataConnectors,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS/MICROSOFT.OPERATIONALINSIGHTS/WORKSPACES": securityInsightsDataConnectorsResolver{},
 	},
 	"/MICROSOFT.SECURITYINSIGHTS/ALERTRULES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS/MICROSOFT.OPERATIONALINSIGHTS/WORKSPACES": resolveSecurityInsightsAlertRules,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS/MICROSOFT.OPERATIONALINSIGHTS/WORKSPACES": securityInsightsAlertRulesResolver{},
 	},
 	"/MICROSOFT.OPERATIONALINSIGHTS/WORKSPACES/DATASOURCES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveOperationalInsightsDataSources,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": operationalInsightsDataSourcesResolver{},
 	},
 	"/MICROSOFT.APPPLATFORM/SPRING/APPS/BINDINGS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppPlatformBindings,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": appPlatformBindingsResolver{},
 	},
 	"/MICROSOFT.APPPLATFORM/SPRING/APPS/DEPLOYMENTS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppPlatformDeployments,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": appPlatformDeploymentsResolver{},
 	},
 	"/MICROSOFT.DATASHARE/ACCOUNTS/SHARES/DATASETS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDatashareDatasets,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": datashareDatasetsResolver{},
 	},
 	"/MICROSOFT.HDINSIGHT/CLUSTERS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveHDInsightClusters,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": hdInsightClustersResolver{},
 	},
 	"/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/INPUTS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveStreamAnalyticsInputs,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": streamAnalyticsInputsResolver{},
 	},
 	"/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/OUTPUTS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveStreamAnalyticsOutputs,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": streamAnalyticsOutputsResolver{},
 	},
 	"/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/FUNCTIONS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveStreamAnalyticsFunctions,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": streamAnalyticsFunctionsResolver{},
 	},
 	"/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveMonitorScheduledQueryRules,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": monitorScheduledQueryRulesResolver{},
 	},
 	"/MICROSOFT.CDN/PROFILES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveCdnProfiles,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": cdnProfilesResolver{},
 	},
 	"/MICROSOFT.WEB/CERTIFICATES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppServiceCertificates,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": appServiceCertificatesResolver{},
 	},
 	"/MICROSOFT.WEB/SITES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppServiceSites,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": appServiceSitesResolver{},
 	},
 	"/MICROSOFT.WEB/SITES/SLOTS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppServiceSiteSlots,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": appServiceSiteSlotsResolver{},
 	},
 	"/MICROSOFT.WEB/SITES/HYBRIDCONNECTIONNAMESPACES/RELAYS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppServiceSiteHybridConnections,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": appServiceSiteHybridConnectionsResolver{},
 	},
 	"/MICROSOFT.WEB/HOSTINGENVIRONMENTS": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppServiceEnvironemnts,
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": appServiceEnvironemntsResolver{},
 	},
 }
 
@@ -153,8 +156,8 @@ func Resolve(id armid.ResourceId, candidates []resmap.ARMId2TFMapItem) (*resmap.
 	}
 
 	if m, ok := Resolvers[routeKey]; ok {
-		if f, ok := m[parentScopeKey]; ok {
-			rt, err := f(b, id)
+		if resolver, ok := m[parentScopeKey]; ok {
+			rt, err := resolver.Resolve(b, id)
 			if err != nil {
 				return nil, fmt.Errorf("resolving %q: %v", id, err)
 			}

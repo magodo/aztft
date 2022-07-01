@@ -5,11 +5,27 @@ import (
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2"
-	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/armid"
+	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveSecurityInsightsDataConnectors(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type securityInsightsDataConnectorsResolver struct{}
+
+func (securityInsightsDataConnectorsResolver) ResourceTypes() []string {
+	return []string{
+		"azurerm_sentinel_data_connector_microsoft_cloud_app_security",
+		"azurerm_sentinel_data_connector_azure_active_directory",
+		"azurerm_sentinel_data_connector_office_365",
+		"azurerm_sentinel_data_connector_threat_intelligence",
+		"azurerm_sentinel_data_connector_aws_s3",
+		"azurerm_sentinel_data_connector_aws_cloud_trail",
+		"azurerm_sentinel_data_connector_azure_security_center",
+		"azurerm_sentinel_data_connector_microsoft_defender_advanced_threat_protection",
+		"azurerm_sentinel_data_connector_azure_advanced_threat_protection",
+	}
+}
+
+func (securityInsightsDataConnectorsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewSecurityInsightsDataConnectorsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

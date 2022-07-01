@@ -9,7 +9,19 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveHDInsightClusters(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type hdInsightClustersResolver struct{}
+
+func (hdInsightClustersResolver) ResourceTypes() []string {
+	return []string{
+		"azurerm_hdinsight_kafka_cluster",
+		"azurerm_hdinsight_hadoop_cluster",
+		"azurerm_hdinsight_spark_cluster",
+		"azurerm_hdinsight_hbase_cluster",
+		"azurerm_hdinsight_interactive_query_cluster",
+	}
+}
+
+func (hdInsightClustersResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewHDInsightClustersClient(resourceGroupId.SubscriptionId)
 	if err != nil {

@@ -9,7 +9,13 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func resolveAppPlatformDeployments(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
+type appPlatformDeploymentsResolver struct{}
+
+func (appPlatformDeploymentsResolver) ResourceTypes() []string {
+	return []string{"azurerm_spring_cloud_build_deployment", "azurerm_spring_cloud_java_deployment", "azurerm_spring_cloud_container_deployment"}
+}
+
+func (appPlatformDeploymentsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewAppPlatformDeploymentsClient(resourceGroupId.SubscriptionId)
 	if err != nil {
