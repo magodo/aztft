@@ -14,6 +14,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automation/armautomation"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/botservice/armbotservice"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/cdn/armcdn"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datafactory/armdatafactory"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/dataprotection/armdataprotection"
@@ -346,6 +347,14 @@ func (b *ClientBuilder) NewStreamAnalyticsFunctionsClient(subscriptionId string)
 
 func (b *ClientBuilder) NewMonitorScheduledQueryRulesClient(subscriptionId string) (*armmonitor.ScheduledQueryRulesClient, error) {
 	return armmonitor.NewScheduledQueryRulesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewCdnProfilesClient(subscriptionId string) (*armcdn.ProfilesClient, error) {
+	return armcdn.NewProfilesClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,

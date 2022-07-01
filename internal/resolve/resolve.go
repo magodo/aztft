@@ -114,6 +114,9 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveMonitorScheduledQueryRules,
 	},
+	"/MICROSOFT.CDN/PROFILES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveCdnProfiles,
+	},
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
