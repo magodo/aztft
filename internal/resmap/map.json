@@ -43,6 +43,23 @@
       ]
     }
   },
+  "azurerm_active_directory_domain_service_trust": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AAD",
+      "types": [
+        "domainServices",
+        "trusts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AAD/domainServices/trusts"
+      ]
+    }
+  },
   "azurerm_advanced_threat_protection": {
     "management_plane": {
       "scopes": [
@@ -3145,6 +3162,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DataProtection/backupVaults"
+      ]
+    }
+  },
+  "azurerm_data_protection_resource_guard": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataProtection",
+      "types": [
+        "resourceGuards"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataProtection/resourceGuards"
       ]
     }
   },
@@ -7139,17 +7170,17 @@
       ]
     }
   },
-  "azurerm_policy_remediation": {
+  "azurerm_resource_policy_remediation": {
     "management_plane": {
       "scopes": [
-        "/Microsoft.Management/managementGroups"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines"
       ],
       "provider": "Microsoft.PolicyInsights",
       "types": [
         "remediations"
       ],
       "import_specs": [
-        "/Microsoft.Management/managementGroups/Microsoft.PolicyInsights/remediations"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/Microsoft.PolicyInsights/remediations"
       ]
     }
   },
@@ -8717,6 +8748,22 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apiPortals"
+      ]
+    }
+  },
+  "azurerm_spring_cloud_api_portal_custom_domain": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AppPlatform",
+      "types": [
+        "Spring",
+        "apiPortals",
+        "domains"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apiPortals/domains"
       ]
     }
   },
