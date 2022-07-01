@@ -193,14 +193,6 @@ func (b *ClientBuilder) NewDataFactoryIntegrationRuntimesClient(subscriptionId s
 	)
 }
 
-func (b *ClientBuilder) NewAppServiceCertificatesClient(subscriptionId string) (*armappservice.CertificatesClient, error) {
-	return armappservice.NewCertificatesClient(
-		subscriptionId,
-		b.credential,
-		clientOpt,
-	)
-}
-
 func (b *ClientBuilder) NewKustoDataConnectionsClient(subscriptionId string) (*armkusto.DataConnectionsClient, error) {
 	return armkusto.NewDataConnectionsClient(
 		subscriptionId,
@@ -355,6 +347,22 @@ func (b *ClientBuilder) NewMonitorScheduledQueryRulesClient(subscriptionId strin
 
 func (b *ClientBuilder) NewCdnProfilesClient(subscriptionId string) (*armcdn.ProfilesClient, error) {
 	return armcdn.NewProfilesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewAppServiceCertificatesClient(subscriptionId string) (*armappservice.CertificatesClient, error) {
+	return armappservice.NewCertificatesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewAppServiceWebAppsClient(subscriptionId string) (*armappservice.WebAppsClient, error) {
+	return armappservice.NewWebAppsClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,

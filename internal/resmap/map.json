@@ -762,6 +762,8 @@
     }
   },
   "azurerm_app_service": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_linux_web_app` and `azurerm_windows_web_app`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -941,6 +943,8 @@
     }
   },
   "azurerm_app_service_source_control": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -4113,6 +4117,8 @@
     }
   },
   "azurerm_function_app": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_linux_function_app` and `azurerm_windows_function_app`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -4127,6 +4133,8 @@
     }
   },
   "azurerm_function_app_active_slot": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -10809,6 +10817,8 @@
     }
   },
   "azurerm_web_app_active_slot": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"

@@ -54,9 +54,6 @@ var Resolvers = map[string]map[string]resolveFunc{
 	"/MICROSOFT.DATAFACTORY/FACTORIES/INTEGRATIONRUNTIMES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveDataFactoryIntegrationRuntimes,
 	},
-	"/MICROSOFT.WEB/CERTIFICATES": {
-		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppServiceCertificates,
-	},
 	"/MICROSOFT.KUSTO/CLUSTERS/DATABASES/DATACONNECTIONS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveKustoDataConnections,
 	},
@@ -116,6 +113,12 @@ var Resolvers = map[string]map[string]resolveFunc{
 	},
 	"/MICROSOFT.CDN/PROFILES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveCdnProfiles,
+	},
+	"/MICROSOFT.WEB/CERTIFICATES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppServiceCertificates,
+	},
+	"/MICROSOFT.WEB/SITES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": resolveAppServiceSites,
 	},
 }
 
