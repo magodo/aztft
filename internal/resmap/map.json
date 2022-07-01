@@ -835,6 +835,8 @@
     }
   },
   "azurerm_app_service_hybrid_connection": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_function_app_hybrid_connection` and `azurerm_web_app_hybrid_connection`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
