@@ -5,6 +5,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/magodo/aztft/internal/importspec"
 	"github.com/magodo/aztft/internal/resmap"
 	"github.com/magodo/aztft/internal/resolve"
 
@@ -32,17 +33,16 @@ func QueryImportSpecs(idStr string, allowAPI bool) ([]string, []string, error) {
 		return nil, nil, err
 	}
 	id, _ := armid.ParseResourceId(idStr)
-	var outRts, outImports []string
+	var outRts, outSpecs []string
 	for _, item := range l {
 		outRts = append(outRts, item.ResourceType)
-		if rid, ok := id.(*armid.ScopedResourceId); ok {
-			if err := rid.Normalize(item.ImportSpec); err != nil {
-				return nil, nil, fmt.Errorf("failed to normalize id for type %s, id: %s", item.ResourceType, id)
-			}
+		spec, err := importspec.BuildImportSpec(id, item)
+		if err != nil {
+			return nil, nil, err
 		}
-		outImports = append(outImports, id.String())
+		outSpecs = append(outSpecs, spec)
 	}
-	return outRts, outImports, nil
+	return outRts, outSpecs, nil
 }
 
 func query(idStr string, allowAPI bool) ([]resmap.ARMId2TFMapItem, error) {

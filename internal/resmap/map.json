@@ -718,7 +718,7 @@
       ]
     }
   },
-  "azurerm_app_certificate_order": {
+  "azurerm_app_service_certificate_order": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -956,7 +956,7 @@
       "types": [
         "sites",
         "slots",
-        "config"
+        "networkConfig"
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Web/sites/slots/config"
@@ -1377,7 +1377,7 @@
         "protectionContainers"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/providers/Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers"
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers"
       ]
     }
   },
@@ -1424,7 +1424,7 @@
         "protectedItems"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/providers/Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems"
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems"
       ]
     }
   },
@@ -1441,7 +1441,7 @@
         "protectedItems"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/providers/Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems"
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems"
       ]
     }
   },
