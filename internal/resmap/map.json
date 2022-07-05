@@ -1020,7 +1020,7 @@
       "provider": "Microsoft.Web",
       "types": [
         "sites",
-        "config"
+        "networkConfig"
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Web/sites/config"
@@ -4505,7 +4505,7 @@
       ]
     }
   },
-  "azurerm_iot_time_series_access_policy": {
+  "azurerm_iot_time_series_insights_access_policy": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"

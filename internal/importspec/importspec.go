@@ -18,6 +18,8 @@ func BuildImportSpec(id armid.ResourceId, item resmap.ARMId2TFMapItem) (string, 
 	switch item.ResourceType {
 	case "azurerm_app_service_slot_virtual_network_swift_connection":
 		rid.AttrTypes[2] = "config"
+	case "azurerm_iot_time_series_insights_access_policy":
+		rid.AttrTypes[1] = "config"
 	}
 
 	if err := rid.Normalize(item.ImportSpec); err != nil {
