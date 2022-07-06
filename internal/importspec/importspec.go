@@ -20,6 +20,8 @@ func BuildImportSpec(id armid.ResourceId, item resmap.ARMId2TFMapItem) (string, 
 		rid.AttrTypes[2] = "config"
 	case "azurerm_iot_time_series_insights_access_policy":
 		rid.AttrTypes[1] = "config"
+	case "azurerm_synapse_workspace_sql_aad_admin":
+		rid.AttrTypes[1] = "sqlAdministrators"
 	}
 
 	if err := rid.Normalize(item.ImportSpec); err != nil {

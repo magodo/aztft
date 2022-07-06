@@ -1612,14 +1612,11 @@
   "azurerm_blueprint_assignment": {
     "management_plane": {
       "scopes": [
-        "/subscriptions"
+        "any"
       ],
       "provider": "Microsoft.Blueprint",
       "types": [
         "blueprintAssignments"
-      ],
-      "import_specs": [
-        "/subscriptions/Microsoft.Blueprint/blueprintAssignments"
       ]
     }
   },
@@ -8263,14 +8260,11 @@
   "azurerm_role_assignment": {
     "management_plane": {
       "scopes": [
-        "/subscriptions"
+        "any"
       ],
       "provider": "Microsoft.Authorization",
       "types": [
         "roleAssignments"
-      ],
-      "import_specs": [
-        "/subscriptions/Microsoft.Authorization/roleAssignments"
       ]
     }
   },
@@ -8345,14 +8339,11 @@
   "azurerm_security_center_assessment": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachineScaleSets"
+        "any"
       ],
       "provider": "Microsoft.Security",
       "types": [
         "assessments"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachineScaleSets/Microsoft.Security/assessments"
       ]
     }
   },
@@ -10681,7 +10672,7 @@
       "provider": "Microsoft.Synapse",
       "types": [
         "workspaces",
-        "sqlAdministrators"
+        "administrators"
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Synapse/workspaces/sqlAdministrators"
