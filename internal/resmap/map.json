@@ -5402,14 +5402,16 @@
   "azurerm_lighthouse_assignment": {
     "management_plane": {
       "scopes": [
-        "/subscriptions"
+        "/subscriptions",
+        "/subscriptions/resourceGroups"
       ],
       "provider": "Microsoft.ManagedServices",
       "types": [
         "registrationAssignments"
       ],
       "import_specs": [
-        "/subscriptions/Microsoft.ManagedServices/registrationAssignments"
+        "/subscriptions/Microsoft.ManagedServices/registrationAssignments",
+        "/subscriptions/resourceGroups/Microsoft.ManagedServices/registrationAssignments"
       ]
     }
   },
@@ -6253,14 +6255,11 @@
   "azurerm_management_lock": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups"
+        "any"
       ],
       "provider": "Microsoft.Authorization",
       "types": [
         "locks"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Authorization/locks"
       ]
     }
   },
