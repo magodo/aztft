@@ -3398,7 +3398,7 @@
       ]
     }
   },
-  "azurerm_databoxedge_order": {
+  "azurerm_databox_edge_order": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
