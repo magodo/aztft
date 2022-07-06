@@ -4672,14 +4672,11 @@
   "azurerm_iot_security_device_group": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs"
+        "any"
       ],
       "provider": "Microsoft.Security",
       "types": [
         "deviceSecurityGroups"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs/Microsoft.Security/deviceSecurityGroups"
       ]
     }
   },
@@ -6103,14 +6100,14 @@
   "azurerm_maintenance_assignment_virtual_machine_scale_set": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups/microsoft.compute/virtualMachineScaleSets"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachineScaleSets"
       ],
       "provider": "Microsoft.Maintenance",
       "types": [
         "configurationAssignments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.compute/virtualMachineScaleSets/Microsoft.Maintenance/configurationAssignments"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachineScaleSets/Microsoft.Maintenance/configurationAssignments"
       ]
     }
   },
