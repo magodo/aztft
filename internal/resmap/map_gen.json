@@ -3084,21 +3084,6 @@
       ]
     }
   },
-  "azurerm_data_factory_schedule_trigger": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DataFactory",
-      "types": [
-        "factories",
-        "triggers"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/triggers"
-      ]
-    }
-  },
   "azurerm_data_factory_trigger_blob_event": {
     "management_plane": {
       "scopes": [
@@ -3115,6 +3100,21 @@
     }
   },
   "azurerm_data_factory_trigger_custom_event": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataFactory",
+      "types": [
+        "factories",
+        "triggers"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/triggers"
+      ]
+    }
+  },
+  "azurerm_data_factory_trigger_schedule": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
