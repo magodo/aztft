@@ -10665,6 +10665,8 @@
     }
   },
   "azurerm_synapse_workspace_sql_aad_admin": {
+    "is_removed": true,
+    "remove_reason": "This is the same as `azurerm_synapse_workspace_aad_admin`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
