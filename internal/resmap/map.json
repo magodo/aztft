@@ -6459,7 +6459,7 @@
       ]
     }
   },
-  "azurerm_media_live_output": {
+  "azurerm_media_live_event_output": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
