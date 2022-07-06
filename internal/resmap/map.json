@@ -3921,14 +3921,11 @@
   "azurerm_eventgrid_event_subscription": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups/Microsoft.EventGrid/topics"
+        "any"
       ],
       "provider": "Microsoft.EventGrid",
       "types": [
         "eventSubscriptions"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.EventGrid/topics/Microsoft.EventGrid/eventSubscriptions"
       ]
     }
   },
@@ -4694,20 +4691,6 @@
       ]
     }
   },
-  "azurerm_iot_time_series_environment": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.TimeSeriesInsights",
-      "types": [
-        "environments"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.TimeSeriesInsights/environments"
-      ]
-    }
-  },
   "azurerm_iot_time_series_insights_access_policy": {
     "management_plane": {
       "scopes": [
@@ -4779,6 +4762,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.TimeSeriesInsights/environments/referenceDataSets"
+      ]
+    }
+  },
+  "azurerm_iot_time_series_insights_standard_environment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.TimeSeriesInsights",
+      "types": [
+        "environments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.TimeSeriesInsights/environments"
       ]
     }
   },
@@ -6074,28 +6071,28 @@
   "azurerm_maintenance_assignment_dedicated_host": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups/microsoft.compute/hostGroups/hosts"
+        "/subscriptions/resourceGroups/Microsoft.Compute/hostGroups/hosts"
       ],
       "provider": "Microsoft.Maintenance",
       "types": [
         "configurationAssignments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.compute/hostGroups/hosts/Microsoft.Maintenance/configurationAssignments"
+        "/subscriptions/resourceGroups/Microsoft.Compute/hostGroups/hosts/Microsoft.Maintenance/configurationAssignments"
       ]
     }
   },
   "azurerm_maintenance_assignment_virtual_machine": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups/microsoft.compute/virtualMachines"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines"
       ],
       "provider": "Microsoft.Maintenance",
       "types": [
         "configurationAssignments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.compute/virtualMachines/Microsoft.Maintenance/configurationAssignments"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/Microsoft.Maintenance/configurationAssignments"
       ]
     }
   },

@@ -4667,20 +4667,6 @@
       ]
     }
   },
-  "azurerm_iot_time_series_environment": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.TimeSeriesInsights",
-      "types": [
-        "environments"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.TimeSeriesInsights/environments"
-      ]
-    }
-  },
   "azurerm_iot_time_series_insights_access_policy": {
     "management_plane": {
       "scopes": [
@@ -4752,6 +4738,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.TimeSeriesInsights/environments/referenceDataSets"
+      ]
+    }
+  },
+  "azurerm_iot_time_series_insights_standard_environment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.TimeSeriesInsights",
+      "types": [
+        "environments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.TimeSeriesInsights/environments"
       ]
     }
   },

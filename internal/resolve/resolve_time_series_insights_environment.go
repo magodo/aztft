@@ -12,7 +12,7 @@ import (
 type timeSeriesInsightsEnvironmentResolver struct{}
 
 func (timeSeriesInsightsEnvironmentResolver) ResourceTypes() []string {
-	return []string{"azurerm_iot_time_series_environment", "azurerm_iot_time_series_insights_gen2_environment"}
+	return []string{"azurerm_iot_time_series_insights_standard_environment", "azurerm_iot_time_series_insights_gen2_environment"}
 }
 
 func (timeSeriesInsightsEnvironmentResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
@@ -31,7 +31,7 @@ func (timeSeriesInsightsEnvironmentResolver) Resolve(b *client.ClientBuilder, id
 	}
 	switch model.(type) {
 	case *armtimeseriesinsights.Gen1EnvironmentResource:
-		return "azurerm_iot_time_series_environment", nil
+		return "azurerm_iot_time_series_insights_standard_environment", nil
 	case *armtimeseriesinsights.Gen2EnvironmentResource:
 		return "azurerm_iot_time_series_insights_gen2_environment", nil
 	default:
