@@ -4,6 +4,8 @@ github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.1.0 h1:QkAcEIAKbNL4KoFr4Sath
 github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.1.0/go.mod h1:bhXu1AjYL+wutSL/kpSq6s7733q2Rb0yuot9Zgfqa/0=
 github.com/Azure/azure-sdk-for-go/sdk/internal v1.0.0 h1:jp0dGvZ7ZK0mgqnTSClMxa5xuRL7NZgHameVYF6BurY=
 github.com/Azure/azure-sdk-for-go/sdk/internal v1.0.0/go.mod h1:eWRD7oawr1Mu1sLCawqVc0CUiF43ia3qQMxLscsKQ9w=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/alertsmanagement/armalertsmanagement v0.6.0 h1:pks1dpbMetOpU0LLAMGqQWDmf6KH3YaZZFbvLdczkLY=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/alertsmanagement/armalertsmanagement v0.6.0/go.mod h1:ScVCRUj/xrIX0/L+CPzpgFBB3kHuE0OfT7ZkKJL4tFg=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/apimanagement/armapimanagement v1.0.0 h1:Ai3+BE11JvwQ2PxLGNKAfMNSceYXjeijReLJiCouO6o=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/apimanagement/armapimanagement v1.0.0/go.mod h1:gr6fiHmIii3Zw3riWMSr+P0tWTz4hfqTVcFttdi2JBo=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appplatform/armappplatform v1.0.0 h1:wgU84WluDEsqrgw/ZYLcOHN/NNaFAWa6EAUyzxasNeE=

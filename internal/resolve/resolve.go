@@ -135,6 +135,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.WEB/HOSTINGENVIRONMENTS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": appServiceEnvironemntsResolver{},
 	},
+	"/MICROSOFT.ALERTSMANAGEMENT/ACTIONRULES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": alertsManagementProcessingRulesResolver{},
+	},
 }
 
 type ResolveError struct {

@@ -10,6 +10,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/alertsmanagement/armalertsmanagement"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appplatform/armappplatform"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automation/armautomation"
@@ -379,6 +380,14 @@ func (b *ClientBuilder) NewAppServiceWebAppsClient(subscriptionId string) (*arma
 
 func (b *ClientBuilder) NewAppServiceEnvironmentsClient(subscriptionId string) (*armappservice.EnvironmentsClient, error) {
 	return armappservice.NewEnvironmentsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewAlertsManagementProcessingRulesClient(subscriptionId string) (*armalertsmanagement.AlertProcessingRulesClient, error) {
+	return armalertsmanagement.NewAlertProcessingRulesClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,
