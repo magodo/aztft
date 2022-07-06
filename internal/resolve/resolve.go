@@ -75,6 +75,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.AUTOMATION/AUTOMATIONACCOUNTS/CONNECTIONS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": automationConnectionsResolver{},
 	},
+	"/MICROSOFT.AUTOMATION/AUTOMATIONACCOUNTS/VARIABLES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": automationVariablesResolver{},
+	},
 	"/MICROSOFT.BOTSERVICE/BOTSERVICES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": botServiceBotsResolver{},
 	},

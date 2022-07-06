@@ -241,6 +241,14 @@ func (b *ClientBuilder) NewAutomationConnectionClient(subscriptionId string) (*a
 	)
 }
 
+func (b *ClientBuilder) NewAutomationVariableClient(subscriptionId string) (*armautomation.VariableClient, error) {
+	return armautomation.NewVariableClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewBotServiceBotsClient(subscriptionId string) (*armbotservice.BotsClient, error) {
 	return armbotservice.NewBotsClient(
 		subscriptionId,
