@@ -72,8 +72,6 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 
 	// This is not a azure resource, but an operation like abstract resource. Skip it.
 	"azurerm_resource_provider_registration": {caughtErr: ErrParseIdFailed},
-	// This is deprecated since v3.0
-	"azurerm_policy_remediation": {caughtErr: ErrDuplicateImportSpec},
 	// This is deprecated since v3.0.
 	"azurerm_security_center_server_vulnerability_assessment": {caughtErr: ErrDuplicateImportSpec},
 	// This represents a property in key vault resource, which means it doesn't have a resource ID in Azure. Just ignore it.
@@ -298,22 +296,34 @@ func main() {
 	ScanFileLoop:
 		for scanner.Scan() {
 			line := scanner.Text()
-			if !strings.HasPrefix(line, "terraform import") {
+			if !strings.HasPrefix(line, "terraform import") && !strings.HasPrefix(line, "$ terraform import") {
 				continue
 			}
+			line = line[strings.Index(line, "terraform import"):]
 			rtype, id, err := parse(line)
 			if err != nil {
+				if HardcodedTypes[rtype] == nil {
+					log.Printf("%s new parse error: %v\n", rtype, err)
+					continue
+				}
 				// Skip the error if it is already caught
 				for _, kerr := range knownParseErrors {
-					if errors.Is(err, kerr) && HardcodedTypes[rtype].caughtErr == kerr {
-						HardcodedTypes[rtype].caught = true
-						continue ScanFileLoop
+					if errors.Is(err, kerr) {
+						if HardcodedTypes[rtype].caughtErr == kerr {
+							HardcodedTypes[rtype].caught = true
+							continue ScanFileLoop
+						}
 					}
 				}
 
 				log.Fatalf("%s parse error: %v\n", rtype, err)
 			}
+
 			if _, ok := m[rtype]; ok {
+				if HardcodedTypes[rtype] == nil {
+					log.Printf("%s new duplicate import spec found\n", rtype)
+					continue
+				}
 				// Skip this if the duplication is already caught
 				if HardcodedTypes[rtype].caughtErr == ErrDuplicateImportSpec {
 					HardcodedTypes[rtype].caught = true
