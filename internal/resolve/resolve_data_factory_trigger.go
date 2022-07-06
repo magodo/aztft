@@ -14,7 +14,7 @@ type dataFactoryTriggersResolver []struct{}
 func (dataFactoryTriggersResolver) ResourceTypes() []string {
 	return []string{
 		"azurerm_data_factory_trigger_blob_event",
-		"azurerm_data_factory_trigger_scheduled",
+		"azurerm_data_factory_trigger_schedule",
 		"azurerm_data_factory_trigger_custom_event",
 		"azurerm_data_factory_trigger_tumbling_window",
 	}
@@ -38,7 +38,7 @@ func (dataFactoryTriggersResolver) Resolve(b *client.ClientBuilder, id armid.Res
 	case *armdatafactory.BlobEventsTrigger:
 		return "azurerm_data_factory_trigger_blob_event", nil
 	case *armdatafactory.ScheduleTrigger:
-		return "azurerm_data_factory_trigger_scheduled", nil
+		return "azurerm_data_factory_trigger_schedule", nil
 	case *armdatafactory.CustomEventsTrigger:
 		return "azurerm_data_factory_trigger_custom_event", nil
 	case *armdatafactory.TumblingWindowTrigger:

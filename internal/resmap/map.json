@@ -3133,7 +3133,7 @@
       ]
     }
   },
-  "azurerm_data_factory_trigger_scheduled": {
+  "azurerm_data_factory_trigger_schedule": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
