@@ -23,7 +23,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagecache/armstoragecache v1.0.0
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse v0.5.0
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/timeseriesinsights/armtimeseriesinsights v1.0.0
-	github.com/magodo/armid v0.0.0-20220705080505-f3eab15f3beb
+	github.com/magodo/armid v0.0.0-20220707115142-d2d9f6fb551b
 	github.com/stretchr/testify v1.7.5
 )
 

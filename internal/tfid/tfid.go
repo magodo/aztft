@@ -20,6 +20,7 @@ func NeedsAPI(item resmap.ARMId2TFMapItem) bool {
 }
 
 func DynamicBuild(id armid.ResourceId, item resmap.ARMId2TFMapItem) (string, error) {
+	id = id.Clone()
 	builder, ok := dynamicBuilders[item.ResourceType]
 	if !ok {
 		return "", fmt.Errorf("unknown resource type: %q", item.ResourceType)
@@ -43,6 +44,7 @@ func DynamicBuild(id armid.ResourceId, item resmap.ARMId2TFMapItem) (string, err
 }
 
 func StaticBuild(id armid.ResourceId, item resmap.ARMId2TFMapItem) (string, error) {
+	id = id.Clone()
 	rid, ok := id.(*armid.ScopedResourceId)
 	if !ok {
 		return id.String(), nil
