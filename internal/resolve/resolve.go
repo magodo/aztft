@@ -6,7 +6,6 @@ import (
 
 	"github.com/magodo/armid"
 	"github.com/magodo/aztft/internal/client"
-	"github.com/magodo/aztft/internal/resmap"
 )
 
 type resolver interface {
@@ -152,14 +151,7 @@ func (e ResolveError) Error() string {
 func (e *ResolveError) Unwrap() error { return e.Err }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
-func Resolve(id armid.ResourceId, candidates []resmap.ARMId2TFMapItem) (*resmap.ARMId2TFMapItem, error) {
-	if len(candidates) == 0 {
-		return nil, ResolveError{ResourceId: id, Err: fmt.Errorf("no candidate")}
-	}
-	if len(candidates) == 1 {
-		return &candidates[0], nil
-	}
-
+func Resolve(id armid.ResourceId) (string, error) {
 	routeKey := strings.ToUpper(id.RouteScopeString())
 	var parentScopeKey string
 	if id.ParentScope() != nil {
@@ -169,23 +161,18 @@ func Resolve(id armid.ResourceId, candidates []resmap.ARMId2TFMapItem) (*resmap.
 	// Ensure the API client can be built.
 	b, err := client.NewClientBuilder()
 	if err != nil {
-		return nil, ResolveError{ResourceId: id, Err: fmt.Errorf("new API client builder: %v", err)}
+		return "", ResolveError{ResourceId: id, Err: fmt.Errorf("new API client builder: %v", err)}
 	}
 
 	if m, ok := Resolvers[routeKey]; ok {
 		if resolver, ok := m[parentScopeKey]; ok {
 			rt, err := resolver.Resolve(b, id)
 			if err != nil {
-				return nil, ResolveError{ResourceId: id, Err: fmt.Errorf("resolving %q: %v", id, err)}
+				return "", ResolveError{ResourceId: id, Err: fmt.Errorf("resolving %q: %v", id, err)}
 			}
-			for _, item := range candidates {
-				if item.ResourceType == rt {
-					return &item, nil
-				}
-			}
-			return nil, ResolveError{ResourceId: id, Err: fmt.Errorf("the ambiguite list doesn't have an item with resource type %q. Please open an issue for this.", rt)}
+			return rt, nil
 		}
 	}
 
-	return nil, ResolveError{ResourceId: id, Err: fmt.Errorf("no resolver found for %q", id)}
+	return "", ResolveError{ResourceId: id, Err: fmt.Errorf("no resolver found for %q", id)}
 }

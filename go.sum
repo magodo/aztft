@@ -32,6 +32,8 @@ github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/devtestlabs/armdevtestlabs
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/devtestlabs/armdevtestlabs v1.0.0/go.mod h1:igAw5va/nEHEc8OYWPz+g3y1LdPig04qMS+9aqwtn+w=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins v1.0.0 h1:7zDYZ29qnHH8+QJ+oIIAb1NnBIXE2OmeIraWtd76OZI=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins v1.0.0/go.mod h1:HBn/Iq+D7k0+R02WoSyoo6L6qRVi/DmJL2hi/KsUzI4=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/domainservices/armdomainservices v1.0.0 h1:nm/jspNdOh+NgeKWz9jQPHjzfueDZ+/IjbvtLmIMYAk=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/domainservices/armdomainservices v1.0.0/go.mod h1:ClIEJvS4RXaAtrKUYdVqjbvSzDvpMqGiMFGEG9tf6RA=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hdinsight/armhdinsight v1.0.0 h1:YiFulhmwcgOnjlNDqu1c8dVHkhNd/wlZIVcV32Pq0kA=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hdinsight/armhdinsight v1.0.0/go.mod h1:g0o51pdbR/Zn9w3X61C+UrYfS98UpCcp8+1KTceXD0A=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/internal v1.0.0 h1:lMW1lD/17LUA5z1XTURo7LcVG2ICBPlyMHjIUrcFZNQ=

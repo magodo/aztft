@@ -30,15 +30,15 @@ func main() {
 	}
 	var output []string
 	if *flagImport {
-		rts, specs, err := aztft.QueryImportSpecs(flag.Args()[0], *flagAPI)
+		rts, specs, err := aztft.QueryTypeAndId(flag.Args()[0], *flagAPI)
 		if err != nil {
 			log.Fatal(err)
 		}
 		for i := 0; i < len(rts); i++ {
-			output = append(output, fmt.Sprintf("terraform import %s %s", rts[i], specs[i]))
+			output = append(output, fmt.Sprintf("terraform import %s.example %s", rts[i], specs[i]))
 		}
 	} else {
-		rts, err := aztft.Query(flag.Args()[0], *flagAPI)
+		rts, err := aztft.QueryType(flag.Args()[0], *flagAPI)
 		if err != nil {
 			log.Fatal(err)
 		}

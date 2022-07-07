@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestQuery(t *testing.T) {
+func TestQueryType(t *testing.T) {
 	cases := []struct {
 		name   string
 		input  string
@@ -67,7 +67,7 @@ func TestQuery(t *testing.T) {
 
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
-			actual, err := Query(tt.input, false)
+			actual, err := QueryType(tt.input, false)
 			if tt.err != "" {
 				require.EqualError(t, err, tt.err)
 				return
@@ -77,7 +77,7 @@ func TestQuery(t *testing.T) {
 	}
 }
 
-func TestQueryImportSpecs(t *testing.T) {
+func TestQueryTypeAndId(t *testing.T) {
 	cases := []struct {
 		name        string
 		input       string
@@ -157,7 +157,7 @@ func TestQueryImportSpecs(t *testing.T) {
 
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
-			actualRts, actualSpecs, err := QueryImportSpecs(tt.input, false)
+			actualRts, actualSpecs, err := QueryTypeAndId(tt.input, false)
 			if tt.err != "" {
 				require.EqualError(t, err, tt.err)
 				return

@@ -667,7 +667,7 @@ func main() {
 		if isVerified(rt) {
 			continue
 		}
-		l, err := aztft.Query(rid, false)
+		l, err := aztft.QueryType(rid, false)
 		if err != nil {
 			log.Printf("querying %q -> %q: %v\n", rt, rid, err)
 			continue
@@ -741,7 +741,6 @@ func isVerified(rt string) bool {
 		"azurerm_subscription_policy_exemption",                                   // the scope is sub
 		"azurerm_management_group_policy_remediation",                             // the variant segment is fixed to be Microsoft.Management
 		"azurerm_role_definition",                                                 // the scope is any
-
 		"azurerm_dev_test_schedule":
 		return true
 

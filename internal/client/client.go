@@ -22,6 +22,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datashare/armdatashare"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/devtestlabs/armdevtestlabs"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/domainservices/armdomainservices"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hdinsight/armhdinsight"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning"
@@ -38,6 +39,8 @@ import (
 type ClientBuilder struct {
 	credential azcore.TokenCredential
 }
+
+var defaultBuilder *ClientBuilder
 
 func NewClientBuilder() (*ClientBuilder, error) {
 	env := "public"
@@ -388,6 +391,14 @@ func (b *ClientBuilder) NewAppServiceEnvironmentsClient(subscriptionId string) (
 
 func (b *ClientBuilder) NewAlertsManagementProcessingRulesClient(subscriptionId string) (*armalertsmanagement.AlertProcessingRulesClient, error) {
 	return armalertsmanagement.NewAlertProcessingRulesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewDomainServiceClient(subscriptionId string) (*armdomainservices.Client, error) {
+	return armdomainservices.NewClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,
