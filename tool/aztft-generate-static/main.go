@@ -72,13 +72,31 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 
 	// This is not a azure resource, but an operation like abstract resource. Skip it.
 	"azurerm_resource_provider_registration": {caughtErr: ErrParseIdFailed},
-	// This is deprecated since v3.0.
-	"azurerm_security_center_server_vulnerability_assessment": {caughtErr: ErrDuplicateImportSpec},
-	// This represents a property in key vault resource, which means it doesn't have a resource ID in Azure. Just ignore it.
-	"azurerm_key_vault_access_policy": {caughtErr: ErrDuplicateImportSpec},
 	// This represents a property in disk pool iscsi target resource, which means it doesn't have a resource ID in Azure. Just ignore it.
 	"azurerm_disk_pool_iscsi_target_lun": {caughtErr: ErrSyntheticId},
 
+	"azurerm_key_vault_access_policy": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.KeyVault",
+				Types:        []string{"vaults", "objectId", "applicationId"},
+				ImportSpecs:  []string{"/subscriptions/resourceGroups/Microsoft.KeyVault/vaults/objectId/applicationId"},
+			},
+		},
+		caughtErr: ErrDuplicateImportSpec,
+	},
+	"azurerm_security_center_server_vulnerability_assessment": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines"},
+				Provider:     "Microsoft.Security",
+				Types:        []string{"serverVulnerabilityAssessments"},
+				ImportSpecs:  []string{"/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/Microsoft.Security/serverVulnerabilityAssessments"},
+			},
+		},
+		caughtErr: ErrDuplicateImportSpec,
+	},
 	"azurerm_backup_protected_vm": {
 		mapItem: &resmap.TF2ARMIdMapItem{
 			ManagementPlane: &resmap.MapManagementPlane{
