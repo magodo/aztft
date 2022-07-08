@@ -8385,20 +8385,6 @@
       ]
     }
   },
-  "azurerm_security_center_server_vulnerability_assessment_arc_virtual_machine": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups/Microsoft.HybridCompute/machines"
-      ],
-      "provider": "Microsoft.Security",
-      "types": [
-        "serverVulnerabilityAssessments"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.HybridCompute/machines/Microsoft.Security/serverVulnerabilityAssessments"
-      ]
-    }
-  },
   "azurerm_security_center_server_vulnerability_assessment_virtual_machine": {
     "management_plane": {
       "scopes": [
@@ -9684,20 +9670,6 @@
         "storageAccounts",
         "blobServices",
         "containers"
-      ]
-    }
-  },
-  "azurerm_storage_disks_pool": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.StoragePool",
-      "types": [
-        "diskPools"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StoragePool/diskPools"
       ]
     }
   },
