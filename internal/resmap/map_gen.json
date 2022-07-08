@@ -4263,6 +4263,20 @@
       ]
     }
   },
+  "azurerm_fluid_relay_server": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.FluidRelay",
+      "types": [
+        "fluidRelayServers"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.FluidRelay/fluidRelayServers"
+      ]
+    }
+  },
   "azurerm_frontdoor": {
     "management_plane": {
       "scopes": [
