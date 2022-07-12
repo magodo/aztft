@@ -5028,11 +5028,10 @@
       "provider": "Microsoft.KeyVault",
       "types": [
         "vaults",
-        "objectId",
-        "applicationId"
+        "objectId"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.KeyVault/vaults/objectId/applicationId"
+        "/subscriptions/resourceGroups/Microsoft.KeyVault/vaults/objectId"
       ]
     }
   },
@@ -8388,14 +8387,16 @@
   "azurerm_security_center_server_vulnerability_assessment": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines",
+		"/subscriptions/resourceGroups/Microsoft.HybridCompute/machines"
       ],
       "provider": "Microsoft.Security",
       "types": [
         "serverVulnerabilityAssessments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/Microsoft.Security/serverVulnerabilityAssessments"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/Microsoft.Security/serverVulnerabilityAssessments",
+        "/subscriptions/resourceGroups/Microsoft.HybridCompute/machines/Microsoft.Security/serverVulnerabilityAssessments"
       ]
     }
   },

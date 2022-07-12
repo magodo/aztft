@@ -24,12 +24,14 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/domainservices/armdomainservices"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hdinsight/armhdinsight"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/monitor/armmonitor"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/operationalinsights/armoperationalinsights"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagecache/armstoragecache"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/streamanalytics/armstreamanalytics"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse"
@@ -399,6 +401,54 @@ func (b *ClientBuilder) NewAlertsManagementProcessingRulesClient(subscriptionId 
 
 func (b *ClientBuilder) NewDomainServiceClient(subscriptionId string) (*armdomainservices.Client, error) {
 	return armdomainservices.NewClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewStorageObjectReplicationPoliciesClient(subscriptionId string) (*armstorage.ObjectReplicationPoliciesClient, error) {
+	return armstorage.NewObjectReplicationPoliciesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewStorageFileSharesClient(subscriptionId string) (*armstorage.FileSharesClient, error) {
+	return armstorage.NewFileSharesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewStorageAccountsClient(subscriptionId string) (*armstorage.AccountsClient, error) {
+	return armstorage.NewAccountsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewKeyVaultVaultsClient(subscriptionId string) (*armkeyvault.VaultsClient, error) {
+	return armkeyvault.NewVaultsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewKeyVaultKeysClient(subscriptionId string) (*armkeyvault.KeysClient, error) {
+	return armkeyvault.NewKeysClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewKeyVaultSecretsClient(subscriptionId string) (*armkeyvault.SecretsClient, error) {
+	return armkeyvault.NewSecretsClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,

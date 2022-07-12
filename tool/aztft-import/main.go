@@ -1,8 +1,6 @@
 package main
 
 /// This program generate the mapping from the Azure document.
-/// The generated mapping only covers the management plane, if a resource has a data plane ID in the meanwhile, that mapping info have to be manually added.
-/// For Terraform resource ids in the Azure document that failed to parse (e.g. due to it is a data plane id), or is a synthetic (e.g. association resource) id, an empty mapping item is generated.
 
 import (
 	"bufio"
@@ -80,8 +78,8 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 			ManagementPlane: &resmap.MapManagementPlane{
 				ParentScopes: []string{"/subscriptions/resourceGroups"},
 				Provider:     "Microsoft.KeyVault",
-				Types:        []string{"vaults", "objectId", "applicationId"},
-				ImportSpecs:  []string{"/subscriptions/resourceGroups/Microsoft.KeyVault/vaults/objectId/applicationId"},
+				Types:        []string{"vaults", "objectId"},
+				ImportSpecs:  []string{"/subscriptions/resourceGroups/Microsoft.KeyVault/vaults/objectId"},
 			},
 		},
 		caughtErr: ErrDuplicateImportSpec,
@@ -89,10 +87,16 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	"azurerm_security_center_server_vulnerability_assessment": {
 		mapItem: &resmap.TF2ARMIdMapItem{
 			ManagementPlane: &resmap.MapManagementPlane{
-				ParentScopes: []string{"/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines"},
-				Provider:     "Microsoft.Security",
-				Types:        []string{"serverVulnerabilityAssessments"},
-				ImportSpecs:  []string{"/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/Microsoft.Security/serverVulnerabilityAssessments"},
+				ParentScopes: []string{
+					"/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines",
+					"/subscriptions/resourceGroups/Microsoft.HybridCompute/machines",
+				},
+				Provider: "Microsoft.Security",
+				Types:    []string{"serverVulnerabilityAssessments"},
+				ImportSpecs: []string{
+					"/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/Microsoft.Security/serverVulnerabilityAssessments",
+					"/subscriptions/resourceGroups/Microsoft.HybridCompute/machines/Microsoft.Security/serverVulnerabilityAssessments",
+				},
 			},
 		},
 		caughtErr: ErrDuplicateImportSpec,
