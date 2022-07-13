@@ -19,6 +19,7 @@ var dynamicBuilders = map[string]builderFunc{
 	"azurerm_storage_table":                   buildStorageTable,
 	"azurerm_key_vault_key":                   buildKeyVaultKey,
 	"azurerm_key_vault_secret":                buildKeyVaultSecret,
+	"azurerm_key_vault_certificate":           buildKeyVaultCertificate,
 }
 
 func NeedsAPI(item resmap.ARMId2TFMapItem) bool {

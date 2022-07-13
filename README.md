@@ -4,6 +4,18 @@
 
 ## Limitation
 
-The knowledge of this mapping is based on the [AzureRM Terraform provider documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest). Currently, We assume the Terraform resource ID is the same as the Azure resource ID (except for casing), and only Azure management plane (instead of data plane) resource ID is allowed as input.
+- `aztft` can only resolves for the main Azure resource's counterpart in Terraform, while those property-like Terraform resources are not handled for now.
 
-`aztft` can only resolves for the main Azure resource's counterpart in Terraform, while those property-like Terraform resources are not handled for now.
+- Currently, only Azure management plane resource ID is allowed as input. For Terraform resources that corresponds to Azure resources which are data plane only, we defined following pesudo resource id patterns, which can be recognized by `aztft` as input:
+
+    - `azurerm_key_vault_certificate`                                  : `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.KeyVault/vaults/vault1/certificates/cert1`
+	- `azurerm_key_vault_certificate_issuer`                           : TBD
+	- `azurerm_key_vault_managed_storage_account`                      : TBD
+	- `azurerm_key_vault_managed_storage_account_sas_token_definition` : TBD
+	- `azurerm_storage_blob`                                           : TBD
+	- `azurerm_storage_data_lake_gen2_filesystem`                      : TBD
+	- `azurerm_storage_data_lake_gen2_path`                            : TBD
+	- `azurerm_storage_share_directory`                                : TBD
+	- `azurerm_storage_table_entity`                                   : TBD
+	- `azurerm_storage_share_file`                                     : TBD
+	- `azurerm_synapse_role_assignment`                                : TBD

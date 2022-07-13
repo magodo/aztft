@@ -5063,6 +5063,18 @@
       ]
     }
   },
+  "azurerm_key_vault_certificate": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.KeyVault",
+      "types": [
+        "vaults",
+        "certificates"
+      ]
+    }
+  },
   "azurerm_key_vault_key": {
     "management_plane": {
       "scopes": [
