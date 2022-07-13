@@ -5114,6 +5114,18 @@
       ]
     }
   },
+  "azurerm_key_vault_managed_storage_account": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.KeyVault",
+      "types": [
+        "vaults",
+        "storage"
+      ]
+    }
+  },
   "azurerm_key_vault_secret": {
     "management_plane": {
       "scopes": [

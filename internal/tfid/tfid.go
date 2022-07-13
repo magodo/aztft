@@ -11,16 +11,17 @@ import (
 type builderFunc func(*client.ClientBuilder, armid.ResourceId, string) (string, error)
 
 var dynamicBuilders = map[string]builderFunc{
-	"azurerm_active_directory_domain_service": buildActiveDirectoryDomainService,
-	"azurerm_storage_object_replication":      buildStorageObjectReplication,
-	"azurerm_storage_share":                   buildStorageShare,
-	"azurerm_storage_container":               buildStorageContainer,
-	"azurerm_storage_queue":                   buildStorageQueue,
-	"azurerm_storage_table":                   buildStorageTable,
-	"azurerm_key_vault_key":                   buildKeyVaultKey,
-	"azurerm_key_vault_secret":                buildKeyVaultSecret,
-	"azurerm_key_vault_certificate":           buildKeyVaultCertificate,
-	"azurerm_key_vault_certificate_issuer":    buildKeyVaultCertificateIssuer,
+	"azurerm_active_directory_domain_service":   buildActiveDirectoryDomainService,
+	"azurerm_storage_object_replication":        buildStorageObjectReplication,
+	"azurerm_storage_share":                     buildStorageShare,
+	"azurerm_storage_container":                 buildStorageContainer,
+	"azurerm_storage_queue":                     buildStorageQueue,
+	"azurerm_storage_table":                     buildStorageTable,
+	"azurerm_key_vault_key":                     buildKeyVaultKey,
+	"azurerm_key_vault_secret":                  buildKeyVaultSecret,
+	"azurerm_key_vault_certificate":             buildKeyVaultCertificate,
+	"azurerm_key_vault_certificate_issuer":      buildKeyVaultCertificateIssuer,
+	"azurerm_key_vault_managed_storage_account": buildKeyVaultStorageAccount,
 }
 
 func NeedsAPI(item resmap.ARMId2TFMapItem) bool {

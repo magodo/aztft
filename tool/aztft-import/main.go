@@ -76,14 +76,23 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrDataPlaneId,
 	},
+	"azurerm_key_vault_managed_storage_account": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.KeyVault",
+				Types:        []string{"vaults", "storage"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_key_vault_managed_storage_account_sas_token_definition": {caughtErr: ErrDataPlaneId},
 	"azurerm_storage_share_file":                                     {caughtErr: ErrDataPlaneId},
 	"azurerm_storage_share_directory":                                {caughtErr: ErrDataPlaneId},
 	"azurerm_storage_table_entity":                                   {caughtErr: ErrDataPlaneId},
 	"azurerm_storage_blob":                                           {caughtErr: ErrDataPlaneId},
 	"azurerm_storage_data_lake_gen2_path":                            {caughtErr: ErrDataPlaneId},
 	"azurerm_storage_data_lake_gen2_filesystem":                      {caughtErr: ErrDataPlaneId},
-	"azurerm_key_vault_managed_storage_account":                      {caughtErr: ErrDataPlaneId},
-	"azurerm_key_vault_managed_storage_account_sas_token_definition": {caughtErr: ErrDataPlaneId},
 	"azurerm_synapse_role_assignment":                                {caughtErr: ErrSyntheticId},
 
 	// This is not a azure resource, but an operation like abstract resource. Skip it.
