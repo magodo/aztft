@@ -5098,6 +5098,19 @@
       ]
     }
   },
+  "azurerm_key_vault_managed_storage_account_sas_token_definition": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.KeyVault",
+      "types": [
+        "vaults",
+        "storage",
+        "sas"
+      ]
+    }
+  },
   "azurerm_key_vault_secret": {
     "management_plane": {
       "scopes": [
