@@ -96,10 +96,19 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrDataPlaneId,
 	},
+	"azurerm_storage_blob": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Storage",
+				Types:        []string{"storageAccounts", "blobServices", "containers", "blobs"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
 	"azurerm_storage_share_file":                {caughtErr: ErrDataPlaneId},
 	"azurerm_storage_share_directory":           {caughtErr: ErrDataPlaneId},
 	"azurerm_storage_table_entity":              {caughtErr: ErrDataPlaneId},
-	"azurerm_storage_blob":                      {caughtErr: ErrDataPlaneId},
 	"azurerm_storage_data_lake_gen2_path":       {caughtErr: ErrDataPlaneId},
 	"azurerm_storage_data_lake_gen2_filesystem": {caughtErr: ErrDataPlaneId},
 	"azurerm_synapse_role_assignment":           {caughtErr: ErrSyntheticId},

@@ -12,7 +12,7 @@
 	- `azurerm_key_vault_certificate_issuer`                           : `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.KeyVault/vaults/vault1/certificates/cert1/issuers/issuer1`
 	- `azurerm_key_vault_managed_storage_account`                      : `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.KeyVault/vaults/vault1/storage/storage1`
 	- `azurerm_key_vault_managed_storage_account_sas_token_definition` : `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.KeyVault/vaults/vault1/storage/storage1/sas/def1`
-	- `azurerm_storage_blob`                                           : TBD
+	- `azurerm_storage_blob`                                           : `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/account1/blobServices/default/containers/container1/blobs/blob1`
 	- `azurerm_storage_data_lake_gen2_filesystem`                      : TBD
 	- `azurerm_storage_data_lake_gen2_path`                            : TBD
 	- `azurerm_storage_share_directory`                                : TBD

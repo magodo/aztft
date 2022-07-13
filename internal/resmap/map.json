@@ -9774,6 +9774,20 @@
       ]
     }
   },
+  "azurerm_storage_blob": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts",
+        "blobServices",
+        "containers",
+        "blobs"
+      ]
+    }
+  },
   "azurerm_storage_blob_inventory_policy": {
     "management_plane": {
       "scopes": [
