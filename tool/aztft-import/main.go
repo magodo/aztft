@@ -42,7 +42,7 @@ type HardCodedTypeInfo struct {
 }
 
 var HardcodedTypes = map[string]*HardCodedTypeInfo{
-	// Associations are skipped as they are beyond the goal of this tool
+	// Property-like resources
 	"azurerm_app_service_certificate_binding":                                        {caughtErr: ErrSyntheticId},
 	"azurerm_management_group_subscription_association":                              {caughtErr: ErrParseIdFailed},
 	"azurerm_network_interface_security_group_association":                           {caughtErr: ErrSyntheticId},
@@ -54,6 +54,7 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	"azurerm_network_interface_backend_address_pool_association":                     {caughtErr: ErrSyntheticId},
 	"azurerm_nat_gateway_public_ip_prefix_association":                               {caughtErr: ErrSyntheticId},
 	"azurerm_disk_pool_managed_disk_attachment":                                      {caughtErr: ErrSyntheticId},
+	"azurerm_disk_pool_iscsi_target_lun":                                             {caughtErr: ErrSyntheticId},
 
 	// Data plane only resources, we use pesudo resource id patterns
 	"azurerm_key_vault_certificate": {
@@ -170,9 +171,8 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 
 	// This is not a azure resource, but an operation like abstract resource. Skip it.
 	"azurerm_resource_provider_registration": {caughtErr: ErrParseIdFailed},
-	// This represents a property in disk pool iscsi target resource, which means it doesn't have a resource ID in Azure. Just ignore it.
-	"azurerm_disk_pool_iscsi_target_lun": {caughtErr: ErrSyntheticId},
 
+	// Normal resources, but encounter issues during import
 	"azurerm_key_vault_access_policy": {
 		mapItem: &resmap.TF2ARMIdMapItem{
 			ManagementPlane: &resmap.MapManagementPlane{
