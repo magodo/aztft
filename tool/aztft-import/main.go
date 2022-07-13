@@ -106,8 +106,26 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrDataPlaneId,
 	},
-	"azurerm_storage_share_file":                {caughtErr: ErrDataPlaneId},
-	"azurerm_storage_share_directory":           {caughtErr: ErrDataPlaneId},
+	"azurerm_storage_share_file": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Storage",
+				Types:        []string{"storageAccounts", "fileServices", "shares", "files"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_storage_share_directory": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Storage",
+				Types:        []string{"storageAccounts", "fileServices", "shares", "directories"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
 	"azurerm_storage_table_entity":              {caughtErr: ErrDataPlaneId},
 	"azurerm_storage_data_lake_gen2_path":       {caughtErr: ErrDataPlaneId},
 	"azurerm_storage_data_lake_gen2_filesystem": {caughtErr: ErrDataPlaneId},

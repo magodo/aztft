@@ -9884,6 +9884,34 @@
       ]
     }
   },
+  "azurerm_storage_share_directory": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts",
+        "fileServices",
+        "shares",
+        "directories"
+      ]
+    }
+  },
+  "azurerm_storage_share_file": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts",
+        "fileServices",
+        "shares",
+        "files"
+      ]
+    }
+  },
   "azurerm_storage_sync": {
     "management_plane": {
       "scopes": [
