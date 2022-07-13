@@ -156,7 +156,17 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrDataPlaneId,
 	},
-	"azurerm_synapse_role_assignment": {caughtErr: ErrSyntheticId},
+	"azurerm_synapse_role_assignment": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Synapse",
+				Types:        []string{"workspaces", "roleAssignments"},
+				ImportSpecs:  []string{"/subscriptions/resourceGroups/Microsoft.Synapse/workspaces"},
+			},
+		},
+		caughtErr: ErrSyntheticId,
+	},
 
 	// This is not a azure resource, but an operation like abstract resource. Skip it.
 	"azurerm_resource_provider_registration": {caughtErr: ErrParseIdFailed},

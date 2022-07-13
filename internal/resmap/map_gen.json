@@ -10507,6 +10507,21 @@
       ]
     }
   },
+  "azurerm_synapse_role_assignment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Synapse",
+      "types": [
+        "workspaces",
+        "roleAssignments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Synapse/workspaces"
+      ]
+    }
+  },
   "azurerm_synapse_spark_pool": {
     "management_plane": {
       "scopes": [
