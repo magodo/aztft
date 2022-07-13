@@ -136,9 +136,27 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrDataPlaneId,
 	},
-	"azurerm_storage_data_lake_gen2_path":       {caughtErr: ErrDataPlaneId},
-	"azurerm_storage_data_lake_gen2_filesystem": {caughtErr: ErrDataPlaneId},
-	"azurerm_synapse_role_assignment":           {caughtErr: ErrSyntheticId},
+	"azurerm_storage_data_lake_gen2_path": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Storage",
+				Types:        []string{"storageAccounts", "dfs", "paths"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_storage_data_lake_gen2_filesystem": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Storage",
+				Types:        []string{"storageAccounts", "dfs"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_synapse_role_assignment": {caughtErr: ErrSyntheticId},
 
 	// This is not a azure resource, but an operation like abstract resource. Skip it.
 	"azurerm_resource_provider_registration": {caughtErr: ErrParseIdFailed},

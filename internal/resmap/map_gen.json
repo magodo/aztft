@@ -9752,6 +9752,31 @@
       ]
     }
   },
+  "azurerm_storage_data_lake_gen2_filesystem": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts",
+        "dfs"
+      ]
+    }
+  },
+  "azurerm_storage_data_lake_gen2_path": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts",
+        "dfs",
+        "paths"
+      ]
+    }
+  },
   "azurerm_storage_encryption_scope": {
     "management_plane": {
       "scopes": [

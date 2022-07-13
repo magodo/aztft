@@ -27,6 +27,8 @@ var dynamicBuilders = map[string]builderFunc{
 	"azurerm_storage_share_directory":                                buildStorageShareDirectory,
 	"azurerm_storage_share_file":                                     buildStorageShareFile,
 	"azurerm_storage_table_entity":                                   buildStorageTableEntity,
+	"azurerm_storage_data_lake_gen2_filesystem":                      buildStorageDfs,
+	"azurerm_storage_data_lake_gen2_path":                            buildStorageDfsPath,
 }
 
 func NeedsAPI(item resmap.ARMId2TFMapItem) bool {
