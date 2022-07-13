@@ -1113,6 +1113,20 @@
       ]
     }
   },
+  "azurerm_application_insights_workbook_template": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Insights",
+      "types": [
+        "workbooktemplates"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Insights/workbooktemplates"
+      ]
+    }
+  },
   "azurerm_application_security_group": {
     "management_plane": {
       "scopes": [
@@ -3434,10 +3448,10 @@
       ],
       "provider": "Microsoft.Databricks",
       "types": [
-        "customerManagedKey"
+        "workspaces"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Databricks/customerManagedKey"
+        "/subscriptions/resourceGroups/Microsoft.Databricks/workspaces"
       ]
     }
   },
@@ -4406,6 +4420,37 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Web/sites/slots"
+      ]
+    }
+  },
+  "azurerm_gallery_application": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Compute",
+      "types": [
+        "galleries",
+        "applications"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Compute/galleries/applications"
+      ]
+    }
+  },
+  "azurerm_gallery_application_version": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Compute",
+      "types": [
+        "galleries",
+        "applications",
+        "versions"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Compute/galleries/applications/versions"
       ]
     }
   },
