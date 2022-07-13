@@ -9,7 +9,7 @@
 - Currently, only Azure management plane resource ID is allowed as input. For Terraform resources that corresponds to Azure resources which are data plane only, we defined following pesudo resource id patterns, which can be recognized by `aztft` as input:
 
     - `azurerm_key_vault_certificate`                                  : `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.KeyVault/vaults/vault1/certificates/cert1`
-	- `azurerm_key_vault_certificate_issuer`                           : TBD
+	- `azurerm_key_vault_certificate_issuer`                           : `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.KeyVault/vaults/vault1/certificates/cert1/issuers/issuer1`
 	- `azurerm_key_vault_managed_storage_account`                      : TBD
 	- `azurerm_key_vault_managed_storage_account_sas_token_definition` : TBD
 	- `azurerm_storage_blob`                                           : TBD
