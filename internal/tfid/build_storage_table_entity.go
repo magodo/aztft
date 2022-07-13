@@ -9,7 +9,7 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func buildStorageTable(b *client.ClientBuilder, id armid.ResourceId, spec string) (string, error) {
+func buildStorageTableEntity(b *client.ClientBuilder, id armid.ResourceId, spec string) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewStorageAccountsClient(resourceGroupId.SubscriptionId)
 	if err != nil {
@@ -32,5 +32,5 @@ func buildStorageTable(b *client.ClientBuilder, id armid.ResourceId, spec string
 		return "", fmt.Errorf("unexpected nil properties.primaryEndpoints.table in response")
 	}
 	baseUri := strings.TrimSuffix(*tableEndpoint, "/")
-	return fmt.Sprintf("%s/Tables('%s')", baseUri, id.Names()[2]), nil
+	return fmt.Sprintf("%s/%s(PartitionKey='%s',RowKey='%s')", baseUri, id.Names()[2], id.Names()[3], id.Names()[4]), nil
 }

@@ -17,5 +17,5 @@
 	- `azurerm_storage_data_lake_gen2_path`                            : TBD
 	- `azurerm_storage_share_directory`                                : `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/account1/fileServices/default/shares/share1/directories/path1` (note that for path that is more than one level, use `:` as separator, e.g. `path1` can be `dir1:dir2`)
 	- `azurerm_storage_share_file`                                     : `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/account1/fileServices/default/shares/share1/files/path1` (note that for path that is more than one level, use `:` as separator, e.g. `path1` can be `dir1:file1`)
-	- `azurerm_storage_table_entity`                                   : TBD
+	- `azurerm_storage_table_entity`                                   : `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/account1/tableServices/default/tables/table1/partitionKeys/pk1/rowkeys/rk1`
 	- `azurerm_synapse_role_assignment`                                : TBD

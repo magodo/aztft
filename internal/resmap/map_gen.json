@@ -9906,6 +9906,21 @@
       ]
     }
   },
+  "azurerm_storage_table_entity": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts",
+        "tableServices",
+        "tables",
+        "partitionKeys",
+        "rowKeys"
+      ]
+    }
+  },
   "azurerm_stream_analytics_cluster": {
     "management_plane": {
       "scopes": [
