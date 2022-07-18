@@ -6268,7 +6268,7 @@
         "disks"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.compute/disks"
+        "/subscriptions/resourceGroups/Microsoft.Compute/disks"
       ]
     }
   },
