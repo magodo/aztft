@@ -741,7 +741,8 @@ func isVerified(rt string) bool {
 		"azurerm_subscription_policy_exemption",                                   // the scope is sub
 		"azurerm_management_group_policy_remediation",                             // the variant segment is fixed to be Microsoft.Management
 		"azurerm_role_definition",                                                 // the scope is any
-		"azurerm_dev_test_schedule":
+		"azurerm_dev_test_schedule",
+		"azurerm_synapse_linked_service": // terraform used a pesudo mgmt plane like id
 		return true
 
 		// Deprecated
