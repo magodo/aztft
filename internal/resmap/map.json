@@ -9725,10 +9725,10 @@
       ],
       "provider": "Microsoft.Compute",
       "types": [
-        "SshPublicKeys"
+        "sshPublicKeys"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Compute/SshPublicKeys"
+        "/subscriptions/resourceGroups/Microsoft.Compute/sshPublicKeys"
       ]
     }
   },
