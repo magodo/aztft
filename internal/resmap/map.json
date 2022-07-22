@@ -1128,6 +1128,20 @@
       ]
     }
   },
+  "azurerm_application_insights_workbook": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Insights",
+      "types": [
+        "workbooks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Insights/workbooks"
+      ]
+    }
+  },
   "azurerm_application_insights_workbook_template": {
     "management_plane": {
       "scopes": [
@@ -1912,6 +1926,37 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Cdn/profiles/afdEndpoints"
+      ]
+    }
+  },
+  "azurerm_cdn_frontdoor_origin": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Cdn",
+      "types": [
+        "profiles",
+        "originGroups",
+        "origins"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Cdn/profiles/originGroups/origins"
+      ]
+    }
+  },
+  "azurerm_cdn_frontdoor_origin_group": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Cdn",
+      "types": [
+        "profiles",
+        "originGroups"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Cdn/profiles/originGroups"
       ]
     }
   },
@@ -6736,6 +6781,20 @@
       ]
     }
   },
+  "azurerm_monitor_data_collection_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Insights",
+      "types": [
+        "dataCollectionRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Insights/dataCollectionRules"
+      ]
+    }
+  },
   "azurerm_monitor_diagnostic_setting": {
     "management_plane": {
       "scopes": [
@@ -7716,11 +7775,10 @@
       ],
       "provider": "Microsoft.DBforPostgreSQL",
       "types": [
-        "servers",
-        "administrators"
+        "servers"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/servers/administrators"
+        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/servers"
       ]
     }
   },
@@ -8414,6 +8472,35 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/routeFilters"
+      ]
+    }
+  },
+  "azurerm_route_server": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "virtualHubs"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/virtualHubs"
+      ]
+    }
+  },
+  "azurerm_route_server_bgp_connection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "virtualHubs",
+        "bgpConnections"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/virtualHubs/bgpConnections"
       ]
     }
   },
@@ -11577,6 +11664,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.SignalRService/webPubSub"
+      ]
+    }
+  },
+  "azurerm_web_pubsub_shared_private_link_resource": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.SignalRService",
+      "types": [
+        "webPubsub",
+        "sharedPrivateLinkResources"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.SignalRService/webPubsub/sharedPrivateLinkResources"
       ]
     }
   },
