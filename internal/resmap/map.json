@@ -11026,10 +11026,10 @@
       ],
       "provider": "Microsoft.DesktopVirtualization",
       "types": [
-        "hostpools"
+        "hostPools"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DesktopVirtualization/hostpools"
+        "/subscriptions/resourceGroups/Microsoft.DesktopVirtualization/hostPools"
       ]
     }
   },
