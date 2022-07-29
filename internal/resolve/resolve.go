@@ -137,6 +137,12 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.ALERTSMANAGEMENT/ACTIONRULES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": alertsManagementProcessingRulesResolver{},
 	},
+	"/MICROSOFT.NETWORK/VIRTUALHUBS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": virtualHubsResolver{},
+	},
+	"/MICROSOFT.NETWORK/VIRTUALHUBS/BGPCONNECTIONS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": virtualHubBgpConnectionsResolver{},
+	},
 }
 
 type ResolveError struct {

@@ -28,6 +28,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/monitor/armmonitor"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/operationalinsights/armoperationalinsights"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2"
@@ -457,6 +458,22 @@ func (b *ClientBuilder) NewKeyVaultKeysClient(subscriptionId string) (*armkeyvau
 
 func (b *ClientBuilder) NewKeyVaultSecretsClient(subscriptionId string) (*armkeyvault.SecretsClient, error) {
 	return armkeyvault.NewSecretsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewNetworkVirtualHubsClient(subscriptionId string) (*armnetwork.VirtualHubsClient, error) {
+	return armnetwork.NewVirtualHubsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewNetworkVirtualHubBgpConnectionClient(subscriptionId string) (*armnetwork.VirtualHubBgpConnectionClient, error) {
+	return armnetwork.NewVirtualHubBgpConnectionClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,

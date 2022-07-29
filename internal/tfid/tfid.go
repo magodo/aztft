@@ -77,6 +77,12 @@ func StaticBuild(id armid.ResourceId, item resmap.ARMId2TFMapItem) (string, erro
 			return "", fmt.Errorf("normalizing id %q for %q with import spec %q: %v", pid.String(), item.ResourceType, item.ImportSpec, err)
 		}
 		return pid.String() + "|" + id.Names()[1], nil
+	case "azurerm_postgresql_active_directory_administrator":
+		pid := id.Parent()
+		if err := pid.Normalize(item.ImportSpec); err != nil {
+			return "", fmt.Errorf("normalizing id %q for %q with import spec %q: %v", pid.String(), item.ResourceType, item.ImportSpec, err)
+		}
+		return pid.String(), nil
 	}
 
 	if item.ImportSpec != "" {

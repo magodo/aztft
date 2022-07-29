@@ -3520,6 +3520,20 @@
       ]
     }
   },
+  "azurerm_datadog_monitor": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Datadog",
+      "types": [
+        "monitors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Datadog/monitors"
+      ]
+    }
+  },
   "azurerm_dedicated_hardware_security_module": {
     "management_plane": {
       "scopes": [
@@ -5317,6 +5331,21 @@
       ]
     }
   },
+  "azurerm_kusto_cluster_managed_private_endpoint": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Kusto",
+      "types": [
+        "Clusters",
+        "managedPrivateEndpoints"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters/managedPrivateEndpoints"
+      ]
+    }
+  },
   "azurerm_kusto_cluster_principal_assignment": {
     "management_plane": {
       "scopes": [
@@ -5796,6 +5825,20 @@
       ]
     }
   },
+  "azurerm_log_analytics_query_pack": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.OperationalInsights",
+      "types": [
+        "queryPacks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/queryPacks"
+      ]
+    }
+  },
   "azurerm_log_analytics_saved_search": {
     "management_plane": {
       "scopes": [
@@ -6127,6 +6170,22 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Logz/monitors/accounts"
+      ]
+    }
+  },
+  "azurerm_logz_sub_account_tag_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Logz",
+      "types": [
+        "monitors",
+        "accounts",
+        "tagRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Logz/monitors/accounts/tagRules"
       ]
     }
   },
@@ -7775,7 +7834,8 @@
       ],
       "provider": "Microsoft.DBforPostgreSQL",
       "types": [
-        "servers"
+        "servers",
+        "administrators"
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/servers"
@@ -9166,6 +9226,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.SignalRService/signalR"
+      ]
+    }
+  },
+  "azurerm_signalr_shared_private_link_resource": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.SignalRService",
+      "types": [
+        "signalR",
+        "sharedPrivateLinkResources"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.SignalRService/signalR/sharedPrivateLinkResources"
       ]
     }
   },
