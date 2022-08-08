@@ -72,6 +72,90 @@ func TestQueryType(t *testing.T) {
 				require.EqualError(t, err, tt.err)
 				return
 			}
+			require.NoError(t, err)
+			require.Equal(t, tt.expect, actual)
+		})
+	}
+}
+
+func TestQueryId(t *testing.T) {
+	cases := []struct {
+		name   string
+		input  string
+		rt     string
+		expect string
+		err    string
+	}{
+		{
+			name:  "invalid id",
+			input: "/subscriptions/sub1/resourceGroups/rg1/foos",
+			rt:    "azurerm_resource_group",
+			err:   `parsing id: scopes should be split by "/providers/"`,
+		},
+		{
+			name:   "resource group",
+			input:  "/subscriptions/sub1/resourceGroups/rg1",
+			rt:     "azurerm_resource_group",
+			expect: "/subscriptions/sub1/resourceGroups/rg1",
+		},
+		{
+			name:   "resource group (case insensitively)",
+			input:  "/SUBSCRIPTIONS/SUB1/RESOURCEGROUPS/RG1",
+			rt:     "azurerm_resource_group",
+			expect: "/subscriptions/SUB1/resourceGroups/RG1",
+		},
+		{
+			name:   "management group",
+			input:  "/providers/Microsoft.Management/managementGroups/group1",
+			rt:     "azurerm_management_group",
+			expect: "/providers/Microsoft.Management/managementGroups/group1",
+		},
+		{
+			name:   "management group (case insensitively)",
+			input:  "/PROVIDERS/MICROSOFT.MANAGEMENT/MANAGEMENTGROUPS/GROUP1",
+			rt:     "azurerm_management_group",
+			expect: "/providers/Microsoft.Management/managementGroups/GROUP1",
+		},
+		{
+			name:   "poliy definition (subscription level)",
+			input:  "/subscriptions/sub1/providers/Microsoft.Authorization/policyDefinitions/policy1",
+			rt:     "azurerm_policy_definition",
+			expect: "/subscriptions/sub1/providers/Microsoft.Authorization/policyDefinitions/policy1",
+		},
+		{
+			name:   "policy definitinon (management group level)",
+			input:  "/providers/Microsoft.Management/managementgroups/grp1/providers/Microsoft.Authorization/policyDefinitions/policy1",
+			rt:     "azurerm_policy_definition",
+			expect: "/providers/Microsoft.Management/managementgroups/grp1/providers/Microsoft.Authorization/policyDefinitions/policy1",
+		},
+		{
+			name:   "policy set definition (subscription level)",
+			input:  "/subscriptions/sub1/providers/Microsoft.Authorization/policySetDefinitions/policy1",
+			rt:     "azurerm_policy_set_definition",
+			expect: "/subscriptions/sub1/providers/Microsoft.Authorization/policySetDefinitions/policy1",
+		},
+		{
+			name:   "policy set definitinon (management group level)",
+			input:  "/providers/Microsoft.Management/managementgroups/grp1/providers/Microsoft.Authorization/policySetDefinitions/policy1",
+			rt:     "azurerm_policy_set_definition",
+			expect: "/providers/Microsoft.Management/managementgroups/grp1/providers/Microsoft.Authorization/policySetDefinitions/policy1",
+		},
+		{
+			name:   "backup protection resource",
+			input:  "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;group1;vm1/protectedItems/vm;iaasvmcontainerv2;group1;vm1",
+			rt:     "azurerm_backup_protected_vm",
+			expect: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;group1;vm1/protectedItems/vm;iaasvmcontainerv2;group1;vm1",
+		},
+	}
+
+	for _, tt := range cases {
+		t.Run(tt.name, func(t *testing.T) {
+			actual, err := QueryId(tt.input, tt.rt, false)
+			if tt.err != "" {
+				require.EqualError(t, err, tt.err)
+				return
+			}
+			require.NoError(t, err)
 			require.Equal(t, tt.expect, actual)
 		})
 	}
