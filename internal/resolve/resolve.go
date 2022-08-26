@@ -50,6 +50,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.DATAFACTORY/FACTORIES/DATASETS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": dataFactoryDatasetsResolver{},
 	},
+	"/MICROSOFT.DATAFACTORY/FACTORIES/DATAFLOWS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": dataFactoryDataFlowsResolver{},
+	},
 	"/MICROSOFT.DATAFACTORY/FACTORIES/LINKEDSERVICES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": dataFactoryLinkedServicesResolver{},
 	},

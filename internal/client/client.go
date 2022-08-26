@@ -192,6 +192,14 @@ func (b *ClientBuilder) NewDataFactoryDatasetsClient(subscriptionId string) (*ar
 	)
 }
 
+func (b *ClientBuilder) NewDataFactoryDataFlowsClient(subscriptionId string) (*armdatafactory.DataFlowsClient, error) {
+	return armdatafactory.NewDataFlowsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewDataFactoryLinkedServicesClient(subscriptionId string) (*armdatafactory.LinkedServicesClient, error) {
 	return armdatafactory.NewLinkedServicesClient(
 		subscriptionId,
