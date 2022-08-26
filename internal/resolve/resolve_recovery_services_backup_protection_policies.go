@@ -12,7 +12,11 @@ import (
 type recoveryServicesBackupProtectionPoliciesResolver struct{}
 
 func (recoveryServicesBackupProtectionPoliciesResolver) ResourceTypes() []string {
-	return []string{"azurerm_backup_policy_vm", "azurerm_backup_policy_file_share"}
+	return []string{
+		"azurerm_backup_policy_vm",
+		"azurerm_backup_policy_vm_workload",
+		"azurerm_backup_policy_file_share",
+	}
 }
 
 func (recoveryServicesBackupProtectionPoliciesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
@@ -34,6 +38,8 @@ func (recoveryServicesBackupProtectionPoliciesResolver) Resolve(b *client.Client
 		return "azurerm_backup_policy_vm", nil
 	case *armrecoveryservicesbackup.AzureFileShareProtectionPolicy:
 		return "azurerm_backup_policy_file_share", nil
+	case *armrecoveryservicesbackup.AzureVMWorkloadProtectionPolicy:
+		return "azurerm_backup_policy_vm_workload", nil
 	default:
 		return "", fmt.Errorf("unknown policy type: %T", props)
 	}
