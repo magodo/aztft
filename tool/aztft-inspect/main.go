@@ -44,7 +44,7 @@ func main() {
 						// Check whether all the TF candidates are covered by this resolver.
 						for _, rt := range l {
 							if !stringInSlice(rt.ResourceType, resolver.ResourceTypes()) {
-								fmt.Printf("%s in scope of %s has ambiguous resource type %q that isn't covered by that resolver", k1, k2, rt)
+								fmt.Printf("%s in scope of %s has ambiguous resource type %q that isn't covered by that resolver\n", k1, k2, rt)
 							}
 						}
 					}
