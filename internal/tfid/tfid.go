@@ -82,6 +82,12 @@ func StaticBuild(id armid.ResourceId, rt, importSpec string) (string, error) {
 			return "", fmt.Errorf("normalizing id %q for %q with import spec %q: %v", pid.String(), rt, importSpec, err)
 		}
 		return pid.String(), nil
+	case "azurerm_servicebus_namespace_network_rule_set":
+		pid := id.Parent()
+		if err := pid.Normalize(importSpec); err != nil {
+			return "", fmt.Errorf("normalizing id %q for %q with import spec %q: %v", pid.String(), rt, importSpec, err)
+		}
+		return pid.String(), nil
 	}
 
 	if importSpec != "" {

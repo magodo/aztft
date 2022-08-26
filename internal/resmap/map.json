@@ -9168,7 +9168,8 @@
       ],
       "provider": "Microsoft.ServiceBus",
       "types": [
-        "namespaces"
+        "namespaces",
+        "networkRuleSets"
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.ServiceBus/namespaces"
