@@ -1513,6 +1513,21 @@
       ]
     }
   },
+  "azurerm_backup_policy_vm_workload": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.RecoveryServices",
+      "types": [
+        "vaults",
+        "backupPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/backupPolicies"
+      ]
+    }
+  },
   "azurerm_backup_protected_file_share": {
     "management_plane": {
       "scopes": [
@@ -1929,6 +1944,20 @@
       ]
     }
   },
+  "azurerm_cdn_frontdoor_firewall_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "frontdoorWebApplicationFirewallPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/frontdoorWebApplicationFirewallPolicies"
+      ]
+    }
+  },
   "azurerm_cdn_frontdoor_origin": {
     "management_plane": {
       "scopes": [
@@ -1986,6 +2015,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Cdn/profiles/ruleSets"
+      ]
+    }
+  },
+  "azurerm_cdn_frontdoor_security_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Cdn",
+      "types": [
+        "profiles",
+        "securityPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Cdn/profiles/securityPolicies"
       ]
     }
   },
@@ -2735,6 +2779,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/datasets"
+      ]
+    }
+  },
+  "azurerm_data_factory_flowlet_data_flow": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataFactory",
+      "types": [
+        "factories",
+        "dataflows"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/dataflows"
       ]
     }
   },
@@ -4164,6 +4223,21 @@
       ]
     }
   },
+  "azurerm_eventhub_namespace_schema_group": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.EventHub",
+      "types": [
+        "namespaces",
+        "schemagroups"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.EventHub/namespaces/schemagroups"
+      ]
+    }
+  },
   "azurerm_express_route_circuit": {
     "management_plane": {
       "scopes": [
@@ -4765,6 +4839,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/microsoft.compute/images"
+      ]
+    }
+  },
+  "azurerm_insights_scheduled_query_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Insights",
+      "types": [
+        "scheduledQueryRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Insights/scheduledQueryRules"
       ]
     }
   },
@@ -5839,6 +5927,21 @@
       ]
     }
   },
+  "azurerm_log_analytics_query_pack_query": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.OperationalInsights",
+      "types": [
+        "queryPacks",
+        "queries"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/queryPacks/queries"
+      ]
+    }
+  },
   "azurerm_log_analytics_saved_search": {
     "management_plane": {
       "scopes": [
@@ -6840,6 +6943,20 @@
       ]
     }
   },
+  "azurerm_monitor_data_collection_endpoint": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Insights",
+      "types": [
+        "dataCollectionEndpoints"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Insights/dataCollectionEndpoints"
+      ]
+    }
+  },
   "azurerm_monitor_data_collection_rule": {
     "management_plane": {
       "scopes": [
@@ -6929,10 +7046,10 @@
       ],
       "provider": "Microsoft.Insights",
       "types": [
-        "scheduledqueryrules"
+        "scheduledQueryRules"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Insights/scheduledqueryrules"
+        "/subscriptions/resourceGroups/Microsoft.Insights/scheduledQueryRules"
       ]
     }
   },
@@ -9005,12 +9122,12 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "microsoft.servicebus",
+      "provider": "Microsoft.ServiceBus",
       "types": [
         "namespaces"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.servicebus/namespaces"
+        "/subscriptions/resourceGroups/Microsoft.ServiceBus/namespaces"
       ]
     }
   },
@@ -9049,13 +9166,12 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "Microsoft.Servicebus",
+      "provider": "Microsoft.ServiceBus",
       "types": [
-        "namespaces",
-        "networkrulesets"
+        "namespaces"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Servicebus/namespaces/networkrulesets"
+        "/subscriptions/resourceGroups/Microsoft.ServiceBus/namespaces"
       ]
     }
   },
@@ -9064,13 +9180,13 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "microsoft.servicebus",
+      "provider": "Microsoft.ServiceBus",
       "types": [
         "namespaces",
         "queues"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.servicebus/namespaces/queues"
+        "/subscriptions/resourceGroups/Microsoft.ServiceBus/namespaces/queues"
       ]
     }
   },
@@ -9095,14 +9211,14 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "microsoft.servicebus",
+      "provider": "Microsoft.ServiceBus",
       "types": [
         "namespaces",
         "topics",
         "subscriptions"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.servicebus/namespaces/topics/subscriptions"
+        "/subscriptions/resourceGroups/Microsoft.ServiceBus/namespaces/topics/subscriptions"
       ]
     }
   },
@@ -9111,7 +9227,7 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "microsoft.servicebus",
+      "provider": "Microsoft.ServiceBus",
       "types": [
         "namespaces",
         "topics",
@@ -9119,7 +9235,7 @@
         "rules"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.servicebus/namespaces/topics/subscriptions/rules"
+        "/subscriptions/resourceGroups/Microsoft.ServiceBus/namespaces/topics/subscriptions/rules"
       ]
     }
   },
@@ -9128,13 +9244,13 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "microsoft.servicebus",
+      "provider": "Microsoft.ServiceBus",
       "types": [
         "namespaces",
         "topics"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.servicebus/namespaces/topics"
+        "/subscriptions/resourceGroups/Microsoft.ServiceBus/namespaces/topics"
       ]
     }
   },
