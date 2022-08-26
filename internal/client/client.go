@@ -23,6 +23,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/devtestlabs/armdevtestlabs"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/domainservices/armdomainservices"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/frontdoor/armfrontdoor"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hdinsight/armhdinsight"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto"
@@ -482,6 +483,14 @@ func (b *ClientBuilder) NewNetworkVirtualHubsClient(subscriptionId string) (*arm
 
 func (b *ClientBuilder) NewNetworkVirtualHubBgpConnectionClient(subscriptionId string) (*armnetwork.VirtualHubBgpConnectionClient, error) {
 	return armnetwork.NewVirtualHubBgpConnectionClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewFrontdoorPoliciesClient(subscriptionId string) (*armfrontdoor.PoliciesClient, error) {
+	return armfrontdoor.NewPoliciesClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,

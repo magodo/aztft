@@ -146,6 +146,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.NETWORK/VIRTUALHUBS/BGPCONNECTIONS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": virtualHubBgpConnectionsResolver{},
 	},
+	"/MICROSOFT.NETWORK/FRONTDOORWEBAPPLICATIONFIREWALLPOLICIES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": frontdoorPoliciesResolver{},
+	},
 }
 
 type ResolveError struct {
