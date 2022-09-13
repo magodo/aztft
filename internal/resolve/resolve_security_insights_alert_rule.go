@@ -13,6 +13,7 @@ type securityInsightsAlertRulesResolver struct{}
 
 func (securityInsightsAlertRulesResolver) ResourceTypes() []string {
 	return []string{
+		"azurerm_sentinel_alert_rule_nrt",
 		"azurerm_sentinel_alert_rule_fusion",
 		"azurerm_sentinel_alert_rule_machine_learning_behavior_analytics",
 		"azurerm_sentinel_alert_rule_ms_security_incident",
@@ -36,6 +37,8 @@ func (securityInsightsAlertRulesResolver) Resolve(b *client.ClientBuilder, id ar
 	}
 
 	switch model.(type) {
+	case *armsecurityinsights.NrtAlertRule:
+		return "azurerm_sentinel_alert_rule_nrt", nil
 	case *armsecurityinsights.FusionAlertRule:
 		return "azurerm_sentinel_alert_rule_fusion", nil
 	case *armsecurityinsights.MLBehaviorAnalyticsAlertRule:
