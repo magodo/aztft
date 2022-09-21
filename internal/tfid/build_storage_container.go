@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"net/url"
-	"path/filepath"
 
 	"github.com/magodo/armid"
 	"github.com/magodo/aztft/internal/client"
@@ -36,6 +35,6 @@ func buildStorageContainer(b *client.ClientBuilder, id armid.ResourceId, spec st
 	if err != nil {
 		return "", fmt.Errorf("failed to parse url %s: %v", *blobEndpoint, err)
 	}
-	uri.Path = filepath.Join(uri.Path, id.Names()[2])
+	uri = uri.JoinPath(id.Names()[2])
 	return uri.String(), nil
 }

@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"net/url"
-	"path/filepath"
 
 	"github.com/magodo/armid"
 	"github.com/magodo/aztft/internal/client"
@@ -36,6 +35,6 @@ func buildStorageDfs(b *client.ClientBuilder, id armid.ResourceId, spec string) 
 	if err != nil {
 		return "", fmt.Errorf("failed to parse url %s: %v", *dfsEndpoint, err)
 	}
-	uri.Path = filepath.Join(uri.Path, id.Names()[1])
+	uri = uri.JoinPath(id.Names()[1])
 	return uri.String(), nil
 }
