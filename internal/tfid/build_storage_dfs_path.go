@@ -3,7 +3,6 @@ package tfid
 import (
 	"fmt"
 	"net/url"
-	"path/filepath"
 	"strings"
 
 	"github.com/magodo/armid"
@@ -21,6 +20,6 @@ func buildStorageDfsPath(b *client.ClientBuilder, id armid.ResourceId, spec stri
 	}
 	path := id.Names()[2]
 	path = strings.ReplaceAll(path, ":", "/")
-	uri.Path = filepath.Join(uri.Path, path)
+	uri = uri.JoinPath(path)
 	return uri.String(), nil
 }

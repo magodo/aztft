@@ -3,7 +3,6 @@ package tfid
 import (
 	"fmt"
 	"net/url"
-	"path/filepath"
 
 	"github.com/magodo/armid"
 	"github.com/magodo/aztft/internal/client"
@@ -18,6 +17,6 @@ func buildStorageBlob(b *client.ClientBuilder, id armid.ResourceId, spec string)
 	if err != nil {
 		return "", fmt.Errorf("parsing uri %s: %v", containerId, err)
 	}
-	uri.Path = filepath.Join(uri.Path, id.Names()[3])
+	uri = uri.JoinPath(id.Names()[3])
 	return uri.String(), nil
 }
