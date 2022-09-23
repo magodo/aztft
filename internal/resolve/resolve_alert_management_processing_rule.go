@@ -12,7 +12,10 @@ import (
 type alertsManagementProcessingRulesResolver struct{}
 
 func (alertsManagementProcessingRulesResolver) ResourceTypes() []string {
-	return []string{"azurerm_monitor_action_rule_action_group", "azurerm_monitor_action_rule_suppression"}
+	return []string{
+		"azurerm_monitor_alert_processing_rule_suppression",
+		"azurerm_monitor_alert_processing_rule_action_group",
+	}
 }
 
 func (alertsManagementProcessingRulesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
@@ -40,9 +43,9 @@ func (alertsManagementProcessingRulesResolver) Resolve(b *client.ClientBuilder, 
 
 	switch actions[0].(type) {
 	case *armalertsmanagement.AddActionGroups:
-		return "azurerm_monitor_action_rule_action_group", nil
+		return "azurerm_monitor_alert_processing_rule_action_group", nil
 	case *armalertsmanagement.RemoveAllActionGroups:
-		return "azurerm_monitor_action_rule_suppression", nil
+		return "azurerm_monitor_alert_processing_rule_suppression", nil
 	default:
 		return "", fmt.Errorf("unknown action type: %T", actions[0])
 	}

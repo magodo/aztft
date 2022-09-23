@@ -1517,6 +1517,21 @@
       ]
     }
   },
+  "azurerm_automation_software_update_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Automation",
+      "types": [
+        "automationAccounts",
+        "softwareUpdateConfigurations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/softwareUpdateConfigurations"
+      ]
+    }
+  },
   "azurerm_automation_source_control": {
     "management_plane": {
       "scopes": [
@@ -7150,6 +7165,8 @@
     }
   },
   "azurerm_monitor_action_rule_action_group": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_monitor_alert_processing_rule_action_group`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -7164,6 +7181,8 @@
     }
   },
   "azurerm_monitor_action_rule_suppression": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_monitor_alert_processing_rule_suppression`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -7188,6 +7207,34 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Insights/activityLogAlerts"
+      ]
+    }
+  },
+  "azurerm_monitor_alert_processing_rule_action_group": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AlertsManagement",
+      "types": [
+        "actionRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AlertsManagement/actionRules"
+      ]
+    }
+  },
+  "azurerm_monitor_alert_processing_rule_suppression": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AlertsManagement",
+      "types": [
+        "actionRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AlertsManagement/actionRules"
       ]
     }
   },
