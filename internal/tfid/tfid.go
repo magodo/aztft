@@ -2,33 +2,36 @@ package tfid
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/magodo/armid"
 	"github.com/magodo/aztft/internal/client"
+	"github.com/magodo/aztft/internal/resmap"
 )
 
 type builderFunc func(*client.ClientBuilder, armid.ResourceId, string) (string, error)
 
 var dynamicBuilders = map[string]builderFunc{
-	"azurerm_active_directory_domain_service":                        buildActiveDirectoryDomainService,
-	"azurerm_storage_object_replication":                             buildStorageObjectReplication,
-	"azurerm_storage_share":                                          buildStorageShare,
-	"azurerm_storage_container":                                      buildStorageContainer,
-	"azurerm_storage_queue":                                          buildStorageQueue,
-	"azurerm_storage_table":                                          buildStorageTable,
-	"azurerm_key_vault_key":                                          buildKeyVaultKey,
-	"azurerm_key_vault_secret":                                       buildKeyVaultSecret,
-	"azurerm_key_vault_certificate":                                  buildKeyVaultCertificate,
-	"azurerm_key_vault_certificate_issuer":                           buildKeyVaultCertificateIssuer,
-	"azurerm_key_vault_managed_storage_account":                      buildKeyVaultStorageAccount,
-	"azurerm_key_vault_managed_storage_account_sas_token_definition": buildKeyVaultStorageAccountSasTokenDefinition,
-	"azurerm_storage_blob":                                           buildStorageBlob,
-	"azurerm_storage_share_directory":                                buildStorageShareDirectory,
-	"azurerm_storage_share_file":                                     buildStorageShareFile,
-	"azurerm_storage_table_entity":                                   buildStorageTableEntity,
-	"azurerm_storage_data_lake_gen2_filesystem":                      buildStorageDfs,
-	"azurerm_storage_data_lake_gen2_path":                            buildStorageDfsPath,
-	"azurerm_network_interface_security_group_association":           buildNetworkInterfaceSecurityGroupAssociation,
+	"azurerm_active_directory_domain_service":                                        buildActiveDirectoryDomainService,
+	"azurerm_storage_object_replication":                                             buildStorageObjectReplication,
+	"azurerm_storage_share":                                                          buildStorageShare,
+	"azurerm_storage_container":                                                      buildStorageContainer,
+	"azurerm_storage_queue":                                                          buildStorageQueue,
+	"azurerm_storage_table":                                                          buildStorageTable,
+	"azurerm_key_vault_key":                                                          buildKeyVaultKey,
+	"azurerm_key_vault_secret":                                                       buildKeyVaultSecret,
+	"azurerm_key_vault_certificate":                                                  buildKeyVaultCertificate,
+	"azurerm_key_vault_certificate_issuer":                                           buildKeyVaultCertificateIssuer,
+	"azurerm_key_vault_managed_storage_account":                                      buildKeyVaultStorageAccount,
+	"azurerm_key_vault_managed_storage_account_sas_token_definition":                 buildKeyVaultStorageAccountSasTokenDefinition,
+	"azurerm_storage_blob":                                                           buildStorageBlob,
+	"azurerm_storage_share_directory":                                                buildStorageShareDirectory,
+	"azurerm_storage_share_file":                                                     buildStorageShareFile,
+	"azurerm_storage_table_entity":                                                   buildStorageTableEntity,
+	"azurerm_storage_data_lake_gen2_filesystem":                                      buildStorageDfs,
+	"azurerm_storage_data_lake_gen2_path":                                            buildStorageDfsPath,
+	"azurerm_network_interface_security_group_association":                           buildNetworkInterfaceSecurityGroupAssociation,
+	"azurerm_network_interface_application_gateway_backend_address_pool_association": buildNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation,
 }
 
 func NeedsAPI(rt string) bool {
@@ -36,8 +39,13 @@ func NeedsAPI(rt string) bool {
 	return ok
 }
 
-func DynamicBuild(id armid.ResourceId, rt, importSpec string) (string, error) {
+func DynamicBuild(id armid.ResourceId, rt string) (string, error) {
 	id = id.Clone()
+
+	importSpec, err := GetImportSpec(id, rt)
+	if err != nil {
+		return "", fmt.Errorf("getting import spec for %s as %s: %v", id, rt, err)
+	}
 
 	builder, ok := dynamicBuilders[rt]
 	if !ok {
@@ -52,8 +60,14 @@ func DynamicBuild(id armid.ResourceId, rt, importSpec string) (string, error) {
 	return builder(b, id, importSpec)
 }
 
-func StaticBuild(id armid.ResourceId, rt, importSpec string) (string, error) {
+func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 	id = id.Clone()
+
+	importSpec, err := GetImportSpec(id, rt)
+	if err != nil {
+		return "", fmt.Errorf("getting import spec for %s as %s: %v", id, rt, err)
+	}
+
 	rid, ok := id.(*armid.ScopedResourceId)
 	if !ok {
 		return id.String(), nil
@@ -98,4 +112,40 @@ func StaticBuild(id armid.ResourceId, rt, importSpec string) (string, error) {
 		}
 	}
 	return id.String(), nil
+}
+
+func GetImportSpec(id armid.ResourceId, rt string) (string, error) {
+	resmap.Init()
+	m := resmap.TF2ARMIdMap
+	_ = m
+	item, ok := resmap.TF2ARMIdMap[rt]
+	if !ok {
+		return "", fmt.Errorf("unknown resource type %q", rt)
+	}
+
+	if id.ParentScope() == nil {
+		// For root scope resource id, the import spec is guaranteed to be only one.
+		return item.ManagementPlane.ImportSpecs[0], nil
+	}
+
+	switch len(item.ManagementPlane.ImportSpecs) {
+	case 0:
+		// The ID is dynamically built (e.g. for property-like or some of the data plane only resources)
+		return "", nil
+	case 1:
+		return item.ManagementPlane.ImportSpecs[0], nil
+	default:
+		// Needs to be matched with the scope. Or there might be zero import spec, as for the hypothetic resource ids.
+		idscope := id.ParentScope().ScopeString()
+		i := -1
+		for idx, scope := range item.ManagementPlane.ParentScopes {
+			if strings.EqualFold(scope, idscope) {
+				i = idx
+			}
+		}
+		if i == -1 {
+			return "", fmt.Errorf("id %q doesn't correspond to resource type %q", id, rt)
+		}
+		return item.ManagementPlane.ImportSpecs[i], nil
+	}
 }

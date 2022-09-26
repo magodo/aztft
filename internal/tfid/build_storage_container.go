@@ -9,7 +9,7 @@ import (
 	"github.com/magodo/aztft/internal/client"
 )
 
-func buildStorageContainer(b *client.ClientBuilder, id armid.ResourceId, spec string) (string, error) {
+func buildStorageContainer(b *client.ClientBuilder, id armid.ResourceId, _ string) (string, error) {
 	resourceGroupId := id.RootScope().(*armid.ResourceGroup)
 	client, err := b.NewStorageAccountsClient(resourceGroupId.SubscriptionId)
 	if err != nil {

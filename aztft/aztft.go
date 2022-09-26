@@ -23,7 +23,7 @@ func QueryType(idStr string, allowAPI bool) ([]string, error) {
 	}
 	out := make([]string, len(l))
 	for i := range l {
-		out[i] = l[i].MapItem.ResourceType
+		out[i] = l[i].TFType
 	}
 	return out, nil
 }
@@ -35,47 +35,7 @@ func QueryId(idStr string, rt string, allowAPI bool) (string, error) {
 		return "", fmt.Errorf("parsing id: %v", err)
 	}
 
-	resmap.Init()
-
-	m := resmap.TF2ARMIdMap
-	_ = m
-	item, ok := resmap.TF2ARMIdMap[rt]
-	if !ok {
-		return "", fmt.Errorf("unknown resource type %q", rt)
-	}
-
-	var importSpec string
-	if id.ParentScope() == nil {
-		// For root scope resource id, the import spec is guaranteed to be only one.
-		importSpec = item.ManagementPlane.ImportSpecs[0]
-	} else {
-		// Otherwise, there might be multiple import specs, which will need to be matched with the scope.
-		idscope := id.ParentScope().ScopeString()
-		i := -1
-		for idx, scope := range item.ManagementPlane.ParentScopes {
-			if strings.EqualFold(scope, idscope) {
-				i = idx
-			}
-		}
-		if i == -1 {
-			return "", fmt.Errorf("id %q doesn't correspond to resource type %q", idStr, rt)
-		}
-		importSpec = item.ManagementPlane.ImportSpecs[i]
-	}
-
-	var spec string
-	if tfid.NeedsAPI(rt) {
-		if !allowAPI {
-			return "", fmt.Errorf("%s needs call Azure API to build the import spec", rt)
-		}
-		spec, err = tfid.DynamicBuild(id, rt, importSpec)
-	} else {
-		spec, err = tfid.StaticBuild(id, rt, importSpec)
-	}
-	if err != nil {
-		return "", fmt.Errorf("failed to build id for %s: %v", rt, err)
-	}
-	return spec, nil
+	return queryId(id, rt, allowAPI)
 }
 
 func QueryTypeAndId(idStr string, allowAPI bool) ([]string, []string, error) {
@@ -85,22 +45,33 @@ func QueryTypeAndId(idStr string, allowAPI bool) ([]string, []string, error) {
 	}
 	var outRts, outSpecs []string
 	for _, item := range l {
-		outRts = append(outRts, item.MapItem.ResourceType)
-		var spec string
-		if tfid.NeedsAPI(item.MapItem.ResourceType) {
-			if !allowAPI {
-				return nil, nil, fmt.Errorf("%s needs call Azure API to build the import spec", item.MapItem.ResourceType)
-			}
-			spec, err = tfid.DynamicBuild(item.AzureId, item.MapItem.ResourceType, item.MapItem.ImportSpec)
-		} else {
-			spec, err = tfid.StaticBuild(item.AzureId, item.MapItem.ResourceType, item.MapItem.ImportSpec)
-		}
+		outRts = append(outRts, item.TFType)
+		spec, err := queryId(item.AzureId, item.TFType, allowAPI)
 		if err != nil {
-			return nil, nil, fmt.Errorf("failed to build import spec for %s: %v", item.MapItem.ResourceType, err)
+			return nil, nil, fmt.Errorf("querying id %q as %q: %v", item.AzureId, item.TFType, err)
 		}
 		outSpecs = append(outSpecs, spec)
 	}
 	return outRts, outSpecs, nil
+}
+
+func queryId(id armid.ResourceId, rt string, allowAPI bool) (string, error) {
+	var (
+		spec string
+		err  error
+	)
+	if tfid.NeedsAPI(rt) {
+		if !allowAPI {
+			return "", fmt.Errorf("%s needs call Azure API to build the import spec", rt)
+		}
+		spec, err = tfid.DynamicBuild(id, rt)
+	} else {
+		spec, err = tfid.StaticBuild(id, rt)
+	}
+	if err != nil {
+		return "", fmt.Errorf("failed to build id for %s: %v", rt, err)
+	}
+	return spec, nil
 }
 
 func getARMId2TFMapItems(id armid.ResourceId) []resmap.ARMId2TFMapItem {
@@ -128,7 +99,7 @@ func getARMId2TFMapItems(id armid.ResourceId) []resmap.ARMId2TFMapItem {
 
 type queryResult struct {
 	AzureId armid.ResourceId
-	MapItem resmap.ARMId2TFMapItem
+	TFType  string
 }
 
 func query(idStr string, allowAPI bool) ([]queryResult, error) {
@@ -166,7 +137,7 @@ func query(idStr string, allowAPI bool) ([]queryResult, error) {
 		result = []queryResult{
 			{
 				AzureId: id,
-				MapItem: l[0],
+				TFType:  l[0].ResourceType,
 			},
 		}
 
@@ -182,16 +153,17 @@ func query(idStr string, allowAPI bool) ([]queryResult, error) {
 			if len(tmpl) != 1 {
 				return nil, fmt.Errorf("expect 1 TF resource matched for resource id %q, but got %d. Please open an issue for this", propLikeResId, len(tmpl))
 			}
+			item := tmpl[0]
 			result = append(result, queryResult{
 				AzureId: propLikeResId,
-				MapItem: tmpl[0],
+				TFType:  item.ResourceType,
 			})
 		}
 	} else {
 		for _, item := range l {
 			result = append(result, queryResult{
 				AzureId: id,
-				MapItem: item,
+				TFType:  item.ResourceType,
 			})
 		}
 	}

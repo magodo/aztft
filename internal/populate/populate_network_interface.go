@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork"
 	"github.com/magodo/armid"
 	"github.com/magodo/aztft/internal/client"
 )
@@ -22,6 +23,24 @@ func populateNetworkInterface(b *client.ClientBuilder, id armid.ResourceId) ([]a
 	if props == nil {
 		return nil, nil
 	}
+
+	nsgAssociations, err := networkInterfacePopulateNSGAssociation(id, props)
+	if err != nil {
+		return nil, fmt.Errorf("populating for NSG associations: %v", err)
+	}
+
+	bapAssociations, err := networkInterfacePopulateApplicationGatewayBackendAddressPoolAssociation(id, props)
+	if err != nil {
+		return nil, fmt.Errorf("populating for Application Gateway BAP associations: %v", err)
+	}
+
+	var result []armid.ResourceId
+	result = append(result, nsgAssociations...)
+	result = append(result, bapAssociations...)
+	return result, nil
+}
+
+func networkInterfacePopulateNSGAssociation(id armid.ResourceId, props *armnetwork.InterfacePropertiesFormat) ([]armid.ResourceId, error) {
 	nsgProp := props.NetworkSecurityGroup
 	if nsgProp == nil {
 		return nil, nil
@@ -42,4 +61,43 @@ func populateNetworkInterface(b *client.ClientBuilder, id armid.ResourceId) ([]a
 	azureId.AttrNames = append(azureId.AttrNames, nsgName)
 
 	return []armid.ResourceId{azureId}, nil
+}
+
+func networkInterfacePopulateApplicationGatewayBackendAddressPoolAssociation(id armid.ResourceId, props *armnetwork.InterfacePropertiesFormat) ([]armid.ResourceId, error) {
+	var result []armid.ResourceId
+	for _, ipConfig := range props.IPConfigurations {
+		if ipConfig == nil {
+			continue
+		}
+
+		ipConfigProps := ipConfig.Properties
+		if ipConfigProps == nil {
+			continue
+		}
+
+		if ipConfig.ID == nil {
+			continue
+		}
+
+		ipConfigId, err := armid.ParseResourceId(*ipConfig.ID)
+		if err != nil {
+			return nil, fmt.Errorf("parsing %s: %v", *ipConfig.ID, err)
+		}
+
+		for _, bap := range ipConfigProps.ApplicationGatewayBackendAddressPools {
+			if bap.ID == nil {
+				continue
+			}
+			bapId, err := armid.ParseResourceId(*bap.ID)
+			if err != nil {
+				return nil, fmt.Errorf("parsing %s: %v", *ipConfig.ID, err)
+			}
+
+			azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
+			azureId.AttrTypes = append(azureId.AttrTypes, "backendAddressPools")
+			azureId.AttrNames = append(azureId.AttrNames, bapId.Names()[1])
+			result = append(result, azureId)
+		}
+	}
+	return result, nil
 }

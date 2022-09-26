@@ -34,24 +34,16 @@ func buildNetworkInterfaceSecurityGroupAssociation(b *client.ClientBuilder, id a
 
 	resmap.Init()
 
-	item := resmap.TF2ARMIdMap["azurerm_network_interface"]
-	if len(item.ManagementPlane.ImportSpecs) != 1 {
-		return "", fmt.Errorf("expect one import spec for azurerm_network_interface, got %d", len(item.ManagementPlane.ImportSpecs))
-	}
-	tfNicId, err := StaticBuild(id.Parent(), "azurerm_network_interface", item.ManagementPlane.ImportSpecs[0])
+	tfNicId, err := StaticBuild(id.Parent(), "azurerm_network_interface")
 	if err != nil {
 		return "", fmt.Errorf("building resource id for %s: %v", id.Parent(), err)
 	}
 
-	item = resmap.TF2ARMIdMap["azurerm_network_security_group"]
-	if len(item.ManagementPlane.ImportSpecs) != 1 {
-		return "", fmt.Errorf("expect one import spec for azurerm_network_security_group, got %d", len(item.ManagementPlane.ImportSpecs))
-	}
 	nsgAzureId, err := armid.ParseResourceId(*nsgId)
 	if err != nil {
 		return "", fmt.Errorf("parsing nsg id %q: %v", *nsgId, err)
 	}
-	tfNsgId, err := StaticBuild(nsgAzureId, "azurerm_network_security_group", item.ManagementPlane.ImportSpecs[0])
+	tfNsgId, err := StaticBuild(nsgAzureId, "azurerm_network_security_group")
 	if err != nil {
 		return "", fmt.Errorf("building resource id for %s: %v", id.Parent(), err)
 	}
