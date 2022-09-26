@@ -99,6 +99,14 @@ func networkInterfacePopulateIpConfigAssociations(id armid.ResourceId, props *ar
 			}
 			result = append(result, azureId)
 		}
+
+		for _, natRule := range ipConfigProps.LoadBalancerInboundNatRules {
+			azureId, err := networkInterfacePopulateIpConfigNatRuleAssociation(ipConfigId, natRule)
+			if err != nil {
+				return nil, err
+			}
+			result = append(result, azureId)
+		}
 	}
 	return result, nil
 }
@@ -130,5 +138,20 @@ func networkInterfacePopulateIpConfigApplicationSecurityGroupAssociation(ipConfi
 	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
 	azureId.AttrTypes = append(azureId.AttrTypes, "applicationSecurityGroups")
 	azureId.AttrNames = append(azureId.AttrNames, asgId.Names()[0])
+	return azureId, nil
+}
+
+func networkInterfacePopulateIpConfigNatRuleAssociation(ipConfigId armid.ResourceId, natRule *armnetwork.InboundNatRule) (armid.ResourceId, error) {
+	if natRule.ID == nil {
+		return nil, nil
+	}
+	natRuleId, err := armid.ParseResourceId(*natRule.ID)
+	if err != nil {
+		return nil, fmt.Errorf("parsing %s: %v", *natRule.ID, err)
+	}
+
+	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
+	azureId.AttrTypes = append(azureId.AttrTypes, "loadBalancers", "inboundNatRules")
+	azureId.AttrNames = append(azureId.AttrNames, natRuleId.Names()[0], natRuleId.Names()[1])
 	return azureId, nil
 }

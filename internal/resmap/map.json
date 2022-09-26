@@ -8073,6 +8073,20 @@
       ]
     }
   },
+  "azurerm_network_interface_nat_rule_association": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkInterfaces",
+        "ipConfigurations",
+        "loadBalancers",
+        "inboundNatRules"
+      ]
+    }
+  },
   "azurerm_network_interface_security_group_association": {
     "management_plane": {
       "scopes": [
