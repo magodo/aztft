@@ -13,6 +13,7 @@ type populateFunc func(*client.ClientBuilder, armid.ResourceId) ([]armid.Resourc
 var populaters = map[string]populateFunc{
 	"azurerm_linux_virtual_machine":   populateVirtualMachine,
 	"azurerm_windows_virtual_machine": populateVirtualMachine,
+	"azurerm_network_interface":       populateNetworkInterface,
 }
 
 func NeedsAPI(rt string) bool {

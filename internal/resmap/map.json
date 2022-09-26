@@ -8047,6 +8047,18 @@
       ]
     }
   },
+  "azurerm_network_interface_security_group_association": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkInterfaces",
+        "networkSecurityGroups"
+      ]
+    }
+  },
   "azurerm_network_packet_capture": {
     "management_plane": {
       "scopes": [

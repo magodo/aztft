@@ -28,6 +28,7 @@ var dynamicBuilders = map[string]builderFunc{
 	"azurerm_storage_table_entity":                                   buildStorageTableEntity,
 	"azurerm_storage_data_lake_gen2_filesystem":                      buildStorageDfs,
 	"azurerm_storage_data_lake_gen2_path":                            buildStorageDfsPath,
+	"azurerm_network_interface_security_group_association":           buildNetworkInterfaceSecurityGroupAssociation,
 }
 
 func NeedsAPI(rt string) bool {
@@ -37,6 +38,7 @@ func NeedsAPI(rt string) bool {
 
 func DynamicBuild(id armid.ResourceId, rt, importSpec string) (string, error) {
 	id = id.Clone()
+
 	builder, ok := dynamicBuilders[rt]
 	if !ok {
 		return "", fmt.Errorf("unknown resource type: %q", rt)

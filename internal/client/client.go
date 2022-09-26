@@ -489,6 +489,14 @@ func (b *ClientBuilder) NewNetworkVirtualHubBgpConnectionClient(subscriptionId s
 	)
 }
 
+func (b *ClientBuilder) NewNetworkInterfacesClient(subscriptionId string) (*armnetwork.InterfacesClient, error) {
+	return armnetwork.NewInterfacesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewFrontdoorPoliciesClient(subscriptionId string) (*armfrontdoor.PoliciesClient, error) {
 	return armfrontdoor.NewPoliciesClient(
 		subscriptionId,
