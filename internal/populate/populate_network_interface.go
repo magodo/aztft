@@ -101,7 +101,15 @@ func networkInterfacePopulateIpConfigAssociations(id armid.ResourceId, props *ar
 		}
 
 		for _, natRule := range ipConfigProps.LoadBalancerInboundNatRules {
-			azureId, err := networkInterfacePopulateIpConfigNatRuleAssociation(ipConfigId, natRule)
+			azureId, err := networkInterfacePopulateIpConfigLoadBalancerNatRuleAssociation(ipConfigId, natRule)
+			if err != nil {
+				return nil, err
+			}
+			result = append(result, azureId)
+		}
+
+		for _, bap := range ipConfigProps.LoadBalancerBackendAddressPools {
+			azureId, err := networkInterfacePopulateIpConfigLoadBalancerBackendAddressPoolAssociation(ipConfigId, bap)
 			if err != nil {
 				return nil, err
 			}
@@ -141,7 +149,7 @@ func networkInterfacePopulateIpConfigApplicationSecurityGroupAssociation(ipConfi
 	return azureId, nil
 }
 
-func networkInterfacePopulateIpConfigNatRuleAssociation(ipConfigId armid.ResourceId, natRule *armnetwork.InboundNatRule) (armid.ResourceId, error) {
+func networkInterfacePopulateIpConfigLoadBalancerNatRuleAssociation(ipConfigId armid.ResourceId, natRule *armnetwork.InboundNatRule) (armid.ResourceId, error) {
 	if natRule.ID == nil {
 		return nil, nil
 	}
@@ -153,5 +161,20 @@ func networkInterfacePopulateIpConfigNatRuleAssociation(ipConfigId armid.Resourc
 	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
 	azureId.AttrTypes = append(azureId.AttrTypes, "loadBalancers", "inboundNatRules")
 	azureId.AttrNames = append(azureId.AttrNames, natRuleId.Names()[0], natRuleId.Names()[1])
+	return azureId, nil
+}
+
+func networkInterfacePopulateIpConfigLoadBalancerBackendAddressPoolAssociation(ipConfigId armid.ResourceId, bap *armnetwork.BackendAddressPool) (armid.ResourceId, error) {
+	if bap.ID == nil {
+		return nil, nil
+	}
+	bapId, err := armid.ParseResourceId(*bap.ID)
+	if err != nil {
+		return nil, fmt.Errorf("parsing %s: %v", *bap.ID, err)
+	}
+
+	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
+	azureId.AttrTypes = append(azureId.AttrTypes, "loadBalancers", "backendAddressPools")
+	azureId.AttrNames = append(azureId.AttrNames, bapId.Names()[0], bapId.Names()[1])
 	return azureId, nil
 }

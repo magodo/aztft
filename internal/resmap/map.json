@@ -8074,6 +8074,20 @@
       ]
     }
   },
+  "azurerm_network_interface_backend_address_pool_association": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkInterfaces",
+        "ipConfigurations",
+        "loadBalancers",
+        "backendAddressPools"
+      ]
+    }
+  },
   "azurerm_network_interface_nat_rule_association": {
     "management_plane": {
       "scopes": [
