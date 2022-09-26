@@ -11,9 +11,10 @@ import (
 type populateFunc func(*client.ClientBuilder, armid.ResourceId) ([]armid.ResourceId, error)
 
 var populaters = map[string]populateFunc{
-	"azurerm_linux_virtual_machine":   populateVirtualMachine,
-	"azurerm_windows_virtual_machine": populateVirtualMachine,
-	"azurerm_network_interface":       populateNetworkInterface,
+	"azurerm_linux_virtual_machine":     populateVirtualMachine,
+	"azurerm_windows_virtual_machine":   populateVirtualMachine,
+	"azurerm_network_interface":         populateNetworkInterface,
+	"azurerm_virtual_desktop_workspace": populateVirtualDesktopWorkspace,
 }
 
 func NeedsAPI(rt string) bool {

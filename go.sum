@@ -26,6 +26,8 @@ github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/dataprotection/armdataprot
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/dataprotection/armdataprotection v1.0.0/go.mod h1:CmZQSRwBPP7KNjDA+PHaoR2m8wgOsbTd9ncqZgSzgHA=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datashare/armdatashare v1.0.0 h1:9xFFUWVgkCIRg42rNq9cnaq/hct+tV5eCwja+1BBcpk=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datashare/armdatashare v1.0.0/go.mod h1:O8rDteaSO14ijw1tEpQ1+h8doTODhRPcbaxT+hqlsRo=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/desktopvirtualization/armdesktopvirtualization v1.0.0 h1:E404espBxzBWw7BlZa7TONlqMEH7P3P8XCe686PSmZQ=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/desktopvirtualization/armdesktopvirtualization v1.0.0/go.mod h1:XM/9J9tLtumXaGIJwbsbm7WlsZwxOtKB34HwmFW9qyU=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/devtestlabs/armdevtestlabs v1.0.0 h1:GuqpJGl+Ua5hVijY/ovYSO+iTf1QHDZDFXtVSLrZeq8=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/devtestlabs/armdevtestlabs v1.0.0/go.mod h1:igAw5va/nEHEc8OYWPz+g3y1LdPig04qMS+9aqwtn+w=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins v1.0.0 h1:7zDYZ29qnHH8+QJ+oIIAb1NnBIXE2OmeIraWtd76OZI=

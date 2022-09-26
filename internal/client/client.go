@@ -20,6 +20,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datafactory/armdatafactory"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/dataprotection/armdataprotection"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datashare/armdatashare"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/desktopvirtualization/armdesktopvirtualization"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/devtestlabs/armdevtestlabs"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/digitaltwins/armdigitaltwins"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/domainservices/armdomainservices"
@@ -499,6 +500,14 @@ func (b *ClientBuilder) NewNetworkInterfacesClient(subscriptionId string) (*armn
 
 func (b *ClientBuilder) NewFrontdoorPoliciesClient(subscriptionId string) (*armfrontdoor.PoliciesClient, error) {
 	return armfrontdoor.NewPoliciesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewDesktopVirtualizationWorkspacesClient(subscriptionId string) (*armdesktopvirtualization.WorkspacesClient, error) {
+	return armdesktopvirtualization.NewWorkspacesClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,

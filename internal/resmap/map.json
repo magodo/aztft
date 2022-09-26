@@ -11774,6 +11774,18 @@
       ]
     }
   },
+  "azurerm_virtual_desktop_workspace_application_group_association": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DesktopVirtualization",
+      "types": [
+        "workspaces",
+        "applicationGroups"
+      ]
+    }
+  },
   "azurerm_virtual_hub": {
     "management_plane": {
       "scopes": [
