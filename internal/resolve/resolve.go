@@ -162,29 +162,40 @@ func (e ResolveError) Error() string {
 
 func (e *ResolveError) Unwrap() error { return e.Err }
 
-// Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
-func Resolve(id armid.ResourceId) (string, error) {
+func getResolver(id armid.ResourceId) (resolver, bool) {
 	routeKey := strings.ToUpper(id.RouteScopeString())
 	var parentScopeKey string
 	if id.ParentScope() != nil {
 		parentScopeKey = strings.ToUpper(id.ParentScope().ScopeString())
 	}
+	m, ok := Resolvers[routeKey]
+	if !ok {
+		return nil, false
+	}
+	resolver, ok := m[parentScopeKey]
+	return resolver, ok
+}
 
+func NeedsAPI(id armid.ResourceId) bool {
+	_, ok := getResolver(id)
+	return ok
+}
+
+// Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
+func Resolve(id armid.ResourceId) (string, error) {
 	// Ensure the API client can be built.
 	b, err := client.NewClientBuilder()
 	if err != nil {
 		return "", ResolveError{ResourceId: id, Err: fmt.Errorf("new API client builder: %v", err)}
 	}
 
-	if m, ok := Resolvers[routeKey]; ok {
-		if resolver, ok := m[parentScopeKey]; ok {
-			rt, err := resolver.Resolve(b, id)
-			if err != nil {
-				return "", ResolveError{ResourceId: id, Err: fmt.Errorf("resolving %q: %v", id, err)}
-			}
-			return rt, nil
-		}
+	resolver, ok := getResolver(id)
+	if !ok {
+		return "", ResolveError{ResourceId: id, Err: fmt.Errorf("no resolver found for %q", id)}
 	}
-
-	return "", ResolveError{ResourceId: id, Err: fmt.Errorf("no resolver found for %q", id)}
+	rt, err := resolver.Resolve(b, id)
+	if err != nil {
+		return "", ResolveError{ResourceId: id, Err: fmt.Errorf("resolving %q: %v", id, err)}
+	}
+	return rt, nil
 }
