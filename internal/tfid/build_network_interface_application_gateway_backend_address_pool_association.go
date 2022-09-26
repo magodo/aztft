@@ -24,12 +24,13 @@ func buildNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(b *cli
 		return "", fmt.Errorf("unexpected nil property in response")
 	}
 
-	ipConfigId := id.Parent()
-	bapName := id.Names()[2]
+	ipConfigId := id.Parent().Parent()
+	nicId := ipConfigId.Parent()
+	ipConfigName, applicationGwName, bapName := id.Names()[1], id.Names()[2], id.Names()[3]
 
-	tfNicId, err := StaticBuild(id.Parent().Parent(), "azurerm_network_interface")
+	tfNicId, err := StaticBuild(nicId, "azurerm_network_interface")
 	if err != nil {
-		return "", fmt.Errorf("building resource id for %q: %v", id.Parent().Parent(), err)
+		return "", fmt.Errorf("building resource id for %q: %v", nicId, err)
 	}
 
 	for _, ipConfig := range props.IPConfigurations {
@@ -51,7 +52,7 @@ func buildNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(b *cli
 			if err != nil {
 				return "", fmt.Errorf("parsing %q: %v", *bap.ID, err)
 			}
-			if !strings.EqualFold(bapId.Names()[1], bapName) {
+			if !strings.EqualFold(bapId.Names()[0], applicationGwName) || !strings.EqualFold(bapId.Names()[1], bapName) {
 				continue
 			}
 
@@ -60,7 +61,7 @@ func buildNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(b *cli
 				return "", fmt.Errorf("building resource id for %q: %v", bapId.Parent(), err)
 			}
 
-			return fmt.Sprintf("%s/ipConfigurations/%s|%s/backendAddressPools/%s", tfNicId, ipConfigId.Names()[1], tfAppGwId, bapId.Names()[1]), nil
+			return fmt.Sprintf("%s/ipConfigurations/%s|%s/backendAddressPools/%s", tfNicId, ipConfigName, tfAppGwId, bapName), nil
 		}
 	}
 

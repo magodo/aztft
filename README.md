@@ -37,7 +37,7 @@ For these resources, as they don't have a management plane resource ID, we defin
 |Resource Type|Pesudo Resource ID|Comment|
 |-|-|-|
 |`azurerm_virtual_machine_data_disk_attachment`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1/dataDisks/disk1`||
-|`azurerm_network_interface_application_gateway_backend_address_pool_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/backendAddressPools/pool1`||
+|`azurerm_network_interface_application_gateway_backend_address_pool_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/applicationGateways/gw1/backendAddressPools/pool1`||
 |`azurerm_network_interface_application_security_group_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/applicationSecurityGroups/group1`||
 |`azurerm_network_interface_nat_rule_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/loadBalancers/lb1/inboundNatRules/rule1`||
 |`azurerm_network_interface_security_group_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/networkSecurityGruops/group1`||

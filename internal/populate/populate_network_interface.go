@@ -121,8 +121,8 @@ func networkInterfacePopulateIpConfigApplicationGatewayBackendAddressPoolAssocia
 	}
 
 	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
-	azureId.AttrTypes = append(azureId.AttrTypes, "backendAddressPools")
-	azureId.AttrNames = append(azureId.AttrNames, bapId.Names()[1])
+	azureId.AttrTypes = append(azureId.AttrTypes, "applicationGateways", "backendAddressPools")
+	azureId.AttrNames = append(azureId.AttrNames, bapId.Names()[0], bapId.Names()[1])
 	return azureId, nil
 }
 
