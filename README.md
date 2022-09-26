@@ -8,7 +8,14 @@
 
 ## Pesudo Resource ID
 
-In most cases, `aztft` accepts Azure management plane resource ID as input. For other rare cases, some Terraform resources do not correspond to Azure management plane resources, which typically means the resources are data plane only. For these resources, as they don't have a management plane resource ID, we defined the "pesudo" resource ID for them:
+In most cases, `aztft` accepts Azure management plane resource ID as input. For other rare cases, some Terraform resources do not correspond to Azure management plane resources, which typically means:
+
+1. The resources are data plane only
+2. The resources are property-like
+
+For these resources, as they don't have a management plane resource ID, we defined the "pesudo" resource ID for them:
+
+### Data Plane Only Resources
 
 |Resource Type|Pesudo Resource ID|Comment|
 |-|-|-|
@@ -25,3 +32,8 @@ In most cases, `aztft` accepts Azure management plane resource ID as input. For 
 |`azurerm_synapse_linked_service`                                | `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Synapse/workspaces/ws1/linkedServices/service1`||
 |`azurerm_synapse_role_assignment`                                | `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Synapse/workspaces/ws1/roleAssignments/role1`||
 
+### Property-like Resources
+
+|Resource Type|Pesudo Resource ID|Comment|
+|-|-|-|
+|`azurerm_virtual_machine_data_disk_attachment`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1/dataDisks/disk1`||
