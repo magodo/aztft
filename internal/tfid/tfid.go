@@ -39,6 +39,7 @@ var dynamicBuilders = map[string]builderFunc{
 	"azurerm_nat_gateway_public_ip_association":                                      buildNatGatewayPublicIpAssociation,
 	"azurerm_nat_gateway_public_ip_prefix_association":                               buildNatGatewayPublicIpPrefixAssociation,
 	"azurerm_disk_pool_managed_disk_attachment":                                      buildDiskPoolManagedDiskAttachement,
+	"azurerm_disk_pool_iscsi_target_lun":                                             buildDiskPoolIscsiTargetLun,
 }
 
 func NeedsAPI(rt string) bool {

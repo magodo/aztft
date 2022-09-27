@@ -530,3 +530,11 @@ func (b *ClientBuilder) NewStoragePoolDiskPoolsClient(subscriptionId string) (*a
 		clientOpt,
 	)
 }
+
+func (b *ClientBuilder) NewStoragePoolIscsiTargetsClient(subscriptionId string) (*armstoragepool.IscsiTargetsClient, error) {
+	return armstoragepool.NewIscsiTargetsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}

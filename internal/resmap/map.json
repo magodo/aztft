@@ -4101,18 +4101,6 @@
       ]
     }
   },
-  "azurerm_disk_pool_managed_disk_attachment": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.StoragePool",
-      "types": [
-        "diskPools",
-        "disks"
-      ]
-    }
-  },
   "azurerm_disk_pool_iscsi_target": {
     "management_plane": {
       "scopes": [
@@ -4128,6 +4116,19 @@
       ]
     }
   },
+  "azurerm_disk_pool_iscsi_target_lun": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StoragePool",
+      "types": [
+        "diskPools",
+        "iscsiTargets",
+        "disks"
+      ]
+    }
+  },
   "azurerm_dns_a_record": {
     "management_plane": {
       "scopes": [
@@ -4140,6 +4141,18 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/dnszones/A"
+      ]
+    }
+  },
+  "azurerm_disk_pool_managed_disk_attachment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StoragePool",
+      "types": [
+        "diskPools",
+        "disks"
       ]
     }
   },
