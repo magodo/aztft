@@ -2,10 +2,6 @@
 
 `aztft` is a CLI tool (and a library) to query for the AzureRM Terraform Provider resource type based on the input Azure resource ID.
 
-## Limitation
-
-`aztft` can only resolves for the main Azure resource's counterpart in Terraform, while those property-like Terraform resources are not handled for now.
-
 ## Pesudo Resource ID
 
 In most cases, `aztft` accepts Azure management plane resource ID as input. For other rare cases, some Terraform resources do not correspond to Azure management plane resources, which typically means:
