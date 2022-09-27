@@ -498,6 +498,14 @@ func (b *ClientBuilder) NewNetworkInterfacesClient(subscriptionId string) (*armn
 	)
 }
 
+func (b *ClientBuilder) NewNetworkNatGatewaysClient(subscriptionId string) (*armnetwork.NatGatewaysClient, error) {
+	return armnetwork.NewNatGatewaysClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewFrontdoorPoliciesClient(subscriptionId string) (*armfrontdoor.PoliciesClient, error) {
 	return armfrontdoor.NewPoliciesClient(
 		subscriptionId,

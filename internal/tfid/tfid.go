@@ -36,6 +36,7 @@ var dynamicBuilders = map[string]builderFunc{
 	"azurerm_network_interface_nat_rule_association":                                 buildNetworkInterfaceNatRuleAssociation,
 	"azurerm_network_interface_backend_address_pool_association":                     buildNetworkInterfaceBackendAddressPoolAssociation,
 	"azurerm_virtual_desktop_workspace_application_group_association":                buildDesktopWorkspaceApplicationGroupAssociation,
+	"azurerm_nat_gateway_public_ip_association":                                      buildNatGatewayPublicIpAssociation,
 }
 
 func NeedsAPI(rt string) bool {

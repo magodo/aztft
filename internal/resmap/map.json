@@ -7927,6 +7927,18 @@
       ]
     }
   },
+  "azurerm_nat_gateway_public_ip_association": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "natGateways",
+        "publicIPAddresses"
+      ]
+    }
+  },
   "azurerm_netapp_account": {
     "management_plane": {
       "scopes": [

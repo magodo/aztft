@@ -6,7 +6,6 @@ import (
 
 	"github.com/magodo/armid"
 	"github.com/magodo/aztft/internal/client"
-	"github.com/magodo/aztft/internal/resmap"
 )
 
 func buildNetworkInterfaceSecurityGroupAssociation(b *client.ClientBuilder, id armid.ResourceId, spec string) (string, error) {
@@ -31,8 +30,6 @@ func buildNetworkInterfaceSecurityGroupAssociation(b *client.ClientBuilder, id a
 	if nsgId == nil {
 		return "", fmt.Errorf("unexpected nil NSG Id in properties")
 	}
-
-	resmap.Init()
 
 	tfNicId, err := StaticBuild(id.Parent(), "azurerm_network_interface")
 	if err != nil {

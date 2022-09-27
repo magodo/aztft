@@ -15,6 +15,7 @@ var populaters = map[string]populateFunc{
 	"azurerm_windows_virtual_machine":   populateVirtualMachine,
 	"azurerm_network_interface":         populateNetworkInterface,
 	"azurerm_virtual_desktop_workspace": populateVirtualDesktopWorkspace,
+	"azurerm_nat_gateway":               populateNatGateway,
 }
 
 func NeedsAPI(rt string) bool {
