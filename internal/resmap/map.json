@@ -4101,6 +4101,18 @@
       ]
     }
   },
+  "azurerm_disk_pool_managed_disk_attachment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StoragePool",
+      "types": [
+        "diskPools",
+        "disks"
+      ]
+    }
+  },
   "azurerm_disk_pool_iscsi_target": {
     "management_plane": {
       "scopes": [

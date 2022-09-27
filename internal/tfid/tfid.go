@@ -38,6 +38,7 @@ var dynamicBuilders = map[string]builderFunc{
 	"azurerm_virtual_desktop_workspace_application_group_association":                buildDesktopWorkspaceApplicationGroupAssociation,
 	"azurerm_nat_gateway_public_ip_association":                                      buildNatGatewayPublicIpAssociation,
 	"azurerm_nat_gateway_public_ip_prefix_association":                               buildNatGatewayPublicIpPrefixAssociation,
+	"azurerm_disk_pool_managed_disk_attachment":                                      buildDiskPoolManagedDiskAttachement,
 }
 
 func NeedsAPI(rt string) bool {

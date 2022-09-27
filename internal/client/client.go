@@ -36,6 +36,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagecache/armstoragecache"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagepool/armstoragepool"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/streamanalytics/armstreamanalytics"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/timeseriesinsights/armtimeseriesinsights"
@@ -516,6 +517,14 @@ func (b *ClientBuilder) NewFrontdoorPoliciesClient(subscriptionId string) (*armf
 
 func (b *ClientBuilder) NewDesktopVirtualizationWorkspacesClient(subscriptionId string) (*armdesktopvirtualization.WorkspacesClient, error) {
 	return armdesktopvirtualization.NewWorkspacesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewStoragePoolDiskPoolsClient(subscriptionId string) (*armstoragepool.DiskPoolsClient, error) {
+	return armstoragepool.NewDiskPoolsClient(
 		subscriptionId,
 		b.credential,
 		clientOpt,
