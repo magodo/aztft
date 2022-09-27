@@ -2,6 +2,7 @@ package populate
 
 import (
 	"context"
+	"encoding/base64"
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagepool/armstoragepool"
@@ -49,11 +50,9 @@ func diskPoolPopulateManagedDiskAssociation(id armid.ResourceId, props *armstora
 		if err != nil {
 			return nil, fmt.Errorf("parsing resource id %q: %v", *disk.ID, err)
 		}
-		diskName := diskId.Names()[0]
-
 		azureId := id.Clone().(*armid.ScopedResourceId)
 		azureId.AttrTypes = append(azureId.AttrTypes, "disks")
-		azureId.AttrNames = append(azureId.AttrNames, diskName)
+		azureId.AttrNames = append(azureId.AttrNames, base64.StdEncoding.EncodeToString([]byte(diskId.String())))
 
 		result = append(result, azureId)
 	}

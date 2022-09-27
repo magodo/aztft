@@ -36,14 +36,14 @@ For these resources, as they don't have a management plane resource ID, we defin
 
 |Resource Type|Pesudo Resource ID|Comment|
 |-|-|-|
-|`azurerm_disk_pool_iscsi_target_lun`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.StoragePool/diskPools/pool1/iscsiTargets/target1/disks/disk1`||
-|`azurerm_disk_pool_managed_disk_attachment`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.StoragePool/diskPools/pool1/disks/disk1`||
-|`azurerm_nat_gateway_public_ip_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/natGateways/gw1/publicIPAddresses/pip1`||
-|`azurerm_nat_gateway_public_ip_prefix_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/natGateways/gw1/publicIPPrefixes/prefix1`||
-|`azurerm_network_interface_application_gateway_backend_address_pool_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/applicationGateways/gw1/backendAddressPools/pool1`||
-|`azurerm_network_interface_application_security_group_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/applicationSecurityGroups/group1`||
-|`azurerm_network_interface_backedn_address_pool_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/loadBalancers/lb1/backendAddressPools/pool1`||
-|`azurerm_network_interface_nat_rule_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/loadBalancers/lb1/inboundNatRules/rule1`||
-|`azurerm_network_interface_security_group_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/networkSecurityGruops/group1`||
-|`azurerm_virtual_desktop_workspace_application_group_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.DesktopVirtualization/workspaces/wsp1/applicationGroups/group1`||
+|`azurerm_disk_pool_iscsi_target_lun`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.StoragePool/diskPools/pool1/iscsiTargets/target1/disks/<base64 id of azurerm_managed_disk>`||
+|`azurerm_disk_pool_managed_disk_attachment`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.StoragePool/diskPools/pool1/disks/<base64 id of azurerm_managed_disk>`||
+|`azurerm_nat_gateway_public_ip_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/natGateways/gw1/publicIPAddresses/<base64 id of azurerm_public_ip>`||
+|`azurerm_nat_gateway_public_ip_prefix_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/natGateways/gw1/publicIPPrefixes/<base64 id of azurerm_public_ip_prefix>`||
+|`azurerm_network_interface_application_gateway_backend_address_pool_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/applicationGatewayBackendAddressPools/<base64 of azurerm_application_gateway.example.backend_address_pool.n.id>`||
+|`azurerm_network_interface_application_security_group_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/applicationSecurityGroups/<base64 id of azurerm_application_security_group>`||
+|`azurerm_network_interface_backend_address_pool_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/loadBalancerBackendAddressPools/<base64 id of azurerm_lb_backend_address_pool>`||
+|`azurerm_network_interface_nat_rule_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/loadBalancerInboundNatRules/<base64 id of azurerm_lb_nat_rule>`||
+|`azurerm_network_interface_security_group_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/networkSecurityGruops/<base64 id of azurerm_network_security_group>`||
+|`azurerm_virtual_desktop_workspace_application_group_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.DesktopVirtualization/workspaces/wsp1/applicationGroups/<base64 id of azurerm_virtual_desktop_application_group>`||
 |`azurerm_virtual_machine_data_disk_attachment`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1/dataDisks/disk1`||

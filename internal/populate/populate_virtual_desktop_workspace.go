@@ -2,6 +2,7 @@ package populate
 
 import (
 	"context"
+	"encoding/base64"
 	"fmt"
 
 	"github.com/magodo/armid"
@@ -36,11 +37,9 @@ func populateVirtualDesktopWorkspace(b *client.ClientBuilder, id armid.ResourceI
 		if err != nil {
 			return nil, fmt.Errorf("parsing resource id %q: %v", applicationGroupId, err)
 		}
-		applicationGroupName := applicationGroupAzureId.Names()[0]
-
 		azureId := id.Clone().(*armid.ScopedResourceId)
 		azureId.AttrTypes = append(azureId.AttrTypes, "applicationGroups")
-		azureId.AttrNames = append(azureId.AttrNames, applicationGroupName)
+		azureId.AttrNames = append(azureId.AttrNames, base64.StdEncoding.EncodeToString([]byte(applicationGroupAzureId.String())))
 
 		result = append(result, azureId)
 	}

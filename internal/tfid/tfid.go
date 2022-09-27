@@ -1,6 +1,7 @@
 package tfid
 
 import (
+	"encoding/base64"
 	"fmt"
 	"strings"
 
@@ -12,34 +13,24 @@ import (
 type builderFunc func(*client.ClientBuilder, armid.ResourceId, string) (string, error)
 
 var dynamicBuilders = map[string]builderFunc{
-	"azurerm_active_directory_domain_service":                                        buildActiveDirectoryDomainService,
-	"azurerm_storage_object_replication":                                             buildStorageObjectReplication,
-	"azurerm_storage_share":                                                          buildStorageShare,
-	"azurerm_storage_container":                                                      buildStorageContainer,
-	"azurerm_storage_queue":                                                          buildStorageQueue,
-	"azurerm_storage_table":                                                          buildStorageTable,
-	"azurerm_key_vault_key":                                                          buildKeyVaultKey,
-	"azurerm_key_vault_secret":                                                       buildKeyVaultSecret,
-	"azurerm_key_vault_certificate":                                                  buildKeyVaultCertificate,
-	"azurerm_key_vault_certificate_issuer":                                           buildKeyVaultCertificateIssuer,
-	"azurerm_key_vault_managed_storage_account":                                      buildKeyVaultStorageAccount,
-	"azurerm_key_vault_managed_storage_account_sas_token_definition":                 buildKeyVaultStorageAccountSasTokenDefinition,
-	"azurerm_storage_blob":                                                           buildStorageBlob,
-	"azurerm_storage_share_directory":                                                buildStorageShareDirectory,
-	"azurerm_storage_share_file":                                                     buildStorageShareFile,
-	"azurerm_storage_table_entity":                                                   buildStorageTableEntity,
-	"azurerm_storage_data_lake_gen2_filesystem":                                      buildStorageDfs,
-	"azurerm_storage_data_lake_gen2_path":                                            buildStorageDfsPath,
-	"azurerm_network_interface_security_group_association":                           buildNetworkInterfaceSecurityGroupAssociation,
-	"azurerm_network_interface_application_gateway_backend_address_pool_association": buildNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation,
-	"azurerm_network_interface_application_security_group_association":               buildNetworkInterfaceApplicationSecurityGroupAssociation,
-	"azurerm_network_interface_nat_rule_association":                                 buildNetworkInterfaceNatRuleAssociation,
-	"azurerm_network_interface_backend_address_pool_association":                     buildNetworkInterfaceBackendAddressPoolAssociation,
-	"azurerm_virtual_desktop_workspace_application_group_association":                buildDesktopWorkspaceApplicationGroupAssociation,
-	"azurerm_nat_gateway_public_ip_association":                                      buildNatGatewayPublicIpAssociation,
-	"azurerm_nat_gateway_public_ip_prefix_association":                               buildNatGatewayPublicIpPrefixAssociation,
-	"azurerm_disk_pool_managed_disk_attachment":                                      buildDiskPoolManagedDiskAttachement,
-	"azurerm_disk_pool_iscsi_target_lun":                                             buildDiskPoolIscsiTargetLun,
+	"azurerm_active_directory_domain_service":                        buildActiveDirectoryDomainService,
+	"azurerm_storage_object_replication":                             buildStorageObjectReplication,
+	"azurerm_storage_share":                                          buildStorageShare,
+	"azurerm_storage_container":                                      buildStorageContainer,
+	"azurerm_storage_queue":                                          buildStorageQueue,
+	"azurerm_storage_table":                                          buildStorageTable,
+	"azurerm_key_vault_key":                                          buildKeyVaultKey,
+	"azurerm_key_vault_secret":                                       buildKeyVaultSecret,
+	"azurerm_key_vault_certificate":                                  buildKeyVaultCertificate,
+	"azurerm_key_vault_certificate_issuer":                           buildKeyVaultCertificateIssuer,
+	"azurerm_key_vault_managed_storage_account":                      buildKeyVaultStorageAccount,
+	"azurerm_key_vault_managed_storage_account_sas_token_definition": buildKeyVaultStorageAccountSasTokenDefinition,
+	"azurerm_storage_blob":                                           buildStorageBlob,
+	"azurerm_storage_share_directory":                                buildStorageShareDirectory,
+	"azurerm_storage_share_file":                                     buildStorageShareFile,
+	"azurerm_storage_table_entity":                                   buildStorageTableEntity,
+	"azurerm_storage_data_lake_gen2_filesystem":                      buildStorageDfs,
+	"azurerm_storage_data_lake_gen2_path":                            buildStorageDfsPath,
 }
 
 func NeedsAPI(rt string) bool {
@@ -81,6 +72,13 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 		return id.String(), nil
 	}
 
+	lastItem := func(l []string) string {
+		if len(l) == 0 {
+			return ""
+		}
+		return l[len(l)-1]
+	}
+
 	switch rt {
 	case "azurerm_app_service_slot_virtual_network_swift_connection":
 		rid.AttrTypes[2] = "config"
@@ -112,6 +110,28 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 			return "", fmt.Errorf("normalizing id %q for %q with import spec %q: %v", pid.String(), rt, importSpec, err)
 		}
 		return pid.String(), nil
+
+	// Porperty-like resources
+	case "azurerm_disk_pool_iscsi_target_lun":
+		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "azurerm_disk_pool_iscsi_target", "azurerm_managed_disk", "/lun|")
+	case "azurerm_disk_pool_managed_disk_attachment":
+		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "azurerm_disk_pool", "azurerm_managed_disk", "/managedDisk|")
+	case "azurerm_nat_gateway_public_ip_association":
+		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "azurerm_nat_gateway", "azurerm_public_ip", "|")
+	case "azurerm_nat_gateway_public_ip_prefix_association":
+		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "azurerm_nat_gateway", "azurerm_public_ip_prefix", "|")
+	case "azurerm_network_interface_application_gateway_backend_address_pool_association":
+		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "fake_azurerm_network_interface_ipconfig", "fake_azurerm_application_gateway_backend_address_pool", "|")
+	case "azurerm_network_interface_application_security_group_association":
+		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "fake_azurerm_network_interface_ipconfig", "azurerm_application_security_group", "|")
+	case "azurerm_network_interface_backend_address_pool_association":
+		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "fake_azurerm_network_interface_ipconfig", "azurerm_lb_backend_address_pool", "|")
+	case "azurerm_network_interface_nat_rule_association":
+		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "fake_azurerm_network_interface_ipconfig", "azurerm_lb_nat_rule", "|")
+	case "azurerm_network_interface_security_group_association":
+		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "azurerm_network_interface", "azurerm_network_security_group", "|")
+	case "azurerm_virtual_desktop_workspace_application_group_association":
+		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "azurerm_virtual_desktop_workspace", "azurerm_virtual_desktop_application_group", "|")
 	}
 
 	if importSpec != "" {
@@ -156,4 +176,24 @@ func GetImportSpec(id armid.ResourceId, rt string) (string, error) {
 		}
 		return item.ManagementPlane.ImportSpecs[i], nil
 	}
+}
+
+func buildIdForPropertyLikeResource(mainId armid.ResourceId, secondaryIdEnc string, mainRt, propRt, sep string) (string, error) {
+	mainTFId, err := StaticBuild(mainId, mainRt)
+	if err != nil {
+		return "", fmt.Errorf("building resource id for %q: %v", mainId, err)
+	}
+	b, err := base64.StdEncoding.DecodeString(secondaryIdEnc)
+	if err != nil {
+		return "", fmt.Errorf("base64 decoding resource id %q: %v", secondaryIdEnc, err)
+	}
+	secondaryId, err := armid.ParseResourceId(string(b))
+	if err != nil {
+		return "", fmt.Errorf("parsing resource id %q: %v", string(b), err)
+	}
+	secondaryTFId, err := StaticBuild(secondaryId, propRt)
+	if err != nil {
+		return "", fmt.Errorf("building resource id for %q: %v", secondaryId, err)
+	}
+	return mainTFId + sep + secondaryTFId, nil
 }

@@ -2,6 +2,7 @@ package populate
 
 import (
 	"context"
+	"encoding/base64"
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork"
@@ -54,11 +55,9 @@ func natGatewayPopulatePublicIpAssociation(id armid.ResourceId, props *armnetwor
 		if err != nil {
 			return nil, fmt.Errorf("parsing resource id %q: %v", *pip.ID, err)
 		}
-		pipName := pipId.Names()[0]
-
 		azureId := id.Clone().(*armid.ScopedResourceId)
 		azureId.AttrTypes = append(azureId.AttrTypes, "publicIPAddresses")
-		azureId.AttrNames = append(azureId.AttrNames, pipName)
+		azureId.AttrNames = append(azureId.AttrNames, base64.StdEncoding.EncodeToString([]byte(pipId.String())))
 
 		result = append(result, azureId)
 	}
@@ -80,11 +79,9 @@ func natGatewayPopulatePublicIpPrefixAssociation(id armid.ResourceId, props *arm
 		if err != nil {
 			return nil, fmt.Errorf("parsing resource id %q: %v", *prefix.ID, err)
 		}
-		prefixName := prefixId.Names()[0]
-
 		azureId := id.Clone().(*armid.ScopedResourceId)
 		azureId.AttrTypes = append(azureId.AttrTypes, "publicIPPrefixes")
-		azureId.AttrNames = append(azureId.AttrNames, prefixName)
+		azureId.AttrNames = append(azureId.AttrNames, base64.StdEncoding.EncodeToString([]byte(prefixId.String())))
 
 		result = append(result, azureId)
 	}

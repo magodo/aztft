@@ -2,6 +2,7 @@ package populate
 
 import (
 	"context"
+	"encoding/base64"
 	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork"
@@ -54,11 +55,9 @@ func networkInterfacePopulateNSGAssociation(id armid.ResourceId, props *armnetwo
 	if err != nil {
 		return nil, fmt.Errorf("parsing resource id %q: %v", *nsgId, err)
 	}
-	nsgName := nsgAzureId.Names()[0]
-
 	azureId := id.Clone().(*armid.ScopedResourceId)
 	azureId.AttrTypes = append(azureId.AttrTypes, "networkSecurityGroups")
-	azureId.AttrNames = append(azureId.AttrNames, nsgName)
+	azureId.AttrNames = append(azureId.AttrNames, base64.StdEncoding.EncodeToString([]byte(nsgAzureId.String())))
 
 	return []armid.ResourceId{azureId}, nil
 }
@@ -127,10 +126,9 @@ func networkInterfacePopulateIpConfigApplicationGatewayBackendAddressPoolAssocia
 	if err != nil {
 		return nil, fmt.Errorf("parsing %s: %v", *bap.ID, err)
 	}
-
 	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
-	azureId.AttrTypes = append(azureId.AttrTypes, "applicationGateways", "backendAddressPools")
-	azureId.AttrNames = append(azureId.AttrNames, bapId.Names()[0], bapId.Names()[1])
+	azureId.AttrTypes = append(azureId.AttrTypes, "applicationGatewayBackendAddressPools")
+	azureId.AttrNames = append(azureId.AttrNames, base64.StdEncoding.EncodeToString([]byte(bapId.String())))
 	return azureId, nil
 }
 
@@ -142,10 +140,9 @@ func networkInterfacePopulateIpConfigApplicationSecurityGroupAssociation(ipConfi
 	if err != nil {
 		return nil, fmt.Errorf("parsing %s: %v", *asg.ID, err)
 	}
-
 	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
 	azureId.AttrTypes = append(azureId.AttrTypes, "applicationSecurityGroups")
-	azureId.AttrNames = append(azureId.AttrNames, asgId.Names()[0])
+	azureId.AttrNames = append(azureId.AttrNames, base64.StdEncoding.EncodeToString([]byte(asgId.String())))
 	return azureId, nil
 }
 
@@ -157,10 +154,9 @@ func networkInterfacePopulateIpConfigLoadBalancerNatRuleAssociation(ipConfigId a
 	if err != nil {
 		return nil, fmt.Errorf("parsing %s: %v", *natRule.ID, err)
 	}
-
 	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
-	azureId.AttrTypes = append(azureId.AttrTypes, "loadBalancers", "inboundNatRules")
-	azureId.AttrNames = append(azureId.AttrNames, natRuleId.Names()[0], natRuleId.Names()[1])
+	azureId.AttrTypes = append(azureId.AttrTypes, "loadBalancerInboundNatRules")
+	azureId.AttrNames = append(azureId.AttrNames, base64.StdEncoding.EncodeToString([]byte(natRuleId.String())))
 	return azureId, nil
 }
 
@@ -172,9 +168,8 @@ func networkInterfacePopulateIpConfigLoadBalancerBackendAddressPoolAssociation(i
 	if err != nil {
 		return nil, fmt.Errorf("parsing %s: %v", *bap.ID, err)
 	}
-
 	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
-	azureId.AttrTypes = append(azureId.AttrTypes, "loadBalancers", "backendAddressPools")
-	azureId.AttrNames = append(azureId.AttrNames, bapId.Names()[0], bapId.Names()[1])
+	azureId.AttrTypes = append(azureId.AttrTypes, "loadBalancerBackendAddressPools")
+	azureId.AttrNames = append(azureId.AttrNames, base64.StdEncoding.EncodeToString([]byte(bapId.String())))
 	return azureId, nil
 }
