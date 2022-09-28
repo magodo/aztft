@@ -667,14 +667,14 @@ func main() {
 		if isVerified(rt) {
 			continue
 		}
-		l, err := aztft.QueryType(rid, false)
+		l, _, err := aztft.QueryType(rid, false)
 		if err != nil {
 			log.Printf("querying %q -> %q: %v\n", rt, rid, err)
 			continue
 		}
 		var found bool
 		for _, t := range l {
-			if rt == t {
+			if rt == t.TFType {
 				found = true
 				break
 			}

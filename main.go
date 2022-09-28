@@ -30,28 +30,27 @@ func main() {
 	}
 	var output []string
 	if *flagImport {
-		rts, specs, err := aztft.QueryTypeAndId(flag.Args()[0], *flagAPI)
+		types, ids, _, err := aztft.QueryTypeAndId(flag.Args()[0], *flagAPI)
 		if err != nil {
 			log.Fatal(err)
 		}
-		for i := 0; i < len(rts); i++ {
-			output = append(output, fmt.Sprintf("terraform import %s.example %s", rts[i], specs[i]))
+		for i := 0; i < len(types); i++ {
+			output = append(output, fmt.Sprintf("terraform import %s.example %s", types[i].TFType, ids[i]))
 		}
 	} else {
-		rts, err := aztft.QueryType(flag.Args()[0], *flagAPI)
+		rts, _, err := aztft.QueryType(flag.Args()[0], *flagAPI)
 		if err != nil {
 			log.Fatal(err)
 		}
-		output = rts
-	}
-	switch len(output) {
-	case 0:
-		fmt.Println("No match")
-	case 1:
-		fmt.Println(output[0])
-	default:
-		for _, line := range output {
-			fmt.Println(line)
+		for _, t := range rts {
+			output = append(output, t.TFType)
 		}
+	}
+	if len(output) == 0 {
+		fmt.Println("No match")
+		return
+	}
+	for _, line := range output {
+		fmt.Println(line)
 	}
 }
