@@ -41,5 +41,8 @@ For these resources, as they don't have a management plane resource ID, we defin
 |`azurerm_network_interface_backend_address_pool_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/loadBalancerBackendAddressPools/<base64 id of azurerm_lb_backend_address_pool>`||
 |`azurerm_network_interface_nat_rule_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/cfg1/loadBalancerInboundNatRules/<base64 id of azurerm_lb_nat_rule>`||
 |`azurerm_network_interface_security_group_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nic1/networkSecurityGruops/<base64 id of azurerm_network_security_group>`||
+|`azurerm_subnet_route_table_association`|`/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/subnets/subnet1|routeTables/<base64 id of azurerm_route_table>`||
+|`azurerm_subnet_network_security_group_association`|`/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/subnets/subnet1|networkSecurityGroups/<base64 id of azurerm_network_security_group>`||
+|`azurerm_subnet_nat_gateway_association`|`/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/subnets/subnet1|natGateways/<base64 id of azurerm_nat_gateway>`||
 |`azurerm_virtual_desktop_workspace_application_group_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.DesktopVirtualization/workspaces/wsp1/applicationGroups/<base64 id of azurerm_virtual_desktop_application_group>`||
 |`azurerm_virtual_machine_data_disk_attachment`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1/dataDisks/disk1`||
