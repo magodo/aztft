@@ -110,6 +110,12 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 			return "", fmt.Errorf("normalizing id %q for %q with import spec %q: %v", pid.String(), rt, importSpec, err)
 		}
 		return pid.String(), nil
+	case "azurerm_iotcentral_application_network_rule_set":
+		pid := id.Parent()
+		if err := pid.Normalize(importSpec); err != nil {
+			return "", fmt.Errorf("normalizing id %q for %q with import spec %q: %v", pid.String(), rt, importSpec, err)
+		}
+		return pid.String(), nil
 
 	// Porperty-like resources
 	case "azurerm_disk_pool_iscsi_target_lun":

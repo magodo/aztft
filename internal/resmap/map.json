@@ -5354,7 +5354,8 @@
       ],
       "provider": "Microsoft.IoTCentral",
       "types": [
-        "ioTApps"
+        "ioTApps",
+        "networkRuleSets"
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.IoTCentral/ioTApps"
