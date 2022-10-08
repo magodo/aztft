@@ -84,7 +84,10 @@ func networkInterfacePopulateIpConfigAssociations(id armid.ResourceId, props *ar
 		}
 
 		for _, bap := range ipConfigProps.ApplicationGatewayBackendAddressPools {
-			azureId, err := networkInterfacePopulateIpConfigApplicationGatewayBackendAddressPoolAssociation(ipConfigId, bap)
+			if bap == nil || bap.ID == nil {
+				continue
+			}
+			azureId, err := networkInterfacePopulateIpConfigApplicationGatewayBackendAddressPoolAssociation(ipConfigId, *bap.ID)
 			if err != nil {
 				return nil, err
 			}
@@ -92,7 +95,10 @@ func networkInterfacePopulateIpConfigAssociations(id armid.ResourceId, props *ar
 		}
 
 		for _, asg := range ipConfigProps.ApplicationSecurityGroups {
-			azureId, err := networkInterfacePopulateIpConfigApplicationSecurityGroupAssociation(ipConfigId, asg)
+			if asg == nil || asg.ID == nil {
+				continue
+			}
+			azureId, err := networkInterfacePopulateIpConfigApplicationSecurityGroupAssociation(ipConfigId, *asg.ID)
 			if err != nil {
 				return nil, err
 			}
@@ -100,7 +106,10 @@ func networkInterfacePopulateIpConfigAssociations(id armid.ResourceId, props *ar
 		}
 
 		for _, natRule := range ipConfigProps.LoadBalancerInboundNatRules {
-			azureId, err := networkInterfacePopulateIpConfigLoadBalancerNatRuleAssociation(ipConfigId, natRule)
+			if natRule == nil || natRule.ID == nil {
+				continue
+			}
+			azureId, err := networkInterfacePopulateIpConfigLoadBalancerNatRuleAssociation(ipConfigId, *natRule.ID)
 			if err != nil {
 				return nil, err
 			}
@@ -108,7 +117,10 @@ func networkInterfacePopulateIpConfigAssociations(id armid.ResourceId, props *ar
 		}
 
 		for _, bap := range ipConfigProps.LoadBalancerBackendAddressPools {
-			azureId, err := networkInterfacePopulateIpConfigLoadBalancerBackendAddressPoolAssociation(ipConfigId, bap)
+			if bap == nil || bap.ID == nil {
+				continue
+			}
+			azureId, err := networkInterfacePopulateIpConfigLoadBalancerBackendAddressPoolAssociation(ipConfigId, *bap.ID)
 			if err != nil {
 				return nil, err
 			}
@@ -118,13 +130,10 @@ func networkInterfacePopulateIpConfigAssociations(id armid.ResourceId, props *ar
 	return result, nil
 }
 
-func networkInterfacePopulateIpConfigApplicationGatewayBackendAddressPoolAssociation(ipConfigId armid.ResourceId, bap *armnetwork.ApplicationGatewayBackendAddressPool) (armid.ResourceId, error) {
-	if bap.ID == nil {
-		return nil, nil
-	}
-	bapId, err := armid.ParseResourceId(*bap.ID)
+func networkInterfacePopulateIpConfigApplicationGatewayBackendAddressPoolAssociation(ipConfigId armid.ResourceId, id string) (armid.ResourceId, error) {
+	bapId, err := armid.ParseResourceId(id)
 	if err != nil {
-		return nil, fmt.Errorf("parsing %s: %v", *bap.ID, err)
+		return nil, fmt.Errorf("parsing %s: %v", id, err)
 	}
 	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
 	azureId.AttrTypes = append(azureId.AttrTypes, "applicationGatewayBackendAddressPools")
@@ -132,13 +141,10 @@ func networkInterfacePopulateIpConfigApplicationGatewayBackendAddressPoolAssocia
 	return azureId, nil
 }
 
-func networkInterfacePopulateIpConfigApplicationSecurityGroupAssociation(ipConfigId armid.ResourceId, asg *armnetwork.ApplicationSecurityGroup) (armid.ResourceId, error) {
-	if asg.ID == nil {
-		return nil, nil
-	}
-	asgId, err := armid.ParseResourceId(*asg.ID)
+func networkInterfacePopulateIpConfigApplicationSecurityGroupAssociation(ipConfigId armid.ResourceId, id string) (armid.ResourceId, error) {
+	asgId, err := armid.ParseResourceId(id)
 	if err != nil {
-		return nil, fmt.Errorf("parsing %s: %v", *asg.ID, err)
+		return nil, fmt.Errorf("parsing %s: %v", id, err)
 	}
 	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
 	azureId.AttrTypes = append(azureId.AttrTypes, "applicationSecurityGroups")
@@ -146,13 +152,10 @@ func networkInterfacePopulateIpConfigApplicationSecurityGroupAssociation(ipConfi
 	return azureId, nil
 }
 
-func networkInterfacePopulateIpConfigLoadBalancerNatRuleAssociation(ipConfigId armid.ResourceId, natRule *armnetwork.InboundNatRule) (armid.ResourceId, error) {
-	if natRule.ID == nil {
-		return nil, nil
-	}
-	natRuleId, err := armid.ParseResourceId(*natRule.ID)
+func networkInterfacePopulateIpConfigLoadBalancerNatRuleAssociation(ipConfigId armid.ResourceId, id string) (armid.ResourceId, error) {
+	natRuleId, err := armid.ParseResourceId(id)
 	if err != nil {
-		return nil, fmt.Errorf("parsing %s: %v", *natRule.ID, err)
+		return nil, fmt.Errorf("parsing %s: %v", id, err)
 	}
 	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
 	azureId.AttrTypes = append(azureId.AttrTypes, "loadBalancerInboundNatRules")
@@ -160,13 +163,10 @@ func networkInterfacePopulateIpConfigLoadBalancerNatRuleAssociation(ipConfigId a
 	return azureId, nil
 }
 
-func networkInterfacePopulateIpConfigLoadBalancerBackendAddressPoolAssociation(ipConfigId armid.ResourceId, bap *armnetwork.BackendAddressPool) (armid.ResourceId, error) {
-	if bap.ID == nil {
-		return nil, nil
-	}
-	bapId, err := armid.ParseResourceId(*bap.ID)
+func networkInterfacePopulateIpConfigLoadBalancerBackendAddressPoolAssociation(ipConfigId armid.ResourceId, id string) (armid.ResourceId, error) {
+	bapId, err := armid.ParseResourceId(id)
 	if err != nil {
-		return nil, fmt.Errorf("parsing %s: %v", *bap.ID, err)
+		return nil, fmt.Errorf("parsing %s: %v", id, err)
 	}
 	azureId := ipConfigId.Clone().(*armid.ScopedResourceId)
 	azureId.AttrTypes = append(azureId.AttrTypes, "loadBalancerBackendAddressPools")
