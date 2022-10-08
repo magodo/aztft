@@ -18,6 +18,7 @@ var populaters = map[string]populateFunc{
 	"azurerm_nat_gateway":               populateNatGateway,
 	"azurerm_disk_pool":                 populateDiskPool,
 	"azurerm_disk_pool_iscsi_target":    populateDiskPoolIscsiTarget,
+	"azurerm_subnet":                    populateSubnet,
 }
 
 func NeedsAPI(rt string) bool {

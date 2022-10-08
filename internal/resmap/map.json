@@ -11172,8 +11172,6 @@
     }
   },
   "azurerm_subnet_nat_gateway_association": {
-    "is_removed": true,
-    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -11181,16 +11179,12 @@
       "provider": "Microsoft.Network",
       "types": [
         "virtualNetworks",
-        "subnets"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/virtualNetworks/subnets"
+        "subnets",
+        "natGateways"
       ]
     }
   },
   "azurerm_subnet_network_security_group_association": {
-    "is_removed": true,
-    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -11198,16 +11192,12 @@
       "provider": "Microsoft.Network",
       "types": [
         "virtualNetworks",
-        "subnets"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/virtualNetworks/subnets"
+        "subnets",
+        "networkSecurityGroups"
       ]
     }
   },
   "azurerm_subnet_route_table_association": {
-    "is_removed": true,
-    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -11215,10 +11205,8 @@
       "provider": "Microsoft.Network",
       "types": [
         "virtualNetworks",
-        "subnets"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/virtualNetworks/subnets"
+        "subnets",
+        "routeTables"
       ]
     }
   },

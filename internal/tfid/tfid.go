@@ -132,6 +132,10 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "azurerm_network_interface", "azurerm_network_security_group", "|")
 	case "azurerm_virtual_desktop_workspace_application_group_association":
 		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "azurerm_virtual_desktop_workspace", "azurerm_virtual_desktop_application_group", "|")
+	case "azurerm_subnet_nat_gateway_association",
+		"azurerm_subnet_network_security_group_association",
+		"azurerm_subnet_route_table_association":
+		return id.Parent().String(), nil
 	}
 
 	if importSpec != "" {

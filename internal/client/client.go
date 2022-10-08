@@ -499,6 +499,14 @@ func (b *ClientBuilder) NewNetworkInterfacesClient(subscriptionId string) (*armn
 	)
 }
 
+func (b *ClientBuilder) NewNetworkSubnetsClient(subscriptionId string) (*armnetwork.SubnetsClient, error) {
+	return armnetwork.NewSubnetsClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewNetworkNatGatewaysClient(subscriptionId string) (*armnetwork.NatGatewaysClient, error) {
 	return armnetwork.NewNatGatewaysClient(
 		subscriptionId,
