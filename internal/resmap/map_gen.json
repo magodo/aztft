@@ -2116,6 +2116,21 @@
       ]
     }
   },
+  "azurerm_cdn_frontdoor_custom_domain_association": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Cdn",
+      "types": [
+        "profiles",
+        "associations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Cdn/profiles/associations"
+      ]
+    }
+  },
   "azurerm_cdn_frontdoor_endpoint": {
     "management_plane": {
       "scopes": [
@@ -8147,6 +8162,20 @@
       ]
     }
   },
+  "azurerm_nginx_deployment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Nginx.NginxPlus",
+      "types": [
+        "nginxDeployments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Nginx.NginxPlus/nginxDeployments"
+      ]
+    }
+  },
   "azurerm_notification_hub": {
     "management_plane": {
       "scopes": [
@@ -8189,6 +8218,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.NotificationHubs/namespaces"
+      ]
+    }
+  },
+  "azurerm_orbital_contact_profile": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Orbital",
+      "types": [
+        "contactProfiles"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Orbital/contactProfiles"
       ]
     }
   },
@@ -9421,6 +9464,20 @@
     }
   },
   "azurerm_sentinel_data_connector_office_365": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "dataConnectors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/dataConnectors"
+      ]
+    }
+  },
+  "azurerm_sentinel_data_connector_office_atp": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"

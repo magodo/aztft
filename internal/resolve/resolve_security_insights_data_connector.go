@@ -16,6 +16,7 @@ func (securityInsightsDataConnectorsResolver) ResourceTypes() []string {
 		"azurerm_sentinel_data_connector_microsoft_cloud_app_security",
 		"azurerm_sentinel_data_connector_azure_active_directory",
 		"azurerm_sentinel_data_connector_office_365",
+		"azurerm_sentinel_data_connector_office_atp",
 		"azurerm_sentinel_data_connector_threat_intelligence",
 		"azurerm_sentinel_data_connector_aws_s3",
 		"azurerm_sentinel_data_connector_aws_cloud_trail",
@@ -47,6 +48,8 @@ func (securityInsightsDataConnectorsResolver) Resolve(b *client.ClientBuilder, i
 		return "azurerm_sentinel_data_connector_azure_active_directory", nil
 	case *armsecurityinsights.OfficeDataConnector:
 		return "azurerm_sentinel_data_connector_office_365", nil
+	case *armsecurityinsights.OfficeATPDataConnector:
+		return "azurerm_sentinel_data_connector_office_atp", nil
 	case *armsecurityinsights.TIDataConnector:
 		return "azurerm_sentinel_data_connector_threat_intelligence", nil
 	case *armsecurityinsights.AwsS3DataConnector:
