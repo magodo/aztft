@@ -3854,6 +3854,20 @@
       ]
     }
   },
+  "azurerm_databricks_access_connector": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Databricks",
+      "types": [
+        "accessConnectors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Databricks/accessConnectors"
+      ]
+    }
+  },
   "azurerm_databricks_workspace": {
     "management_plane": {
       "scopes": [
@@ -9435,6 +9449,34 @@
       ]
     }
   },
+  "azurerm_sentinel_data_connector_dynamics_365": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "dataConnectors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/dataConnectors"
+      ]
+    }
+  },
+  "azurerm_sentinel_data_connector_iot": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "dataConnectors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/dataConnectors"
+      ]
+    }
+  },
   "azurerm_sentinel_data_connector_microsoft_cloud_app_security": {
     "management_plane": {
       "scopes": [
@@ -9477,7 +9519,49 @@
       ]
     }
   },
+  "azurerm_sentinel_data_connector_office_365_project": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "dataConnectors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/dataConnectors"
+      ]
+    }
+  },
   "azurerm_sentinel_data_connector_office_atp": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "dataConnectors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/dataConnectors"
+      ]
+    }
+  },
+  "azurerm_sentinel_data_connector_office_irm": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "dataConnectors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/dataConnectors"
+      ]
+    }
+  },
+  "azurerm_sentinel_data_connector_office_power_bi": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"

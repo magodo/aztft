@@ -23,6 +23,11 @@ func (securityInsightsDataConnectorsResolver) ResourceTypes() []string {
 		"azurerm_sentinel_data_connector_azure_security_center",
 		"azurerm_sentinel_data_connector_microsoft_defender_advanced_threat_protection",
 		"azurerm_sentinel_data_connector_azure_advanced_threat_protection",
+		"azurerm_sentinel_data_connector_office_365_project",
+		"azurerm_sentinel_data_connector_dynamics_365",
+		"azurerm_sentinel_data_connector_iot",
+		"azurerm_sentinel_data_connector_office_irm",
+		"azurerm_sentinel_data_connector_office_power_bi",
 	}
 }
 
@@ -48,6 +53,12 @@ func (securityInsightsDataConnectorsResolver) Resolve(b *client.ClientBuilder, i
 		return "azurerm_sentinel_data_connector_azure_active_directory", nil
 	case *armsecurityinsights.OfficeDataConnector:
 		return "azurerm_sentinel_data_connector_office_365", nil
+	case *armsecurityinsights.OfficeIRMDataConnector:
+		return "azurerm_sentinel_data_connector_office_irm", nil
+	case *armsecurityinsights.OfficePowerBIDataConnector:
+		return "azurerm_sentinel_data_connector_office_power_bi", nil
+	case *armsecurityinsights.Office365ProjectDataConnector:
+		return "azurerm_sentinel_data_connector_office_365_project", nil
 	case *armsecurityinsights.OfficeATPDataConnector:
 		return "azurerm_sentinel_data_connector_office_atp", nil
 	case *armsecurityinsights.TIDataConnector:
@@ -62,6 +73,10 @@ func (securityInsightsDataConnectorsResolver) Resolve(b *client.ClientBuilder, i
 		return "azurerm_sentinel_data_connector_microsoft_defender_advanced_threat_protection", nil
 	case *armsecurityinsights.AATPDataConnector:
 		return "azurerm_sentinel_data_connector_azure_advanced_threat_protection", nil
+	case *armsecurityinsights.Dynamics365DataConnector:
+		return "azurerm_sentinel_data_connector_dynamics_365", nil
+	case *armsecurityinsights.IoTDataConnector:
+		return "azurerm_sentinel_data_connector_iot", nil
 	default:
 		return "", fmt.Errorf("unknown data connector type: %T", model)
 	}
