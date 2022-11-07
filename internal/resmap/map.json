@@ -5842,6 +5842,20 @@
       ]
     }
   },
+  "azurerm_kubernetes_fleet_manager": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ContainerService",
+      "types": [
+        "fleets"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ContainerService/fleets"
+      ]
+    }
+  },
   "azurerm_kusto_attached_database_configuration": {
     "management_plane": {
       "scopes": [
@@ -7793,6 +7807,21 @@
       ]
     }
   },
+  "azurerm_mssql_managed_instance_security_alert_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Sql",
+      "types": [
+        "managedInstances",
+        "securityAlertPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Sql/managedInstances/securityAlertPolicies"
+      ]
+    }
+  },
   "azurerm_mssql_managed_instance_vulnerability_assessment": {
     "management_plane": {
       "scopes": [
@@ -7864,6 +7893,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Sql/servers/extendedAuditingSettings"
+      ]
+    }
+  },
+  "azurerm_mssql_server_microsoft_support_auditing_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Sql",
+      "types": [
+        "servers",
+        "devOpsAuditingSettings"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Sql/servers/devOpsAuditingSettings"
       ]
     }
   },
@@ -8912,6 +8956,21 @@
       ]
     }
   },
+  "azurerm_private_dns_resolver_forwarding_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "dnsForwardingRulesets",
+        "forwardingRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsForwardingRulesets/forwardingRules"
+      ]
+    }
+  },
   "azurerm_private_dns_resolver_outbound_endpoint": {
     "management_plane": {
       "scopes": [
@@ -8924,6 +8983,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/dnsResolvers/outboundEndpoints"
+      ]
+    }
+  },
+  "azurerm_private_dns_resolver_virtual_network_link": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "dnsForwardingRulesets",
+        "virtualNetworkLinks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsForwardingRulesets/virtualNetworkLinks"
       ]
     }
   },
