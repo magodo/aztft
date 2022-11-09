@@ -5414,10 +5414,10 @@
       ],
       "provider": "Microsoft.IoTCentral",
       "types": [
-        "ioTApps"
+        "iotApps"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.IoTCentral/ioTApps"
+        "/subscriptions/resourceGroups/Microsoft.IoTCentral/iotApps"
       ]
     }
   },
@@ -5428,11 +5428,11 @@
       ],
       "provider": "Microsoft.IoTCentral",
       "types": [
-        "ioTApps",
+        "iotApps",
         "networkRuleSets"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.IoTCentral/ioTApps"
+        "/subscriptions/resourceGroups/Microsoft.IoTCentral/iotApps"
       ]
     }
   },
