@@ -4247,7 +4247,7 @@
         "A"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/A"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/A"
       ]
     }
   },
@@ -4274,7 +4274,7 @@
         "AAAA"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/AAAA"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/AAAA"
       ]
     }
   },
@@ -4289,7 +4289,7 @@
         "CAA"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/CAA"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/CAA"
       ]
     }
   },
@@ -4304,7 +4304,7 @@
         "CNAME"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/CNAME"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/CNAME"
       ]
     }
   },
@@ -4319,7 +4319,7 @@
         "MX"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/MX"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/MX"
       ]
     }
   },
@@ -4334,7 +4334,7 @@
         "NS"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/NS"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/NS"
       ]
     }
   },
@@ -4349,7 +4349,7 @@
         "PTR"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/PTR"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/PTR"
       ]
     }
   },
@@ -4379,7 +4379,7 @@
         "SRV"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/SRV"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/SRV"
       ]
     }
   },
@@ -4394,7 +4394,7 @@
         "TXT"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/TXT"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/TXT"
       ]
     }
   },
@@ -4408,7 +4408,7 @@
         "dnszones"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones"
       ]
     }
   },
