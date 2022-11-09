@@ -1540,10 +1540,10 @@
       "provider": "Microsoft.Automation",
       "types": [
         "automationAccounts",
-        "sourceControls"
+        "sourcecontrols"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/sourceControls"
+        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/sourcecontrols"
       ]
     }
   },
