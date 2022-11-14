@@ -1525,10 +1525,10 @@
       "provider": "Microsoft.Automation",
       "types": [
         "automationAccounts",
-        "sourceControls"
+        "sourcecontrols"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/sourceControls"
+        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/sourcecontrols"
       ]
     }
   },
@@ -4210,11 +4210,11 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "dnszones",
+        "dnsZones",
         "A"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/A"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/A"
       ]
     }
   },
@@ -4225,11 +4225,11 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "dnszones",
+        "dnsZones",
         "AAAA"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/AAAA"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/AAAA"
       ]
     }
   },
@@ -4240,11 +4240,11 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "dnszones",
+        "dnsZones",
         "CAA"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/CAA"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/CAA"
       ]
     }
   },
@@ -4255,11 +4255,11 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "dnszones",
+        "dnsZones",
         "CNAME"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/CNAME"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/CNAME"
       ]
     }
   },
@@ -4270,11 +4270,11 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "dnszones",
+        "dnsZones",
         "MX"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/MX"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/MX"
       ]
     }
   },
@@ -4285,11 +4285,11 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "dnszones",
+        "dnsZones",
         "NS"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/NS"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/NS"
       ]
     }
   },
@@ -4300,11 +4300,11 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "dnszones",
+        "dnsZones",
         "PTR"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/PTR"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/PTR"
       ]
     }
   },
@@ -4330,11 +4330,11 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "dnszones",
+        "dnsZones",
         "SRV"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/SRV"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/SRV"
       ]
     }
   },
@@ -4345,11 +4345,11 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "dnszones",
+        "dnsZones",
         "TXT"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones/TXT"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones/TXT"
       ]
     }
   },
@@ -4360,10 +4360,10 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "dnszones"
+        "dnsZones"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnszones"
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsZones"
       ]
     }
   },
@@ -4701,6 +4701,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/expressRoutePorts"
+      ]
+    }
+  },
+  "azurerm_federated_identity_credential": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ManagedIdentity",
+      "types": [
+        "userAssignedIdentities",
+        "federatedIdentityCredentials"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials"
       ]
     }
   },
@@ -5367,10 +5382,10 @@
       ],
       "provider": "Microsoft.IoTCentral",
       "types": [
-        "ioTApps"
+        "iotApps"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.IoTCentral/ioTApps"
+        "/subscriptions/resourceGroups/Microsoft.IoTCentral/iotApps"
       ]
     }
   },
@@ -5381,10 +5396,10 @@
       ],
       "provider": "Microsoft.IoTCentral",
       "types": [
-        "ioTApps"
+        "iotApps"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.IoTCentral/ioTApps"
+        "/subscriptions/resourceGroups/Microsoft.IoTCentral/iotApps"
       ]
     }
   },
@@ -11366,6 +11381,21 @@
     }
   },
   "azurerm_stream_analytics_stream_input_eventhub": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StreamAnalytics",
+      "types": [
+        "streamingjobs",
+        "inputs"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/inputs"
+      ]
+    }
+  },
+  "azurerm_stream_analytics_stream_input_eventhub_v2": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"

@@ -3,6 +3,7 @@ package resolve
 import (
 	"context"
 	"fmt"
+	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/streamanalytics/armstreamanalytics"
 	"github.com/magodo/armid"
@@ -13,6 +14,7 @@ type streamAnalyticsInputsResolver struct{}
 
 func (streamAnalyticsInputsResolver) ResourceTypes() []string {
 	return []string{
+		"azurerm_stream_analytics_stream_input_eventhub_v2",
 		"azurerm_stream_analytics_stream_input_eventhub",
 		"azurerm_stream_analytics_stream_input_blob",
 		"azurerm_stream_analytics_stream_input_iothub",
@@ -41,9 +43,19 @@ func (streamAnalyticsInputsResolver) Resolve(b *client.ClientBuilder, id armid.R
 		if ds == nil {
 			return "", fmt.Errorf("unexpected nil properties.datasource in response")
 		}
-		switch ds.(type) {
+		switch ds := ds.(type) {
 		case *armstreamanalytics.EventHubStreamInputDataSource:
-			return "azurerm_stream_analytics_stream_input_eventhub", nil
+			if ds.Type == nil {
+				return "", fmt.Errorf("unexpected nil properties.datasource.type in response")
+			}
+			switch strings.ToUpper(*ds.Type) {
+			case "MICROSOFT.SERVICEBUS/EVENTHUB":
+				return "azurerm_stream_analytics_stream_input_eventhub", nil
+			case "MICROSOFT.EVENTHUB/EVENTHUB":
+				return "azurerm_stream_analytics_stream_input_eventhub_v2", nil
+			default:
+				return "", fmt.Errorf("unknown properties.datasource.type: %s", *ds.Type)
+			}
 		case *armstreamanalytics.BlobStreamInputDataSource:
 			return "azurerm_stream_analytics_stream_input_blob", nil
 		case *armstreamanalytics.IoTHubStreamInputDataSource:

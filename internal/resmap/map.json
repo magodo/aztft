@@ -4748,6 +4748,21 @@
       ]
     }
   },
+  "azurerm_federated_identity_credential": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ManagedIdentity",
+      "types": [
+        "userAssignedIdentities",
+        "federatedIdentityCredentials"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials"
+      ]
+    }
+  },
   "azurerm_firewall": {
     "management_plane": {
       "scopes": [
@@ -11552,6 +11567,21 @@
     }
   },
   "azurerm_stream_analytics_stream_input_eventhub": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StreamAnalytics",
+      "types": [
+        "streamingjobs",
+        "inputs"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/inputs"
+      ]
+    }
+  },
+  "azurerm_stream_analytics_stream_input_eventhub_v2": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
