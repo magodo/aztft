@@ -7837,6 +7837,21 @@
       ]
     }
   },
+  "azurerm_mssql_managed_instance_transparent_data_encryption": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Sql",
+      "types": [
+        "managedInstances",
+        "encryptionProtector"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Sql/managedInstances/encryptionProtector"
+      ]
+    }
+  },
   "azurerm_mssql_managed_instance_vulnerability_assessment": {
     "management_plane": {
       "scopes": [
@@ -8762,6 +8777,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/flexibleServers"
+      ]
+    }
+  },
+  "azurerm_postgresql_flexible_server_active_directory_administrator": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DBforPostgreSQL",
+      "types": [
+        "flexibleServers",
+        "administrators"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/flexibleServers/administrators"
       ]
     }
   },
