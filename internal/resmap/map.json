@@ -5327,10 +5327,10 @@
       ],
       "provider": "Microsoft.Security",
       "types": [
-        "IoTSecuritySolutions"
+        "ioTSecuritySolutions"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Security/IoTSecuritySolutions"
+        "/subscriptions/resourceGroups/Microsoft.Security/ioTSecuritySolutions"
       ]
     }
   },
@@ -7465,10 +7465,10 @@
       ],
       "provider": "Microsoft.Insights",
       "types": [
-        "autoscaleSettings"
+        "autoScaleSettings"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Insights/autoscaleSettings"
+        "/subscriptions/resourceGroups/Microsoft.Insights/autoScaleSettings"
       ]
     }
   },
@@ -9792,10 +9792,10 @@
       ],
       "provider": "Microsoft.SecurityInsights",
       "types": [
-        "AutomationRules"
+        "automationRules"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/AutomationRules"
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/automationRules"
       ]
     }
   },
@@ -11816,10 +11816,10 @@
       "provider": "Microsoft.Synapse",
       "types": [
         "workspaces",
-        "integrationruntimes"
+        "integrationRuntimes"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Synapse/workspaces/integrationruntimes"
+        "/subscriptions/resourceGroups/Microsoft.Synapse/workspaces/integrationRuntimes"
       ]
     }
   },
@@ -11831,10 +11831,10 @@
       "provider": "Microsoft.Synapse",
       "types": [
         "workspaces",
-        "integrationruntimes"
+        "integrationRuntimes"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Synapse/workspaces/integrationruntimes"
+        "/subscriptions/resourceGroups/Microsoft.Synapse/workspaces/integrationRuntimes"
       ]
     }
   },
@@ -11846,10 +11846,10 @@
       "provider": "Microsoft.Synapse",
       "types": [
         "workspaces",
-        "linkedservices"
+        "linkedServices"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Synapse/workspaces/linkedservices"
+        "/subscriptions/resourceGroups/Microsoft.Synapse/workspaces/linkedServices"
       ]
     }
   },
