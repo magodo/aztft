@@ -515,6 +515,14 @@ func (b *ClientBuilder) NewNetworkNatGatewaysClient(subscriptionId string) (*arm
 	)
 }
 
+func (b *ClientBuilder) NewNetworkPacketCapturesClient(subscriptionId string) (*armnetwork.PacketCapturesClient, error) {
+	return armnetwork.NewPacketCapturesClient(
+		subscriptionId,
+		b.credential,
+		clientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewFrontdoorPoliciesClient(subscriptionId string) (*armfrontdoor.PoliciesClient, error) {
 	return armfrontdoor.NewPoliciesClient(
 		subscriptionId,

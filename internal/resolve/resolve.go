@@ -149,6 +149,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.NETWORK/FRONTDOORWEBAPPLICATIONFIREWALLPOLICIES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": frontdoorPoliciesResolver{},
 	},
+	"/MICROSOFT.NETWORK/NETWORKWATCHERS/PACKETCAPTURES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": networkPacketCaptureResolver{},
+	},
 }
 
 type ResolveError struct {

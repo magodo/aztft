@@ -1525,10 +1525,10 @@
       "provider": "Microsoft.Automation",
       "types": [
         "automationAccounts",
-        "sourcecontrols"
+        "sourceControls"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/sourcecontrols"
+        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/sourceControls"
       ]
     }
   },
@@ -1615,10 +1615,10 @@
       "provider": "Microsoft.Automation",
       "types": [
         "automationAccounts",
-        "webhooks"
+        "webHooks"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/webhooks"
+        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/webHooks"
       ]
     }
   },
@@ -2538,10 +2538,10 @@
       "provider": "Microsoft.ContainerRegistry",
       "types": [
         "registries",
-        "webhooks"
+        "webHooks"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.ContainerRegistry/registries/webhooks"
+        "/subscriptions/resourceGroups/Microsoft.ContainerRegistry/registries/webHooks"
       ]
     }
   },
@@ -4146,6 +4146,21 @@
       ]
     }
   },
+  "azurerm_digital_twins_time_series_database_connection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DigitalTwins",
+      "types": [
+        "digitalTwinsInstances",
+        "timeSeriesDatabaseConnections"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DigitalTwins/digitalTwinsInstances/timeSeriesDatabaseConnections"
+      ]
+    }
+  },
   "azurerm_disk_access": {
     "management_plane": {
       "scopes": [
@@ -4872,10 +4887,10 @@
       "provider": "Microsoft.Network",
       "types": [
         "frontdoors",
-        "rulesengines"
+        "rulesEngines"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/frontdoors/rulesengines"
+        "/subscriptions/resourceGroups/Microsoft.Network/frontdoors/rulesEngines"
       ]
     }
   },
@@ -5076,10 +5091,10 @@
       "provider": "Microsoft.HealthcareApis",
       "types": [
         "workspaces",
-        "dicomservices"
+        "dicomServices"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.HealthcareApis/workspaces/dicomservices"
+        "/subscriptions/resourceGroups/Microsoft.HealthcareApis/workspaces/dicomServices"
       ]
     }
   },
@@ -5091,10 +5106,10 @@
       "provider": "Microsoft.HealthcareApis",
       "types": [
         "workspaces",
-        "fhirservices"
+        "fhirServices"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.HealthcareApis/workspaces/fhirservices"
+        "/subscriptions/resourceGroups/Microsoft.HealthcareApis/workspaces/fhirServices"
       ]
     }
   },
@@ -5106,10 +5121,10 @@
       "provider": "Microsoft.HealthcareApis",
       "types": [
         "workspaces",
-        "iotconnectors"
+        "iotConnectors"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.HealthcareApis/workspaces/iotconnectors"
+        "/subscriptions/resourceGroups/Microsoft.HealthcareApis/workspaces/iotConnectors"
       ]
     }
   },
@@ -5121,11 +5136,11 @@
       "provider": "Microsoft.HealthcareApis",
       "types": [
         "workspaces",
-        "iotconnectors",
-        "fhirdestinations"
+        "iotConnectors",
+        "fhirDestinations"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations"
+        "/subscriptions/resourceGroups/Microsoft.HealthcareApis/workspaces/iotConnectors/fhirDestinations"
       ]
     }
   },
@@ -5410,10 +5425,10 @@
       ],
       "provider": "Microsoft.Devices",
       "types": [
-        "IotHubs"
+        "iotHubs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/IotHubs"
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs"
       ]
     }
   },
@@ -5424,11 +5439,11 @@
       ],
       "provider": "Microsoft.Devices",
       "types": [
-        "IotHubs",
-        "Certificates"
+        "iotHubs",
+        "certificates"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/IotHubs/Certificates"
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs/certificates"
       ]
     }
   },
@@ -5439,12 +5454,12 @@
       ],
       "provider": "Microsoft.Devices",
       "types": [
-        "IotHubs",
+        "iotHubs",
         "eventHubEndpoints",
-        "ConsumerGroups"
+        "consumerGroups"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups"
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs/eventHubEndpoints/consumerGroups"
       ]
     }
   },
@@ -5528,11 +5543,11 @@
       ],
       "provider": "Microsoft.Devices",
       "types": [
-        "IotHubs",
-        "Endpoints"
+        "iotHubs",
+        "endpoints"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/IotHubs/Endpoints"
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs/endpoints"
       ]
     }
   },
@@ -5543,11 +5558,11 @@
       ],
       "provider": "Microsoft.Devices",
       "types": [
-        "IotHubs",
-        "Endpoints"
+        "iotHubs",
+        "endpoints"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/IotHubs/Endpoints"
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs/endpoints"
       ]
     }
   },
@@ -5558,11 +5573,11 @@
       ],
       "provider": "Microsoft.Devices",
       "types": [
-        "IotHubs",
-        "Endpoints"
+        "iotHubs",
+        "endpoints"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/IotHubs/Endpoints"
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs/endpoints"
       ]
     }
   },
@@ -5573,11 +5588,11 @@
       ],
       "provider": "Microsoft.Devices",
       "types": [
-        "IotHubs",
-        "Endpoints"
+        "iotHubs",
+        "endpoints"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/IotHubs/Endpoints"
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs/endpoints"
       ]
     }
   },
@@ -5588,11 +5603,11 @@
       ],
       "provider": "Microsoft.Devices",
       "types": [
-        "IotHubs",
-        "Enrichments"
+        "iotHubs",
+        "enrichments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/IotHubs/Enrichments"
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs/enrichments"
       ]
     }
   },
@@ -5603,11 +5618,11 @@
       ],
       "provider": "Microsoft.Devices",
       "types": [
-        "IotHubs",
-        "FallbackRoute"
+        "iotHubs",
+        "fallbackRoute"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/IotHubs/FallbackRoute"
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs/fallbackRoute"
       ]
     }
   },
@@ -5618,11 +5633,11 @@
       ],
       "provider": "Microsoft.Devices",
       "types": [
-        "IotHubs",
-        "Routes"
+        "iotHubs",
+        "routes"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/IotHubs/Routes"
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs/routes"
       ]
     }
   },
@@ -5633,11 +5648,11 @@
       ],
       "provider": "Microsoft.Devices",
       "types": [
-        "IotHubs",
-        "IotHubKeys"
+        "iotHubs",
+        "iotHubKeys"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Devices/IotHubs/IotHubKeys"
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs/iotHubKeys"
       ]
     }
   },
@@ -5822,11 +5837,11 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "Clusters",
-        "AttachedDatabaseConfigurations"
+        "clusters",
+        "attachedDatabaseConfigurations"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/attachedDatabaseConfigurations"
       ]
     }
   },
@@ -5837,10 +5852,10 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "Clusters"
+        "clusters"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters"
       ]
     }
   },
@@ -5865,11 +5880,11 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "Clusters",
+        "clusters",
         "managedPrivateEndpoints"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters/managedPrivateEndpoints"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/managedPrivateEndpoints"
       ]
     }
   },
@@ -5880,11 +5895,11 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "Clusters",
-        "PrincipalAssignments"
+        "clusters",
+        "principalAssignments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters/PrincipalAssignments"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/principalAssignments"
       ]
     }
   },
@@ -5895,11 +5910,11 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "Clusters",
-        "Databases"
+        "clusters",
+        "databases"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters/Databases"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/databases"
       ]
     }
   },
@@ -5910,12 +5925,12 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "Clusters",
-        "Databases",
-        "PrincipalAssignments"
+        "clusters",
+        "databases",
+        "principalAssignments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters/Databases/PrincipalAssignments"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/databases/principalAssignments"
       ]
     }
   },
@@ -5926,12 +5941,12 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "Clusters",
-        "Databases",
-        "DataConnections"
+        "clusters",
+        "databases",
+        "dataConnections"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters/Databases/DataConnections"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/databases/dataConnections"
       ]
     }
   },
@@ -5942,12 +5957,12 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "Clusters",
-        "Databases",
-        "DataConnections"
+        "clusters",
+        "databases",
+        "dataConnections"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters/Databases/DataConnections"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/databases/dataConnections"
       ]
     }
   },
@@ -5958,12 +5973,12 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "Clusters",
-        "Databases",
-        "DataConnections"
+        "clusters",
+        "databases",
+        "dataConnections"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters/Databases/DataConnections"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/databases/dataConnections"
       ]
     }
   },
@@ -5974,12 +5989,12 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "Clusters",
-        "Databases",
-        "Scripts"
+        "clusters",
+        "databases",
+        "scripts"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters/Databases/Scripts"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/databases/scripts"
       ]
     }
   },
@@ -7218,10 +7233,10 @@
       ],
       "provider": "Microsoft.Media",
       "types": [
-        "mediaservices"
+        "mediaServices"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/mediaservices"
+        "/subscriptions/resourceGroups/Microsoft.Media/mediaServices"
       ]
     }
   },
@@ -7556,10 +7571,10 @@
       ],
       "provider": "Microsoft.AlertsManagement",
       "types": [
-        "smartdetectoralertrules"
+        "smartDetectorAlertRules"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AlertsManagement/smartdetectoralertrules"
+        "/subscriptions/resourceGroups/Microsoft.AlertsManagement/smartDetectorAlertRules"
       ]
     }
   },
@@ -8234,6 +8249,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/networkInterfaces"
+      ]
+    }
+  },
+  "azurerm_network_manager": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers"
       ]
     }
   },
@@ -9347,6 +9376,21 @@
       ]
     }
   },
+  "azurerm_route_map": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "virtualHubs",
+        "routeMaps"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/virtualHubs/routeMaps"
+      ]
+    }
+  },
   "azurerm_route_server": {
     "management_plane": {
       "scopes": [
@@ -9758,6 +9802,20 @@
     }
   },
   "azurerm_sentinel_data_connector_microsoft_defender_advanced_threat_protection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "dataConnectors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/dataConnectors"
+      ]
+    }
+  },
+  "azurerm_sentinel_data_connector_microsoft_threat_protection": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
@@ -10303,6 +10361,21 @@
       ]
     }
   },
+  "azurerm_spring_cloud_accelerator": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AppPlatform",
+      "types": [
+        "spring",
+        "applicationAccelerators"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/applicationAccelerators"
+      ]
+    }
+  },
   "azurerm_spring_cloud_active_deployment": {
     "management_plane": {
       "scopes": [
@@ -10310,11 +10383,11 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "apps"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apps"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps"
       ]
     }
   },
@@ -10325,11 +10398,11 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "apiPortals"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apiPortals"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apiPortals"
       ]
     }
   },
@@ -10340,12 +10413,12 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "apiPortals",
         "domains"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apiPortals/domains"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apiPortals/domains"
       ]
     }
   },
@@ -10356,11 +10429,11 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "apps"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apps"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps"
       ]
     }
   },
@@ -10371,12 +10444,12 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "apps",
         "bindings"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apps/bindings"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps/bindings"
       ]
     }
   },
@@ -10387,12 +10460,12 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "apps",
         "bindings"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apps/bindings"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps/bindings"
       ]
     }
   },
@@ -10403,12 +10476,27 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "apps",
         "bindings"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apps/bindings"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps/bindings"
+      ]
+    }
+  },
+  "azurerm_spring_cloud_application_live_view": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AppPlatform",
+      "types": [
+        "spring",
+        "applicationLiveViews"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/applicationLiveViews"
       ]
     }
   },
@@ -10419,12 +10507,12 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "apps",
         "deployments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apps/deployments"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps/deployments"
       ]
     }
   },
@@ -10435,13 +10523,13 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "buildServices",
         "builders",
-        "buildpackBindings"
+        "buildPackBindings"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/buildServices/builders/buildPackBindings"
       ]
     }
   },
@@ -10452,12 +10540,12 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "buildServices",
         "builders"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/buildServices/builders"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/buildServices/builders"
       ]
     }
   },
@@ -10468,11 +10556,11 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "certificates"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/certificates"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/certificates"
       ]
     }
   },
@@ -10483,11 +10571,11 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "configurationServices"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/configurationServices"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/configurationServices"
       ]
     }
   },
@@ -10512,12 +10600,12 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "apps",
         "deployments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apps/deployments"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps/deployments"
       ]
     }
   },
@@ -10528,12 +10616,27 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "apps",
         "domains"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apps/domains"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps/domains"
+      ]
+    }
+  },
+  "azurerm_spring_cloud_dev_tool_portal": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AppPlatform",
+      "types": [
+        "Spring",
+        "DevToolPortals"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/DevToolPortals"
       ]
     }
   },
@@ -10544,11 +10647,11 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "gateways"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/gateways"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/gateways"
       ]
     }
   },
@@ -10559,12 +10662,12 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "gateways",
         "domains"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/gateways/domains"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/gateways/domains"
       ]
     }
   },
@@ -10575,12 +10678,12 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "gateways",
         "routeConfigs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/gateways/routeConfigs"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/gateways/routeConfigs"
       ]
     }
   },
@@ -10591,12 +10694,12 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "apps",
         "deployments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/apps/deployments"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps/deployments"
       ]
     }
   },
@@ -10607,10 +10710,10 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring"
+        "spring"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring"
       ]
     }
   },
@@ -10621,11 +10724,11 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "storages"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/storages"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/storages"
       ]
     }
   },
@@ -12301,6 +12404,21 @@
       ]
     }
   },
+  "azurerm_virtual_machine_packet_capture": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkWatchers",
+        "packetCaptures"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkWatchers/packetCaptures"
+      ]
+    }
+  },
   "azurerm_virtual_machine_scale_set": {
     "management_plane": {
       "scopes": [
@@ -12327,6 +12445,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachineScaleSets/extensions"
+      ]
+    }
+  },
+  "azurerm_virtual_machine_scale_set_packet_capture": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkWatchers",
+        "packetCaptures"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkWatchers/packetCaptures"
       ]
     }
   },
@@ -12458,6 +12591,22 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AVS/privateClouds/authorizations"
+      ]
+    }
+  },
+  "azurerm_vmware_netapp_volume_attachment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AVS",
+      "types": [
+        "PrivateClouds",
+        "clusters",
+        "dataStores"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AVS/PrivateClouds/clusters/dataStores"
       ]
     }
   },
