@@ -13,12 +13,7 @@ type monitorScheduledQueryRulesResolver struct{}
 
 func (monitorScheduledQueryRulesResolver) ResourceTypes() []string {
 	return []string{
-		"azurerm_monitor_scheduled_query_rules_alert",
 		"azurerm_monitor_scheduled_query_rules_log",
-
-		// This is actually not disambiguated yet, as currently there is only one API version used by the SDK:
-		// https://github.com/Azure/azure-sdk-for-go/issues/18960.
-		// Once above issue is resolved, we can further disambiguate it from the azurerm_monitor_scheduled_query_rules_alert.
 		"azurerm_monitor_scheduled_query_rules_alert_v2",
 	}
 }
@@ -44,7 +39,7 @@ func (monitorScheduledQueryRulesResolver) Resolve(b *client.ClientBuilder, id ar
 
 	switch action.(type) {
 	case *armmonitor.AlertingAction:
-		return "azurerm_monitor_scheduled_query_rules_alert", nil
+		return "azurerm_monitor_scheduled_query_rules_alert_v2", nil
 	case *armmonitor.LogToMetricAction:
 		return "azurerm_monitor_scheduled_query_rules_log", nil
 	default:
