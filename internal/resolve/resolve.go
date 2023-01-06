@@ -152,6 +152,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.NETWORK/NETWORKWATCHERS/PACKETCAPTURES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": networkPacketCaptureResolver{},
 	},
+	"/MICROSOFT.RESOURCES/DEPLOYMENTSCRIPTS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": deploymentScriptsResolver{},
+	},
 }
 
 type ResolveError struct {

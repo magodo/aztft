@@ -77,6 +77,16 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrDataPlaneId,
 	},
+	"azurerm_key_vault_certificate_contacts": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.KeyVault",
+				Types:        []string{"vaults", "certificates", "contacts"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
 	"azurerm_key_vault_managed_storage_account": {
 		mapItem: &resmap.TF2ARMIdMapItem{
 			ManagementPlane: &resmap.MapManagementPlane{

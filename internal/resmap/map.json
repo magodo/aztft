@@ -1835,6 +1835,20 @@
       ]
     }
   },
+  "azurerm_billing_account_cost_management_export": {
+    "management_plane": {
+      "scopes": [
+        "/Microsoft.Billing/billingAccounts"
+      ],
+      "provider": "Microsoft.CostManagement",
+      "types": [
+        "exports"
+      ],
+      "import_specs": [
+        "/Microsoft.Billing/billingAccounts/Microsoft.CostManagement/exports"
+      ]
+    }
+  },
   "azurerm_blueprint_assignment": {
     "management_plane": {
       "scopes": [
@@ -2352,6 +2366,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.CognitiveServices/accounts"
+      ]
+    }
+  },
+  "azurerm_cognitive_deployment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.CognitiveServices",
+      "types": [
+        "accounts",
+        "deployments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.CognitiveServices/accounts/deployments"
       ]
     }
   },
@@ -5767,6 +5796,19 @@
       ]
     }
   },
+  "azurerm_key_vault_certificate_contacts": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.KeyVault",
+      "types": [
+        "vaults",
+        "certificates",
+        "contacts"
+      ]
+    }
+  },
   "azurerm_key_vault_certificate_issuer": {
     "management_plane": {
       "scopes": [
@@ -6053,6 +6095,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/databases/scripts"
+      ]
+    }
+  },
+  "azurerm_lab_service_plan": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.LabServices",
+      "types": [
+        "labPlans"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.LabServices/labPlans"
       ]
     }
   },
@@ -8431,6 +8487,21 @@
       ]
     }
   },
+  "azurerm_network_manager_network_group": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "networkGroups"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/networkGroups"
+      ]
+    }
+  },
   "azurerm_network_packet_capture": {
     "is_removed": true,
     "remove_reason": "This is deprecated in favor of `azurerm_virtual_machine_scale_set_packet_capture` and `azurerm_virtual_machine_packet_capture`",
@@ -9366,6 +9437,34 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Relay/namespaces/authorizationRules"
+      ]
+    }
+  },
+  "azurerm_resource_deployment_script_azure_cli": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Resources",
+      "types": [
+        "deploymentScripts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Resources/deploymentScripts"
+      ]
+    }
+  },
+  "azurerm_resource_deployment_script_azure_power_shell": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Resources",
+      "types": [
+        "deploymentScripts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Resources/deploymentScripts"
       ]
     }
   },
@@ -10788,6 +10887,22 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps/domains"
+      ]
+    }
+  },
+  "azurerm_spring_cloud_customized_accelerator": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AppPlatform",
+      "types": [
+        "Spring",
+        "applicationAccelerators",
+        "customizedAccelerators"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/applicationAccelerators/customizedAccelerators"
       ]
     }
   },

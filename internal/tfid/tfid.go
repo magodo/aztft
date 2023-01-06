@@ -22,6 +22,7 @@ var dynamicBuilders = map[string]builderFunc{
 	"azurerm_key_vault_key":                                          buildKeyVaultKey,
 	"azurerm_key_vault_secret":                                       buildKeyVaultSecret,
 	"azurerm_key_vault_certificate":                                  buildKeyVaultCertificate,
+	"azurerm_key_vault_certificate_contacts":                         buildKeyVaultCertificateContacts,
 	"azurerm_key_vault_certificate_issuer":                           buildKeyVaultCertificateIssuer,
 	"azurerm_key_vault_managed_storage_account":                      buildKeyVaultStorageAccount,
 	"azurerm_key_vault_managed_storage_account_sas_token_definition": buildKeyVaultStorageAccountSasTokenDefinition,
