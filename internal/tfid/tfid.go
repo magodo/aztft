@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/magodo/armid"
 	"github.com/magodo/aztft/internal/client"
 	"github.com/magodo/aztft/internal/resmap"
@@ -39,7 +41,7 @@ func NeedsAPI(rt string) bool {
 	return ok
 }
 
-func DynamicBuild(id armid.ResourceId, rt string) (string, error) {
+func DynamicBuild(id armid.ResourceId, rt string, cred azcore.TokenCredential, clientOpt arm.ClientOptions) (string, error) {
 	id = id.Clone()
 
 	importSpec, err := GetImportSpec(id, rt)
@@ -52,9 +54,9 @@ func DynamicBuild(id armid.ResourceId, rt string) (string, error) {
 		return "", fmt.Errorf("unknown resource type: %q", rt)
 	}
 
-	b, err := client.NewClientBuilder()
-	if err != nil {
-		return "", fmt.Errorf("new API client builder: %v", err)
+	b := &client.ClientBuilder{
+		Cred:      cred,
+		ClientOpt: clientOpt,
 	}
 
 	return builder(b, id, importSpec)
