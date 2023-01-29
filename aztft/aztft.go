@@ -5,6 +5,8 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/magodo/aztft/internal/populate"
 	"github.com/magodo/aztft/internal/resmap"
 	"github.com/magodo/aztft/internal/resolve"
@@ -18,32 +20,37 @@ type Type struct {
 	TFType  string
 }
 
+type APIOption struct {
+	Cred         azcore.TokenCredential
+	ClientOption arm.ClientOptions
+}
+
 // QueryType queries a given ARM resource ID and returns a list of potential matched Terraform resource type.
-// It firstly statically search the known resource mappings. If there are multiple matches and the "allowAPI" is true,
+// It firstly statically search the known resource mappings. If there are multiple matches and the "apiOpt" is not nil,
 // it will further call Azure API to retrieve additionl information about this resource and return the exact match.
-// Additionally, if allowAPI is true and this resource maps to multiple TF resources, then multiple Types will be returned.
-func QueryType(idStr string, allowAPI bool) (types []Type, exact bool, err error) {
-	return queryType(idStr, allowAPI)
+// Additionally, if "apiOpt" is specified and this resource maps to multiple TF resources, then multiple Types will be returned.
+func QueryType(idStr string, apiOpt *APIOption) (types []Type, exact bool, err error) {
+	return queryType(idStr, apiOpt)
 }
 
 // QueryId queries a given ARM resource ID and its resource type, returns the matched Terraform resource ID.
-func QueryId(idStr string, rt string, allowAPI bool) (string, error) {
+func QueryId(idStr string, rt string, apiOpt *APIOption) (string, error) {
 	id, err := armid.ParseResourceId(idStr)
 	if err != nil {
 		return "", fmt.Errorf("parsing id: %v", err)
 	}
 
-	return queryId(id, rt, allowAPI)
+	return queryId(id, rt, apiOpt)
 }
 
 // QueryTypeAndId is similar to QueryType, except it also returns the Terraform resource ID (having same length as the types).
-func QueryTypeAndId(idStr string, allowAPI bool) (types []Type, ids []string, exact bool, err error) {
-	types, exact, err = queryType(idStr, allowAPI)
+func QueryTypeAndId(idStr string, apiOpt *APIOption) (types []Type, ids []string, exact bool, err error) {
+	types, exact, err = queryType(idStr, apiOpt)
 	if err != nil {
 		return nil, nil, false, err
 	}
 	for _, t := range types {
-		tfid, err := queryId(t.AzureId, t.TFType, allowAPI)
+		tfid, err := queryId(t.AzureId, t.TFType, apiOpt)
 		if err != nil {
 			return nil, nil, false, fmt.Errorf("querying id %q as %q: %v", t.AzureId, t.TFType, err)
 		}
@@ -52,16 +59,16 @@ func QueryTypeAndId(idStr string, allowAPI bool) (types []Type, ids []string, ex
 	return types, ids, exact, nil
 }
 
-func queryId(id armid.ResourceId, rt string, allowAPI bool) (string, error) {
+func queryId(id armid.ResourceId, rt string, apiOpt *APIOption) (string, error) {
 	var (
 		spec string
 		err  error
 	)
 	if tfid.NeedsAPI(rt) {
-		if !allowAPI {
+		if apiOpt == nil {
 			return "", fmt.Errorf("%s needs call Azure API to build the import spec", rt)
 		}
-		spec, err = tfid.DynamicBuild(id, rt)
+		spec, err = tfid.DynamicBuild(id, rt, apiOpt.Cred, apiOpt.ClientOption)
 	} else {
 		spec, err = tfid.StaticBuild(id, rt)
 	}
@@ -94,7 +101,7 @@ func getARMId2TFMapItems(id armid.ResourceId) []resmap.ARMId2TFMapItem {
 	return l
 }
 
-func queryType(idStr string, allowAPI bool) ([]Type, bool, error) {
+func queryType(idStr string, apiOpt *APIOption) ([]Type, bool, error) {
 	id, err := armid.ParseResourceId(idStr)
 	if err != nil {
 		return nil, false, fmt.Errorf("invalid resource id: %v", err)
@@ -108,10 +115,10 @@ func queryType(idStr string, allowAPI bool) ([]Type, bool, error) {
 	var result []Type
 
 	exact := len(l) == 1
-	if allowAPI {
+	if apiOpt != nil {
 		// Resolve ambiguous resources
 		if len(l) > 1 {
-			rt, err := resolve.Resolve(id)
+			rt, err := resolve.Resolve(id, apiOpt.Cred, apiOpt.ClientOption)
 			if err != nil {
 				return nil, false, err
 			}
@@ -136,7 +143,7 @@ func queryType(idStr string, allowAPI bool) ([]Type, bool, error) {
 		}
 
 		rt := l[0].ResourceType
-		propLikeResIds, err := populate.Populate(id, rt)
+		propLikeResIds, err := populate.Populate(id, rt, apiOpt.Cred, apiOpt.ClientOption)
 		if err != nil {
 			return nil, false, fmt.Errorf("populating property-like resources for %s: %v", rt, err)
 		}

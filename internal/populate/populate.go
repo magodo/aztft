@@ -1,8 +1,8 @@
 package populate
 
 import (
-	"fmt"
-
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/magodo/armid"
 	"github.com/magodo/aztft/internal/client"
 )
@@ -26,15 +26,15 @@ func NeedsAPI(rt string) bool {
 	return ok
 }
 
-func Populate(id armid.ResourceId, rt string) ([]armid.ResourceId, error) {
+func Populate(id armid.ResourceId, rt string, cred azcore.TokenCredential, clientOpt arm.ClientOptions) ([]armid.ResourceId, error) {
 	populater, ok := populaters[rt]
 	if !ok {
 		return nil, nil
 	}
 
-	b, err := client.NewClientBuilder()
-	if err != nil {
-		return nil, fmt.Errorf("new API client builder: %v", err)
+	b := &client.ClientBuilder{
+		Cred:      cred,
+		ClientOpt: clientOpt,
 	}
 
 	return populater(b, id)

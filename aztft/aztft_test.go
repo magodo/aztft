@@ -135,7 +135,7 @@ func TestQueryType(t *testing.T) {
 
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
-			actualType, actualExact, err := QueryType(tt.input, false)
+			actualType, actualExact, err := QueryType(tt.input, nil)
 			if tt.err != "" {
 				require.EqualError(t, err, tt.err)
 				return
@@ -219,7 +219,7 @@ func TestQueryId(t *testing.T) {
 
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
-			actual, err := QueryId(tt.input, tt.rt, false)
+			actual, err := QueryId(tt.input, tt.rt, nil)
 			if tt.err != "" {
 				require.EqualError(t, err, tt.err)
 				return
@@ -375,7 +375,7 @@ func TestQueryTypeAndId(t *testing.T) {
 
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
-			actualTypes, actualIds, actualExact, err := QueryTypeAndId(tt.input, false)
+			actualTypes, actualIds, actualExact, err := QueryTypeAndId(tt.input, nil)
 			if tt.err != "" {
 				require.EqualError(t, err, tt.err)
 				return

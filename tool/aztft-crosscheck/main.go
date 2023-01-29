@@ -667,7 +667,7 @@ func main() {
 		if isVerified(rt) {
 			continue
 		}
-		l, _, err := aztft.QueryType(rid, false)
+		l, _, err := aztft.QueryType(rid, nil)
 		if err != nil {
 			log.Printf("querying %q -> %q: %v\n", rt, rid, err)
 			continue

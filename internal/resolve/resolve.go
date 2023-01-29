@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/magodo/armid"
 	"github.com/magodo/aztft/internal/client"
 )
@@ -188,12 +190,9 @@ func NeedsAPI(id armid.ResourceId) bool {
 }
 
 // Resolve resolves a given resource id via Azure API to disambiguate and return a single matched TF resource type.
-func Resolve(id armid.ResourceId) (string, error) {
+func Resolve(id armid.ResourceId, cred azcore.TokenCredential, clientOpt arm.ClientOptions) (string, error) {
 	// Ensure the API client can be built.
-	b, err := client.NewClientBuilder()
-	if err != nil {
-		return "", ResolveError{ResourceId: id, Err: fmt.Errorf("new API client builder: %v", err)}
-	}
+	b := &client.ClientBuilder{Cred: cred, ClientOpt: clientOpt}
 
 	resolver, ok := getResolver(id)
 	if !ok {
