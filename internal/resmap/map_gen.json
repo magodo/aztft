@@ -1090,20 +1090,6 @@
       ]
     }
   },
-  "azurerm_app_service_source_control_token": {
-    "management_plane": {
-      "scopes": [
-        "/"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "sourceControls"
-      ],
-      "import_specs": [
-        "/Microsoft.Web/sourceControls"
-      ]
-    }
-  },
   "azurerm_app_service_virtual_network_swift_connection": {
     "management_plane": {
       "scopes": [
@@ -1192,6 +1178,20 @@
       ]
     }
   },
+  "azurerm_application_insights_standard_web_test": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions"
+      ],
+      "provider": "Microsoft.Insights",
+      "types": [
+        "webTests"
+      ],
+      "import_specs": [
+        "/subscriptions/Microsoft.Insights/webTests"
+      ]
+    }
+  },
   "azurerm_application_insights_web_test": {
     "management_plane": {
       "scopes": [
@@ -1227,10 +1227,10 @@
       ],
       "provider": "Microsoft.Insights",
       "types": [
-        "workbooktemplates"
+        "workbookTemplates"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Insights/workbooktemplates"
+        "/subscriptions/resourceGroups/Microsoft.Insights/workbookTemplates"
       ]
     }
   },
@@ -2167,10 +2167,10 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "frontdoorWebApplicationFirewallPolicies"
+        "frontDoorWebApplicationFirewallPolicies"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/frontdoorWebApplicationFirewallPolicies"
+        "/subscriptions/resourceGroups/Microsoft.Network/frontDoorWebApplicationFirewallPolicies"
       ]
     }
   },
@@ -2377,10 +2377,10 @@
       ],
       "provider": "Microsoft.Communication",
       "types": [
-        "CommunicationServices"
+        "communicationServices"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Communication/CommunicationServices"
+        "/subscriptions/resourceGroups/Microsoft.Communication/communicationServices"
       ]
     }
   },
@@ -2864,6 +2864,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DocumentDB/databaseAccounts/tables"
+      ]
+    }
+  },
+  "azurerm_cost_anomaly_alert": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions"
+      ],
+      "provider": "Microsoft.CostManagement",
+      "types": [
+        "scheduledActions"
+      ],
+      "import_specs": [
+        "/subscriptions/Microsoft.CostManagement/scheduledActions"
       ]
     }
   },
@@ -4048,10 +4062,10 @@
       "provider": "Microsoft.DevTestLab",
       "types": [
         "labs",
-        "virtualmachines"
+        "virtualMachines"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DevTestLab/labs/virtualmachines"
+        "/subscriptions/resourceGroups/Microsoft.DevTestLab/labs/virtualMachines"
       ]
     }
   },
@@ -4063,11 +4077,11 @@
       "provider": "Microsoft.DevTestLab",
       "types": [
         "labs",
-        "policysets",
+        "policySets",
         "policies"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DevTestLab/labs/policysets/policies"
+        "/subscriptions/resourceGroups/Microsoft.DevTestLab/labs/policySets/policies"
       ]
     }
   },
@@ -4094,10 +4108,10 @@
       "provider": "Microsoft.DevTestLab",
       "types": [
         "labs",
-        "virtualnetworks"
+        "virtualNetworks"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DevTestLab/labs/virtualnetworks"
+        "/subscriptions/resourceGroups/Microsoft.DevTestLab/labs/virtualNetworks"
       ]
     }
   },
@@ -4109,10 +4123,10 @@
       "provider": "Microsoft.DevTestLab",
       "types": [
         "labs",
-        "virtualmachines"
+        "virtualMachines"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DevTestLab/labs/virtualmachines"
+        "/subscriptions/resourceGroups/Microsoft.DevTestLab/labs/virtualMachines"
       ]
     }
   },
@@ -4638,10 +4652,10 @@
       "provider": "Microsoft.EventHub",
       "types": [
         "namespaces",
-        "schemagroups"
+        "schemaGroups"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.EventHub/namespaces/schemagroups"
+        "/subscriptions/resourceGroups/Microsoft.EventHub/namespaces/schemaGroups"
       ]
     }
   },
@@ -5280,12 +5294,12 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "microsoft.compute",
+      "provider": "Microsoft.Compute",
       "types": [
         "images"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.compute/images"
+        "/subscriptions/resourceGroups/Microsoft.Compute/images"
       ]
     }
   },
@@ -5699,6 +5713,21 @@
       ]
     }
   },
+  "azurerm_ip_group_cidr": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "ipGroups",
+        "cidrs"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/ipGroups/cidrs"
+      ]
+    }
+  },
   "azurerm_key_vault": {
     "management_plane": {
       "scopes": [
@@ -5908,10 +5937,10 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "Clusters"
+        "clusters"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters"
       ]
     }
   },
@@ -5922,11 +5951,11 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "clusters",
-        "managedPrivateEndpoints"
+        "Clusters",
+        "ManagedPrivateEndpoints"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/managedPrivateEndpoints"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters/ManagedPrivateEndpoints"
       ]
     }
   },
@@ -6040,6 +6069,20 @@
       ]
     }
   },
+  "azurerm_lab_service_lab": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.LabServices",
+      "types": [
+        "labs"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.LabServices/labs"
+      ]
+    }
+  },
   "azurerm_lab_service_plan": {
     "management_plane": {
       "scopes": [
@@ -6051,6 +6094,36 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.LabServices/labPlans"
+      ]
+    }
+  },
+  "azurerm_lab_service_schedule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.LabServices",
+      "types": [
+        "labs",
+        "schedules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.LabServices/labs/schedules"
+      ]
+    }
+  },
+  "azurerm_lab_service_user": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.LabServices",
+      "types": [
+        "labs",
+        "users"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.LabServices/labs/users"
       ]
     }
   },
@@ -6367,10 +6440,10 @@
       "provider": "Microsoft.OperationalInsights",
       "types": [
         "workspaces",
-        "datasources"
+        "dataSources"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/datasources"
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/dataSources"
       ]
     }
   },
@@ -6382,10 +6455,10 @@
       "provider": "Microsoft.OperationalInsights",
       "types": [
         "workspaces",
-        "datasources"
+        "dataSources"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/datasources"
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/dataSources"
       ]
     }
   },
@@ -6833,6 +6906,21 @@
       ]
     }
   },
+  "azurerm_machine_learning_datastore_blobstorage": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MachineLearningServices",
+      "types": [
+        "workspaces",
+        "datastores"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/datastores"
+      ]
+    }
+  },
   "azurerm_machine_learning_inference_cluster": {
     "management_plane": {
       "scopes": [
@@ -6880,42 +6968,42 @@
   "azurerm_maintenance_assignment_dedicated_host": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups/microsoft.compute/hostGroups/hosts"
+        "/subscriptions/resourceGroups/Microsoft.Compute/hostGroups/hosts"
       ],
       "provider": "Microsoft.Maintenance",
       "types": [
         "configurationAssignments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.compute/hostGroups/hosts/Microsoft.Maintenance/configurationAssignments"
+        "/subscriptions/resourceGroups/Microsoft.Compute/hostGroups/hosts/Microsoft.Maintenance/configurationAssignments"
       ]
     }
   },
   "azurerm_maintenance_assignment_virtual_machine": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups/microsoft.compute/virtualMachines"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines"
       ],
       "provider": "Microsoft.Maintenance",
       "types": [
         "configurationAssignments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.compute/virtualMachines/Microsoft.Maintenance/configurationAssignments"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/Microsoft.Maintenance/configurationAssignments"
       ]
     }
   },
   "azurerm_maintenance_assignment_virtual_machine_scale_set": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups/microsoft.compute/virtualMachineScaleSets"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachineScaleSets"
       ],
       "provider": "Microsoft.Maintenance",
       "types": [
         "configurationAssignments"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.compute/virtualMachineScaleSets/Microsoft.Maintenance/configurationAssignments"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachineScaleSets/Microsoft.Maintenance/configurationAssignments"
       ]
     }
   },
@@ -6924,12 +7012,12 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "microsoft.maintenance",
+      "provider": "Microsoft.Maintenance",
       "types": [
-        "maintenanceconfigurations"
+        "maintenanceConfigurations"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.maintenance/maintenanceconfigurations"
+        "/subscriptions/resourceGroups/Microsoft.Maintenance/maintenanceConfigurations"
       ]
     }
   },
@@ -6980,12 +7068,12 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "microsoft.compute",
+      "provider": "Microsoft.Compute",
       "types": [
         "disks"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.compute/disks"
+        "/subscriptions/resourceGroups/Microsoft.Compute/disks"
       ]
     }
   },
@@ -7196,11 +7284,11 @@
       ],
       "provider": "Microsoft.Media",
       "types": [
-        "mediaservices",
+        "mediaServices",
         "assets"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/mediaservices/assets"
+        "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/assets"
       ]
     }
   },
@@ -7211,12 +7299,12 @@
       ],
       "provider": "Microsoft.Media",
       "types": [
-        "mediaservices",
+        "mediaServices",
         "assets",
         "assetFilters"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/mediaservices/assets/assetFilters"
+        "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/assets/assetFilters"
       ]
     }
   },
@@ -7227,11 +7315,11 @@
       ],
       "provider": "Microsoft.Media",
       "types": [
-        "mediaservices",
-        "contentkeypolicies"
+        "mediaServices",
+        "contentKeyPolicies"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/mediaservices/contentkeypolicies"
+        "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/contentKeyPolicies"
       ]
     }
   },
@@ -7242,12 +7330,12 @@
       ],
       "provider": "Microsoft.Media",
       "types": [
-        "mediaservices",
+        "mediaServices",
         "transforms",
         "jobs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/mediaservices/transforms/jobs"
+        "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/transforms/jobs"
       ]
     }
   },
@@ -7258,11 +7346,11 @@
       ],
       "provider": "Microsoft.Media",
       "types": [
-        "mediaservices",
-        "liveevents"
+        "mediaServices",
+        "liveEvents"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/mediaservices/liveevents"
+        "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/liveEvents"
       ]
     }
   },
@@ -7273,12 +7361,12 @@
       ],
       "provider": "Microsoft.Media",
       "types": [
-        "mediaservices",
-        "liveevents",
-        "liveoutputs"
+        "mediaServices",
+        "liveEvents",
+        "liveOutputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/mediaservices/liveevents/liveoutputs"
+        "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/liveEvents/liveOutputs"
       ]
     }
   },
@@ -7296,6 +7384,21 @@
       ]
     }
   },
+  "azurerm_media_services_account_filter": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Media",
+      "types": [
+        "mediaServices",
+        "accountFilters"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/accountFilters"
+      ]
+    }
+  },
   "azurerm_media_streaming_endpoint": {
     "management_plane": {
       "scopes": [
@@ -7303,11 +7406,11 @@
       ],
       "provider": "Microsoft.Media",
       "types": [
-        "mediaservices",
-        "streamingendpoints"
+        "mediaServices",
+        "streamingEndpoints"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/mediaservices/streamingendpoints"
+        "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/streamingEndpoints"
       ]
     }
   },
@@ -7318,11 +7421,11 @@
       ],
       "provider": "Microsoft.Media",
       "types": [
-        "mediaservices",
-        "streaminglocators"
+        "mediaServices",
+        "streamingLocators"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/mediaservices/streaminglocators"
+        "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/streamingLocators"
       ]
     }
   },
@@ -7333,11 +7436,11 @@
       ],
       "provider": "Microsoft.Media",
       "types": [
-        "mediaservices",
-        "streamingpolicies"
+        "mediaServices",
+        "streamingPolicies"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/mediaservices/streamingpolicies"
+        "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/streamingPolicies"
       ]
     }
   },
@@ -7348,11 +7451,11 @@
       ],
       "provider": "Microsoft.Media",
       "types": [
-        "mediaservices",
+        "mediaServices",
         "transforms"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/mediaservices/transforms"
+        "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/transforms"
       ]
     }
   },
@@ -8322,6 +8425,35 @@
       ]
     }
   },
+  "azurerm_network_manager_connectivity_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "connectivityConfigurations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/connectivityConfigurations"
+      ]
+    }
+  },
+  "azurerm_network_manager_management_group_connection": {
+    "management_plane": {
+      "scopes": [
+        "/Microsoft.Management/managementGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagerConnections"
+      ],
+      "import_specs": [
+        "/Microsoft.Management/managementGroups/Microsoft.Network/networkManagerConnections"
+      ]
+    }
+  },
   "azurerm_network_manager_network_group": {
     "management_plane": {
       "scopes": [
@@ -8334,6 +8466,51 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/networkGroups"
+      ]
+    }
+  },
+  "azurerm_network_manager_scope_connection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "scopeConnections"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/scopeConnections"
+      ]
+    }
+  },
+  "azurerm_network_manager_static_member": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "networkGroups",
+        "staticMembers"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/networkGroups/staticMembers"
+      ]
+    }
+  },
+  "azurerm_network_manager_subscription_connection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagerConnections"
+      ],
+      "import_specs": [
+        "/subscriptions/Microsoft.Network/networkManagerConnections"
       ]
     }
   },
@@ -8513,6 +8690,21 @@
       ]
     }
   },
+  "azurerm_orbital_contact": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Orbital",
+      "types": [
+        "spacecrafts",
+        "contacts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Orbital/spacecrafts/contacts"
+      ]
+    }
+  },
   "azurerm_orbital_contact_profile": {
     "management_plane": {
       "scopes": [
@@ -8562,10 +8754,10 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "p2svpnGateways"
+        "p2sVpnGateways"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/p2svpnGateways"
+        "/subscriptions/resourceGroups/Microsoft.Network/p2sVpnGateways"
       ]
     }
   },
@@ -9704,6 +9896,20 @@
       ]
     }
   },
+  "azurerm_security_insights_sentinel_onboarding_state": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "onboardingStates"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/onboardingStates"
+      ]
+    }
+  },
   "azurerm_sentinel_alert_rule_fusion": {
     "management_plane": {
       "scopes": [
@@ -9999,6 +10205,20 @@
     }
   },
   "azurerm_sentinel_data_connector_threat_intelligence": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "dataConnectors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/dataConnectors"
+      ]
+    }
+  },
+  "azurerm_sentinel_data_connector_threat_intelligence_taxii": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
@@ -10379,10 +10599,13 @@
       ],
       "provider": "Microsoft.RecoveryServices",
       "types": [
-        "vaults"
+        "vaults",
+        "replicationFabrics",
+        "replicationProtectionContainers",
+        "replicationProtectionContainerMappings"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults"
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings"
       ]
     }
   },
@@ -10415,6 +10638,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationPolicies"
+      ]
+    }
+  },
+  "azurerm_site_recovery_replication_recovery_plan": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.RecoveryServices",
+      "types": [
+        "vaults",
+        "replicationRecoveryPlans"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationRecoveryPlans"
       ]
     }
   },
@@ -10900,10 +11138,10 @@
       "provider": "Microsoft.Sql",
       "types": [
         "servers",
-        "failovergroups"
+        "failoverGroups"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Sql/servers/failovergroups"
+        "/subscriptions/resourceGroups/Microsoft.Sql/servers/failoverGroups"
       ]
     }
   },
@@ -11017,10 +11255,10 @@
       ],
       "provider": "Microsoft.Compute",
       "types": [
-        "SshPublicKeys"
+        "sshPublicKeys"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Compute/SshPublicKeys"
+        "/subscriptions/resourceGroups/Microsoft.Compute/sshPublicKeys"
       ]
     }
   },
@@ -11092,6 +11330,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Storage/storageAccounts"
+      ]
+    }
+  },
+  "azurerm_storage_account_local_user": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts",
+        "localUsers"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Storage/storageAccounts/localUsers"
       ]
     }
   },
@@ -11366,11 +11619,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "functions"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/functions"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/functions"
       ]
     }
   },
@@ -11381,11 +11634,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "functions"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/functions"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/functions"
       ]
     }
   },
@@ -11396,10 +11649,10 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs"
+        "streamingJobs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs"
       ]
     }
   },
@@ -11440,11 +11693,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "outputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/outputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/outputs"
       ]
     }
   },
@@ -11455,11 +11708,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "outputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/outputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/outputs"
       ]
     }
   },
@@ -11470,11 +11723,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "outputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/outputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/outputs"
       ]
     }
   },
@@ -11485,11 +11738,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "outputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/outputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/outputs"
       ]
     }
   },
@@ -11500,11 +11753,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "outputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/outputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/outputs"
       ]
     }
   },
@@ -11515,11 +11768,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "outputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/outputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/outputs"
       ]
     }
   },
@@ -11530,11 +11783,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "outputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/outputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/outputs"
       ]
     }
   },
@@ -11545,11 +11798,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "outputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/outputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/outputs"
       ]
     }
   },
@@ -11560,11 +11813,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "outputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/outputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/outputs"
       ]
     }
   },
@@ -11575,11 +11828,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "outputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/outputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/outputs"
       ]
     }
   },
@@ -11590,11 +11843,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "inputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/inputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/inputs"
       ]
     }
   },
@@ -11605,11 +11858,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "inputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/inputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/inputs"
       ]
     }
   },
@@ -11620,11 +11873,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "inputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/inputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/inputs"
       ]
     }
   },
@@ -11635,11 +11888,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "inputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/inputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/inputs"
       ]
     }
   },
@@ -11650,11 +11903,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "inputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/inputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/inputs"
       ]
     }
   },
@@ -11665,11 +11918,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "inputs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/inputs"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/inputs"
       ]
     }
   },
@@ -12321,10 +12574,10 @@
       ],
       "provider": "Microsoft.DesktopVirtualization",
       "types": [
-        "hostpools"
+        "hostPools"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DesktopVirtualization/hostpools"
+        "/subscriptions/resourceGroups/Microsoft.DesktopVirtualization/hostPools"
       ]
     }
   },
@@ -12494,13 +12747,13 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "microsoft.compute",
+      "provider": "Microsoft.Compute",
       "types": [
         "virtualMachines",
         "dataDisks"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.compute/virtualMachines/dataDisks"
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/dataDisks"
       ]
     }
   },
@@ -12716,12 +12969,12 @@
       ],
       "provider": "Microsoft.AVS",
       "types": [
-        "PrivateClouds",
+        "privateClouds",
         "clusters",
         "dataStores"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AVS/PrivateClouds/clusters/dataStores"
+        "/subscriptions/resourceGroups/Microsoft.AVS/privateClouds/clusters/dataStores"
       ]
     }
   },
@@ -12732,10 +12985,10 @@
       ],
       "provider": "Microsoft.AVS",
       "types": [
-        "PrivateClouds"
+        "privateClouds"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AVS/PrivateClouds"
+        "/subscriptions/resourceGroups/Microsoft.AVS/privateClouds"
       ]
     }
   },
@@ -12891,11 +13144,11 @@
       ],
       "provider": "Microsoft.SignalRService",
       "types": [
-        "webPubsub",
+        "webPubSub",
         "hubs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.SignalRService/webPubsub/hubs"
+        "/subscriptions/resourceGroups/Microsoft.SignalRService/webPubSub/hubs"
       ]
     }
   },
@@ -12920,11 +13173,11 @@
       ],
       "provider": "Microsoft.SignalRService",
       "types": [
-        "webPubsub",
+        "webPubSub",
         "sharedPrivateLinkResources"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.SignalRService/webPubsub/sharedPrivateLinkResources"
+        "/subscriptions/resourceGroups/Microsoft.SignalRService/webPubSub/sharedPrivateLinkResources"
       ]
     }
   },
