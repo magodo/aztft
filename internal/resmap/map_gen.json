@@ -2440,6 +2440,79 @@
       ]
     }
   },
+  "azurerm_container_app": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.App",
+      "types": [
+        "containerApps"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.App/containerApps"
+      ]
+    }
+  },
+  "azurerm_container_app_environment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.App",
+      "types": [
+        "managedEnvironments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.App/managedEnvironments"
+      ]
+    }
+  },
+  "azurerm_container_app_environment_certificate": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.App",
+      "types": [
+        "managedEnvironments",
+        "certificates"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.App/managedEnvironments/certificates"
+      ]
+    }
+  },
+  "azurerm_container_app_environment_dapr_component": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.App",
+      "types": [
+        "managedEnvironments",
+        "daprComponents"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.App/managedEnvironments/daprComponents"
+      ]
+    }
+  },
+  "azurerm_container_app_environment_storage": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.App",
+      "types": [
+        "managedEnvironments",
+        "storages"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.App/managedEnvironments/storages"
+      ]
+    }
+  },
   "azurerm_container_connected_registry": {
     "management_plane": {
       "scopes": [
@@ -6921,6 +6994,36 @@
       ]
     }
   },
+  "azurerm_machine_learning_datastore_datalake_gen2": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MachineLearningServices",
+      "types": [
+        "workspaces",
+        "datastores"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/datastores"
+      ]
+    }
+  },
+  "azurerm_machine_learning_datastore_fileshare": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MachineLearningServices",
+      "types": [
+        "workspaces",
+        "datastores"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/datastores"
+      ]
+    }
+  },
   "azurerm_machine_learning_inference_cluster": {
     "management_plane": {
       "scopes": [
@@ -7456,6 +7559,79 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/transforms"
+      ]
+    }
+  },
+  "azurerm_mobile_network": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MobileNetwork",
+      "types": [
+        "mobileNetworks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks"
+      ]
+    }
+  },
+  "azurerm_mobile_network_service": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MobileNetwork",
+      "types": [
+        "mobileNetworks",
+        "services"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks/services"
+      ]
+    }
+  },
+  "azurerm_mobile_network_sim_group": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MobileNetwork",
+      "types": [
+        "simGroups"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/simGroups"
+      ]
+    }
+  },
+  "azurerm_mobile_network_site": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MobileNetwork",
+      "types": [
+        "mobileNetworks",
+        "sites"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks/sites"
+      ]
+    }
+  },
+  "azurerm_mobile_network_slice": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MobileNetwork",
+      "types": [
+        "mobileNetworks",
+        "slices"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks/slices"
       ]
     }
   },
@@ -8425,6 +8601,39 @@
       ]
     }
   },
+  "azurerm_network_manager_admin_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "securityAdminConfigurations",
+        "ruleCollections",
+        "rules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/securityAdminConfigurations/ruleCollections/rules"
+      ]
+    }
+  },
+  "azurerm_network_manager_admin_rule_collection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "securityAdminConfigurations",
+        "ruleCollections"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/securityAdminConfigurations/ruleCollections"
+      ]
+    }
+  },
   "azurerm_network_manager_connectivity_configuration": {
     "management_plane": {
       "scopes": [
@@ -8540,6 +8749,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/networkProfiles"
+      ]
+    }
+  },
+  "azurerm_network_security_admin_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "securityAdminConfigurations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/securityAdminConfigurations"
       ]
     }
   },
@@ -9338,10 +9562,10 @@
       ],
       "provider": "Microsoft.Cache",
       "types": [
-        "Redis"
+        "redis"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Cache/Redis"
+        "/subscriptions/resourceGroups/Microsoft.Cache/redis"
       ]
     }
   },
@@ -9381,11 +9605,11 @@
       ],
       "provider": "Microsoft.Cache",
       "types": [
-        "Redis",
+        "redis",
         "firewallRules"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Cache/Redis/firewallRules"
+        "/subscriptions/resourceGroups/Microsoft.Cache/redis/firewallRules"
       ]
     }
   },
@@ -9396,11 +9620,11 @@
       ],
       "provider": "Microsoft.Cache",
       "types": [
-        "Redis",
+        "redis",
         "linkedServers"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Cache/Redis/linkedServers"
+        "/subscriptions/resourceGroups/Microsoft.Cache/redis/linkedServers"
       ]
     }
   },
@@ -9896,7 +10120,7 @@
       ]
     }
   },
-  "azurerm_security_insights_sentinel_onboarding_state": {
+  "azurerm_security_insights_sentinel_onboarding": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
@@ -10107,6 +10331,20 @@
     }
   },
   "azurerm_sentinel_data_connector_microsoft_defender_advanced_threat_protection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "dataConnectors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/dataConnectors"
+      ]
+    }
+  },
+  "azurerm_sentinel_data_connector_microsoft_threat_intelligence": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
@@ -10653,6 +10891,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationRecoveryPlans"
+      ]
+    }
+  },
+  "azurerm_site_recovery_services_vault_hyperv_site": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.RecoveryServices",
+      "types": [
+        "vaults",
+        "replicationFabrics"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationFabrics"
       ]
     }
   },
