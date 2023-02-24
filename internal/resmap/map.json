@@ -6080,11 +6080,11 @@
       ],
       "provider": "Microsoft.Kusto",
       "types": [
-        "Clusters",
-        "ManagedPrivateEndpoints"
+        "clusters",
+        "managedPrivateEndpoints"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Kusto/Clusters/ManagedPrivateEndpoints"
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/managedPrivateEndpoints"
       ]
     }
   },
@@ -10956,6 +10956,38 @@
       ]
     }
   },
+  "azurerm_site_recovery_hyperv_replication_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.RecoveryServices",
+      "types": [
+        "vaults",
+        "replicationPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationPolicies"
+      ]
+    }
+  },
+  "azurerm_site_recovery_hyperv_replication_policy_association": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.RecoveryServices",
+      "types": [
+        "vaults",
+        "replicationFabrics",
+        "replicationProtectionContainers",
+        "replicationProtectionContainerMappings"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings"
+      ]
+    }
+  },
   "azurerm_site_recovery_network_mapping": {
     "management_plane": {
       "scopes": [
@@ -12101,11 +12133,11 @@
       ],
       "provider": "Microsoft.StreamAnalytics",
       "types": [
-        "streamingjobs",
+        "streamingJobs",
         "schedule"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingjobs/schedule"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/schedule"
       ]
     }
   },
