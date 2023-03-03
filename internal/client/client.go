@@ -519,3 +519,13 @@ func (b *ClientBuilder) NewSiteRecoveryReplicationFabricsClient(subscriptionId, 
 		&b.ClientOpt,
 	)
 }
+
+func (b *ClientBuilder) NewSiteRecoveryReplicationProtectionContainerMappingsClient(subscriptionId, resourceGroupName, vaultName string) (*armrecoveryservicessiterecovery.ReplicationProtectionContainerMappingsClient, error) {
+	return armrecoveryservicessiterecovery.NewReplicationProtectionContainerMappingsClient(
+		vaultName,
+		resourceGroupName,
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
