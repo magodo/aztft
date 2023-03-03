@@ -30,6 +30,7 @@ func (securityInsightsDataConnectorsResolver) ResourceTypes() []string {
 		"azurerm_sentinel_data_connector_office_power_bi",
 		"azurerm_sentinel_data_connector_microsoft_threat_protection",
 		"azurerm_sentinel_data_connector_threat_intelligence_taxii",
+		"azurerm_sentinel_data_connector_microsoft_threat_intelligence",
 	}
 }
 
@@ -83,6 +84,8 @@ func (securityInsightsDataConnectorsResolver) Resolve(b *client.ClientBuilder, i
 		return "azurerm_sentinel_data_connector_microsoft_threat_protection", nil
 	case *armsecurityinsights.TiTaxiiDataConnector:
 		return "azurerm_sentinel_data_connector_threat_intelligence_taxii", nil
+	case *armsecurityinsights.MSTIDataConnector:
+		return "azurerm_sentinel_data_connector_microsoft_threat_intelligence", nil
 	default:
 		return "", fmt.Errorf("unknown data connector type: %T", model)
 	}
