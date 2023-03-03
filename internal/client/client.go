@@ -509,3 +509,13 @@ func (b *ClientBuilder) NewSiteRecoveryReplicationPoliciesClient(subscriptionId,
 		&b.ClientOpt,
 	)
 }
+
+func (b *ClientBuilder) NewSiteRecoveryReplicationFabricsClient(subscriptionId, resourceGroupName, vaultName string) (*armrecoveryservicessiterecovery.ReplicationFabricsClient, error) {
+	return armrecoveryservicessiterecovery.NewReplicationFabricsClient(
+		vaultName,
+		resourceGroupName,
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}

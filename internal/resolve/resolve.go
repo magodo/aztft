@@ -160,6 +160,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.RECOVERYSERVICES/VAULTS/REPLICATIONPOLICIES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": siteRecoveryReplicationPoliciesResolver{},
 	},
+	"/MICROSOFT.RECOVERYSERVICES/VAULTS/REPLICATIONFABRICS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": siteRecoveryReplicationFabricsResolver{},
+	},
 }
 
 type ResolveError struct {
