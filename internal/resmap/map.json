@@ -3978,11 +3978,10 @@
       ],
       "provider": "Microsoft.DataBoxEdge",
       "types": [
-        "dataBoxEdgeDevices",
-        "orders"
+        "dataBoxEdgeDevices"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders"
+        "/subscriptions/resourceGroups/Microsoft.DataBoxEdge/dataBoxEdgeDevices"
       ]
     }
   },
@@ -7645,6 +7644,21 @@
       ]
     }
   },
+  "azurerm_mobile_network_data_network": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MobileNetwork",
+      "types": [
+        "mobileNetworks",
+        "dataNetworks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks/dataNetworks"
+      ]
+    }
+  },
   "azurerm_mobile_network_service": {
     "management_plane": {
       "scopes": [
@@ -10290,6 +10304,20 @@
       ]
     }
   },
+  "azurerm_sentinel_alert_rule_anomaly_built_in": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "securityMLAnalyticsSettings"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/securityMLAnalyticsSettings"
+      ]
+    }
+  },
   "azurerm_sentinel_alert_rule_fusion": {
     "management_plane": {
       "scopes": [
@@ -10347,6 +10375,20 @@
     }
   },
   "azurerm_sentinel_alert_rule_scheduled": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "alertRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/alertRules"
+      ]
+    }
+  },
+  "azurerm_sentinel_alert_rule_threat_intelligence": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
