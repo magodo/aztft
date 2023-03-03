@@ -3972,6 +3972,8 @@
     }
   },
   "azurerm_databox_edge_order": {
+    "is_removed": true,
+    "remove_reason": "Creation of Databox Edge Order is not supported by the Azure API - as such the azurerm_databox_edge_order resource is deprecated and will be removed in v4.0 of the AzureRM Provider.",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
