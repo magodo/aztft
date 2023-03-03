@@ -26,6 +26,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/operationalinsights/armoperationalinsights"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicessiterecovery"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armdeploymentscripts"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
@@ -493,6 +494,16 @@ func (b *ClientBuilder) NewStoragePoolIscsiTargetsClient(subscriptionId string) 
 
 func (b *ClientBuilder) NewDeploymentScriptsClient(subscriptionId string) (*armdeploymentscripts.Client, error) {
 	return armdeploymentscripts.NewClient(
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewSiteRecoveryReplicationPoliciesClient(subscriptionId, resourceGroupName, vaultName string) (*armrecoveryservicessiterecovery.ReplicationPoliciesClient, error) {
+	return armrecoveryservicessiterecovery.NewReplicationPoliciesClient(
+		vaultName,
+		resourceGroupName,
 		subscriptionId,
 		b.Cred,
 		&b.ClientOpt,

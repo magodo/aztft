@@ -157,6 +157,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.RESOURCES/DEPLOYMENTSCRIPTS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": deploymentScriptsResolver{},
 	},
+	"/MICROSOFT.RECOVERYSERVICES/VAULTS/REPLICATIONPOLICIES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": siteRecoveryReplicationPoliciesResolver{},
+	},
 }
 
 type ResolveError struct {
