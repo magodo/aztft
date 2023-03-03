@@ -18,6 +18,7 @@ func (securityInsightsAlertRulesResolver) ResourceTypes() []string {
 		"azurerm_sentinel_alert_rule_machine_learning_behavior_analytics",
 		"azurerm_sentinel_alert_rule_ms_security_incident",
 		"azurerm_sentinel_alert_rule_scheduled",
+		"azurerm_sentinel_alert_rule_threat_intelligence",
 	}
 }
 
@@ -47,6 +48,8 @@ func (securityInsightsAlertRulesResolver) Resolve(b *client.ClientBuilder, id ar
 		return "azurerm_sentinel_alert_rule_ms_security_incident", nil
 	case *armsecurityinsights.ScheduledAlertRule:
 		return "azurerm_sentinel_alert_rule_scheduled", nil
+	case *armsecurityinsights.ThreatIntelligenceAlertRule:
+		return "azurerm_sentinel_alert_rule_threat_intelligence", nil
 	default:
 		return "", fmt.Errorf("unknown alert rule type: %T", model)
 	}
