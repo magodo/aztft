@@ -43,8 +43,8 @@ github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault v1.0.
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault v1.0.0/go.mod h1:PFVgFsclKzPqYRT/BiwpfUN22cab0C7FlgXR3iWpwMo=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto v1.0.0 h1:W2zaZM9yMaYNbd9PrVzwlFew6ZjNw11Yj6ruhfB7s+U=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto v1.0.0/go.mod h1:jvGYrB34pAXYIswdCsfFmWfhEChz7vyWhArzNPYKdsw=
-github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning v1.0.0 h1:KWvCVjnOTKCZAlqED5KPNoN9AfcK2BhUeveLdiwy33Q=
-github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning v1.0.0/go.mod h1:qNN4I5AKYbXMLriS9XKebBw8EVIQkX6tJzrdtjOoJ4I=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning/v3 v3.0.0 h1:C8jlM/kxDVoUbmPJPp0C6Tz8VfiuAe+Lwcdw2DeyRPE=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning/v3 v3.0.0/go.mod h1:6IMUN/Qwv/Y6aL21XxWGcQXfRYrivO4qFPWsbf0wVJI=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/monitor/armmonitor v0.7.0 h1:U6aSmNaC/WWDlHnL0e+SxQlvYmcjdoBLFjNir8AZBe0=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/monitor/armmonitor v0.7.0/go.mod h1:qDMzzI3qK0Oi9wpbRIaBoYyRYg+1UJZ0I2/Y4VxoVU4=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/msi/armmsi v0.6.0 h1:zSHpZY39hfFpVNixDoFOUeLwBBX0SIRe32HaWg03R8k=
