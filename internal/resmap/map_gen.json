@@ -4438,21 +4438,6 @@
       ]
     }
   },
-  "azurerm_dns_resolver_inbound_endpoint": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Network",
-      "types": [
-        "dnsResolvers",
-        "inboundEndpoints"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/dnsResolvers/inboundEndpoints"
-      ]
-    }
-  },
   "azurerm_dns_srv_record": {
     "management_plane": {
       "scopes": [
@@ -9382,6 +9367,21 @@
       ]
     }
   },
+  "azurerm_private_dns_resolver_inbound_endpoint": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "dnsResolvers",
+        "inboundEndpoints"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/dnsResolvers/inboundEndpoints"
+      ]
+    }
+  },
   "azurerm_private_dns_resolver_outbound_endpoint": {
     "management_plane": {
       "scopes": [
@@ -10509,6 +10509,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/dataConnectors"
+      ]
+    }
+  },
+  "azurerm_sentinel_metadata": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "metadata"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/metadata"
       ]
     }
   },
