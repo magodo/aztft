@@ -4863,6 +4863,21 @@
       ]
     }
   },
+  "azurerm_express_route_port_authorization": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "expressRoutePorts",
+        "authorizations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/expressRoutePorts/authorizations"
+      ]
+    }
+  },
   "azurerm_federated_identity_credential": {
     "management_plane": {
       "scopes": [
@@ -7675,6 +7690,21 @@
       ]
     }
   },
+  "azurerm_mobile_network_sim_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MobileNetwork",
+      "types": [
+        "mobileNetworks",
+        "simPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks/simPolicies"
+      ]
+    }
+  },
   "azurerm_mobile_network_site": {
     "management_plane": {
       "scopes": [
@@ -10320,6 +10350,20 @@
       ]
     }
   },
+  "azurerm_sentinel_alert_rule_anomaly_duplicate": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "securityMLAnalyticsSettings"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/securityMLAnalyticsSettings"
+      ]
+    }
+  },
   "azurerm_sentinel_alert_rule_fusion": {
     "management_plane": {
       "scopes": [
@@ -11155,6 +11199,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationFabrics"
+      ]
+    }
+  },
+  "azurerm_site_recovery_vmware_replication_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.RecoveryServices",
+      "types": [
+        "vaults",
+        "replicationPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationPolicies"
       ]
     }
   },

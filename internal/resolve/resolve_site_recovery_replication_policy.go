@@ -12,7 +12,11 @@ import (
 type siteRecoveryReplicationPoliciesResolver struct{}
 
 func (siteRecoveryReplicationPoliciesResolver) ResourceTypes() []string {
-	return []string{"azurerm_site_recovery_hyperv_replication_policy", "azurerm_site_recovery_replication_policy"}
+	return []string{
+		"azurerm_site_recovery_hyperv_replication_policy",
+		"azurerm_site_recovery_replication_policy",
+		"azurerm_site_recovery_vmware_replication_policy",
+	}
 }
 
 func (siteRecoveryReplicationPoliciesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
@@ -34,6 +38,8 @@ func (siteRecoveryReplicationPoliciesResolver) Resolve(b *client.ClientBuilder, 
 		return "azurerm_site_recovery_hyperv_replication_policy", nil
 	case *armrecoveryservicessiterecovery.A2APolicyDetails:
 		return "azurerm_site_recovery_replication_policy", nil
+	case *armrecoveryservicessiterecovery.VmwareCbtPolicyDetails:
+		return "azurerm_site_recovery_vmware_replication_policy", nil
 	default:
 		return "", fmt.Errorf("unknown site recovery replication policy detail type: %T", prop.ProviderSpecificDetails)
 	}
