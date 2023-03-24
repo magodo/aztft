@@ -283,7 +283,7 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 				ImportSpecs:  []string{"/subscriptions/resourceGroups/Microsoft.AppConfiguration/configurationStores/AppConfigurationFeature/Label"},
 			},
 		},
-		caughtErr: ErrDuplicateImportSpec,
+		caughtErr: ErrDataPlaneId,
 	},
 	"azurerm_app_configuration_key": {
 		mapItem: &resmap.TF2ARMIdMapItem{
@@ -294,7 +294,7 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 				ImportSpecs:  []string{"/subscriptions/resourceGroups/Microsoft.AppConfiguration/configurationStores/AppConfigurationKey/Label"},
 			},
 		},
-		caughtErr: ErrDuplicateImportSpec,
+		caughtErr: ErrDataPlaneId,
 	},
 	"azurerm_monitor_diagnostic_setting": {
 		mapItem: &resmap.TF2ARMIdMapItem{

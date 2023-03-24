@@ -3983,6 +3983,21 @@
       ]
     }
   },
+  "azurerm_databricks_virtual_network_peering": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Databricks",
+      "types": [
+        "workspaces",
+        "virtualNetworkPeerings"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Databricks/workspaces/virtualNetworkPeerings"
+      ]
+    }
+  },
   "azurerm_databricks_workspace": {
     "management_plane": {
       "scopes": [
@@ -10570,6 +10585,21 @@
       ]
     }
   },
+  "azurerm_sentinel_threat_intelligence_indicator": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "threatIntelligence",
+        "indicators"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/threatIntelligence/indicators"
+      ]
+    }
+  },
   "azurerm_sentinel_watchlist": {
     "management_plane": {
       "scopes": [
@@ -13389,6 +13419,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AVS/privateClouds"
+      ]
+    }
+  },
+  "azurerm_voice_services_communications_gateway": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.VoiceServices",
+      "types": [
+        "communicationsGateways"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.VoiceServices/communicationsGateways"
       ]
     }
   },
