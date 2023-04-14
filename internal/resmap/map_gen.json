@@ -1248,6 +1248,20 @@
       ]
     }
   },
+  "azurerm_arc_kubernetes_cluster": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Kubernetes",
+      "types": [
+        "connectedClusters"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Kubernetes/connectedClusters"
+      ]
+    }
+  },
   "azurerm_attestation_provider": {
     "management_plane": {
       "scopes": [
@@ -9801,6 +9815,20 @@
       ]
     }
   },
+  "azurerm_resource_group_cost_management_view": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.CostManagement",
+      "types": [
+        "views"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.CostManagement/views"
+      ]
+    }
+  },
   "azurerm_resource_group_policy_assignment": {
     "management_plane": {
       "scopes": [
@@ -10883,6 +10911,21 @@
       ]
     }
   },
+  "azurerm_signalr_service_custom_certificate": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.SignalRService",
+      "types": [
+        "signalR",
+        "customCertificates"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.SignalRService/signalR/customCertificates"
+      ]
+    }
+  },
   "azurerm_signalr_service_network_acl": {
     "management_plane": {
       "scopes": [
@@ -11889,6 +11932,20 @@
       ]
     }
   },
+  "azurerm_storage_mover": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StorageMover",
+      "types": [
+        "storageMovers"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.StorageMover/storageMovers"
+      ]
+    }
+  },
   "azurerm_storage_object_replication": {
     "management_plane": {
       "scopes": [
@@ -12455,6 +12512,20 @@
       ],
       "import_specs": [
         "/subscriptions/Microsoft.CostManagement/exports"
+      ]
+    }
+  },
+  "azurerm_subscription_cost_management_view": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions"
+      ],
+      "provider": "Microsoft.CostManagement",
+      "types": [
+        "views"
+      ],
+      "import_specs": [
+        "/subscriptions/Microsoft.CostManagement/views"
       ]
     }
   },
@@ -13433,6 +13504,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.VoiceServices/communicationsGateways"
+      ]
+    }
+  },
+  "azurerm_voice_services_communications_gateway_test_line": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.VoiceServices",
+      "types": [
+        "communicationsGateways",
+        "testLines"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.VoiceServices/communicationsGateways/testLines"
       ]
     }
   },
