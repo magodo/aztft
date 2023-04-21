@@ -2968,6 +2968,20 @@
       ]
     }
   },
+  "azurerm_cost_management_scheduled_action": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions"
+      ],
+      "provider": "Microsoft.CostManagement",
+      "types": [
+        "scheduledActions"
+      ],
+      "import_specs": [
+        "/subscriptions/Microsoft.CostManagement/scheduledActions"
+      ]
+    }
+  },
   "azurerm_custom_provider": {
     "management_plane": {
       "scopes": [
@@ -11943,6 +11957,51 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.StorageMover/storageMovers"
+      ]
+    }
+  },
+  "azurerm_storage_mover_agent": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StorageMover",
+      "types": [
+        "storageMovers",
+        "agents"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.StorageMover/storageMovers/agents"
+      ]
+    }
+  },
+  "azurerm_storage_mover_source_endpoint": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StorageMover",
+      "types": [
+        "storageMovers",
+        "endpoints"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.StorageMover/storageMovers/endpoints"
+      ]
+    }
+  },
+  "azurerm_storage_mover_target_endpoint": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StorageMover",
+      "types": [
+        "storageMovers",
+        "endpoints"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.StorageMover/storageMovers/endpoints"
       ]
     }
   },

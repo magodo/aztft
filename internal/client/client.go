@@ -31,6 +31,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagecache/armstoragecache"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagemover/armstoragemover"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagepool/armstoragepool"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/streamanalytics/armstreamanalytics"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse"
@@ -539,6 +540,14 @@ func (b *ClientBuilder) NewSiteRecoveryReplicationProtectionContainerMappingsCli
 	return armrecoveryservicessiterecovery.NewReplicationProtectionContainerMappingsClient(
 		vaultName,
 		resourceGroupName,
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewStorageMoverEndpointsClient(subscriptionId string) (*armstoragemover.EndpointsClient, error) {
+	return armstoragemover.NewEndpointsClient(
 		subscriptionId,
 		b.Cred,
 		&b.ClientOpt,
