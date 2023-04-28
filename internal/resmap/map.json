@@ -1275,6 +1275,20 @@
       ]
     }
   },
+  "azurerm_arc_kubernetes_cluster_extension": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.Kubernetes/connectedClusters"
+      ],
+      "provider": "Microsoft.KubernetesConfiguration",
+      "types": [
+        "extensions"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Kubernetes/connectedClusters/Microsoft.KubernetesConfiguration/extensions"
+      ]
+    }
+  },
   "azurerm_attestation_provider": {
     "management_plane": {
       "scopes": [
@@ -2821,6 +2835,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces"
+      ]
+    }
+  },
+  "azurerm_cosmosdb_postgresql_cluster": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DBforPostgreSQL",
+      "types": [
+        "serverGroupsv2"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/serverGroupsv2"
       ]
     }
   },
@@ -4584,6 +4612,20 @@
       ]
     }
   },
+  "azurerm_email_communication_service": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Communication",
+      "types": [
+        "emailServices"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Communication/emailServices"
+      ]
+    }
+  },
   "azurerm_eventgrid_domain": {
     "management_plane": {
       "scopes": [
@@ -6040,6 +6082,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.ContainerService/managedClusters"
+      ]
+    }
+  },
+  "azurerm_kubernetes_cluster_extension": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.ContainerService/managedClusters"
+      ],
+      "provider": "Microsoft.KubernetesConfiguration",
+      "types": [
+        "extensions"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ContainerService/managedClusters/Microsoft.KubernetesConfiguration/extensions"
       ]
     }
   },
@@ -8714,6 +8770,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.NetApp/netAppAccounts/capacityPools/volumes"
+      ]
+    }
+  },
+  "azurerm_netapp_volume_group_sap_hana": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.NetApp",
+      "types": [
+        "netAppAccounts",
+        "volumeGroups"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.NetApp/netAppAccounts/volumeGroups"
       ]
     }
   },
@@ -12159,6 +12230,37 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.StorageMover/storageMovers/agents"
+      ]
+    }
+  },
+  "azurerm_storage_mover_job_definition": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StorageMover",
+      "types": [
+        "storageMovers",
+        "projects",
+        "jobDefinitions"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.StorageMover/storageMovers/projects/jobDefinitions"
+      ]
+    }
+  },
+  "azurerm_storage_mover_project": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StorageMover",
+      "types": [
+        "storageMovers",
+        "projects"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.StorageMover/storageMovers/projects"
       ]
     }
   },
