@@ -2852,6 +2852,21 @@
       ]
     }
   },
+  "azurerm_cosmosdb_postgresql_firewall_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DBforPostgreSQL",
+      "types": [
+        "serverGroupsv2",
+        "firewallRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/serverGroupsv2/firewallRules"
+      ]
+    }
+  },
   "azurerm_cosmosdb_sql_container": {
     "management_plane": {
       "scopes": [
