@@ -2852,6 +2852,21 @@
       ]
     }
   },
+  "azurerm_cosmosdb_postgresql_coordinator_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DBforPostgreSQL",
+      "types": [
+        "serverGroupsv2",
+        "coordinatorConfigurations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/serverGroupsv2/coordinatorConfigurations"
+      ]
+    }
+  },
   "azurerm_cosmosdb_postgresql_firewall_rule": {
     "management_plane": {
       "scopes": [
@@ -2864,6 +2879,36 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/serverGroupsv2/firewallRules"
+      ]
+    }
+  },
+  "azurerm_cosmosdb_postgresql_node_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DBforPostgreSQL",
+      "types": [
+        "serverGroupsv2",
+        "nodeConfigurations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/serverGroupsv2/nodeConfigurations"
+      ]
+    }
+  },
+  "azurerm_cosmosdb_postgresql_role": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DBforPostgreSQL",
+      "types": [
+        "serverGroupsv2",
+        "roles"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/serverGroupsv2/roles"
       ]
     }
   },
@@ -8133,6 +8178,20 @@
       ]
     }
   },
+  "azurerm_monitor_workspace": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Monitor",
+      "types": [
+        "accounts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Monitor/accounts"
+      ]
+    }
+  },
   "azurerm_mssql_database": {
     "management_plane": {
       "scopes": [
@@ -8907,6 +8966,36 @@
       "types": [
         "networkInterfaces",
         "networkSecurityGroups"
+      ]
+    }
+  },
+  "azurerm_network_manager": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers"
+      ]
+    }
+  },
+  "azurerm_network_manager_deployment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "locations",
+        "types"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers"
       ]
     }
   },
@@ -10465,20 +10554,6 @@
       ]
     }
   },
-  "azurerm_security_insights_sentinel_onboarding": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
-      ],
-      "provider": "Microsoft.SecurityInsights",
-      "types": [
-        "onboardingStates"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/onboardingStates"
-      ]
-    }
-  },
   "azurerm_sentinel_alert_rule_anomaly_built_in": {
     "management_plane": {
       "scopes": [
@@ -10854,6 +10929,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/dataConnectors"
+      ]
+    }
+  },
+  "azurerm_sentinel_log_analytics_workspace_onboarding": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces"
+      ],
+      "provider": "Microsoft.SecurityInsights",
+      "types": [
+        "onboardingStates"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/Microsoft.SecurityInsights/onboardingStates"
       ]
     }
   },

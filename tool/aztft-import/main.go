@@ -57,6 +57,7 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	"azurerm_disk_pool_iscsi_target_lun":                                             {caughtErr: ErrSyntheticId},
 	"azurerm_app_service_source_control_token":                                       {caughtErr: ErrParseIdFailed},
 	"azurerm_private_endpoint_application_security_group_association":                {caughtErr: ErrSyntheticId},
+	"azurerm_network_manager_deployment":                                             {caughtErr: ErrSyntheticId},
 
 	// Data plane only resources, we use pesudo resource id patterns
 	"azurerm_key_vault_certificate": {

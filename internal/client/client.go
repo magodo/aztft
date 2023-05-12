@@ -476,6 +476,14 @@ func (b *ClientBuilder) NewNetworkPacketCapturesClient(subscriptionId string) (*
 	)
 }
 
+func (b *ClientBuilder) NewNetworkManagementDeploymentStatusClient(subscriptionId string) (*armnetwork.ManagerDeploymentStatusClient, error) {
+	return armnetwork.NewManagerDeploymentStatusClient(
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewFrontdoorPoliciesClient(subscriptionId string) (*armfrontdoor.PoliciesClient, error) {
 	return armfrontdoor.NewPoliciesClient(
 		subscriptionId,
