@@ -175,6 +175,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.STORAGEMOVER/STORAGEMOVERS/ENDPOINTS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": storageMoverEndpointsResolver{},
 	},
+	"/MICROSOFT.COSTMANAGEMENT/SCHEDULEDACTIONS": {
+		"/SUBSCRIPTIONS": costmanagementScheduleActionsResolver{},
+	},
 }
 
 type ResolveError struct {

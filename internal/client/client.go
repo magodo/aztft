@@ -10,6 +10,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/botservice/armbotservice"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/cdn/armcdn"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/costmanagement/armcostmanagement/v2"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datafactory/armdatafactory"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/dataprotection/armdataprotection"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datashare/armdatashare"
@@ -557,6 +558,13 @@ func (b *ClientBuilder) NewSiteRecoveryReplicationProtectionContainerMappingsCli
 func (b *ClientBuilder) NewStorageMoverEndpointsClient(subscriptionId string) (*armstoragemover.EndpointsClient, error) {
 	return armstoragemover.NewEndpointsClient(
 		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewCostManagementScheduledActionsClient() (*armcostmanagement.ScheduledActionsClient, error) {
+	return armcostmanagement.NewScheduledActionsClient(
 		b.Cred,
 		&b.ClientOpt,
 	)
