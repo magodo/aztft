@@ -555,6 +555,16 @@ func (b *ClientBuilder) NewSiteRecoveryReplicationProtectionContainerMappingsCli
 	)
 }
 
+func (b *ClientBuilder) NewSiteRecoveryReplicationNetworkMappingsClient(subscriptionId, resourceGroupName, vaultName string) (*armrecoveryservicessiterecovery.ReplicationNetworkMappingsClient, error) {
+	return armrecoveryservicessiterecovery.NewReplicationNetworkMappingsClient(
+		vaultName,
+		resourceGroupName,
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewStorageMoverEndpointsClient(subscriptionId string) (*armstoragemover.EndpointsClient, error) {
 	return armstoragemover.NewEndpointsClient(
 		subscriptionId,

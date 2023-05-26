@@ -2811,6 +2811,36 @@
       ]
     }
   },
+  "azurerm_cosmosdb_mongo_role_definition": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DocumentDB",
+      "types": [
+        "databaseAccounts",
+        "mongodbRoleDefinitions"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DocumentDB/databaseAccounts/mongodbRoleDefinitions"
+      ]
+    }
+  },
+  "azurerm_cosmosdb_mongo_user_definition": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DocumentDB",
+      "types": [
+        "databaseAccounts",
+        "mongodbUserDefinitions"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DocumentDB/databaseAccounts/mongodbUserDefinitions"
+      ]
+    }
+  },
   "azurerm_cosmosdb_notebook_workspace": {
     "management_plane": {
       "scopes": [
@@ -5886,6 +5916,20 @@
       ]
     }
   },
+  "azurerm_iothub_file_upload": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Devices",
+      "types": [
+        "iotHubs"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs"
+      ]
+    }
+  },
   "azurerm_iothub_route": {
     "management_plane": {
       "scopes": [
@@ -7749,6 +7793,20 @@
       ]
     }
   },
+  "azurerm_mobile_network_packet_core_control_plane": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MobileNetwork",
+      "types": [
+        "packetCoreControlPlanes"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/packetCoreControlPlanes"
+      ]
+    }
+  },
   "azurerm_mobile_network_service": {
     "management_plane": {
       "scopes": [
@@ -7918,6 +7976,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AlertsManagement/actionRules"
+      ]
+    }
+  },
+  "azurerm_monitor_alert_prometheus_rule_group": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AlertsManagement",
+      "types": [
+        "prometheusRuleGroups"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AlertsManagement/prometheusRuleGroups"
       ]
     }
   },
@@ -8578,6 +8650,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DBforMySQL/flexibleServers"
+      ]
+    }
+  },
+  "azurerm_mysql_flexible_server_active_directory_administrator": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DBforMySQL",
+      "types": [
+        "flexibleServers",
+        "administrators"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DBforMySQL/flexibleServers/administrators"
       ]
     }
   },
@@ -9784,6 +9871,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults"
+      ]
+    }
+  },
+  "azurerm_recovery_services_vault_resource_guard_association": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.RecoveryServices",
+      "types": [
+        "vaults",
+        "backupResourceGuardProxies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/backupResourceGuardProxies"
       ]
     }
   },
@@ -11085,6 +11187,21 @@
       ]
     }
   },
+  "azurerm_signalr_service_custom_domain": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.SignalRService",
+      "types": [
+        "signalR",
+        "customDomains"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.SignalRService/signalR/customDomains"
+      ]
+    }
+  },
   "azurerm_signalr_service_network_acl": {
     "management_plane": {
       "scopes": [
@@ -11126,6 +11243,23 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationFabrics"
+      ]
+    }
+  },
+  "azurerm_site_recovery_hyperv_network_mapping": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.RecoveryServices",
+      "types": [
+        "vaults",
+        "replicationFabrics",
+        "replicationNetworks",
+        "replicationNetworkMappings"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings"
       ]
     }
   },
@@ -11285,6 +11419,23 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationPolicies"
+      ]
+    }
+  },
+  "azurerm_site_recovery_vmware_replication_policy_association": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.RecoveryServices",
+      "types": [
+        "vaults",
+        "replicationFabrics",
+        "replicationProtectionContainers",
+        "replicationProtectionContainerMappings"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings"
       ]
     }
   },
@@ -13914,6 +14065,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.SignalRService/webPubSub/customCertificates"
+      ]
+    }
+  },
+  "azurerm_web_pubsub_custom_domain": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.SignalRService",
+      "types": [
+        "WebPubSub",
+        "customDomains"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.SignalRService/WebPubSub/customDomains"
       ]
     }
   },
