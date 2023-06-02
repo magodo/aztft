@@ -1290,6 +1290,20 @@
       ]
     }
   },
+  "azurerm_automanage_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Automanage",
+      "types": [
+        "configurationProfiles"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Automanage/configurationProfiles"
+      ]
+    }
+  },
   "azurerm_automation_account": {
     "management_plane": {
       "scopes": [
