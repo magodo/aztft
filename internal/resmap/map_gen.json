@@ -1276,6 +1276,35 @@
       ]
     }
   },
+  "azurerm_arc_kubernetes_flux_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.Kubernetes/connectedClusters"
+      ],
+      "provider": "Microsoft.KubernetesConfiguration",
+      "types": [
+        "fluxConfigurations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Kubernetes/connectedClusters/Microsoft.KubernetesConfiguration/fluxConfigurations"
+      ]
+    }
+  },
+  "azurerm_arc_machine_extension": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.HybridCompute",
+      "types": [
+        "machines",
+        "extensions"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.HybridCompute/machines/extensions"
+      ]
+    }
+  },
   "azurerm_attestation_provider": {
     "management_plane": {
       "scopes": [
@@ -6190,6 +6219,20 @@
       ]
     }
   },
+  "azurerm_kubernetes_flux_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.ContainerService/managedClusters"
+      ],
+      "provider": "Microsoft.KubernetesConfiguration",
+      "types": [
+        "fluxConfigurations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ContainerService/managedClusters/Microsoft.KubernetesConfiguration/fluxConfigurations"
+      ]
+    }
+  },
   "azurerm_kusto_attached_database_configuration": {
     "management_plane": {
       "scopes": [
@@ -7818,6 +7861,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.MobileNetwork/packetCoreControlPlanes"
+      ]
+    }
+  },
+  "azurerm_mobile_network_packet_core_data_plane": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MobileNetwork",
+      "types": [
+        "packetCoreControlPlanes",
+        "packetCoreDataPlanes"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes"
       ]
     }
   },
