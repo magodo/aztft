@@ -9400,6 +9400,20 @@
       ]
     }
   },
+  "azurerm_new_relic_monitor": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "NewRelic.Observability",
+      "types": [
+        "monitors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/NewRelic.Observability/monitors"
+      ]
+    }
+  },
   "azurerm_nginx_certificate": {
     "management_plane": {
       "scopes": [
