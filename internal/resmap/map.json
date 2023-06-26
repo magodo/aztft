@@ -7782,7 +7782,7 @@
       "provider": "Microsoft.Media",
       "types": [
         "mediaServices",
-        "liveeEents"
+        "liveEvents"
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Media/mediaServices/liveEvents"
