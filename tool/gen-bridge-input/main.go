@@ -51,9 +51,6 @@ func main() {
 
 	for _, rt := range rts {
 		entry := resmap.TF2ARMIdMap[rt]
-		if entry.IsRemoved {
-			continue
-		}
 
 		// Resources need dynamically construct its resource ID are mostly data plane resources
 		if tfid.NeedsAPI(rt) {
