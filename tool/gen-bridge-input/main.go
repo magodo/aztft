@@ -135,24 +135,29 @@ func main() {
 
 // routeScopeStrToId turns a route scope string to a resource id, with the names part "randomly" generated
 func routeScopeStrToId(input string) armid.ResourceId {
-	switch strings.ToUpper(input) {
-	case strings.ToUpper(SubId.ScopeString()):
-		return &SubId
-	case strings.ToUpper(MgmtGroupId.ScopeString()):
-		return &MgmtGroupId
-	case strings.ToUpper(RgId.ScopeString()):
-		return &RgId
-	case strings.ToUpper(TenantId.ScopeString()):
-		return &TenantId
+	upperInput := strings.ToUpper(input)
+
+	var parentScope armid.ResourceId = &TenantId
+	if strings.HasPrefix(upperInput, strings.ToUpper(RgId.ScopeString())) {
+		parentScope = &RgId
+	} else if strings.HasPrefix(upperInput, strings.ToUpper(SubId.ScopeString())) {
+		parentScope = &SubId
+	} else if strings.HasPrefix(upperInput, strings.ToUpper(MgmtGroupId.ScopeString())) {
+		parentScope = &MgmtGroupId
 	}
 
-	segs := strings.Split(strings.Trim(input, "/"), "/")
+	left := input[len(parentScope.ScopeString()):]
+	if len(left) == 0 {
+		return parentScope
+	}
+
+	segs := strings.Split(strings.Trim(left, "/"), "/")
 	var names []string
 	for _, seg := range segs[1:] {
 		names = append(names, seg+"1")
 	}
 	id := armid.ScopedResourceId{
-		AttrParentScope: &TenantId,
+		AttrParentScope: parentScope,
 		AttrProvider:    segs[0],
 		AttrTypes:       segs[1:],
 		AttrNames:       names,
