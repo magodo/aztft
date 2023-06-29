@@ -1194,14 +1194,14 @@
   "azurerm_application_insights_standard_web_test": {
     "management_plane": {
       "scopes": [
-        "/subscriptions"
+        "/subscriptions/resourceGroups"
       ],
       "provider": "Microsoft.Insights",
       "types": [
         "webTests"
       ],
       "import_specs": [
-        "/subscriptions/Microsoft.Insights/webTests"
+        "/subscriptions/resourceGroups/Microsoft.Insights/webTests"
       ]
     }
   },
@@ -7320,10 +7320,10 @@
       "provider": "Microsoft.MachineLearningServices",
       "types": [
         "workspaces",
-        "datastores"
+        "dataStores"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/datastores"
+        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/dataStores"
       ]
     }
   },
@@ -7335,10 +7335,10 @@
       "provider": "Microsoft.MachineLearningServices",
       "types": [
         "workspaces",
-        "datastores"
+        "dataStores"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/datastores"
+        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/dataStores"
       ]
     }
   },
@@ -7350,10 +7350,10 @@
       "provider": "Microsoft.MachineLearningServices",
       "types": [
         "workspaces",
-        "datastores"
+        "dataStores"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/datastores"
+        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/dataStores"
       ]
     }
   },
@@ -7506,12 +7506,12 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "microsoft.compute",
+      "provider": "Microsoft.Compute",
       "types": [
         "disks"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/microsoft.compute/disks"
+        "/subscriptions/resourceGroups/Microsoft.Compute/disks"
       ]
     }
   },
@@ -14394,11 +14394,11 @@
       ],
       "provider": "Microsoft.SignalRService",
       "types": [
-        "WebPubSub",
+        "webPubSub",
         "customDomains"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.SignalRService/WebPubSub/customDomains"
+        "/subscriptions/resourceGroups/Microsoft.SignalRService/webPubSub/customDomains"
       ]
     }
   },
