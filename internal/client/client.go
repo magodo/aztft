@@ -4,6 +4,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/alertsmanagement/armalertsmanagement"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/applicationinsights/armapplicationinsights"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appplatform/armappplatform"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/automation/armautomation"
@@ -575,6 +576,14 @@ func (b *ClientBuilder) NewStorageMoverEndpointsClient(subscriptionId string) (*
 
 func (b *ClientBuilder) NewCostManagementScheduledActionsClient() (*armcostmanagement.ScheduledActionsClient, error) {
 	return armcostmanagement.NewScheduledActionsClient(
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewApplicationInsightsWebTestsClient(subscriptionId string) (*armapplicationinsights.WebTestsClient, error) {
+	return armapplicationinsights.NewWebTestsClient(
+		subscriptionId,
 		b.Cred,
 		&b.ClientOpt,
 	)

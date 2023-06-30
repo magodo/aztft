@@ -9266,6 +9266,21 @@
       ]
     }
   },
+  "azurerm_network_manager_security_admin_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "securityAdminConfigurations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/securityAdminConfigurations"
+      ]
+    }
+  },
   "azurerm_network_manager_static_member": {
     "management_plane": {
       "scopes": [
@@ -9324,21 +9339,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/networkProfiles"
-      ]
-    }
-  },
-  "azurerm_network_security_admin_configuration": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Network",
-      "types": [
-        "networkManagers",
-        "securityAdminConfigurations"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/securityAdminConfigurations"
       ]
     }
   },

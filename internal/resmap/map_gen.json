@@ -1181,14 +1181,14 @@
   "azurerm_application_insights_standard_web_test": {
     "management_plane": {
       "scopes": [
-        "/subscriptions"
+        "/subscriptions/resourceGroups"
       ],
       "provider": "Microsoft.Insights",
       "types": [
         "webTests"
       ],
       "import_specs": [
-        "/subscriptions/Microsoft.Insights/webTests"
+        "/subscriptions/resourceGroups/Microsoft.Insights/webTests"
       ]
     }
   },
@@ -7246,10 +7246,10 @@
       "provider": "Microsoft.MachineLearningServices",
       "types": [
         "workspaces",
-        "datastores"
+        "dataStores"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/datastores"
+        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/dataStores"
       ]
     }
   },
@@ -7261,10 +7261,10 @@
       "provider": "Microsoft.MachineLearningServices",
       "types": [
         "workspaces",
-        "datastores"
+        "dataStores"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/datastores"
+        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/dataStores"
       ]
     }
   },
@@ -7276,10 +7276,10 @@
       "provider": "Microsoft.MachineLearningServices",
       "types": [
         "workspaces",
-        "datastores"
+        "dataStores"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/datastores"
+        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/dataStores"
       ]
     }
   },
@@ -9069,6 +9069,21 @@
       ]
     }
   },
+  "azurerm_network_manager_security_admin_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "securityAdminConfigurations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/securityAdminConfigurations"
+      ]
+    }
+  },
   "azurerm_network_manager_static_member": {
     "management_plane": {
       "scopes": [
@@ -9125,21 +9140,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/networkProfiles"
-      ]
-    }
-  },
-  "azurerm_network_security_admin_configuration": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Network",
-      "types": [
-        "networkManagers",
-        "securityAdminConfigurations"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/securityAdminConfigurations"
       ]
     }
   },
@@ -14161,11 +14161,11 @@
       ],
       "provider": "Microsoft.SignalRService",
       "types": [
-        "WebPubSub",
+        "webPubSub",
         "customDomains"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.SignalRService/WebPubSub/customDomains"
+        "/subscriptions/resourceGroups/Microsoft.SignalRService/webPubSub/customDomains"
       ]
     }
   },
