@@ -23,6 +23,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hdinsight/armhdinsight"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/logic/armlogic"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning/v3"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/monitor/armmonitor"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork"
@@ -583,6 +584,14 @@ func (b *ClientBuilder) NewCostManagementScheduledActionsClient() (*armcostmanag
 
 func (b *ClientBuilder) NewApplicationInsightsWebTestsClient(subscriptionId string) (*armapplicationinsights.WebTestsClient, error) {
 	return armapplicationinsights.NewWebTestsClient(
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewLogicWorkflowsClient(subscriptionId string) (*armlogic.WorkflowsClient, error) {
+	return armlogic.NewWorkflowsClient(
 		subscriptionId,
 		b.Cred,
 		&b.ClientOpt,
