@@ -6981,8 +6981,6 @@
     }
   },
   "azurerm_logic_app_action_custom": {
-    "is_removed": true,
-    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -6998,8 +6996,6 @@
     }
   },
   "azurerm_logic_app_action_http": {
-    "is_removed": true,
-    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -7163,8 +7159,6 @@
     }
   },
   "azurerm_logic_app_trigger_custom": {
-    "is_removed": true,
-    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -7180,8 +7174,6 @@
     }
   },
   "azurerm_logic_app_trigger_http_request": {
-    "is_removed": true,
-    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -7197,8 +7189,6 @@
     }
   },
   "azurerm_logic_app_trigger_recurrence": {
-    "is_removed": true,
-    "remove_reason": "This is a property rather than a resource",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -9271,6 +9261,21 @@
       ]
     }
   },
+  "azurerm_network_manager_security_admin_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "securityAdminConfigurations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/securityAdminConfigurations"
+      ]
+    }
+  },
   "azurerm_network_manager_static_member": {
     "management_plane": {
       "scopes": [
@@ -9329,21 +9334,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/networkProfiles"
-      ]
-    }
-  },
-  "azurerm_network_security_admin_configuration": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Network",
-      "types": [
-        "networkManagers",
-        "securityAdminConfigurations"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/securityAdminConfigurations"
       ]
     }
   },
