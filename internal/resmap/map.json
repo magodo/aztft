@@ -1921,11 +1921,16 @@
   "azurerm_blueprint_assignment": {
     "management_plane": {
       "scopes": [
-        "any"
+          "/subscriptions",
+          "/Microsoft.Management/managementGroups"
       ],
       "provider": "Microsoft.Blueprint",
       "types": [
         "blueprintAssignments"
+      ],
+      "import_specs": [
+        "/subscriptions/providers/Microsoft.Blueprint/blueprintAssignments",
+        "/Microsoft.Management/managementGroups/providers/Microsoft.Blueprint/blueprintAssignments"
       ]
     }
   },
