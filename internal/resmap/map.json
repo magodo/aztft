@@ -1318,6 +1318,20 @@
       ]
     }
   },
+  "azurerm_arc_private_link_scope": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.HyrbidCompute",
+      "types": [
+        "privateLinkScopes"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.HyrbidCompute/privateLinkScopes"
+      ]
+    }
+  },
   "azurerm_attestation_provider": {
     "management_plane": {
       "scopes": [
@@ -6368,6 +6382,22 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/principalAssignments"
+      ]
+    }
+  },
+  "azurerm_kusto_cosmosdb_data_connection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Kusto",
+      "types": [
+        "clusters",
+        "databases",
+        "dataConnections"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Kusto/clusters/databases/dataConnections"
       ]
     }
   },

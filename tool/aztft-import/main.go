@@ -42,6 +42,11 @@ type HardCodedTypeInfo struct {
 }
 
 var HardcodedTypes = map[string]*HardCodedTypeInfo{
+	// Unknown
+	// (not supported)
+	"azurerm_pim_active_role_assignment":   {caughtErr: ErrSyntheticId},
+	"azurerm_pim_eligible_role_assignment": {caughtErr: ErrSyntheticId},
+
 	// Property-like resources
 	// (not supported)
 	"azurerm_app_service_certificate_binding":                         {caughtErr: ErrSyntheticId},
