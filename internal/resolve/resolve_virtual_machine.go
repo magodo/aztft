@@ -29,14 +29,27 @@ func (virtualMachinesResolver) Resolve(b *client.ClientBuilder, id armid.Resourc
 	if props == nil {
 		return "", fmt.Errorf("unexpected nil property in response")
 	}
+
+	if props.OSProfile == nil {
+		// Per: https://github.com/hashicorp/terraform-provider-azurerm/blob/c8d1a23b143360eaf5ee371840cc4d5ee286eddc/internal/services/compute/virtual_machine_import.go#L45-L48
+		return "azurerm_virtual_machine", nil
+	}
+
 	storageProfile := props.StorageProfile
 	if storageProfile == nil {
 		return "", fmt.Errorf("unexpected nil storage profile in response")
 	}
+
 	osDisk := storageProfile.OSDisk
 	if osDisk == nil {
 		return "", fmt.Errorf("unexpected nil OS Disk in storage profile")
 	}
+
+	if osDisk.Vhd != nil {
+		// Per: https://github.com/hashicorp/terraform-provider-azurerm/blob/c8d1a23b143360eaf5ee371840cc4d5ee286eddc/internal/services/compute/virtual_machine_import.go#L36-L38
+		return "azurerm_virtual_machine", nil
+	}
+
 	osType := osDisk.OSType
 	if osType == nil {
 		return "", fmt.Errorf("unexpected nil OS Type in OS Disk")
