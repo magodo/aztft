@@ -12,7 +12,7 @@ import (
 type virtualMachinesResolver struct{}
 
 func (virtualMachinesResolver) ResourceTypes() []string {
-	return []string{"azurerm_linux_virtual_machine", "azurerm_windows_virtual_machine"}
+	return []string{"azurerm_linux_virtual_machine", "azurerm_windows_virtual_machine", "azurerm_virtual_machine"}
 }
 
 func (virtualMachinesResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) (string, error) {
