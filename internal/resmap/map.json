@@ -5694,10 +5694,10 @@
       ],
       "provider": "Microsoft.Security",
       "types": [
-        "ioTSecuritySolutions"
+        "iotSecuritySolutions"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Security/ioTSecuritySolutions"
+        "/subscriptions/resourceGroups/Microsoft.Security/iotSecuritySolutions"
       ]
     }
   },
