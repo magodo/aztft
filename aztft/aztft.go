@@ -130,6 +130,10 @@ func queryType(idStr string, apiOpt *APIOption) ([]Type, bool, error) {
 		if err != nil {
 			return nil, false, fmt.Errorf("mapping entry by id %s: %v", id, err)
 		}
+		if entry == nil {
+			return nil, false, nil
+		}
+
 		// There must be only one resource type, try to populate any property like resources for it.
 		exact = true
 		result = []Type{
@@ -149,6 +153,9 @@ func queryType(idStr string, apiOpt *APIOption) ([]Type, bool, error) {
 			entry, err := mapEntryById(propLikeResId, *apiOpt)
 			if err != nil {
 				return nil, false, fmt.Errorf("mapping entry by id %s: %v", id, err)
+			}
+			if entry == nil {
+				continue
 			}
 			result = append(result, Type{
 				AzureId: propLikeResId,
