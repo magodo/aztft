@@ -108,7 +108,7 @@ func main() {
 			}
 		}
 
-		execBlk := body.AppendNewBlock("execution", []string{rt})
+		execBlk := body.AppendNewBlock("execution", []string{rt, "basic"})
 		execBody := execBlk.Body()
 
 		expr, err := buildExpression("path", `"${home}/go/bin/terraform-client-import"`)

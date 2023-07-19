@@ -1943,7 +1943,7 @@
         "blueprintAssignments"
       ],
       "import_specs": [
-        "/subscriptions/providers/Microsoft.Blueprint/blueprintAssignments",
+        "/subscriptions/Microsoft.Blueprint/blueprintAssignments",
         "/Microsoft.Management/managementGroups/providers/Microsoft.Blueprint/blueprintAssignments"
       ]
     }
