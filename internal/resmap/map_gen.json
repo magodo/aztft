@@ -5346,6 +5346,20 @@
       ]
     }
   },
+  "azurerm_graph_account": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.GraphServices",
+      "types": [
+        "accounts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.GraphServices/accounts"
+      ]
+    }
+  },
   "azurerm_hdinsight_hadoop_cluster": {
     "management_plane": {
       "scopes": [
@@ -7862,6 +7876,22 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks"
+      ]
+    }
+  },
+  "azurerm_mobile_network_attached_data_network": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MobileNetwork",
+      "types": [
+        "packetCoreControlPlanes",
+        "packetCoreDataPlanes",
+        "attachedDataNetworks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks"
       ]
     }
   },
