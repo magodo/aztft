@@ -157,7 +157,7 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 			scopeId = id.ParentScope()
 		}
 		scopePart := scopeId.String()
-		routePart, _ := strings.CutPrefix(id.String(), scopePart)
+		routePart := strings.TrimPrefix(id.String(), scopePart)
 		return routePart + "|" + scopePart, nil
 	}
 
