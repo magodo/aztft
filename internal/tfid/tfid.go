@@ -151,6 +151,14 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 		"azurerm_subnet_network_security_group_association",
 		"azurerm_subnet_route_table_association":
 		return id.Parent().String(), nil
+	case "azurerm_role_definition":
+		scopeId := id.Parent()
+		if scopeId == nil {
+			scopeId = id.ParentScope()
+		}
+		scopePart := scopeId.String()
+		routePart, _ := strings.CutPrefix(id.String(), scopePart)
+		return routePart + "|" + scopePart, nil
 	}
 
 	if importSpec != "" {
