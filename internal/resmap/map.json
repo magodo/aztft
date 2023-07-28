@@ -1323,12 +1323,12 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "Microsoft.HyrbidCompute",
+      "provider": "Microsoft.HybridCompute",
       "types": [
         "privateLinkScopes"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.HyrbidCompute/privateLinkScopes"
+        "/subscriptions/resourceGroups/Microsoft.HybridCompute/privateLinkScopes"
       ]
     }
   },
@@ -6296,6 +6296,21 @@
       ]
     }
   },
+  "azurerm_kubernetes_cluster_trusted_access_role_binding": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ContainerService",
+      "types": [
+        "managedClusters",
+        "trustedAccessRoleBindings"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings"
+      ]
+    }
+  },
   "azurerm_kubernetes_fleet_manager": {
     "management_plane": {
       "scopes": [
@@ -7751,6 +7766,20 @@
       ]
     }
   },
+  "azurerm_marketplace_role_assignment": {
+    "management_plane": {
+      "scopes": [
+        "/Microsoft.Marketplace"
+      ],
+      "provider": "Microsoft.Authorization",
+      "types": [
+        "roleAssignments"
+      ],
+      "import_specs": [
+        "/Microsoft.Marketplace/Microsoft.Authorization/roleAssignments"
+      ]
+    }
+  },
   "azurerm_media_asset": {
     "management_plane": {
       "scopes": [
@@ -9104,6 +9133,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/ddosProtectionPlans"
+      ]
+    }
+  },
+  "azurerm_network_function_azure_traffic_collector": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.NetworkFunction",
+      "types": [
+        "azureTrafficCollectors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.NetworkFunction/azureTrafficCollectors"
       ]
     }
   },
@@ -10517,6 +10560,18 @@
       "provider": "Microsoft.PolicyInsights",
       "types": [
         "remediations"
+      ]
+    }
+  },
+  "azurerm_resource_provider_registration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions"
+      ],
+      "provider": "Microsoft.PolicyInsights",
+      "types": [],
+      "import_specs": [
+        "/subscriptions/Microsoft.PolicyInsights"
       ]
     }
   },

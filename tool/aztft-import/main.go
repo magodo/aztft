@@ -190,9 +190,6 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		caughtErr: ErrSyntheticId,
 	},
 
-	// This is not a azure resource, but an operation like abstract resource. Skip it.
-	"azurerm_resource_provider_registration": {caughtErr: ErrParseIdFailed},
-
 	// Normal resources, but encounter issues during import
 	"azurerm_key_vault_access_policy": {
 		mapItem: &resmap.TF2ARMIdMapItem{

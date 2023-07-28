@@ -43,7 +43,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse v0.5.0
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/timeseriesinsights/armtimeseriesinsights v1.0.0
 	github.com/hashicorp/hcl/v2 v2.17.0
-	github.com/magodo/armid v0.0.0-20220707115142-d2d9f6fb551b
+	github.com/magodo/armid v0.0.0-20230511151020-27880e5961c3
 	github.com/stretchr/testify v1.8.1
 	github.com/urfave/cli/v2 v2.24.1
 )
