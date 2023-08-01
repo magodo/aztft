@@ -9128,6 +9128,22 @@
       ]
     }
   },
+  "azurerm_network_manager_deployment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "locations",
+        "types"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers"
+      ]
+    }
+  },
   "azurerm_network_manager_management_group_connection": {
     "management_plane": {
       "scopes": [

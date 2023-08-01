@@ -65,7 +65,6 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	"azurerm_nat_gateway_public_ip_prefix_association":                               {caughtErr: ErrSyntheticId},
 	"azurerm_disk_pool_managed_disk_attachment":                                      {caughtErr: ErrSyntheticId},
 	"azurerm_disk_pool_iscsi_target_lun":                                             {caughtErr: ErrSyntheticId},
-	"azurerm_network_manager_deployment":                                             {caughtErr: ErrSyntheticId},
 
 	// Data plane only resources, we use pesudo resource id patterns
 	"azurerm_key_vault_certificate": {
@@ -401,6 +400,23 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 			},
 		},
 		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_network_manager_deployment": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Network",
+				Types: []string{
+					"networkManagers",
+					"locations",
+					"types",
+				},
+				ImportSpecs: []string{
+					"/subscriptions/resourceGroups/Microsoft.Network/networkManagers",
+				},
+			},
+		},
+		caughtErr: ErrSyntheticId,
 	},
 }
 
