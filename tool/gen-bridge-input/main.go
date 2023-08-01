@@ -13,7 +13,7 @@ import (
 	"github.com/magodo/aztft/internal/tfid"
 )
 
-// The property like resources that reside in the map.json
+// The property like resources from map.json that have pesudo Azure resource ID defined
 // The list is from: tfid.go:StaticBuild()
 var propertyLikeRTs = map[string]bool{
 	"azurerm_disk_pool_iscsi_target_lun":                                             true,
@@ -57,16 +57,20 @@ func main() {
 			continue
 		}
 
-		// The property-like resources are ignored for now, but can be supported in some way in the future
-		if propertyLikeRTs[rt] {
-			continue
-		}
-
 		if strings.HasPrefix(rt, "fake_") {
 			continue
 		}
 
+		// The property-like resources are ignored for now, but can be supported in some way in the future
+		if propertyLikeRTs[rt] {
+			if err := addExecutionBlock(body, rt, "TODO"); err != nil {
+				log.Fatal(err)
+			}
+			continue
+		}
+
 		var idstr string
+
 		switch rt {
 		case "azurerm_resource_group":
 			idstr = RgId.String()
@@ -107,17 +111,24 @@ func main() {
 				log.Fatal(err)
 			}
 		}
-
-		execBlk := body.AppendNewBlock("execution", []string{rt, "basic"})
-		execBody := execBlk.Body()
-
-		expr, err := buildExpression("path", `"${home}/go/bin/terraform-client-import"`)
-		if err != nil {
+		if err := addExecutionBlock(body, rt, idstr); err != nil {
 			log.Fatal(err)
 		}
-		execBody.SetAttributeRaw("path", expr.BuildTokens(nil))
+	}
+	fmt.Printf("%s", f.Bytes())
+}
 
-		expr, err = buildExpression("args", fmt.Sprintf(`[
+func addExecutionBlock(mainBody *hclwrite.Body, rt string, idstr string) error {
+	execBlk := mainBody.AppendNewBlock("execution", []string{rt, "basic"})
+	execBody := execBlk.Body()
+
+	expr, err := buildExpression("path", `"${home}/go/bin/terraform-client-import"`)
+	if err != nil {
+		return err
+	}
+	execBody.SetAttributeRaw("path", expr.BuildTokens(nil))
+
+	expr, err = buildExpression("args", fmt.Sprintf(`[
 	"-path",
 	"${home}/go/bin/terraform-provider-azurerm",
 	"-type",
@@ -125,12 +136,11 @@ func main() {
 	"-id",
 	"%s",
 ]`, rt, idstr))
-		if err != nil {
-			log.Fatal(err)
-		}
-		execBody.SetAttributeRaw("args", expr.BuildTokens(nil))
+	if err != nil {
+		return err
 	}
-	fmt.Printf("%s", f.Bytes())
+	execBody.SetAttributeRaw("args", expr.BuildTokens(nil))
+	return nil
 }
 
 // routeScopeStrToId turns a route scope string to a resource id, with the names part "randomly" generated
