@@ -1675,6 +1675,21 @@
       ]
     }
   },
+  "azurerm_automation_variable_object": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Automation",
+      "types": [
+        "automationAccounts",
+        "variables"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/variables"
+      ]
+    }
+  },
   "azurerm_automation_variable_string": {
     "management_plane": {
       "scopes": [
@@ -3171,6 +3186,20 @@
       ],
       "import_specs": [
         "/subscriptions/Microsoft.CostManagement/scheduledActions"
+      ]
+    }
+  },
+  "azurerm_custom_ip_prefix": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "customIPPrefixes"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/customIPPrefixes"
       ]
     }
   },
@@ -8048,6 +8077,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks/services"
+      ]
+    }
+  },
+  "azurerm_mobile_network_sim": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MobileNetwork",
+      "types": [
+        "simGroups",
+        "sims"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/simGroups/sims"
       ]
     }
   },
@@ -14459,10 +14503,10 @@
       ],
       "provider": "Microsoft.Network",
       "types": [
-        "ApplicationGatewayWebApplicationFirewallPolicies"
+        "applicationGatewayWebApplicationFirewallPolicies"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies"
+        "/subscriptions/resourceGroups/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies"
       ]
     }
   },
