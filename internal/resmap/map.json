@@ -9806,7 +9806,7 @@
       ]
     }
   },
-  "azurerm_palo_alto_next_generation_firewall_vhub_panorama": {
+  "azurerm_palo_alto_next_generation_firewall_virtual_hub_panorama": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
