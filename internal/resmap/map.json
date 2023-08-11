@@ -5431,6 +5431,22 @@
     }
   },
   "azurerm_graph_account": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_graph_service_account`",
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.GraphServices",
+      "types": [
+        "accounts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.GraphServices/accounts"
+      ]
+    }
+  },
+  "azurerm_graph_services_account": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -7598,6 +7614,20 @@
       ]
     }
   },
+  "azurerm_managed_lustre_file_system": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StorageCache",
+      "types": [
+        "amlFilesystems"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.StorageCache/amlFilesystems"
+      ]
+    }
+  },
   "azurerm_management_group": {
     "management_plane": {
       "provider": "Microsoft.Management",
@@ -9699,6 +9729,150 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachineScaleSets"
+      ]
+    }
+  },
+  "azurerm_palo_alto_local_rulestack": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "PaloAltoNetworks.Cloudngfw",
+      "types": [
+        "localRulestacks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/PaloAltoNetworks.Cloudngfw/localRulestacks"
+      ]
+    }
+  },
+  "azurerm_palo_alto_local_rulestack_certificate": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "PaloAltoNetworks.Cloudngfw",
+      "types": [
+        "localRulestacks",
+        "certificates"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/PaloAltoNetworks.Cloudngfw/localRulestacks/certificates"
+      ]
+    }
+  },
+  "azurerm_palo_alto_local_rulestack_fqdn_list": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "PaloAltoNetworks.Cloudngfw",
+      "types": [
+        "localRulestacks",
+        "fqdnLists"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/PaloAltoNetworks.Cloudngfw/localRulestacks/fqdnLists"
+      ]
+    }
+  },
+  "azurerm_palo_alto_local_rulestack_prefix_list": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "PaloAltoNetworks.Cloudngfw",
+      "types": [
+        "localRulestacks",
+        "prefixLists"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/PaloAltoNetworks.Cloudngfw/localRulestacks/prefixLists"
+      ]
+    }
+  },
+  "azurerm_palo_alto_local_rulestack_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "PaloAltoNetworks.Cloudngfw",
+      "types": [
+        "localRulestacks",
+        "localRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/PaloAltoNetworks.Cloudngfw/localRulestacks/localRules"
+      ]
+    }
+  },
+  "azurerm_palo_alto_next_generation_firewall_vhub_panorama": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "PaloAltoNetworks.Cloudngfw",
+      "types": [
+        "firewalls"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/PaloAltoNetworks.Cloudngfw/firewalls"
+      ]
+    }
+  },
+  "azurerm_palo_alto_next_generation_firewall_virtual_hub_local_rulestack": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "PaloAltoNetworks.Cloudngfw",
+      "types": [
+        "firewalls"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/PaloAltoNetworks.Cloudngfw/firewalls"
+      ]
+    }
+  },
+  "azurerm_palo_alto_next_generation_firewall_virtual_network_local_rulestack": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "PaloAltoNetworks.Cloudngfw",
+      "types": [
+        "firewalls"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/PaloAltoNetworks.Cloudngfw/firewalls"
+      ]
+    }
+  },
+  "azurerm_palo_alto_next_generation_firewall_virtual_network_panorama": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "PaloAltoNetworks.Cloudngfw",
+      "types": [
+        "firewalls"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/PaloAltoNetworks.Cloudngfw/firewalls"
+      ]
+    }
+  },
+  "azurerm_palo_alto_virtual_network_appliance": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkVirtualAppliances"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkVirtualAppliances"
       ]
     }
   },
