@@ -175,7 +175,7 @@
         "policies"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/apis/operations/policies"
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/apis/operations"
       ]
     }
   },
@@ -208,7 +208,7 @@
         "policies"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/apis/policies"
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/apis"
       ]
     }
   },
@@ -668,7 +668,7 @@
         "policies"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/policies"
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service"
       ]
     }
   },
@@ -731,7 +731,7 @@
         "policies"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/products/policies"
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/products"
       ]
     }
   },
@@ -4268,6 +4268,22 @@
     }
   },
   "azurerm_databricks_workspace_customer_managed_key": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Databricks",
+      "types": [
+        "workspaces"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Databricks/workspaces"
+      ]
+    }
+  },
+  "azurerm_databricks_workspace_root_dbfs_customer_managed_key": {
     "is_removed": true,
     "remove_reason": "This is a property rather than a resource",
     "management_plane": {

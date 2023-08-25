@@ -170,11 +170,10 @@
       "types": [
         "service",
         "apis",
-        "operations",
-        "policies"
+        "operations"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/apis/operations/policies"
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/apis/operations"
       ]
     }
   },
@@ -203,11 +202,10 @@
       "provider": "Microsoft.ApiManagement",
       "types": [
         "service",
-        "apis",
-        "policies"
+        "apis"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/apis/policies"
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/apis"
       ]
     }
   },
@@ -663,11 +661,10 @@
       ],
       "provider": "Microsoft.ApiManagement",
       "types": [
-        "service",
-        "policies"
+        "service"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/policies"
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service"
       ]
     }
   },
@@ -726,11 +723,10 @@
       "provider": "Microsoft.ApiManagement",
       "types": [
         "service",
-        "products",
-        "policies"
+        "products"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/products/policies"
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/products"
       ]
     }
   },
@@ -4245,6 +4241,20 @@
     }
   },
   "azurerm_databricks_workspace_customer_managed_key": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Databricks",
+      "types": [
+        "workspaces"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Databricks/workspaces"
+      ]
+    }
+  },
+  "azurerm_databricks_workspace_root_dbfs_customer_managed_key": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
