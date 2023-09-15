@@ -1553,6 +1553,21 @@
       ]
     }
   },
+  "azurerm_automation_python3_package": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Automation",
+      "types": [
+        "automationAccounts",
+        "python3Packages"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/python3Packages"
+      ]
+    }
+  },
   "azurerm_automation_runbook": {
     "management_plane": {
       "scopes": [
@@ -5950,6 +5965,21 @@
       ]
     }
   },
+  "azurerm_iothub_endpoint_cosmosdb_account": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Devices",
+      "types": [
+        "iotHubs",
+        "endpoints"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Devices/iotHubs/endpoints"
+      ]
+    }
+  },
   "azurerm_iothub_endpoint_eventhub": {
     "management_plane": {
       "scopes": [
@@ -9117,6 +9147,23 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.NetApp/netAppAccounts/volumeGroups"
+      ]
+    }
+  },
+  "azurerm_netapp_volume_quota_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.NetApp",
+      "types": [
+        "netAppAccounts",
+        "capacityPools",
+        "volumes",
+        "volumeQuotaRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.NetApp/netAppAccounts/capacityPools/volumes/volumeQuotaRules"
       ]
     }
   },
@@ -14070,6 +14117,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/virtualHubs/hubRouteTables/routes"
+      ]
+    }
+  },
+  "azurerm_virtual_hub_routing_intent": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "virtualHubs",
+        "routingIntent"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/virtualHubs/routingIntent"
       ]
     }
   },

@@ -46,3 +46,8 @@ For these resources, as they don't have a management plane resource ID, we defin
 |`azurerm_subnet_nat_gateway_association`|`/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Network/subnets/subnet1|natGateways/<base64 id of azurerm_nat_gateway>`||
 |`azurerm_virtual_desktop_workspace_application_group_association`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.DesktopVirtualization/workspaces/wsp1/applicationGroups/<base64 id of azurerm_virtual_desktop_application_group>`||
 |`azurerm_virtual_machine_data_disk_attachment`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1/dataDisks/disk1`||
+|`azurerm_iothub_endpoint_cosmosdb_account`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Devices/iotHubs/hub1/endpointsCosmosdbAccount/ep1`||
+|`azurerm_iothub_endpoint_eventhub`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Devices/iotHubs/hub1/endpointsEventhub/ep1`||
+|`azurerm_iothub_endpoint_servicebus_queue`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Devices/iotHubs/hub1/endpointsServicebusQueue/ep1`||
+|`azurerm_iothub_endpoint_servicebus_topic`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Devices/iotHubs/hub1/endpointsServicebusTopic/ep1`||
+|`azurerm_iothub_endpoint_storage_container`| `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Devices/iotHubs/hub1/endpointsStorageContainer/ep1`||
