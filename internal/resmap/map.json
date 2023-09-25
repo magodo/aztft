@@ -1332,6 +1332,20 @@
       ]
     }
   },
+  "azurerm_arc_resource_bridge_appliance": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ResourceConnector",
+      "types": [
+        "appliances"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ResourceConnector/appliances"
+      ]
+    }
+  },
   "azurerm_attestation_provider": {
     "management_plane": {
       "scopes": [
@@ -3307,6 +3321,21 @@
     }
   },
   "azurerm_data_factory_dataset_azure_blob": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataFactory",
+      "types": [
+        "factories",
+        "datasets"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/datasets"
+      ]
+    }
+  },
+  "azurerm_data_factory_dataset_azure_sql_table": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -5379,6 +5408,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Web/sites"
+      ]
+    }
+  },
+  "azurerm_function_app_connection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.Web/sites"
+      ],
+      "provider": "Microsoft.ServiceLinker",
+      "types": [
+        "linkers"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Web/sites/Microsoft.ServiceLinker/linkers"
       ]
     }
   },
@@ -9667,6 +9710,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/NewRelic.Observability/monitors"
+      ]
+    }
+  },
+  "azurerm_new_relic_tag_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "NewRelic.Observability",
+      "types": [
+        "monitors",
+        "tagRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/NewRelic.Observability/monitors/tagRules"
       ]
     }
   },
