@@ -1230,6 +1230,20 @@
       ]
     }
   },
+  "azurerm_application_load_balancer": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ServiceNetworking",
+      "types": [
+        "trafficControllers"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ServiceNetworking/trafficControllers"
+      ]
+    }
+  },
   "azurerm_application_security_group": {
     "management_plane": {
       "scopes": [
@@ -10711,6 +10725,20 @@
       ]
     }
   },
+  "azurerm_resource_management_private_link": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Authorization",
+      "types": [
+        "resourceManagementPrivateLinks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Authorization/resourceManagementPrivateLinks"
+      ]
+    }
+  },
   "azurerm_resource_policy_assignment": {
     "management_plane": {
       "scopes": [
@@ -11014,6 +11042,20 @@
       ],
       "import_specs": [
         "/subscriptions/Microsoft.Security/settings"
+      ]
+    }
+  },
+  "azurerm_security_center_storage_defender": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Storage/storageAccounts"
       ]
     }
   },
@@ -12179,6 +12221,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps/bindings"
+      ]
+    }
+  },
+  "azurerm_spring_cloud_application_insights_application_performance_monitoring": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AppPlatform",
+      "types": [
+        "spring",
+        "apms"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apms"
       ]
     }
   },
