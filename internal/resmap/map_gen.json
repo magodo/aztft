@@ -1244,6 +1244,21 @@
       ]
     }
   },
+  "azurerm_application_load_balancer_frontend": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ServiceNetworking",
+      "types": [
+        "trafficControllers",
+        "frontends"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ServiceNetworking/trafficControllers/frontends"
+      ]
+    }
+  },
   "azurerm_application_security_group": {
     "management_plane": {
       "scopes": [
@@ -4410,6 +4425,34 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Compute/hostGroups"
+      ]
+    }
+  },
+  "azurerm_dev_center": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DevCenter",
+      "types": [
+        "devCenters"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DevCenter/devCenters"
+      ]
+    }
+  },
+  "azurerm_dev_center_project": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DevCenter",
+      "types": [
+        "projects"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DevCenter/projects"
       ]
     }
   },
