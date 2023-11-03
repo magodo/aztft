@@ -9310,6 +9310,21 @@
       ]
     }
   },
+  "azurerm_network_function_collector_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.NetworkFunction",
+      "types": [
+        "azureTrafficCollectors",
+        "collectorPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.NetworkFunction/azureTrafficCollectors/collectorPolicies"
+      ]
+    }
+  },
   "azurerm_network_interface": {
     "management_plane": {
       "scopes": [
@@ -10782,6 +10797,20 @@
       ]
     }
   },
+  "azurerm_resource_management_private_link_association": {
+    "management_plane": {
+      "scopes": [
+        "/Microsoft.Management/managementGroups"
+      ],
+      "provider": "Microsoft.Authorization",
+      "types": [
+        "privateLinkAssociations"
+      ],
+      "import_specs": [
+        "/Microsoft.Management/managementGroups/Microsoft.Authorization/privateLinkAssociations"
+      ]
+    }
+  },
   "azurerm_resource_policy_assignment": {
     "management_plane": {
       "scopes": [
@@ -12150,11 +12179,11 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "applicationAccelerators"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/applicationAccelerators"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/applicationAccelerators"
       ]
     }
   },
@@ -12429,12 +12458,12 @@
       ],
       "provider": "Microsoft.AppPlatform",
       "types": [
-        "Spring",
+        "spring",
         "applicationAccelerators",
         "customizedAccelerators"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AppPlatform/Spring/applicationAccelerators/customizedAccelerators"
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/applicationAccelerators/customizedAccelerators"
       ]
     }
   },
