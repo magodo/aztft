@@ -4925,6 +4925,20 @@
       ]
     }
   },
+  "azurerm_elastic_san": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ElasticSan",
+      "types": [
+        "elasticSans"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ElasticSan/elasticSans"
+      ]
+    }
+  },
   "azurerm_email_communication_service": {
     "management_plane": {
       "scopes": [
