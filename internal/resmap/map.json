@@ -1628,6 +1628,21 @@
       ]
     }
   },
+  "azurerm_automation_powershell72_module": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Automation",
+      "types": [
+        "automationAccounts",
+        "powerShell72Modules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/powerShell72Modules"
+      ]
+    }
+  },
   "azurerm_automation_python3_package": {
     "management_plane": {
       "scopes": [
@@ -3331,6 +3346,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DataFactory/factories"
+      ]
+    }
+  },
+  "azurerm_data_factory_credential_user_managed_identity": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataFactory",
+      "types": [
+        "factories",
+        "credentials"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/credentials"
       ]
     }
   },
