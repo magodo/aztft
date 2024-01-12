@@ -11331,6 +11331,20 @@
       ]
     }
   },
+  "azurerm_security_center_server_vulnerability_assessments_setting": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions"
+      ],
+      "provider": "Microsoft.Security",
+      "types": [
+        "serverVulnerabilityAssessmentsSettings"
+      ],
+      "import_specs": [
+        "/subscriptions/Microsoft.Security/serverVulnerabilityAssessmentsSettings"
+      ]
+    }
+  },
   "azurerm_security_center_setting": {
     "management_plane": {
       "scopes": [
