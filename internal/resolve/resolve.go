@@ -196,6 +196,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.SERVICELINKER/LINKERS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS/MICROSOFT.WEB/SITES": serviceConnectorAppServiceResolver{},
 	},
+	"/MICROSOFT.APPPLATFORM/SPRING/APMS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": springApmsResolver{},
+	},
 }
 
 type ResolveError struct {

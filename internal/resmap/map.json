@@ -12729,6 +12729,21 @@
       ]
     }
   },
+  "azurerm_spring_cloud_dynatrace_application_performance_monitoring": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AppPlatform",
+      "types": [
+        "spring",
+        "apms"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apms"
+      ]
+    }
+  },
   "azurerm_spring_cloud_gateway": {
     "management_plane": {
       "scopes": [
@@ -14671,6 +14686,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/networkWatchers/packetCaptures"
+      ]
+    }
+  },
+  "azurerm_virtual_machine_run_command": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Compute",
+      "types": [
+        "virtualMachines",
+        "runCommands"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/runCommands"
       ]
     }
   },
