@@ -988,10 +988,10 @@
       ],
       "provider": "Microsoft.Web",
       "types": [
-        "serverfarms"
+        "serverFarms"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Web/serverfarms"
+        "/subscriptions/resourceGroups/Microsoft.Web/serverFarms"
       ]
     }
   },
@@ -2508,6 +2508,17 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Cdn/profiles"
+      ]
+    }
+  },
+  "azurerm_chaos_studio_target": {
+    "management_plane": {
+      "scopes": [
+        "any"
+      ],
+      "provider": "Microsoft.Chaos",
+      "types": [
+        "targets"
       ]
     }
   },
@@ -4910,6 +4921,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.ElasticSan/elasticSans"
+      ]
+    }
+  },
+  "azurerm_elastic_san_volume_group": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ElasticSan",
+      "types": [
+        "elasticSans",
+        "volumeGroups"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ElasticSan/elasticSans/volumeGroups"
       ]
     }
   },
@@ -9231,6 +9257,20 @@
       ]
     }
   },
+  "azurerm_netapp_account_encryption": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.NetApp",
+      "types": [
+        "netAppAccounts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.NetApp/netAppAccounts"
+      ]
+    }
+  },
   "azurerm_netapp_pool": {
     "management_plane": {
       "scopes": [
@@ -10585,6 +10625,20 @@
       ]
     }
   },
+  "azurerm_redhatopenshift_cluster": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.RedHatOpenShift",
+      "types": [
+        "openShiftClusters"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.RedHatOpenShift/openShiftClusters"
+      ]
+    }
+  },
   "azurerm_redis_cache": {
     "management_plane": {
       "scopes": [
@@ -11717,10 +11771,10 @@
       ],
       "provider": "Microsoft.Web",
       "types": [
-        "serverfarms"
+        "serverFarms"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Web/serverfarms"
+        "/subscriptions/resourceGroups/Microsoft.Web/serverFarms"
       ]
     }
   },

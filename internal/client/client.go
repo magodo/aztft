@@ -4,6 +4,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/alertsmanagement/armalertsmanagement"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/apimanagement/armapimanagement"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/applicationinsights/armapplicationinsights"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appplatform/armappplatform"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice"
@@ -27,6 +28,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/logic/armlogic"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning/v3"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/monitor/armmonitor"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/netapp/armnetapp"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/operationalinsights/armoperationalinsights"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/paloaltonetworksngfw/armpanngfw"
@@ -610,6 +612,22 @@ func (b *ClientBuilder) NewPaloalToNetworkFirewallsClient(subscriptionId string)
 
 func (b *ClientBuilder) NewIothubsClient(subscriptionId string) (*armiothub.ResourceClient, error) {
 	return armiothub.NewResourceClient(
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewApiManagementApiClient(subscriptionId string) (*armapimanagement.APIClient, error) {
+	return armapimanagement.NewAPIClient(
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewNetAppAccountClient(subscriptionId string) (*armnetapp.AccountsClient, error) {
+	return armnetapp.NewAccountsClient(
 		subscriptionId,
 		b.Cred,
 		&b.ClientOpt,

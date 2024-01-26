@@ -65,6 +65,27 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	"azurerm_nat_gateway_public_ip_prefix_association":                               {caughtErr: ErrSyntheticId},
 	"azurerm_disk_pool_managed_disk_attachment":                                      {caughtErr: ErrSyntheticId},
 	"azurerm_disk_pool_iscsi_target_lun":                                             {caughtErr: ErrSyntheticId},
+	"azurerm_chaos_studio_target": {
+		caughtErr: ErrParseIdFailed,
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{resmap.ScopeAny},
+				Provider:     "Microsoft.Chaos",
+				Types:        []string{"targets"},
+			},
+		},
+	},
+	"azurerm_api_management_api": {
+		caughtErr: ErrSyntheticId,
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.ApiManagement",
+				Types:        []string{"service", "apis"},
+				ImportSpecs:  []string{"/subscriptions/resourceGroups/Microsoft.ApiManagement/service/apis"},
+			},
+		},
+	},
 
 	// Data plane only resources, we use pesudo resource id patterns
 	"azurerm_key_vault_managed_hardware_security_module_role_definition": {
