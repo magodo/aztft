@@ -50,8 +50,6 @@ type ClientBuilder struct {
 	ClientOpt arm.ClientOptions
 }
 
-var defaultBuilder *ClientBuilder
-
 func (b *ClientBuilder) NewVirtualMachinesClient(subscriptionId string) (*armcompute.VirtualMachinesClient, error) {
 	return armcompute.NewVirtualMachinesClient(
 		subscriptionId,
@@ -543,6 +541,16 @@ func (b *ClientBuilder) NewSiteRecoveryReplicationPoliciesClient(subscriptionId,
 
 func (b *ClientBuilder) NewSiteRecoveryReplicationFabricsClient(subscriptionId, resourceGroupName, vaultName string) (*armrecoveryservicessiterecovery.ReplicationFabricsClient, error) {
 	return armrecoveryservicessiterecovery.NewReplicationFabricsClient(
+		vaultName,
+		resourceGroupName,
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewSiteRecoveryReplicationProtectedItemsClient(subscriptionId, resourceGroupName, vaultName string) (*armrecoveryservicessiterecovery.ReplicationProtectedItemsClient, error) {
+	return armrecoveryservicessiterecovery.NewReplicationProtectedItemsClient(
 		vaultName,
 		resourceGroupName,
 		subscriptionId,

@@ -6593,6 +6593,21 @@
       ]
     }
   },
+  "azurerm_kubernetes_fleet_update_strategy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "ContainerService",
+      "types": [
+        "fleets",
+        "updateStrategies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/ContainerService/fleets/updateStrategies"
+      ]
+    }
+  },
   "azurerm_kubernetes_flux_configuration": {
     "management_plane": {
       "scopes": [
@@ -10805,7 +10820,7 @@
       ]
     }
   },
-  "azurerm_redhatopenshift_cluster": {
+  "azurerm_redhat_openshift_cluster": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -12398,6 +12413,23 @@
       ]
     }
   },
+  "azurerm_site_recovery_vmware_replicated_vm": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.RecoveryServices",
+      "types": [
+        "vaults",
+        "replicationFabrics",
+        "replicationProtectionContainers",
+        "replicationProtectedItems"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems"
+      ]
+    }
+  },
   "azurerm_site_recovery_vmware_replication_policy": {
     "management_plane": {
       "scopes": [
@@ -12799,6 +12831,21 @@
       ]
     }
   },
+  "azurerm_spring_cloud_elastic_application_performance_monitoring": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AppPlatform",
+      "types": [
+        "spring",
+        "apms"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apms"
+      ]
+    }
+  },
   "azurerm_spring_cloud_gateway": {
     "management_plane": {
       "scopes": [
@@ -12859,6 +12906,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps/deployments"
+      ]
+    }
+  },
+  "azurerm_spring_cloud_new_relic_application_performance_monitoring": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AppPlatform",
+      "types": [
+        "spring",
+        "apms"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apms"
       ]
     }
   },
