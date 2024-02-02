@@ -6604,7 +6604,7 @@
         "updateStrategies"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/ContainerService/fleets/updateStrategies"
+        "/subscriptions/resourceGroups/Microsoft.ContainerService/fleets/updateStrategies"
       ]
     }
   },
