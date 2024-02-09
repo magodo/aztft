@@ -2511,6 +2511,32 @@
       ]
     }
   },
+  "azurerm_chaos_studio_capability": {
+    "management_plane": {
+      "scopes": [
+        "any"
+      ],
+      "provider": "Microsoft.Chaos",
+      "types": [
+        "targets",
+        "capabilities"
+      ]
+    }
+  },
+  "azurerm_chaos_studio_experiment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Chaos",
+      "types": [
+        "experiments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Chaos/experiments"
+      ]
+    }
+  },
   "azurerm_chaos_studio_target": {
     "management_plane": {
       "scopes": [
@@ -4133,6 +4159,21 @@
       ]
     }
   },
+  "azurerm_data_protection_backup_policy_kubernetes_cluster": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataProtection",
+      "types": [
+        "backupVaults",
+        "backupPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataProtection/backupVaults/backupPolicies"
+      ]
+    }
+  },
   "azurerm_data_protection_backup_policy_postgresql": {
     "management_plane": {
       "scopes": [
@@ -4495,6 +4536,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DevCenter/devCenters"
+      ]
+    }
+  },
+  "azurerm_dev_center_gallery": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DevCenter",
+      "types": [
+        "devCenters",
+        "galleries"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DevCenter/devCenters/galleries"
       ]
     }
   },
@@ -6032,6 +6088,21 @@
       ]
     }
   },
+  "azurerm_iotcentral_organization": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.IoTCentral",
+      "types": [
+        "iotApps",
+        "organizations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.IoTCentral/iotApps/organizations"
+      ]
+    }
+  },
   "azurerm_iothub": {
     "management_plane": {
       "scopes": [
@@ -6530,18 +6601,33 @@
       ]
     }
   },
+  "azurerm_kubernetes_fleet_member": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ContainerService",
+      "types": [
+        "fleets",
+        "members"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ContainerService/fleets/members"
+      ]
+    }
+  },
   "azurerm_kubernetes_fleet_update_strategy": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "ContainerService",
+      "provider": "Microsoft.ContainerService",
       "types": [
         "fleets",
         "updateStrategies"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/ContainerService/fleets/updateStrategies"
+        "/subscriptions/resourceGroups/Microsoft.ContainerService/fleets/updateStrategies"
       ]
     }
   },
@@ -12420,6 +12506,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apps/bindings"
+      ]
+    }
+  },
+  "azurerm_spring_cloud_app_dynamics_application_performance_monitoring": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AppPlatform",
+      "types": [
+        "spring",
+        "apms"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/apms"
       ]
     }
   },

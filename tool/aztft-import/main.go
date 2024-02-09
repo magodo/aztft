@@ -75,6 +75,16 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 			},
 		},
 	},
+	"azurerm_chaos_studio_capability": {
+		caughtErr: ErrParseIdFailed,
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{resmap.ScopeAny},
+				Provider:     "Microsoft.Chaos",
+				Types:        []string{"targets", "capabilities"},
+			},
+		},
+	},
 	"azurerm_api_management_api": {
 		caughtErr: ErrSyntheticId,
 		mapItem: &resmap.TF2ARMIdMapItem{

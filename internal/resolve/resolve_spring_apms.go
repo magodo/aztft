@@ -16,6 +16,7 @@ func (springApmsResolver) ResourceTypes() []string {
 		"azurerm_spring_cloud_application_insights_application_performance_monitoring",
 		"azurerm_spring_cloud_new_relic_application_performance_monitoring",
 		"azurerm_spring_cloud_elastic_application_performance_monitoring",
+		"azurerm_spring_cloud_app_dynamics_application_performance_monitoring",
 	}
 }
 
@@ -53,6 +54,8 @@ func (springApmsResolver) Resolve(b *client.ClientBuilder, id armid.ResourceId) 
 		return "azurerm_spring_cloud_new_relic_application_performance_monitoring", nil
 	case "ApplicationInsights":
 		return "azurerm_spring_cloud_application_insights_application_performance_monitoring", nil
+	case "AppDynamics":
+		return "azurerm_spring_cloud_app_dynamics_application_performance_monitoring", nil
 	default:
 		return "", fmt.Errorf("unknown spring APM type: %s", typ)
 	}
