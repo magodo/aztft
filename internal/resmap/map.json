@@ -4570,6 +4570,21 @@
       ]
     }
   },
+  "azurerm_dev_center_catalog": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DevCenter",
+      "types": [
+        "devCenters",
+        "catalogs"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DevCenter/devCenters/catalogs"
+      ]
+    }
+  },
   "azurerm_dev_center_gallery": {
     "management_plane": {
       "scopes": [
@@ -14512,6 +14527,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Synapse/workspaces/vulnerabilityAssessments"
+      ]
+    }
+  },
+  "azurerm_system_center_virtual_machine_manager_server": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ScVmm",
+      "types": [
+        "vmmServers"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ScVmm/vmmServers"
       ]
     }
   },
