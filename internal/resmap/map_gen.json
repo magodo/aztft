@@ -6631,6 +6631,21 @@
       ]
     }
   },
+  "azurerm_kubernetes_fleet_update_run": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ContainerService",
+      "types": [
+        "fleets",
+        "updateRuns"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ContainerService/fleets/updateRuns"
+      ]
+    }
+  },
   "azurerm_kubernetes_fleet_update_strategy": {
     "management_plane": {
       "scopes": [
