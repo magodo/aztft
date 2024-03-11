@@ -43,6 +43,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/streamanalytics/armstreamanalytics"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/timeseriesinsights/armtimeseriesinsights"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/workloads/armworkloads"
 )
 
 type ClientBuilder struct {
@@ -636,6 +637,14 @@ func (b *ClientBuilder) NewApiManagementApiClient(subscriptionId string) (*armap
 
 func (b *ClientBuilder) NewNetAppAccountClient(subscriptionId string) (*armnetapp.AccountsClient, error) {
 	return armnetapp.NewAccountsClient(
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewWorkloadSAPVirtualInstanceClient(subscriptionId string) (*armworkloads.SAPVirtualInstancesClient, error) {
+	return armworkloads.NewSAPVirtualInstancesClient(
 		subscriptionId,
 		b.Cred,
 		&b.ClientOpt,

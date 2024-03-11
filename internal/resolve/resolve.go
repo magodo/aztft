@@ -202,6 +202,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.APPPLATFORM/SPRING/APMS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": springApmsResolver{},
 	},
+	"/MICROSOFT.WORKLOADS/SAPVIRTUALINSTANCES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": sapVirtualInstancesResolver{},
+	},
 }
 
 type ResolveError struct {
