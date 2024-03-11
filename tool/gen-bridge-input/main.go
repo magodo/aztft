@@ -41,10 +41,7 @@ var (
 func main() {
 	resmap.Init()
 	var rts []string
-	for rt, item := range resmap.TF2ARMIdMap {
-		if item.IsRemoved {
-			continue
-		}
+	for rt := range resmap.TF2ARMIdMap {
 		rts = append(rts, rt)
 	}
 	sort.Sort(sort.StringSlice(rts))
