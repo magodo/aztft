@@ -1392,12 +1392,12 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "Microsoft.Automanage",
+      "provider": "Microsoft.AutoManage",
       "types": [
         "configurationProfiles"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Automanage/configurationProfiles"
+        "/subscriptions/resourceGroups/Microsoft.AutoManage/configurationProfiles"
       ]
     }
   },
@@ -5022,6 +5022,22 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.ElasticSan/elasticSans"
+      ]
+    }
+  },
+  "azurerm_elastic_san_volume": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ElasticSan",
+      "types": [
+        "elasticSans",
+        "volumeGroups",
+        "volumes"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ElasticSan/elasticSans/volumeGroups/volumes"
       ]
     }
   },
@@ -13266,11 +13282,10 @@
       ],
       "provider": "Microsoft.Storage",
       "types": [
-        "storageAccounts",
-        "inventoryPolicies"
+        "storageAccounts"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Storage/storageAccounts/inventoryPolicies"
+        "/subscriptions/resourceGroups/Microsoft.Storage/storageAccounts"
       ]
     }
   },
