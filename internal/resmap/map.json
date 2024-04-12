@@ -1184,10 +1184,10 @@
       "provider": "Microsoft.Insights",
       "types": [
         "components",
-        "smartDetectionRule"
+        "proactiveDetectionConfig"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Insights/components/smartDetectionRule"
+        "/subscriptions/resourceGroups/Microsoft.Insights/components/proactiveDetectionConfig"
       ]
     }
   },
@@ -10092,21 +10092,6 @@
       ]
     }
   },
-  "azurerm_nginx_configuration": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Nginx.NginxPlus",
-      "types": [
-        "nginxDeployments",
-        "configurations"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Nginx.NginxPlus/nginxDeployments/configurations"
-      ]
-    }
-  },
   "azurerm_nginx_deployment": {
     "management_plane": {
       "scopes": [
@@ -11007,6 +10992,36 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Cache/redis"
+      ]
+    }
+  },
+  "azurerm_redis_cache_access_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Cache",
+      "types": [
+        "redis",
+        "accessPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Cache/redis/accessPolicies"
+      ]
+    }
+  },
+  "azurerm_redis_cache_access_policy_assignment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Cache",
+      "types": [
+        "redis",
+        "accessPolicyAssignments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Cache/redis/accessPolicyAssignments"
       ]
     }
   },
@@ -13403,6 +13418,21 @@
       ]
     }
   },
+  "azurerm_static_web_app_function_app_registration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Web",
+      "types": [
+        "staticSites",
+        "userProvidedFunctionApps"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Web/staticSites/userProvidedFunctionApps"
+      ]
+    }
+  },
   "azurerm_storage_account": {
     "management_plane": {
       "scopes": [
@@ -15631,6 +15661,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/networkInterfaces/ipConfigurations"
+      ]
+    }
+  },
+  "azurerm_workloads_sap_discovery_virtual_instance": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Workloads",
+      "types": [
+        "sapVirtualInstances"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Workloads/sapVirtualInstances"
       ]
     }
   },

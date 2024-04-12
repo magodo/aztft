@@ -15,6 +15,7 @@ func (sapVirtualInstancesResolver) ResourceTypes() []string {
 	return []string{
 		"azurerm_workloads_sap_single_node_virtual_instance",
 		"azurerm_workloads_sap_three_tier_virtual_instance",
+		"azurerm_workloads_sap_discovery_virtual_instance",
 	}
 }
 
@@ -36,20 +37,24 @@ func (sapVirtualInstancesResolver) Resolve(b *client.ClientBuilder, id armid.Res
 	if configRaw == nil {
 		return "", fmt.Errorf("unexpected nil Configuration in response")
 	}
-	config, ok := configRaw.(*armworkloads.DeploymentWithOSConfiguration)
-	if !ok {
-		return "", fmt.Errorf("unexpected Configuration type in response, got=%T", configRaw)
-	}
-	infraConfigRaw := config.InfrastructureConfiguration
-	if infraConfigRaw == nil {
-		return "", fmt.Errorf("unexpected nil Configuration.InfrastructureConfiguration in response")
-	}
-	switch infraConfigRaw.(type) {
-	case *armworkloads.SingleServerConfiguration:
-		return "azurerm_workloads_sap_single_node_virtual_instance", nil
-	case *armworkloads.ThreeTierConfiguration:
-		return "azurerm_workloads_sap_three_tier_virtual_instance", nil
+	switch config := configRaw.(type) {
+	case *armworkloads.DiscoveryConfiguration:
+		return "azurerm_workloads_sap_discovery_virtual_instance", nil
+
+	case *armworkloads.DeploymentWithOSConfiguration:
+		infraConfigRaw := config.InfrastructureConfiguration
+		if infraConfigRaw == nil {
+			return "", fmt.Errorf("unexpected nil Configuration.InfrastructureConfiguration in response")
+		}
+		switch infraConfigRaw.(type) {
+		case *armworkloads.SingleServerConfiguration:
+			return "azurerm_workloads_sap_single_node_virtual_instance", nil
+		case *armworkloads.ThreeTierConfiguration:
+			return "azurerm_workloads_sap_three_tier_virtual_instance", nil
+		default:
+			return "", fmt.Errorf("unexpected Configuration.InfrastructureConfiguration type in response, got=%T", infraConfigRaw)
+		}
 	default:
-		return "", fmt.Errorf("unexpected Configuration.InfrastructureConfiguration type in response, got=%T", infraConfigRaw)
+		return "", fmt.Errorf("unexpected Configuration type in response, got=%T", configRaw)
 	}
 }
