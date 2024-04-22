@@ -1167,10 +1167,10 @@
       "provider": "Microsoft.Insights",
       "types": [
         "components",
-        "proactiveDetectionConfig"
+        "proactiveDetectionConfigs"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Insights/components/proactiveDetectionConfig"
+        "/subscriptions/resourceGroups/Microsoft.Insights/components/proactiveDetectionConfigs"
       ]
     }
   },
