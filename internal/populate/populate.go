@@ -22,6 +22,7 @@ var populaters = map[string]populateFunc{
 	"azurerm_logic_app_workflow":        populateLogicAppWorkflow,
 	"azurerm_iothub":                    populateIotHub,
 	"azurerm_netapp_account":            populateNetAppAccount,
+	"azurerm_lb":                        populateLoadBalancer,
 }
 
 func NeedsAPI(rt string) bool {

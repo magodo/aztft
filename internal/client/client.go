@@ -490,6 +490,14 @@ func (b *ClientBuilder) NewNetworkManagementDeploymentStatusClient(subscriptionI
 	)
 }
 
+func (b *ClientBuilder) NewNetworkLoadBalancersClient(subscriptionId string) (*armnetwork.LoadBalancersClient, error) {
+	return armnetwork.NewLoadBalancersClient(
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewFrontdoorPoliciesClient(subscriptionId string) (*armfrontdoor.PoliciesClient, error) {
 	return armfrontdoor.NewPoliciesClient(
 		subscriptionId,
