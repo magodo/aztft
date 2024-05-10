@@ -53,6 +53,7 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	"azurerm_app_service_source_control_token":                        {caughtErr: ErrParseIdFailed},
 	"azurerm_private_endpoint_application_security_group_association": {caughtErr: ErrSyntheticId},
 	"azurerm_management_group_subscription_association":               {caughtErr: ErrParseIdFailed},
+	"azurerm_virtual_machine_gallery_application_assignment":          {caughtErr: ErrSyntheticId},
 
 	// (supported)
 	"azurerm_network_interface_security_group_association":                           {caughtErr: ErrSyntheticId},

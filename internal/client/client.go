@@ -5,6 +5,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/alertsmanagement/armalertsmanagement"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/apimanagement/armapimanagement"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appcontainers/armappcontainers/v3"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/applicationinsights/armapplicationinsights"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appplatform/armappplatform"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appservice/armappservice"
@@ -13,7 +14,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/cdn/armcdn"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/costmanagement/armcostmanagement/v2"
-	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datafactory/armdatafactory"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datafactory/armdatafactory/v7"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/dataprotection/armdataprotection"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/datashare/armdatashare"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/desktopvirtualization/armdesktopvirtualization"
@@ -157,6 +158,14 @@ func (b *ClientBuilder) NewDataFactoryLinkedServicesClient(subscriptionId string
 
 func (b *ClientBuilder) NewDataFactoryIntegrationRuntimesClient(subscriptionId string) (*armdatafactory.IntegrationRuntimesClient, error) {
 	return armdatafactory.NewIntegrationRuntimesClient(
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewDataFactoryCredentialsClient(subscriptionId string) (*armdatafactory.CredentialOperationsClient, error) {
+	return armdatafactory.NewCredentialOperationsClient(
 		subscriptionId,
 		b.Cred,
 		&b.ClientOpt,
@@ -653,6 +662,14 @@ func (b *ClientBuilder) NewNetAppAccountClient(subscriptionId string) (*armnetap
 
 func (b *ClientBuilder) NewWorkloadSAPVirtualInstanceClient(subscriptionId string) (*armworkloads.SAPVirtualInstancesClient, error) {
 	return armworkloads.NewSAPVirtualInstancesClient(
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewContainerAppEnvironmentsClient(subscriptionId string) (*armappcontainers.ManagedEnvironmentsClient, error) {
+	return armappcontainers.NewManagedEnvironmentsClient(
 		subscriptionId,
 		b.Cred,
 		&b.ClientOpt,
