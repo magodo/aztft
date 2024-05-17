@@ -105,6 +105,9 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	"azurerm_key_vault_managed_hardware_security_module_role_assignment": {
 		caughtErr: ErrDataPlaneId,
 	},
+	"azurerm_key_vault_managed_hardware_security_module_key": {
+		caughtErr: ErrDataPlaneId,
+	},
 	"azurerm_key_vault_certificate": {
 		mapItem: &resmap.TF2ARMIdMapItem{
 			ManagementPlane: &resmap.MapManagementPlane{
