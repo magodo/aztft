@@ -668,6 +668,21 @@
       ]
     }
   },
+  "azurerm_api_management_policy_fragment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ApiManagement",
+      "types": [
+        "service",
+        "policyFragments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/policyFragments"
+      ]
+    }
+  },
   "azurerm_api_management_product": {
     "management_plane": {
       "scopes": [
