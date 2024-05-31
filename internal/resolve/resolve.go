@@ -208,6 +208,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.WORKLOADS/SAPVIRTUALINSTANCES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": sapVirtualInstancesResolver{},
 	},
+	"/MICROSOFT.COMPUTE/VIRTUALMACHINES/DATADISKS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": virutalMachineDataDiskResolver{},
+	},
 }
 
 type ResolveError struct {

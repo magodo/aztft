@@ -2850,6 +2850,21 @@
       ]
     }
   },
+  "azurerm_container_registry_cache_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ContainerRegistry",
+      "types": [
+        "registries",
+        "cacheRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ContainerRegistry/registries/cacheRules"
+      ]
+    }
+  },
   "azurerm_container_registry_scope_map": {
     "management_plane": {
       "scopes": [
@@ -14963,6 +14978,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/extensions"
+      ]
+    }
+  },
+  "azurerm_virtual_machine_implicit_data_disk_from_source": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Compute",
+      "types": [
+        "virtualMachines",
+        "dataDisks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/dataDisks"
       ]
     }
   },
