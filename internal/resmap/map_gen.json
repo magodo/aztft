@@ -4292,6 +4292,21 @@
       ]
     }
   },
+  "azurerm_data_protection_backup_policy_postgresql_flexible_server": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataProtection",
+      "types": [
+        "backupVaults",
+        "backupPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataProtection/backupVaults/backupPolicies"
+      ]
+    }
+  },
   "azurerm_data_protection_backup_vault": {
     "management_plane": {
       "scopes": [
@@ -9997,6 +10012,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Nginx.NginxPlus/nginxDeployments/certificates"
+      ]
+    }
+  },
+  "azurerm_nginx_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Nginx.NginxPlus",
+      "types": [
+        "nginxDeployments",
+        "configurations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Nginx.NginxPlus/nginxDeployments/configurations"
       ]
     }
   },
