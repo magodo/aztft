@@ -459,6 +459,18 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrSyntheticId,
 	},
+	"azurerm_role_management_policy": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{resmap.ScopeAny},
+				Provider:     "Microsoft.Authorization",
+				Types: []string{
+					"roleManagementPolicies",
+				},
+			},
+		},
+		caughtErr: ErrSyntheticId,
+	},
 }
 
 const usage = `aztft-generate-static <provider root dir>`

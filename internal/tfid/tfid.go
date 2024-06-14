@@ -194,6 +194,9 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 			return "", fmt.Errorf("normalizing id %q for %q with import spec %q: %v", pid.String(), rt, importSpec, err)
 		}
 		return pid.String(), nil
+	case "azurerm_role_management_policy":
+		parentScopeId := id.ParentScope()
+		return id.String() + "|" + parentScopeId.String(), nil
 	}
 
 	if importSpec != "" {
