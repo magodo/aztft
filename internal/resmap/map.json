@@ -11481,6 +11481,20 @@
       ]
     }
   },
+  "azurerm_role_management_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions"
+      ],
+      "provider": "Microsoft.Authorization",
+      "types": [
+        "roleManagementPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/Microsoft.Authorization/roleManagementPolicies"
+      ]
+    }
+  },
   "azurerm_route": {
     "management_plane": {
       "scopes": [
