@@ -235,6 +235,14 @@ func (b *ClientBuilder) NewAutomationVariableClient(subscriptionId string) (*arm
 	)
 }
 
+func (b *ClientBuilder) NewAutomationJobScheduleClient(subscriptionId string) (*armautomation.JobScheduleClient, error) {
+	return armautomation.NewJobScheduleClient(
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewBotServiceBotsClient(subscriptionId string) (*armbotservice.BotsClient, error) {
 	return armbotservice.NewBotsClient(
 		subscriptionId,

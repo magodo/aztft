@@ -471,6 +471,19 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrSyntheticId,
 	},
+	"azurerm_automation_job_schedule": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Automation",
+				Types: []string{
+					"automationAccounts",
+					"jobSchedules",
+				},
+			},
+		},
+		caughtErr: ErrSyntheticId,
+	},
 }
 
 const usage = `aztft-generate-static <provider root dir>`

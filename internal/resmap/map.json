@@ -4258,6 +4258,21 @@
       ]
     }
   },
+  "azurerm_data_protection_backup_instance_postgresql_flexible_server": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataProtection",
+      "types": [
+        "backupVaults",
+        "backupInstances"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataProtection/backupVaults/backupInstances"
+      ]
+    }
+  },
   "azurerm_data_protection_backup_policy_blob_storage": {
     "management_plane": {
       "scopes": [
@@ -5212,6 +5227,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Communication/emailServices"
+      ]
+    }
+  },
+  "azurerm_email_communication_service_domain": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Communication",
+      "types": [
+        "emailServices",
+        "domains"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Communication/emailServices/domains"
       ]
     }
   },
@@ -11492,6 +11522,17 @@
       ]
     }
   },
+  "azurerm_role_management_policy": {
+    "management_plane": {
+      "scopes": [
+        "any"
+      ],
+      "provider": "Microsoft.Authorization",
+      "types": [
+        "roleManagementPolicies"
+      ]
+    }
+  },
   "azurerm_route": {
     "management_plane": {
       "scopes": [
@@ -14830,6 +14871,20 @@
       ]
     }
   },
+  "azurerm_system_center_virtual_machine_manager_cloud": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ScVmm",
+      "types": [
+        "clouds"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ScVmm/clouds"
+      ]
+    }
+  },
   "azurerm_system_center_virtual_machine_manager_server": {
     "management_plane": {
       "scopes": [
@@ -14841,6 +14896,34 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.ScVmm/vmmServers"
+      ]
+    }
+  },
+  "azurerm_system_center_virtual_machine_manager_virtual_machine_template": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ScVmm",
+      "types": [
+        "virtualMachineTemplates"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ScVmm/virtualMachineTemplates"
+      ]
+    }
+  },
+  "azurerm_system_center_virtual_machine_manager_virtual_network": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ScVmm",
+      "types": [
+        "virtualNetworks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ScVmm/virtualNetworks"
       ]
     }
   },
