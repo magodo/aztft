@@ -11311,6 +11311,20 @@
       ]
     }
   },
+  "azurerm_restore_point_collection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Compute",
+      "types": [
+        "restorePointCollections"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Compute/restorePointCollections"
+      ]
+    }
+  },
   "azurerm_role_assignment": {
     "management_plane": {
       "scopes": [
