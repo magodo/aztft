@@ -4719,6 +4719,36 @@
       ]
     }
   },
+  "azurerm_dev_center_dev_box_definition": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DevCenter",
+      "types": [
+        "devCenters",
+        "devBoxDefinitions"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DevCenter/devCenters/devBoxDefinitions"
+      ]
+    }
+  },
+  "azurerm_dev_center_environment_type": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DevCenter",
+      "types": [
+        "devCenters",
+        "environmentTypes"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DevCenter/devCenters/environmentTypes"
+      ]
+    }
+  },
   "azurerm_dev_center_gallery": {
     "management_plane": {
       "scopes": [
@@ -11489,20 +11519,6 @@
       ]
     }
   },
-  "azurerm_restore_point_collection": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Compute",
-      "types": [
-        "restorePointCollections"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Compute/restorePointCollections"
-      ]
-    }
-  },
   "azurerm_role_assignment": {
     "management_plane": {
       "scopes": [
@@ -15359,6 +15375,35 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/networkWatchers/packetCaptures"
+      ]
+    }
+  },
+  "azurerm_virtual_machine_restore_point": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Compute",
+      "types": [
+        "restorePointCollections",
+        "restorePoints"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Compute/restorePointCollections/restorePoints"
+      ]
+    }
+  },
+  "azurerm_virtual_machine_restore_point_collection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Compute",
+      "types": [
+        "restorePointCollections"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Compute/restorePointCollections"
       ]
     }
   },
