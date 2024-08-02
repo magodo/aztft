@@ -4729,6 +4729,20 @@
       ]
     }
   },
+  "azurerm_dev_center_network_connection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DevCenter",
+      "types": [
+        "networkConnections"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DevCenter/networkConnections"
+      ]
+    }
+  },
   "azurerm_dev_center_project": {
     "management_plane": {
       "scopes": [
@@ -13343,6 +13357,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AzureStackHCI/clusters"
+      ]
+    }
+  },
+  "azurerm_stack_hci_logical_network": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AzureStackHCI",
+      "types": [
+        "logicalNetworks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AzureStackHCI/logicalNetworks"
       ]
     }
   },
