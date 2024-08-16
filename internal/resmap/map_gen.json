@@ -72,6 +72,20 @@
       ]
     }
   },
+  "azurerm_ai_services": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.CognitiveServices",
+      "types": [
+        "accounts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.CognitiveServices/accounts"
+      ]
+    }
+  },
   "azurerm_analysis_services_server": {
     "management_plane": {
       "scopes": [
@@ -4757,6 +4771,21 @@
       ]
     }
   },
+  "azurerm_dev_center_project_environment_type": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DevCenter",
+      "types": [
+        "projects",
+        "environmentTypes"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DevCenter/projects/environmentTypes"
+      ]
+    }
+  },
   "azurerm_dev_test_global_vm_shutdown_schedule": {
     "management_plane": {
       "scopes": [
@@ -5564,6 +5593,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/expressRoutePorts/authorizations"
+      ]
+    }
+  },
+  "azurerm_extended_location_custom_location": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ExtendedLocation",
+      "types": [
+        "customLocations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ExtendedLocation/customLocations"
       ]
     }
   },

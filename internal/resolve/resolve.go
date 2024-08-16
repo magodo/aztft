@@ -211,6 +211,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.COMPUTE/VIRTUALMACHINES/DATADISKS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": virutalMachineDataDiskResolver{},
 	},
+	"/MICROSOFT.COGNITIVESERVICES/ACCOUNTS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": cognitiveAccountsResolver{},
+	},
 }
 
 type ResolveError struct {
