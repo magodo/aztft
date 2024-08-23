@@ -9990,13 +9990,13 @@
       "scopes": [
         "/subscriptions/resourceGroups"
       ],
-      "provider": "Microsoft.DBForPostgreSql",
+      "provider": "Microsoft.DBforPostgreSQL",
       "types": [
         "flexibleServers",
-        "virtualendpoints"
+        "virtualEndpoints"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBForPostgreSql/flexibleServers/virtualendpoints"
+        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/flexibleServers/virtualEndpoints"
       ]
     }
   },
