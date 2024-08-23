@@ -952,20 +952,6 @@
       ]
     }
   },
-  "azurerm_app_service_environment": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "hostingEnvironments"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Web/hostingEnvironments"
-      ]
-    }
-  },
   "azurerm_app_service_environment_v3": {
     "management_plane": {
       "scopes": [
@@ -2445,23 +2431,6 @@
       ]
     }
   },
-  "azurerm_cdn_frontdoor_route_disable_link_to_default_domain": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Cdn",
-      "types": [
-        "profiles",
-        "afdEndpoints",
-        "routes",
-        "disableLinkToDefaultDomain"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Cdn/profiles/afdEndpoints/routes/disableLinkToDefaultDomain"
-      ]
-    }
-  },
   "azurerm_cdn_frontdoor_rule": {
     "management_plane": {
       "scopes": [
@@ -3118,21 +3087,6 @@
       ]
     }
   },
-  "azurerm_cosmosdb_notebook_workspace": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DocumentDB",
-      "types": [
-        "databaseAccounts",
-        "notebookWorkspaces"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces"
-      ]
-    }
-  },
   "azurerm_cosmosdb_postgresql_cluster": {
     "management_plane": {
       "scopes": [
@@ -3402,20 +3356,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.CustomProviders/resourceProviders"
-      ]
-    }
-  },
-  "azurerm_dashboard": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Portal",
-      "types": [
-        "dashboards"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Portal/dashboards"
       ]
     }
   },
@@ -3718,21 +3658,6 @@
     }
   },
   "azurerm_data_factory_integration_runtime_azure_ssis": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DataFactory",
-      "types": [
-        "factories",
-        "integrationruntimes"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/integrationruntimes"
-      ]
-    }
-  },
-  "azurerm_data_factory_integration_runtime_managed": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -4497,20 +4422,6 @@
       ]
     }
   },
-  "azurerm_databox_edge_order": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DataBoxEdge",
-      "types": [
-        "dataBoxEdgeDevices"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DataBoxEdge/dataBoxEdgeDevices"
-      ]
-    }
-  },
   "azurerm_databricks_access_connector": {
     "management_plane": {
       "scopes": [
@@ -4541,20 +4452,6 @@
     }
   },
   "azurerm_databricks_workspace": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Databricks",
-      "types": [
-        "workspaces"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Databricks/workspaces"
-      ]
-    }
-  },
-  "azurerm_databricks_workspace_customer_managed_key": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -4989,35 +4886,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Compute/diskEncryptionSets"
-      ]
-    }
-  },
-  "azurerm_disk_pool": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.StoragePool",
-      "types": [
-        "diskPools"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StoragePool/diskPools"
-      ]
-    }
-  },
-  "azurerm_disk_pool_iscsi_target": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.StoragePool",
-      "types": [
-        "diskPools",
-        "iscsiTargets"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StoragePool/diskPools/iscsiTargets"
       ]
     }
   },
@@ -5904,20 +5772,6 @@
       ]
     }
   },
-  "azurerm_graph_account": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.GraphServices",
-      "types": [
-        "accounts"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.GraphServices/accounts"
-      ]
-    }
-  },
   "azurerm_graph_services_account": {
     "management_plane": {
       "scopes": [
@@ -6193,20 +6047,6 @@
       ]
     }
   },
-  "azurerm_integration_service_environment": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Logic",
-      "types": [
-        "integrationServiceEnvironments"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Logic/integrationServiceEnvironments"
-      ]
-    }
-  },
   "azurerm_iot_security_device_group": {
     "management_plane": {
       "scopes": [
@@ -6232,94 +6072,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Security/iotSecuritySolutions"
-      ]
-    }
-  },
-  "azurerm_iot_time_series_insights_access_policy": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.TimeSeriesInsights",
-      "types": [
-        "environments",
-        "accessPolicies"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.TimeSeriesInsights/environments/accessPolicies"
-      ]
-    }
-  },
-  "azurerm_iot_time_series_insights_event_source_eventhub": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.TimeSeriesInsights",
-      "types": [
-        "environments",
-        "eventSources"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.TimeSeriesInsights/environments/eventSources"
-      ]
-    }
-  },
-  "azurerm_iot_time_series_insights_event_source_iothub": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.TimeSeriesInsights",
-      "types": [
-        "environments",
-        "eventSources"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.TimeSeriesInsights/environments/eventSources"
-      ]
-    }
-  },
-  "azurerm_iot_time_series_insights_gen2_environment": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.TimeSeriesInsights",
-      "types": [
-        "environments"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.TimeSeriesInsights/environments"
-      ]
-    }
-  },
-  "azurerm_iot_time_series_insights_reference_data_set": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.TimeSeriesInsights",
-      "types": [
-        "environments",
-        "referenceDataSets"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.TimeSeriesInsights/environments/referenceDataSets"
-      ]
-    }
-  },
-  "azurerm_iot_time_series_insights_standard_environment": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.TimeSeriesInsights",
-      "types": [
-        "environments"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.TimeSeriesInsights/environments"
       ]
     }
   },
@@ -7107,64 +6859,6 @@
       ]
     }
   },
-  "azurerm_lab_service_lab": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.LabServices",
-      "types": [
-        "labs"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.LabServices/labs"
-      ]
-    }
-  },
-  "azurerm_lab_service_plan": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.LabServices",
-      "types": [
-        "labPlans"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.LabServices/labPlans"
-      ]
-    }
-  },
-  "azurerm_lab_service_schedule": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.LabServices",
-      "types": [
-        "labs",
-        "schedules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.LabServices/labs/schedules"
-      ]
-    }
-  },
-  "azurerm_lab_service_user": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.LabServices",
-      "types": [
-        "labs",
-        "users"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.LabServices/labs/users"
-      ]
-    }
-  },
   "azurerm_lb": {
     "management_plane": {
       "scopes": [
@@ -7854,66 +7548,6 @@
       ]
     }
   },
-  "azurerm_logz_monitor": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Logz",
-      "types": [
-        "monitors"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Logz/monitors"
-      ]
-    }
-  },
-  "azurerm_logz_sub_account": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Logz",
-      "types": [
-        "monitors",
-        "accounts"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Logz/monitors/accounts"
-      ]
-    }
-  },
-  "azurerm_logz_sub_account_tag_rule": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Logz",
-      "types": [
-        "monitors",
-        "accounts",
-        "tagRules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Logz/monitors/accounts/tagRules"
-      ]
-    }
-  },
-  "azurerm_logz_tag_rule": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Logz",
-      "types": [
-        "monitors",
-        "tagRules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Logz/monitors/tagRules"
-      ]
-    }
-  },
   "azurerm_machine_learning_compute_cluster": {
     "management_plane": {
       "scopes": [
@@ -8280,80 +7914,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Maps/accounts/creators"
-      ]
-    }
-  },
-  "azurerm_mariadb_configuration": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforMariaDB",
-      "types": [
-        "servers",
-        "configurations"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforMariaDB/servers/configurations"
-      ]
-    }
-  },
-  "azurerm_mariadb_database": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforMariaDB",
-      "types": [
-        "servers",
-        "databases"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforMariaDB/servers/databases"
-      ]
-    }
-  },
-  "azurerm_mariadb_firewall_rule": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforMariaDB",
-      "types": [
-        "servers",
-        "firewallRules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforMariaDB/servers/firewallRules"
-      ]
-    }
-  },
-  "azurerm_mariadb_server": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforMariaDB",
-      "types": [
-        "servers"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforMariaDB/servers"
-      ]
-    }
-  },
-  "azurerm_mariadb_virtual_network_rule": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforMariaDB",
-      "types": [
-        "servers",
-        "virtualNetworkRules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforMariaDB/servers/virtualNetworkRules"
       ]
     }
   },
@@ -8760,34 +8320,6 @@
       ]
     }
   },
-  "azurerm_monitor_action_rule_action_group": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.AlertsManagement",
-      "types": [
-        "actionRules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AlertsManagement/actionRules"
-      ]
-    }
-  },
-  "azurerm_monitor_action_rule_suppression": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.AlertsManagement",
-      "types": [
-        "actionRules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.AlertsManagement/actionRules"
-      ]
-    }
-  },
   "azurerm_monitor_activity_log_alert": {
     "management_plane": {
       "scopes": [
@@ -8908,20 +8440,6 @@
       "provider": "Microsoft.Insights",
       "types": [
         "diagnosticSettings"
-      ]
-    }
-  },
-  "azurerm_monitor_log_profile": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions"
-      ],
-      "provider": "Microsoft.Insights",
-      "types": [
-        "logProfiles"
-      ],
-      "import_specs": [
-        "/subscriptions/Microsoft.Insights/logProfiles"
       ]
     }
   },
@@ -9444,66 +8962,6 @@
       ]
     }
   },
-  "azurerm_mysql_active_directory_administrator": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforMySQL",
-      "types": [
-        "servers",
-        "administrators"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforMySQL/servers/administrators"
-      ]
-    }
-  },
-  "azurerm_mysql_configuration": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforMySQL",
-      "types": [
-        "servers",
-        "configurations"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforMySQL/servers/configurations"
-      ]
-    }
-  },
-  "azurerm_mysql_database": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforMySQL",
-      "types": [
-        "servers",
-        "databases"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforMySQL/servers/databases"
-      ]
-    }
-  },
-  "azurerm_mysql_firewall_rule": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforMySQL",
-      "types": [
-        "servers",
-        "firewallRules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforMySQL/servers/firewallRules"
-      ]
-    }
-  },
   "azurerm_mysql_flexible_database": {
     "management_plane": {
       "scopes": [
@@ -9575,50 +9033,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DBforMySQL/flexibleServers/firewallRules"
-      ]
-    }
-  },
-  "azurerm_mysql_server": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforMySQL",
-      "types": [
-        "servers"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforMySQL/servers"
-      ]
-    }
-  },
-  "azurerm_mysql_server_key": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforMySQL",
-      "types": [
-        "servers",
-        "keys"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforMySQL/servers/keys"
-      ]
-    }
-  },
-  "azurerm_mysql_virtual_network_rule": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforMySQL",
-      "types": [
-        "servers",
-        "virtualNetworkRules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforMySQL/servers/virtualNetworkRules"
       ]
     }
   },
@@ -9995,21 +9409,6 @@
       ],
       "import_specs": [
         "/subscriptions/Microsoft.Network/networkManagerConnections"
-      ]
-    }
-  },
-  "azurerm_network_packet_capture": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Network",
-      "types": [
-        "networkWatchers",
-        "packetCaptures"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Network/networkWatchers/packetCaptures"
       ]
     }
   },
@@ -10622,6 +10021,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/flexibleServers/firewallRules"
+      ]
+    }
+  },
+  "azurerm_postgresql_flexible_server_virtual_endpoint": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DBForPostgreSql",
+      "types": [
+        "flexibleServers",
+        "virtualendpoints"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DBForPostgreSql/flexibleServers/virtualendpoints"
       ]
     }
   },
@@ -11620,22 +11034,6 @@
       ]
     }
   },
-  "azurerm_security_center_server_vulnerability_assessment": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines",
-        "/subscriptions/resourceGroups/Microsoft.HybridCompute/machines"
-      ],
-      "provider": "Microsoft.Security",
-      "types": [
-        "serverVulnerabilityAssessments"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/Microsoft.Security/serverVulnerabilityAssessments",
-        "/subscriptions/resourceGroups/Microsoft.HybridCompute/machines/Microsoft.Security/serverVulnerabilityAssessments"
-      ]
-    }
-  },
   "azurerm_security_center_server_vulnerability_assessment_virtual_machine": {
     "management_plane": {
       "scopes": [
@@ -12253,20 +11651,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs"
-      ]
-    }
-  },
-  "azurerm_servicebus_namespace_network_rule_set": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.ServiceBus",
-      "types": [
-        "namespaces"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.ServiceBus/namespaces"
       ]
     }
   },
@@ -13209,169 +12593,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AppPlatform/spring/storages"
-      ]
-    }
-  },
-  "azurerm_sql_active_directory_administrator": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Sql",
-      "types": [
-        "servers",
-        "administrators"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Sql/servers/administrators"
-      ]
-    }
-  },
-  "azurerm_sql_database": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Sql",
-      "types": [
-        "servers",
-        "databases"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Sql/servers/databases"
-      ]
-    }
-  },
-  "azurerm_sql_elasticpool": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Sql",
-      "types": [
-        "servers",
-        "elasticPools"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Sql/servers/elasticPools"
-      ]
-    }
-  },
-  "azurerm_sql_failover_group": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Sql",
-      "types": [
-        "servers",
-        "failoverGroups"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Sql/servers/failoverGroups"
-      ]
-    }
-  },
-  "azurerm_sql_firewall_rule": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Sql",
-      "types": [
-        "servers",
-        "firewallRules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Sql/servers/firewallRules"
-      ]
-    }
-  },
-  "azurerm_sql_managed_database": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Sql",
-      "types": [
-        "managedInstances",
-        "databases"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Sql/managedInstances/databases"
-      ]
-    }
-  },
-  "azurerm_sql_managed_instance": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Sql",
-      "types": [
-        "managedInstances"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Sql/managedInstances"
-      ]
-    }
-  },
-  "azurerm_sql_managed_instance_active_directory_administrator": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Sql",
-      "types": [
-        "managedInstances",
-        "administrators"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Sql/managedInstances/administrators"
-      ]
-    }
-  },
-  "azurerm_sql_managed_instance_failover_group": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Sql",
-      "types": [
-        "locations",
-        "instanceFailoverGroups"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Sql/locations/instanceFailoverGroups"
-      ]
-    }
-  },
-  "azurerm_sql_server": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Sql",
-      "types": [
-        "servers"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Sql/servers"
-      ]
-    }
-  },
-  "azurerm_sql_virtual_network_rule": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Sql",
-      "types": [
-        "servers",
-        "virtualNetworkRules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Sql/servers/virtualNetworkRules"
       ]
     }
   },
@@ -14897,35 +14118,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.ManagedIdentity/userAssignedIdentities"
-      ]
-    }
-  },
-  "azurerm_video_analyzer": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Media",
-      "types": [
-        "videoAnalyzers"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/videoAnalyzers"
-      ]
-    }
-  },
-  "azurerm_video_analyzer_edge_module": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Media",
-      "types": [
-        "videoAnalyzers",
-        "edgeModules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Media/videoAnalyzers/edgeModules"
       ]
     }
   },

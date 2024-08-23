@@ -66,8 +66,6 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	"azurerm_network_interface_nat_rule_association":                                 {caughtErr: ErrSyntheticId},
 	"azurerm_network_interface_backend_address_pool_association":                     {caughtErr: ErrSyntheticId},
 	"azurerm_nat_gateway_public_ip_prefix_association":                               {caughtErr: ErrSyntheticId},
-	"azurerm_disk_pool_managed_disk_attachment":                                      {caughtErr: ErrSyntheticId},
-	"azurerm_disk_pool_iscsi_target_lun":                                             {caughtErr: ErrSyntheticId},
 	"azurerm_chaos_studio_target": {
 		caughtErr: ErrParseIdFailed,
 		mapItem: &resmap.TF2ARMIdMapItem{
@@ -240,23 +238,6 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 				Provider:     "Microsoft.KeyVault",
 				Types:        []string{"vaults", "objectId"},
 				ImportSpecs:  []string{"/subscriptions/resourceGroups/Microsoft.KeyVault/vaults/objectId"},
-			},
-		},
-		caughtErr: ErrDuplicateImportSpec,
-	},
-	"azurerm_security_center_server_vulnerability_assessment": {
-		mapItem: &resmap.TF2ARMIdMapItem{
-			ManagementPlane: &resmap.MapManagementPlane{
-				ParentScopes: []string{
-					"/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines",
-					"/subscriptions/resourceGroups/Microsoft.HybridCompute/machines",
-				},
-				Provider: "Microsoft.Security",
-				Types:    []string{"serverVulnerabilityAssessments"},
-				ImportSpecs: []string{
-					"/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/Microsoft.Security/serverVulnerabilityAssessments",
-					"/subscriptions/resourceGroups/Microsoft.HybridCompute/machines/Microsoft.Security/serverVulnerabilityAssessments",
-				},
 			},
 		},
 		caughtErr: ErrDuplicateImportSpec,

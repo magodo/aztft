@@ -16,8 +16,6 @@ import (
 // The property like resources from map.json that have pesudo Azure resource ID defined
 // The list is from: tfid.go:StaticBuild()
 var propertyLikeRTs = map[string]bool{
-	"azurerm_disk_pool_iscsi_target_lun":                                             true,
-	"azurerm_disk_pool_managed_disk_attachment":                                      true,
 	"azurerm_nat_gateway_public_ip_association":                                      true,
 	"azurerm_nat_gateway_public_ip_prefix_association":                               true,
 	"azurerm_network_interface_application_gateway_backend_address_pool_association": true,
