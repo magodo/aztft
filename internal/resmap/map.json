@@ -1362,6 +1362,34 @@
       ]
     }
   },
+  "azurerm_arc_machine": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.HybridCompute",
+      "types": [
+        "machines"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.HybridCompute/machines"
+      ]
+    }
+  },
+  "azurerm_arc_machine_automanage_configuration_assignment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.HybridCompute/machines"
+      ],
+      "provider": "Microsoft.AutoManage",
+      "types": [
+        "configurationProfileAssignments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.HybridCompute/machines/Microsoft.AutoManage/configurationProfileAssignments"
+      ]
+    }
+  },
   "azurerm_arc_machine_extension": {
     "management_plane": {
       "scopes": [
