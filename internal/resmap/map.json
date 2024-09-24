@@ -73,6 +73,21 @@
       ]
     }
   },
+  "azurerm_advisor_suppression": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions"
+      ],
+      "provider": "Microsoft.Advisor",
+      "types": [
+        "recommendations",
+        "suppressions"
+      ],
+      "import_specs": [
+        "/subscriptions/Microsoft.Advisor/recommendations/suppressions"
+      ]
+    }
+  },
   "azurerm_ai_services": {
     "management_plane": {
       "scopes": [
@@ -4267,6 +4282,21 @@
     }
   },
   "azurerm_data_protection_backup_policy_kubernetes_cluster": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataProtection",
+      "types": [
+        "backupVaults",
+        "backupPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataProtection/backupVaults/backupPolicies"
+      ]
+    }
+  },
+  "azurerm_data_protection_backup_policy_mysql_flexible_server": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -12616,6 +12646,21 @@
       ]
     }
   },
+  "azurerm_stack_hci_deployment_setting": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AzureStackHCI",
+      "types": [
+        "clusters",
+        "deploymentSettings"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AzureStackHCI/clusters/deploymentSettings"
+      ]
+    }
+  },
   "azurerm_stack_hci_logical_network": {
     "management_plane": {
       "scopes": [
@@ -12627,6 +12672,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AzureStackHCI/logicalNetworks"
+      ]
+    }
+  },
+  "azurerm_stack_hci_storage_path": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AzureStackHCI",
+      "types": [
+        "storageContainers"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AzureStackHCI/storageContainers"
       ]
     }
   },

@@ -57,6 +57,21 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	"azurerm_virtual_desktop_scaling_plan_host_pool_association":      {caughtErr: ErrSyntheticId},
 	"azurerm_communication_service_email_domain_association":          {caughtErr: ErrSyntheticId},
 
+	// Data plane resources
+	// (not supported)
+	"azurerm_key_vault_managed_hardware_security_module_role_definition": {
+		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_key_vault_managed_hardware_security_module_role_assignment": {
+		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_key_vault_managed_hardware_security_module_key": {
+		caughtErr: ErrDataPlaneId,
+	},
+	"azurerm_key_vault_managed_hardware_security_module_key_rotation_policy": {
+		caughtErr: ErrDataPlaneId,
+	},
+
 	// (supported)
 	"azurerm_network_interface_security_group_association":                           {caughtErr: ErrSyntheticId},
 	"azurerm_network_interface_application_gateway_backend_address_pool_association": {caughtErr: ErrSyntheticId},
@@ -99,15 +114,6 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	},
 
 	// Data plane only resources, we use pesudo resource id patterns
-	"azurerm_key_vault_managed_hardware_security_module_role_definition": {
-		caughtErr: ErrDataPlaneId,
-	},
-	"azurerm_key_vault_managed_hardware_security_module_role_assignment": {
-		caughtErr: ErrDataPlaneId,
-	},
-	"azurerm_key_vault_managed_hardware_security_module_key": {
-		caughtErr: ErrDataPlaneId,
-	},
 	"azurerm_key_vault_certificate": {
 		mapItem: &resmap.TF2ARMIdMapItem{
 			ManagementPlane: &resmap.MapManagementPlane{
