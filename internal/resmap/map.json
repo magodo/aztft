@@ -7958,6 +7958,18 @@
       ]
     }
   },
+  "azurerm_management_group_subscription_association": {
+    "management_plane": {
+      "provider": "Microsoft.Management",
+      "types": [
+        "managementGroups",
+        "subscriptions"
+      ],
+      "import_specs": [
+        "/Microsoft.Management/managementGroups/subscriptions"
+      ]
+    }
+  },
   "azurerm_management_group_template_deployment": {
     "management_plane": {
       "scopes": [
@@ -12686,6 +12698,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AzureStackHCI/storageContainers"
+      ]
+    }
+  },
+  "azurerm_stack_hci_virtual_hard_disk": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AzureStackHCI",
+      "types": [
+        "virtualHardDisks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AzureStackHCI/virtualHardDisks"
       ]
     }
   },
