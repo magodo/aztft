@@ -116,13 +116,12 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 		}
 		return pid.String(), nil
 	case "azurerm_role_definition":
-		scopeId := id.Parent()
-		if scopeId == nil {
-			scopeId = id.ParentScope()
-		}
-		scopePart := scopeId.String()
-		routePart := strings.TrimPrefix(id.String(), scopePart)
-		return routePart + "|" + scopePart, nil
+		return id.String() + "|" + id.ParentScope().String(), nil
+	case "azurerm_role_assignment":
+		// This resource has scope any, causing it has no format string. Manually format the last segment.
+		id := id.(*armid.ScopedResourceId)
+		id.AttrTypes[len(id.AttrTypes)-1] = "roleAssignments"
+		return id.String(), nil
 	case "azurerm_network_manager_deployment":
 		managerId := id.Parent().Parent()
 		if err := managerId.Normalize(importSpec); err != nil {
