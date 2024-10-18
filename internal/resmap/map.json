@@ -4665,6 +4665,21 @@
       ]
     }
   },
+  "azurerm_dev_center_attached_network": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DevCenter",
+      "types": [
+        "devCenters",
+        "attachedNetworks"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DevCenter/devCenters/attachedNetworks"
+      ]
+    }
+  },
   "azurerm_dev_center_catalog": {
     "management_plane": {
       "scopes": [
@@ -9617,6 +9632,34 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.NotificationHubs/namespaces"
+      ]
+    }
+  },
+  "azurerm_oracle_cloud_vm_cluster": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Oracle.Database",
+      "types": [
+        "cloudVmClusters"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Oracle.Database/cloudVmClusters"
+      ]
+    }
+  },
+  "azurerm_oracle_exadata_infrastructure": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Oracle.Database",
+      "types": [
+        "cloudExadataInfrastructures"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Oracle.Database/cloudExadataInfrastructures"
       ]
     }
   },
