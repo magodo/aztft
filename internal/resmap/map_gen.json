@@ -4756,6 +4756,21 @@
       ]
     }
   },
+  "azurerm_dev_center_project_pool": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DevCenter",
+      "types": [
+        "projects",
+        "pools"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DevCenter/projects/pools"
+      ]
+    }
+  },
   "azurerm_dev_test_global_vm_shutdown_schedule": {
     "management_plane": {
       "scopes": [
@@ -9505,6 +9520,20 @@
       ]
     }
   },
+  "azurerm_oracle_autonomous_database": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Oracle.Database",
+      "types": [
+        "autonomousDatabases"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Oracle.Database/autonomousDatabases"
+      ]
+    }
+  },
   "azurerm_oracle_cloud_vm_cluster": {
     "management_plane": {
       "scopes": [
@@ -14092,6 +14121,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.ManagedIdentity/userAssignedIdentities"
+      ]
+    }
+  },
+  "azurerm_video_indexer_account": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.VideoIndexer",
+      "types": [
+        "accounts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.VideoIndexer/accounts"
       ]
     }
   },
