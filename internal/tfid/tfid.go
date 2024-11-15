@@ -17,7 +17,6 @@ type builderFunc func(*client.ClientBuilder, armid.ResourceId, string) (string, 
 var dynamicBuilders = map[string]builderFunc{
 	"azurerm_active_directory_domain_service":                        buildActiveDirectoryDomainService,
 	"azurerm_storage_object_replication":                             buildStorageObjectReplication,
-	"azurerm_storage_share":                                          buildStorageShare,
 	"azurerm_storage_container":                                      buildStorageContainer,
 	"azurerm_storage_queue":                                          buildStorageQueue,
 	"azurerm_storage_table":                                          buildStorageTable,
@@ -172,7 +171,9 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 			return "", fmt.Errorf("normalizing id %q for %q with import spec %q: %v", pid.String(), rt, importSpec, err)
 		}
 		return pid.String(), nil
-	case "azurerm_storage_blob_inventory_policy":
+	case "azurerm_storage_blob_inventory_policy",
+		"azurerm_storage_account_queue_properties",
+		"azurerm_storage_account_static_website":
 		pid := id.Parent()
 		if err := pid.Normalize(importSpec); err != nil {
 			return "", fmt.Errorf("normalizing id %q for %q with import spec %q: %v", pid.String(), rt, importSpec, err)

@@ -371,16 +371,6 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrSyntheticId,
 	},
-	"azurerm_storage_share": {
-		mapItem: &resmap.TF2ARMIdMapItem{
-			ManagementPlane: &resmap.MapManagementPlane{
-				ParentScopes: []string{"/subscriptions/resourceGroups"},
-				Provider:     "Microsoft.Storage",
-				Types:        []string{"storageAccounts", "fileServices", "shares"},
-			},
-		},
-		caughtErr: ErrDataPlaneId,
-	},
 	"azurerm_storage_container": {
 		mapItem: &resmap.TF2ARMIdMapItem{
 			ManagementPlane: &resmap.MapManagementPlane{

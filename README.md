@@ -25,8 +25,10 @@ For these resources, as they don't have a management plane resource ID, we defin
 |`azurerm_storage_share_directory`                                | `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/account1/fileServices/default/shares/share1/directories/path1`|For path that is more than one level, use `:` as separator. E.g. `path1` can be `dir1:dir2`|
 |`azurerm_storage_share_file`                                     | `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/account1/fileServices/default/shares/share1/files/path1`|Note: For path that is more than one level, use `:` as separator. E.g. `path1` can be `dir1:file1`|
 |`azurerm_storage_table_entity`                                   | `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/account1/tableServices/default/tables/table1/partitionKeys/pk1/rowkeys/rk1`||
-|`azurerm_synapse_linked_service`                                | `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Synapse/workspaces/ws1/linkedServices/service1`||
+|`azurerm_synapse_linked_service`                                 | `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Synapse/workspaces/ws1/linkedServices/service1`||
 |`azurerm_synapse_role_assignment`                                | `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Synapse/workspaces/ws1/roleAssignments/role1`||
+|`azurerm_storage_account_queue_properties`                       | `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/account1/queueServices/default`||
+|`azurerm_storage_account_static_website`                         | `/subscriptions/sub1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/account1/staticWebsites/default`||
 
 ### Property-like Resources
 

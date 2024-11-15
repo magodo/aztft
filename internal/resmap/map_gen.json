@@ -3416,6 +3416,21 @@
       ]
     }
   },
+  "azurerm_dashboard_grafana_managed_private_endpoint": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Dashboard",
+      "types": [
+        "grafana",
+        "managedPrivateEndpoints"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Dashboard/grafana/managedPrivateEndpoints"
+      ]
+    }
+  },
   "azurerm_data_factory": {
     "management_plane": {
       "scopes": [
@@ -4182,6 +4197,21 @@
     }
   },
   "azurerm_data_protection_backup_instance_kubernetes_cluster": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataProtection",
+      "types": [
+        "backupVaults",
+        "backupInstances"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataProtection/backupVaults/backupInstances"
+      ]
+    }
+  },
+  "azurerm_data_protection_backup_instance_mysql_flexible_server": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -5123,6 +5153,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/dnsZones"
+      ]
+    }
+  },
+  "azurerm_dynatrace_monitor": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Dynatrace.Observability",
+      "types": [
+        "monitors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Dynatrace.Observability/monitors"
       ]
     }
   },
@@ -7755,6 +7799,21 @@
       ]
     }
   },
+  "azurerm_machine_learning_workspace_network_outbound_rule_fqdn": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MachineLearningServices",
+      "types": [
+        "workspaces",
+        "outboundRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces/outboundRules"
+      ]
+    }
+  },
   "azurerm_maintenance_assignment_dedicated_host": {
     "management_plane": {
       "scopes": [
@@ -8207,6 +8266,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks/slices"
+      ]
+    }
+  },
+  "azurerm_mongo_cluster": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DocumentDB",
+      "types": [
+        "mongoClusters"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DocumentDB/mongoClusters"
       ]
     }
   },
@@ -8993,6 +9066,36 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.NetApp/netAppAccounts"
+      ]
+    }
+  },
+  "azurerm_netapp_backup_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.NetApp",
+      "types": [
+        "netAppAccounts",
+        "backupPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.NetApp/netAppAccounts/backupPolicies"
+      ]
+    }
+  },
+  "azurerm_netapp_backup_vault": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.NetApp",
+      "types": [
+        "netAppAccounts",
+        "backupVaults"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.NetApp/netAppAccounts/backupVaults"
       ]
     }
   },
@@ -12599,6 +12702,22 @@
       ]
     }
   },
+  "azurerm_stack_hci_extension": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AzureStackHCI",
+      "types": [
+        "clusters",
+        "arcSettings",
+        "extensions"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AzureStackHCI/clusters/arcSettings/extensions"
+      ]
+    }
+  },
   "azurerm_stack_hci_logical_network": {
     "management_plane": {
       "scopes": [
@@ -12610,6 +12729,34 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AzureStackHCI/logicalNetworks"
+      ]
+    }
+  },
+  "azurerm_stack_hci_marketplace_gallery_image": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AzureStackHCI",
+      "types": [
+        "marketplaceGalleryImages"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AzureStackHCI/marketplaceGalleryImages"
+      ]
+    }
+  },
+  "azurerm_stack_hci_network_interface": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.AzureStackHCI",
+      "types": [
+        "networkInterfaces"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.AzureStackHCI/networkInterfaces"
       ]
     }
   },
@@ -12758,6 +12905,34 @@
     }
   },
   "azurerm_storage_account_network_rules": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Storage/storageAccounts"
+      ]
+    }
+  },
+  "azurerm_storage_account_queue_properties": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Storage",
+      "types": [
+        "storageAccounts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Storage/storageAccounts"
+      ]
+    }
+  },
+  "azurerm_storage_account_static_website": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -13009,6 +13184,9 @@
         "storageAccounts",
         "fileServices",
         "shares"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Storage/storageAccounts/fileServices/shares"
       ]
     }
   },
@@ -14107,6 +14285,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/trafficManagerProfiles"
+      ]
+    }
+  },
+  "azurerm_trusted_signing_account": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.CodeSigning",
+      "types": [
+        "codeSigningAccounts"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.CodeSigning/codeSigningAccounts"
       ]
     }
   },
