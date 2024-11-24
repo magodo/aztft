@@ -5311,6 +5311,20 @@
       ]
     }
   },
+  "azurerm_eventgrid_namespace": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.EventGrid",
+      "types": [
+        "namespaces"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.EventGrid/namespaces"
+      ]
+    }
+  },
   "azurerm_eventgrid_system_topic": {
     "management_plane": {
       "scopes": [
