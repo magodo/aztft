@@ -2653,6 +2653,21 @@
       ]
     }
   },
+  "azurerm_cognitive_rai_blocklist": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.CognitiveServices",
+      "types": [
+        "accounts",
+        "raiBlocklists"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.CognitiveServices/accounts/raiBlocklists"
+      ]
+    }
+  },
   "azurerm_communication_service": {
     "management_plane": {
       "scopes": [
@@ -5633,6 +5648,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.ExtendedLocation/customLocations"
+      ]
+    }
+  },
+  "azurerm_fabric_capacity": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Fabric",
+      "types": [
+        "capacities"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Fabric/capacities"
       ]
     }
   },
