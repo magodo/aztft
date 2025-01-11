@@ -17,7 +17,6 @@ type builderFunc func(*client.ClientBuilder, armid.ResourceId, string) (string, 
 var dynamicBuilders = map[string]builderFunc{
 	"azurerm_active_directory_domain_service":                        buildActiveDirectoryDomainService,
 	"azurerm_storage_object_replication":                             buildStorageObjectReplication,
-	"azurerm_storage_container":                                      buildStorageContainer,
 	"azurerm_storage_queue":                                          buildStorageQueue,
 	"azurerm_storage_table":                                          buildStorageTable,
 	"azurerm_key_vault_key":                                          buildKeyVaultKey,
