@@ -2942,6 +2942,21 @@
       ]
     }
   },
+  "azurerm_container_registry_credential_set": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ContainerRegistry",
+      "types": [
+        "registries",
+        "credentialSets"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ContainerRegistry/registries/credentialSets"
+      ]
+    }
+  },
   "azurerm_container_registry_scope_map": {
     "management_plane": {
       "scopes": [
@@ -8756,6 +8771,22 @@
       ]
     }
   },
+  "azurerm_mssql_job": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Sql",
+      "types": [
+        "servers",
+        "jobAgents",
+        "jobs"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Sql/servers/jobAgents/jobs"
+      ]
+    }
+  },
   "azurerm_mssql_job_agent": {
     "management_plane": {
       "scopes": [
@@ -8784,6 +8815,23 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Sql/servers/jobAgents/credentials"
+      ]
+    }
+  },
+  "azurerm_mssql_job_schedule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Sql",
+      "types": [
+        "servers",
+        "jobAgents",
+        "jobs",
+        "schedules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Sql/servers/jobAgents/jobs"
       ]
     }
   },

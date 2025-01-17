@@ -39,6 +39,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicessiterecovery"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armdeploymentscripts"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/sql/armsql"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagecache/armstoragecache"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storagemover/armstoragemover"
@@ -700,4 +701,8 @@ func (b *ClientBuilder) NewCognitiveServiceAccountsClient(subscriptionId string)
 
 func (b *ClientBuilder) NewHybridKubernetesConnectedClient(subscriptionId string) (*armhybridkubernetes.ConnectedClusterClient, error) {
 	return armhybridkubernetes.NewConnectedClusterClient(subscriptionId, b.Cred, &b.ClientOpt)
+}
+
+func (b *ClientBuilder) NewSqlJobsClient(subscriptionId string) (*armsql.JobsClient, error) {
+	return armsql.NewJobsClient(subscriptionId, b.Cred, &b.ClientOpt)
 }
