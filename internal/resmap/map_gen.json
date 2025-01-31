@@ -2643,6 +2643,21 @@
       ]
     }
   },
+  "azurerm_cognitive_account_rai_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.CognitiveServices",
+      "types": [
+        "accounts",
+        "raiPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.CognitiveServices/accounts/raiPolicies"
+      ]
+    }
+  },
   "azurerm_cognitive_deployment": {
     "management_plane": {
       "scopes": [
@@ -8818,6 +8833,22 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Sql/servers/jobAgents/jobs"
+      ]
+    }
+  },
+  "azurerm_mssql_job_target_group": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Sql",
+      "types": [
+        "servers",
+        "jobAgents",
+        "targetGroups"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Sql/servers/jobAgents/targetGroups"
       ]
     }
   },
