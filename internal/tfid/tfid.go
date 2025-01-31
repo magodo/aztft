@@ -111,7 +111,7 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 	case "azurerm_network_interface_application_gateway_backend_address_pool_association":
 		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "fake_azurerm_network_interface_ipconfig", "fake_azurerm_application_gateway_backend_address_pool", "|")
 	case "azurerm_network_interface_application_security_group_association":
-		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "fake_azurerm_network_interface_ipconfig", "azurerm_application_security_group", "|")
+		return buildIdForPropertyLikeResource(id.Parent().Parent(), lastItem(id.Names()), "azurerm_network_interface", "azurerm_application_security_group", "|")
 	case "azurerm_network_interface_backend_address_pool_association":
 		return buildIdForPropertyLikeResource(id.Parent(), lastItem(id.Names()), "fake_azurerm_network_interface_ipconfig", "azurerm_lb_backend_address_pool", "|")
 	case "azurerm_network_interface_nat_rule_association":
