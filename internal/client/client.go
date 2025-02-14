@@ -183,6 +183,14 @@ func (b *ClientBuilder) NewKustoDataConnectionsClient(subscriptionId string) (*a
 	)
 }
 
+func (b *ClientBuilder) NewMachineLearningWorkspaceClient(subscriptionId string) (*armmachinelearning.WorkspacesClient, error) {
+	return armmachinelearning.NewWorkspacesClient(
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
 func (b *ClientBuilder) NewMachineLearningComputeClient(subscriptionId string) (*armmachinelearning.ComputeClient, error) {
 	return armmachinelearning.NewComputeClient(
 		subscriptionId,
@@ -673,6 +681,14 @@ func (b *ClientBuilder) NewApiManagementApiClient(subscriptionId string) (*armap
 
 func (b *ClientBuilder) NewNetAppAccountClient(subscriptionId string) (*armnetapp.AccountsClient, error) {
 	return armnetapp.NewAccountsClient(
+		subscriptionId,
+		b.Cred,
+		&b.ClientOpt,
+	)
+}
+
+func (b *ClientBuilder) NewNetAppVolumeGroupClient(subscriptionId string) (*armnetapp.VolumeGroupsClient, error) {
+	return armnetapp.NewVolumeGroupsClient(
 		subscriptionId,
 		b.Cred,
 		&b.ClientOpt,

@@ -211,6 +211,12 @@ var Resolvers = map[string]map[string]resolver{
 	"/MICROSOFT.KUBERNETES/CONNECTEDCLUSTERS": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": hybridkubernetesConnectedClusterResolver{},
 	},
+	"/MICROSOFT.NETAPP/NETAPPACCOUNTS/VOLUMEGROUPS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": netappVolumeGroupResolver{},
+	},
+	"/MICROSOFT.MACHINELEARNINGSERVICES/WORKSPACES": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": machineLearningWorkspaceResolver{},
+	},
 }
 
 type ResolveError struct {

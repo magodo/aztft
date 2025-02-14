@@ -87,6 +87,34 @@
       ]
     }
   },
+  "azurerm_ai_foundry": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MachineLearningServices",
+      "types": [
+        "workspaces"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces"
+      ]
+    }
+  },
+  "azurerm_ai_foundry_project": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.MachineLearningServices",
+      "types": [
+        "workspaces"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.MachineLearningServices/workspaces"
+      ]
+    }
+  },
   "azurerm_ai_services": {
     "management_plane": {
       "scopes": [
@@ -8836,6 +8864,23 @@
       ]
     }
   },
+  "azurerm_mssql_job_step": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Sql",
+      "types": [
+        "servers",
+        "jobAgents",
+        "jobs",
+        "steps"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Sql/servers/jobAgents/jobs/steps"
+      ]
+    }
+  },
   "azurerm_mssql_job_target_group": {
     "management_plane": {
       "scopes": [
@@ -9339,6 +9384,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.NetApp/netAppAccounts/capacityPools/volumes"
+      ]
+    }
+  },
+  "azurerm_netapp_volume_group_oracle": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.NetApp",
+      "types": [
+        "netAppAccounts",
+        "volumeGroups"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.NetApp/netAppAccounts/volumeGroups"
       ]
     }
   },
@@ -14891,6 +14951,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/networkWatchers/packetCaptures"
+      ]
+    }
+  },
+  "azurerm_virtual_machine_scale_set_standby_pool": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StandbyPool",
+      "types": [
+        "standbyVirtualMachinePools"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.StandbyPool/standbyVirtualMachinePools"
       ]
     }
   },
