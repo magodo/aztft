@@ -4472,6 +4472,22 @@
       ]
     }
   },
+  "azurerm_data_protection_backup_vault_customer_managed_key": {
+    "is_removed": true,
+    "remove_reason": "This is a property rather than a resource",
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataProtection",
+      "types": [
+        "backupVaults"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataProtection/backupVaults"
+      ]
+    }
+  },
   "azurerm_data_protection_resource_guard": {
     "management_plane": {
       "scopes": [
