@@ -5971,6 +5971,20 @@
       ]
     }
   },
+  "azurerm_function_app_flex_consumption": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Web",
+      "types": [
+        "sites"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Web/sites"
+      ]
+    }
+  },
   "azurerm_function_app_function": {
     "management_plane": {
       "scopes": [
@@ -9684,6 +9698,21 @@
       ],
       "import_specs": [
         "/subscriptions/Microsoft.Network/networkManagerConnections"
+      ]
+    }
+  },
+  "azurerm_network_manager_verifier_workspace": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "verifierWorkspaces"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/verifierWorkspaces"
       ]
     }
   },
