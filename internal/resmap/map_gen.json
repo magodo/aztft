@@ -14473,6 +14473,20 @@
       ]
     }
   },
+  "azurerm_system_center_virtual_machine_manager_virtual_machine_instance": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.HybridCompute/machines"
+      ],
+      "provider": "Microsoft.ScVmm",
+      "types": [
+        "virtualMachineInstances"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.HybridCompute/machines/Microsoft.ScVmm/virtualMachineInstances"
+      ]
+    }
+  },
   "azurerm_system_center_virtual_machine_manager_virtual_machine_template": {
     "management_plane": {
       "scopes": [
