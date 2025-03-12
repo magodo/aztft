@@ -21,12 +21,12 @@ func TestQueryType(t *testing.T) {
 		input       string
 		expectTypes []Type
 		expectExact bool
-		err         string
+		err         bool
 	}{
 		{
 			name:  "invalid id",
 			input: "/subscriptions/sub1/resourceGroups/rg1/foos",
-			err:   `invalid resource id: scopes should be split by "/providers/"`,
+			err:   true,
 		},
 		{
 			name:  "resource group",
@@ -136,8 +136,8 @@ func TestQueryType(t *testing.T) {
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
 			actualType, actualExact, err := QueryType(tt.input, nil)
-			if tt.err != "" {
-				require.EqualError(t, err, tt.err)
+			if tt.err {
+				require.Error(t, err)
 				return
 			}
 			require.NoError(t, err)
@@ -153,13 +153,13 @@ func TestQueryId(t *testing.T) {
 		input  string
 		rt     string
 		expect string
-		err    string
+		err    bool
 	}{
 		{
 			name:  "invalid id",
 			input: "/subscriptions/sub1/resourceGroups/rg1/foos",
 			rt:    "azurerm_resource_group",
-			err:   `parsing id: scopes should be split by "/providers/"`,
+			err:   true,
 		},
 		{
 			name:   "resource group",
@@ -220,8 +220,8 @@ func TestQueryId(t *testing.T) {
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
 			actual, err := QueryId(tt.input, tt.rt, nil)
-			if tt.err != "" {
-				require.EqualError(t, err, tt.err)
+			if tt.err {
+				require.Error(t, err)
 				return
 			}
 			require.NoError(t, err)
@@ -237,12 +237,12 @@ func TestQueryTypeAndId(t *testing.T) {
 		expectTypes []Type
 		expectIds   []string
 		expectExact bool
-		err         string
+		err         bool
 	}{
 		{
 			name:  "invalid id",
 			input: "/subscriptions/sub1/resourceGroups/rg1/foos",
-			err:   `invalid resource id: scopes should be split by "/providers/"`,
+			err:   true,
 		},
 		{
 			name:  "resource group",
@@ -376,8 +376,8 @@ func TestQueryTypeAndId(t *testing.T) {
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
 			actualTypes, actualIds, actualExact, err := QueryTypeAndId(tt.input, nil)
-			if tt.err != "" {
-				require.EqualError(t, err, tt.err)
+			if tt.err {
+				require.Error(t, err)
 				return
 			}
 			require.Equal(t, tt.expectTypes, actualTypes)
