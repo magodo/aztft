@@ -9612,6 +9612,21 @@
       ]
     }
   },
+  "azurerm_network_manager_ipam_pool": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "ipamPools"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/ipamPools"
+      ]
+    }
+  },
   "azurerm_network_manager_management_group_connection": {
     "management_plane": {
       "scopes": [
