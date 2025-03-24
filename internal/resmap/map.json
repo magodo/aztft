@@ -13842,7 +13842,7 @@
         "storageAccounts"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs/storageAccounts"
+        "/subscriptions/resourceGroups/Microsoft.StreamAnalytics/streamingJobs"
       ]
     }
   },
