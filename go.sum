@@ -50,6 +50,7 @@ github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hybridkubernetes/armhybrid
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hybridkubernetes/armhybridkubernetes v1.2.0/go.mod h1:t1IEI21/6k/UmAXRIRy3E7tgpC2zbeyd9H3qk1EY5JA=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/internal v1.1.2 h1:mLY+pNLjCUeKhgnAJWAKhEUQM+RJQo2H1fuGSw1Ky1E=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/internal/v2 v2.0.0 h1:PTFGRSlMKCQelWwxUyYVEUqseBJVemLyqWJjvMyt0do=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/internal/v3 v3.1.0 h1:2qsIIvxVT+uE6yrNldntJKlLRgxGbZ85kgtz5SNBhMw=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/iothub/armiothub v1.1.1 h1:Dh8SxVXcSyQN76LI4IseKyrnqyTUsx336Axg8zDYSMs=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/iothub/armiothub v1.1.1/go.mod h1:fqmmortNEICbosf7BfNVO3wWs6Cz/pkxYfExJC97Vy8=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault v1.0.0 h1:Jc2KcpCDMu7wJfkrzn7fs/53QMDXH78GuqnH4HOd7zs=
@@ -77,7 +78,7 @@ github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecove
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicessiterecovery v1.1.0/go.mod h1:woN5JsidpzBh+hOMpof6vqutskFi/WtbT4ESGLx2wSo=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armdeploymentscripts v1.0.0 h1:qd/BfXBy0s/cPn/hVVX+Ps0HolpC1NsHE2p+L2zB4C4=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armdeploymentscripts v1.0.0/go.mod h1:P1SgXux7JvaLh0fwpYwtY2csL+RYAc033mNha1Txlm8=
-github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources v1.1.1 h1:7CBQ+Ei8SP2c6ydQTGCCrS35bDxgTMfoP2miAwK++OU=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources v1.2.0 h1:Dd+RhdJn0OTtVGaeDLZpcumkIVCtA/3/Fo42+eoYvVM=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2 v2.0.0-beta.1 h1:9mTTrRpS9YeiH3n0FwWBCOd9Sg6AdQYwcpRCjK3+WQ4=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2 v2.0.0-beta.1/go.mod h1:+Vn4YGqMk8/urNMX3IMR2lggm5cKqRQN13pUkqcfgyA=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/sql/armsql v1.2.0 h1:S087deZ0kP1RUg4pU7w9U9xpUedTCbOtz+mnd0+hrkQ=
@@ -96,6 +97,8 @@ github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse v0.5.0 
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/synapse/armsynapse v0.5.0/go.mod h1:0LrLPHG/bVyQWENxWqSj2ycnnrpTjeSFrKuWymCBceM=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/timeseriesinsights/armtimeseriesinsights v1.0.0 h1:6zhHj/nA0VfUglOeV8geEXVw/XGAqsAyKjDK2B5gctE=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/timeseriesinsights/armtimeseriesinsights v1.0.0/go.mod h1:BJ1j39YchhMI91ICCnhfdwPe4bN59SdA4vYWd0bfF+g=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/webpubsub/armwebpubsub v1.3.0 h1:NyzzELDBMwCl+jHnUAEzv/4t9tp0vVn78vUou/7yqvM=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/webpubsub/armwebpubsub v1.3.0/go.mod h1:3cqAZX7JxhdbywHK3b1iaO/VcP9Kv+yvZ/s44EO2+LI=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/workloads/armworkloads v1.1.0 h1:kW9b3n/hV4/JgghAPinYHolJtocM/gPNCaeuqLqXzpc=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/workloads/armworkloads v1.1.0/go.mod h1:G2hOQegwo7b7uqWaKRfqt6GG3x/eOnUA3qhT49fQRwA=
 github.com/AzureAD/microsoft-authentication-library-for-go v1.2.2 h1:XHOnouVk1mxXfQidrMEnLlPk9UMeRtyBTnEFtxkV0kU=
