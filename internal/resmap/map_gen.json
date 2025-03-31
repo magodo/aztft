@@ -7493,9 +7493,6 @@
       "types": [
         "workspaces",
         "linkedServices"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/linkedServices"
       ]
     }
   },

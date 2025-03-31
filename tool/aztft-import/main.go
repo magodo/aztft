@@ -453,6 +453,19 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrSyntheticId,
 	},
+	"azurerm_log_analytics_linked_service": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.OperationalInsights",
+				Types: []string{
+					"workspaces",
+					"linkedServices",
+				},
+			},
+		},
+		caughtErr: ErrDuplicateImportSpec,
+	},
 }
 
 const usage = `aztft-generate-static <provider root dir>`
