@@ -5445,6 +5445,9 @@
   },
   "azurerm_eventgrid_partner_configuration": {
     "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
       "provider": "Microsoft.EventGrid",
       "types": [
         "partnerConfigurations"
