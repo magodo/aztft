@@ -5431,6 +5431,18 @@
       ]
     }
   },
+  "azurerm_eventgrid_partner_configuration": {
+    "management_plane": {
+      "provider": "Microsoft.Resources",
+      "types": [
+        "subscriptions",
+        "resourceGroups"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups"
+      ]
+    }
+  },
   "azurerm_eventgrid_system_topic": {
     "management_plane": {
       "scopes": [

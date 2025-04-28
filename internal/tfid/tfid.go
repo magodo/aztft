@@ -163,6 +163,10 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 		"azurerm_mssql_job_schedule",
 		"azurerm_stream_analytics_job_storage_account":
 		id = id.Parent()
+
+	// Parent Scope
+	case "azurerm_eventgrid_partner_configuration":
+		id = id.ParentScope()
 	}
 
 	if importSpec != "" {
