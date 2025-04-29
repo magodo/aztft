@@ -8723,6 +8723,8 @@
     }
   },
   "azurerm_monitor_scheduled_query_rules_log": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of azurerm_monitor_scheduled_query_rules_alert_v2",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
