@@ -9967,6 +9967,21 @@
       ]
     }
   },
+  "azurerm_nginx_api_key": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Nginx.NginxPlus",
+      "types": [
+        "nginxDeployments",
+        "apiKeys"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Nginx.NginxPlus/nginxDeployments/apiKeys"
+      ]
+    }
+  },
   "azurerm_nginx_certificate": {
     "management_plane": {
       "scopes": [

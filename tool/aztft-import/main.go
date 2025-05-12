@@ -466,6 +466,22 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrDuplicateImportSpec,
 	},
+	"azurerm_postgresql_flexible_server_virtual_endpoint": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.DBforPostgreSQL",
+				Types: []string{
+					"flexibleServers",
+					"virtualEndpoints",
+				},
+				ImportSpecs: []string{
+					"/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/flexibleServers/virtualEndpoints",
+				},
+			},
+		},
+		caughtErr: ErrSyntheticId,
+	},
 }
 
 const usage = `aztft-generate-static <provider root dir>`

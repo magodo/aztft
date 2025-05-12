@@ -102,6 +102,13 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 			return "", fmt.Errorf("normalizing id %q for %q with import spec %q: %v", managerId.String(), rt, importSpec, err)
 		}
 		return managerId.String() + "/commit|" + id.Names()[1] + "|" + id.Names()[2], nil
+	case "azurerm_postgresql_flexible_server_virtual_endpoint":
+		if err := id.Normalize(importSpec); err != nil {
+			return "", fmt.Errorf("normalizing id %q for %q with import spec %q: %v", id.String(), rt, importSpec, err)
+		}
+		// It is fine to simply combine the same id twice, instead of getting the review replica id.
+		// That is because the Azure resource id is provided by the user and we can guarantee it is not failovered.
+		return fmt.Sprintf("%[1]s|%[1]s", id.String()), nil
 
 	// Porperty-like resources
 	case "azurerm_nat_gateway_public_ip_association":
