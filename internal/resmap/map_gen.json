@@ -9665,6 +9665,21 @@
       ]
     }
   },
+  "azurerm_network_manager_routing_configuration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "routingConfigurations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/routingConfigurations"
+      ]
+    }
+  },
   "azurerm_network_manager_scope_connection": {
     "management_plane": {
       "scopes": [
