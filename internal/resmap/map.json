@@ -3820,10 +3820,10 @@
       "provider": "Microsoft.DataFactory",
       "types": [
         "factories",
-        "integrationruntimes"
+        "integrationRuntimes"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/integrationruntimes"
+        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/integrationRuntimes"
       ]
     }
   },
@@ -3835,10 +3835,10 @@
       "provider": "Microsoft.DataFactory",
       "types": [
         "factories",
-        "integrationruntimes"
+        "integrationRuntimes"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/integrationruntimes"
+        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/integrationRuntimes"
       ]
     }
   },
@@ -3850,10 +3850,10 @@
       "provider": "Microsoft.DataFactory",
       "types": [
         "factories",
-        "integrationruntimes"
+        "integrationRuntimes"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/integrationruntimes"
+        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/integrationRuntimes"
       ]
     }
   },
@@ -10927,6 +10927,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Purview/accounts"
+      ]
+    }
+  },
+  "azurerm_qumulo_file_system": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Qumulo.Storage",
+      "types": [
+        "fileSystems"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Qumulo.Storage/fileSystems"
       ]
     }
   },
