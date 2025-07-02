@@ -5374,6 +5374,22 @@
       ]
     }
   },
+  "azurerm_email_communication_service_domain_sender_username": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Communication",
+      "types": [
+        "emailServices",
+        "domains",
+        "senderUsernames"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Communication/emailServices/domains/senderUsernames"
+      ]
+    }
+  },
   "azurerm_eventgrid_domain": {
     "management_plane": {
       "scopes": [
@@ -8204,6 +8220,20 @@
       ]
     }
   },
+  "azurerm_management_group_policy_set_definition": {
+    "management_plane": {
+      "scopes": [
+        "/Microsoft.Management/managementGroups"
+      ],
+      "provider": "Microsoft.Authorization",
+      "types": [
+        "policySetDefinitions"
+      ],
+      "import_specs": [
+        "/Microsoft.Management/managementGroups/Microsoft.Authorization/policySetDefinitions"
+      ]
+    }
+  },
   "azurerm_management_group_subscription_association": {
     "management_plane": {
       "provider": "Microsoft.Management",
@@ -10236,16 +10266,14 @@
   "azurerm_policy_set_definition": {
     "management_plane": {
       "scopes": [
-        "/subscriptions",
-        "/Microsoft.Management/managementGroups"
+        "/subscriptions"
       ],
       "provider": "Microsoft.Authorization",
       "types": [
         "policySetDefinitions"
       ],
       "import_specs": [
-        "/subscriptions/Microsoft.Authorization/policySetDefinitions",
-        "/Microsoft.Management/managementgroups/Microsoft.Authorization/policySetDefinitions"
+        "/subscriptions/Microsoft.Authorization/policySetDefinitions"
       ]
     }
   },

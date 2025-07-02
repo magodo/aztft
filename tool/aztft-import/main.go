@@ -295,20 +295,6 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrDuplicateImportSpec,
 	},
-	"azurerm_policy_set_definition": {
-		mapItem: &resmap.TF2ARMIdMapItem{
-			ManagementPlane: &resmap.MapManagementPlane{
-				ParentScopes: []string{"/subscriptions", "/Microsoft.Management/managementGroups"},
-				Provider:     "Microsoft.Authorization",
-				Types:        []string{"policySetDefinitions"},
-				ImportSpecs: []string{
-					"/subscriptions/Microsoft.Authorization/policySetDefinitions",
-					"/Microsoft.Management/managementgroups/Microsoft.Authorization/policySetDefinitions",
-				},
-			},
-		},
-		caughtErr: ErrDuplicateImportSpec,
-	},
 	"azurerm_app_configuration_feature": {
 		mapItem: &resmap.TF2ARMIdMapItem{
 			ManagementPlane: &resmap.MapManagementPlane{
