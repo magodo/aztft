@@ -878,6 +878,21 @@
       ]
     }
   },
+  "azurerm_api_management_workspace": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ApiManagement",
+      "types": [
+        "service",
+        "workspaces"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/workspaces"
+      ]
+    }
+  },
   "azurerm_app_configuration": {
     "management_plane": {
       "scopes": [
@@ -9782,6 +9797,22 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/verifierWorkspaces"
+      ]
+    }
+  },
+  "azurerm_network_manager_verifier_workspace_reachability_analysis_intent": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "verifierWorkspaces",
+        "reachabilityAnalysisIntents"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/verifierWorkspaces/reachabilityAnalysisIntents"
       ]
     }
   },
