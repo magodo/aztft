@@ -1349,6 +1349,21 @@
       ]
     }
   },
+  "azurerm_application_load_balancer_security_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ServiceNetworking",
+      "types": [
+        "trafficControllers",
+        "securityPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ServiceNetworking/trafficControllers/securityPolicies"
+      ]
+    }
+  },
   "azurerm_application_load_balancer_subnet_association": {
     "management_plane": {
       "scopes": [
@@ -5488,6 +5503,20 @@
       ]
     }
   },
+  "azurerm_eventgrid_partner_registration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.EventGrid",
+      "types": [
+        "partnerRegistrations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.EventGrid/partnerRegistrations"
+      ]
+    }
+  },
   "azurerm_eventgrid_system_topic": {
     "management_plane": {
       "scopes": [
@@ -9073,6 +9102,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Sql/managedInstances/securityAlertPolicies"
+      ]
+    }
+  },
+  "azurerm_mssql_managed_instance_start_stop_schedule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Sql",
+      "types": [
+        "managedInstances",
+        "startStopSchedules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Sql/managedInstances/startStopSchedules"
       ]
     }
   },
