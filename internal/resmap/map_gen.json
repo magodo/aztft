@@ -833,6 +833,20 @@
       ]
     }
   },
+  "azurerm_api_management_standalone_gateway": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ApiManagement",
+      "types": [
+        "gateways"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/gateways"
+      ]
+    }
+  },
   "azurerm_api_management_subscription": {
     "management_plane": {
       "scopes": [
@@ -5486,6 +5500,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups"
+      ]
+    }
+  },
+  "azurerm_eventgrid_partner_namespace": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.EventGrid",
+      "types": [
+        "partnerNamespaces"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.EventGrid/partnerNamespaces"
       ]
     }
   },
@@ -10479,6 +10507,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/flexibleServers/administrators"
+      ]
+    }
+  },
+  "azurerm_postgresql_flexible_server_backup": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DBforPostgreSQL",
+      "types": [
+        "flexibleServers",
+        "backups"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/flexibleServers/backups"
       ]
     }
   },
