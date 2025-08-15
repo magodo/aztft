@@ -3621,6 +3621,20 @@
       ]
     }
   },
+  "azurerm_data_factory_customer_managed_key": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataFactory",
+      "types": [
+        "factories"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories"
+      ]
+    }
+  },
   "azurerm_data_factory_data_flow": {
     "management_plane": {
       "scopes": [
