@@ -8745,14 +8745,11 @@
   "azurerm_monitor_data_collection_rule_association": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines"
+        "any"
       ],
       "provider": "Microsoft.Insights",
       "types": [
         "dataCollectionRuleAssociations"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Compute/virtualMachines/Microsoft.Insights/dataCollectionRuleAssociations"
       ]
     }
   },
