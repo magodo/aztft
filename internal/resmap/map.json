@@ -9892,6 +9892,22 @@
       ]
     }
   },
+  "azurerm_network_manager_ipam_pool_static_cidr": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "ipamPools",
+        "staticCidrs"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/ipamPools/staticCidrs"
+      ]
+    }
+  },
   "azurerm_network_manager_management_group_connection": {
     "management_plane": {
       "scopes": [
@@ -9933,6 +9949,22 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/routingConfigurations"
+      ]
+    }
+  },
+  "azurerm_network_manager_routing_rule_collection": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "routingConfigurations",
+        "ruleCollections"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/routingConfigurations/ruleCollections"
       ]
     }
   },
