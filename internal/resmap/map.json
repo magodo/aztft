@@ -10278,6 +10278,21 @@
       ]
     }
   },
+  "azurerm_oracle_autonomous_database_backup": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Oracle.Database",
+      "types": [
+        "autonomousDatabases",
+        "backups"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Oracle.Database/autonomousDatabases/backups"
+      ]
+    }
+  },
   "azurerm_oracle_cloud_vm_cluster": {
     "management_plane": {
       "scopes": [
