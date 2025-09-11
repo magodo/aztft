@@ -10161,10 +10161,10 @@
       "provider": "Oracle.Database",
       "types": [
         "autonomousDatabases",
-        "backups"
+        "autonomousDatabaseBackups"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Oracle.Database/autonomousDatabases/backups"
+        "/subscriptions/resourceGroups/Oracle.Database/autonomousDatabases/autonomousDatabaseBackups"
       ]
     }
   },
