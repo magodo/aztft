@@ -912,6 +912,22 @@
       ]
     }
   },
+  "azurerm_api_management_workspace_policy": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ApiManagement",
+      "types": [
+        "service",
+        "workspaces",
+        "policies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/workspaces"
+      ]
+    }
+  },
   "azurerm_app_configuration": {
     "management_plane": {
       "scopes": [
