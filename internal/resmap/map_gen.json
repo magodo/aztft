@@ -922,6 +922,22 @@
       ]
     }
   },
+  "azurerm_api_management_workspace_policy_fragment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ApiManagement",
+      "types": [
+        "service",
+        "workspaces",
+        "policyFragments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/workspaces/policyFragments"
+      ]
+    }
+  },
   "azurerm_app_configuration": {
     "management_plane": {
       "scopes": [
@@ -10236,6 +10252,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Oracle.Database/cloudExadataInfrastructures"
+      ]
+    }
+  },
+  "azurerm_oracle_exascale_database_storage_vault": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Oracle.Database",
+      "types": [
+        "exascaleDbStorageVaults"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Oracle.Database/exascaleDbStorageVaults"
       ]
     }
   },
