@@ -80,6 +80,8 @@ github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecove
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup/v4 v4.2.0/go.mod h1:o1BW30aoyqKYcQKAMNWs0UAkT30Z2FZzmCNo7hrGHjM=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicessiterecovery/v2 v2.4.0 h1:1/IElew5rgk1/rYC3Cftd/c3xRsZS1mil7IMNQ0E1Dk=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicessiterecovery/v2 v2.4.0/go.mod h1:4gac/7LcHn+eBJVG/uOtieALAej7WZc3IpzVRqmlovk=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/redisenterprise/armredisenterprise v1.2.0 h1:hTmVmyvriwO+ymGLEsH7HZokVwinC2MZl8F0LjvPdHU=
+github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/redisenterprise/armredisenterprise v1.2.0/go.mod h1:uHEpZj4TWSZEp35rIByJ8RX7hQBm3bxfPxS4tiz+x+g=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armdeploymentscripts v1.0.0 h1:qd/BfXBy0s/cPn/hVVX+Ps0HolpC1NsHE2p+L2zB4C4=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armdeploymentscripts v1.0.0/go.mod h1:P1SgXux7JvaLh0fwpYwtY2csL+RYAc033mNha1Txlm8=
 github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armdeploymentscripts/v2 v2.1.0 h1:7ecO0WTi0f+PkUxx+aiVV47fWlEvnWK5U/ugVIkA2AI=
