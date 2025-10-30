@@ -9886,6 +9886,23 @@
       ]
     }
   },
+  "azurerm_network_manager_routing_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkManagers",
+        "routingConfigurations",
+        "ruleCollections",
+        "rules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkManagers/routingConfigurations/ruleCollections/rules"
+      ]
+    }
+  },
   "azurerm_network_manager_routing_rule_collection": {
     "management_plane": {
       "scopes": [
@@ -10294,6 +10311,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Oracle.Database/exascaleDbStorageVaults"
+      ]
+    }
+  },
+  "azurerm_oracle_resource_anchor": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Oracle.Database",
+      "types": [
+        "resourceanchors"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Oracle.Database/resourceanchors"
       ]
     }
   },
