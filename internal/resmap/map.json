@@ -13025,6 +13025,8 @@
     }
   },
   "azurerm_spatial_anchors_account": {
+    "is_removed": true,
+    "remove_reason": "This resource is deprecated.",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
