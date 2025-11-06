@@ -912,6 +912,22 @@
       ]
     }
   },
+  "azurerm_api_management_workspace_api_version_set": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ApiManagement",
+      "types": [
+        "service",
+        "workspaces",
+        "apiVersionSets"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/workspaces/apiVersionSets"
+      ]
+    }
+  },
   "azurerm_api_management_workspace_policy": {
     "management_plane": {
       "scopes": [
@@ -10450,10 +10466,10 @@
       ],
       "provider": "Oracle.Database",
       "types": [
-        "resourceanchors"
+        "resourceAnchors"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Oracle.Database/resourceanchors"
+        "/subscriptions/resourceGroups/Oracle.Database/resourceAnchors"
       ]
     }
   },
@@ -13021,22 +13037,6 @@
       ],
       "import_specs": [
         "/Microsoft.Web/sourceControls"
-      ]
-    }
-  },
-  "azurerm_spatial_anchors_account": {
-    "is_removed": true,
-    "remove_reason": "This resource is deprecated.",
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.MixedReality",
-      "types": [
-        "spatialAnchorsAccounts"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MixedReality/spatialAnchorsAccounts"
       ]
     }
   },
