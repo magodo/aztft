@@ -928,6 +928,22 @@
       ]
     }
   },
+  "azurerm_api_management_workspace_certificate": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ApiManagement",
+      "types": [
+        "service",
+        "workspaces",
+        "certificates"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/workspaces/certificates"
+      ]
+    }
+  },
   "azurerm_api_management_workspace_policy": {
     "management_plane": {
       "scopes": [
@@ -8692,6 +8708,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DocumentDB/mongoClusters"
+      ]
+    }
+  },
+  "azurerm_mongo_cluster_firewall_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DocumentDB",
+      "types": [
+        "mongoClusters",
+        "firewallRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DocumentDB/mongoClusters/firewallRules"
       ]
     }
   },
