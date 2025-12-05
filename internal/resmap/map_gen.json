@@ -2763,6 +2763,21 @@
       ]
     }
   },
+  "azurerm_cognitive_account_project": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.CognitiveServices",
+      "types": [
+        "accounts",
+        "projects"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.CognitiveServices/accounts/projects"
+      ]
+    }
+  },
   "azurerm_cognitive_account_rai_blocklist": {
     "management_plane": {
       "scopes": [
@@ -7775,6 +7790,21 @@
       ]
     }
   },
+  "azurerm_log_analytics_workspace_table_custom_log": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.OperationalInsights",
+      "types": [
+        "workspaces",
+        "tables"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.OperationalInsights/workspaces/tables"
+      ]
+    }
+  },
   "azurerm_logic_app_action_custom": {
     "management_plane": {
       "scopes": [
@@ -8699,6 +8729,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DocumentDB/mongoClusters/firewallRules"
+      ]
+    }
+  },
+  "azurerm_mongo_cluster_user": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DocumentDB",
+      "types": [
+        "mongoClusters",
+        "users"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DocumentDB/mongoClusters/users"
       ]
     }
   },
@@ -10534,6 +10579,20 @@
       ]
     }
   },
+  "azurerm_palo_alto_next_generation_firewall_virtual_hub_strata_cloud_manager": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "PaloAltoNetworks.Cloudngfw",
+      "types": [
+        "firewalls"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/PaloAltoNetworks.Cloudngfw/firewalls"
+      ]
+    }
+  },
   "azurerm_palo_alto_next_generation_firewall_virtual_network_local_rulestack": {
     "management_plane": {
       "scopes": [
@@ -10549,6 +10608,20 @@
     }
   },
   "azurerm_palo_alto_next_generation_firewall_virtual_network_panorama": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "PaloAltoNetworks.Cloudngfw",
+      "types": [
+        "firewalls"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/PaloAltoNetworks.Cloudngfw/firewalls"
+      ]
+    }
+  },
+  "azurerm_palo_alto_next_generation_firewall_virtual_network_strata_cloud_manager": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
