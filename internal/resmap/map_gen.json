@@ -1860,6 +1860,21 @@
       ]
     }
   },
+  "azurerm_automation_runtime_environment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Automation",
+      "types": [
+        "automationAccounts",
+        "runtimeEnvironments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/runtimeEnvironments"
+      ]
+    }
+  },
   "azurerm_automation_schedule": {
     "management_plane": {
       "scopes": [
@@ -8537,169 +8552,6 @@
       ],
       "import_specs": [
         "/Microsoft.Marketplace/Microsoft.Authorization/roleAssignments"
-      ]
-    }
-  },
-  "azurerm_mobile_network": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.MobileNetwork",
-      "types": [
-        "mobileNetworks"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks"
-      ]
-    }
-  },
-  "azurerm_mobile_network_attached_data_network": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.MobileNetwork",
-      "types": [
-        "packetCoreControlPlanes",
-        "packetCoreDataPlanes",
-        "attachedDataNetworks"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks"
-      ]
-    }
-  },
-  "azurerm_mobile_network_data_network": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.MobileNetwork",
-      "types": [
-        "mobileNetworks",
-        "dataNetworks"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks/dataNetworks"
-      ]
-    }
-  },
-  "azurerm_mobile_network_packet_core_control_plane": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.MobileNetwork",
-      "types": [
-        "packetCoreControlPlanes"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/packetCoreControlPlanes"
-      ]
-    }
-  },
-  "azurerm_mobile_network_packet_core_data_plane": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.MobileNetwork",
-      "types": [
-        "packetCoreControlPlanes",
-        "packetCoreDataPlanes"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes"
-      ]
-    }
-  },
-  "azurerm_mobile_network_service": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.MobileNetwork",
-      "types": [
-        "mobileNetworks",
-        "services"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks/services"
-      ]
-    }
-  },
-  "azurerm_mobile_network_sim": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.MobileNetwork",
-      "types": [
-        "simGroups",
-        "sims"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/simGroups/sims"
-      ]
-    }
-  },
-  "azurerm_mobile_network_sim_group": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.MobileNetwork",
-      "types": [
-        "simGroups"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/simGroups"
-      ]
-    }
-  },
-  "azurerm_mobile_network_sim_policy": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.MobileNetwork",
-      "types": [
-        "mobileNetworks",
-        "simPolicies"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks/simPolicies"
-      ]
-    }
-  },
-  "azurerm_mobile_network_site": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.MobileNetwork",
-      "types": [
-        "mobileNetworks",
-        "sites"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks/sites"
-      ]
-    }
-  },
-  "azurerm_mobile_network_slice": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.MobileNetwork",
-      "types": [
-        "mobileNetworks",
-        "slices"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.MobileNetwork/mobileNetworks/slices"
       ]
     }
   },
