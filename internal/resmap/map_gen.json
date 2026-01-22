@@ -9982,6 +9982,66 @@
       ]
     }
   },
+  "azurerm_network_security_perimeter": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkSecurityPerimeters"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkSecurityPerimeters"
+      ]
+    }
+  },
+  "azurerm_network_security_perimeter_access_rule": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkSecurityPerimeters",
+        "profiles",
+        "accessRules"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkSecurityPerimeters/profiles/accessRules"
+      ]
+    }
+  },
+  "azurerm_network_security_perimeter_association": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkSecurityPerimeters",
+        "resourceAssociations"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkSecurityPerimeters/resourceAssociations"
+      ]
+    }
+  },
+  "azurerm_network_security_perimeter_profile": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Network",
+      "types": [
+        "networkSecurityPerimeters",
+        "profiles"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Network/networkSecurityPerimeters/profiles"
+      ]
+    }
+  },
   "azurerm_network_security_rule": {
     "management_plane": {
       "scopes": [
