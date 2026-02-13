@@ -939,6 +939,22 @@
       ]
     }
   },
+  "azurerm_api_management_workspace_named_value": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.ApiManagement",
+      "types": [
+        "service",
+        "workspaces",
+        "namedValues"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ApiManagement/service/workspaces/namedValues"
+      ]
+    }
+  },
   "azurerm_api_management_workspace_policy": {
     "management_plane": {
       "scopes": [
@@ -4254,6 +4270,21 @@
     }
   },
   "azurerm_data_factory_linked_service_snowflake": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataFactory",
+      "types": [
+        "factories",
+        "linkedservices"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/linkedservices"
+      ]
+    }
+  },
+  "azurerm_data_factory_linked_service_sql_managed_instance": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -8372,6 +8403,22 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Cache/redisEnterprise"
+      ]
+    }
+  },
+  "azurerm_managed_redis_access_policy_assignment": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.Cache",
+      "types": [
+        "redisEnterprise",
+        "databases",
+        "accessPolicyAssignments"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.Cache/redisEnterprise/databases/accessPolicyAssignments"
       ]
     }
   },
