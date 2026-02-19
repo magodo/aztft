@@ -4292,10 +4292,10 @@
       "provider": "Microsoft.DataFactory",
       "types": [
         "factories",
-        "linkedservices"
+        "linkedServices"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/linkedservices"
+        "/subscriptions/resourceGroups/Microsoft.DataFactory/factories/linkedServices"
       ]
     }
   },
