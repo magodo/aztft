@@ -117,6 +117,8 @@
     }
   },
   "azurerm_ai_services": {
+    "is_removed": true,
+    "remove_reason": "This is deprecated in favor of `azurerm_cognitive_account`",
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
