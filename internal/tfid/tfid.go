@@ -178,7 +178,8 @@ func StaticBuild(id armid.ResourceId, rt string) (string, error) {
 		id = id.Parent().Parent()
 
 	// Parent Scope
-	case "azurerm_eventgrid_partner_configuration":
+	case "azurerm_eventgrid_partner_configuration",
+		"azurerm_kubernetes_cluster_deployment_safeguard":
 		id = id.ParentScope()
 	}
 

@@ -4570,6 +4570,21 @@
       ]
     }
   },
+  "azurerm_data_protection_backup_policy_data_lake_storage": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataProtection",
+      "types": [
+        "backupVaults",
+        "backupPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataProtection/backupVaults/backupPolicies"
+      ]
+    }
+  },
   "azurerm_data_protection_backup_policy_disk": {
     "management_plane": {
       "scopes": [
@@ -5643,6 +5658,21 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.EventGrid/namespaces"
+      ]
+    }
+  },
+  "azurerm_eventgrid_namespace_topic": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.EventGrid",
+      "types": [
+        "namespaces",
+        "topics"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.EventGrid/namespaces/topics"
       ]
     }
   },
@@ -7107,6 +7137,20 @@
       "provider": "Microsoft.ContainerService",
       "types": [
         "managedClusters"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.ContainerService/managedClusters"
+      ]
+    }
+  },
+  "azurerm_kubernetes_cluster_deployment_safeguard": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups/Microsoft.ContainerService/managedClusters"
+      ],
+      "provider": "Microsoft.ContainerService",
+      "types": [
+        "deploymentSafeguards"
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.ContainerService/managedClusters"
@@ -11759,6 +11803,20 @@
       "provider": "Microsoft.PolicyInsights",
       "types": [
         "remediations"
+      ]
+    }
+  },
+  "azurerm_resource_provider_feature_registration": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/Microsoft.Features"
+      ],
+      "provider": "{ResourceProviderName}",
+      "types": [
+        "features"
+      ],
+      "import_specs": [
+        "/subscriptions/Microsoft.Features/{ResourceProviderName}/features"
       ]
     }
   },
