@@ -4480,6 +4480,21 @@
       ]
     }
   },
+  "azurerm_data_protection_backup_instance_data_lake_storage": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataProtection",
+      "types": [
+        "backupVaults",
+        "backupInstances"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataProtection/backupVaults/backupInstances"
+      ]
+    }
+  },
   "azurerm_data_protection_backup_instance_disk": {
     "management_plane": {
       "scopes": [
@@ -8427,6 +8442,20 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Solutions/applicationDefinitions"
+      ]
+    }
+  },
+  "azurerm_managed_devops_pool": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DevOpsInfrastructure",
+      "types": [
+        "pools"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DevOpsInfrastructure/pools"
       ]
     }
   },
