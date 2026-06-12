@@ -15982,35 +15982,6 @@
       ]
     }
   },
-  "azurerm_voice_services_communications_gateway": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.VoiceServices",
-      "types": [
-        "communicationsGateways"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.VoiceServices/communicationsGateways"
-      ]
-    }
-  },
-  "azurerm_voice_services_communications_gateway_test_line": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.VoiceServices",
-      "types": [
-        "communicationsGateways",
-        "testLines"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.VoiceServices/communicationsGateways/testLines"
-      ]
-    }
-  },
   "azurerm_vpn_gateway": {
     "management_plane": {
       "scopes": [
