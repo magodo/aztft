@@ -217,6 +217,9 @@ var Resolvers = map[string]map[string]resolver{
 	"/ORACLE.DATABASE/AUTONOMOUSDATABASES": {
 		"/SUBSCRIPTIONS/RESOURCEGROUPS": oracleAutonomousDatabaseResolver{},
 	},
+	"/MICROSOFT.NETAPP/NETAPPACCOUNTS/CAPACITYPOOLS/VOLUMES/BUCKETS": {
+		"/SUBSCRIPTIONS/RESOURCEGROUPS": netappBucketResolver{},
+	},
 }
 
 type ResolveError struct {

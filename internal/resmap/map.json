@@ -9762,6 +9762,40 @@
       ]
     }
   },
+  "azurerm_netapp_volume_bucket": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.NetApp",
+      "types": [
+        "netAppAccounts",
+        "capacityPools",
+        "volumes",
+        "buckets"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.NetApp/netAppAccounts/capacityPools/volumes/buckets"
+      ]
+    }
+  },
+  "azurerm_netapp_volume_bucket_with_server": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.NetApp",
+      "types": [
+        "netAppAccounts",
+        "capacityPools",
+        "volumes",
+        "buckets"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.NetApp/netAppAccounts/capacityPools/volumes/buckets"
+      ]
+    }
+  },
   "azurerm_netapp_volume_group_oracle": {
     "management_plane": {
       "scopes": [

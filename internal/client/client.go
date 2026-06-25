@@ -30,7 +30,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/kusto/armkusto/v2"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/logic/armlogic"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/machinelearning/armmachinelearning/v4"
-	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/netapp/armnetapp/v7"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/netapp/armnetapp/v10"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork/v6"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/operationalinsights/armoperationalinsights"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/oracledatabase/armoracledatabase"
@@ -725,4 +725,8 @@ func (b *ClientBuilder) NewOracleAutonomousDatabaseClient(subscriptionId string)
 
 func (b *ClientBuilder) NewRedisEnterpriseDatabaseClient(subscriptionId string) (*armredisenterprise.DatabasesClient, error) {
 	return armredisenterprise.NewDatabasesClient(subscriptionId, b.Cred, &b.ClientOpt)
+}
+
+func (b *ClientBuilder) NewNetAppVolumeBucketClient(subscriptionId string) (*armnetapp.BucketsClient, error) {
+	return armnetapp.NewBucketsClient(subscriptionId, b.Cred, &b.ClientOpt)
 }
