@@ -14144,7 +14144,8 @@
       ],
       "provider": "Microsoft.Storage",
       "types": [
-        "storageAccounts"
+        "storageAccounts",
+        "tableServices"
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Storage/storageAccounts"
