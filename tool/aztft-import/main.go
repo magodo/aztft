@@ -50,7 +50,6 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 	// Property-like resources
 	// (not supported)
 	"azurerm_app_service_certificate_binding":                         {caughtErr: ErrSyntheticId},
-	"azurerm_app_service_source_control_token":                        {caughtErr: ErrParseIdFailed},
 	"azurerm_private_endpoint_application_security_group_association": {caughtErr: ErrSyntheticId},
 	"azurerm_virtual_machine_gallery_application_assignment":          {caughtErr: ErrSyntheticId},
 	"azurerm_virtual_desktop_scaling_plan_host_pool_association":      {caughtErr: ErrSyntheticId},
@@ -356,26 +355,6 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 			},
 		},
 		caughtErr: ErrSyntheticId,
-	},
-	"azurerm_storage_queue": {
-		mapItem: &resmap.TF2ARMIdMapItem{
-			ManagementPlane: &resmap.MapManagementPlane{
-				ParentScopes: []string{"/subscriptions/resourceGroups"},
-				Provider:     "Microsoft.Storage",
-				Types:        []string{"storageAccounts", "queueServices", "queues"},
-			},
-		},
-		caughtErr: ErrDataPlaneId,
-	},
-	"azurerm_storage_table": {
-		mapItem: &resmap.TF2ARMIdMapItem{
-			ManagementPlane: &resmap.MapManagementPlane{
-				ParentScopes: []string{"/subscriptions/resourceGroups"},
-				Provider:     "Microsoft.Storage",
-				Types:        []string{"storageAccounts", "tableServices", "tables"},
-			},
-		},
-		caughtErr: ErrDataPlaneId,
 	},
 	"azurerm_key_vault_key": {
 		mapItem: &resmap.TF2ARMIdMapItem{

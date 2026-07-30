@@ -116,22 +116,6 @@
       ]
     }
   },
-  "azurerm_ai_services": {
-    "is_removed": true,
-    "remove_reason": "This is deprecated in favor of `azurerm_cognitive_account`",
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.CognitiveServices",
-      "types": [
-        "accounts"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.CognitiveServices/accounts"
-      ]
-    }
-  },
   "azurerm_analysis_services_server": {
     "management_plane": {
       "scopes": [
@@ -1040,22 +1024,6 @@
       ]
     }
   },
-  "azurerm_app_service": {
-    "is_removed": true,
-    "remove_reason": "This is deprecated in favor of `azurerm_linux_web_app` and `azurerm_windows_web_app`",
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "sites"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Web/sites"
-      ]
-    }
-  },
   "azurerm_app_service_certificate": {
     "management_plane": {
       "scopes": [
@@ -1127,24 +1095,6 @@
       ]
     }
   },
-  "azurerm_app_service_hybrid_connection": {
-    "is_removed": true,
-    "remove_reason": "This is deprecated in favor of `azurerm_function_app_hybrid_connection` and `azurerm_web_app_hybrid_connection`",
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "sites",
-        "hybridConnectionNamespaces",
-        "relays"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Web/sites/hybridConnectionNamespaces/relays"
-      ]
-    }
-  },
   "azurerm_app_service_managed_certificate": {
     "management_plane": {
       "scopes": [
@@ -1156,22 +1106,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Web/certificates"
-      ]
-    }
-  },
-  "azurerm_app_service_plan": {
-    "is_removed": true,
-    "remove_reason": "This is deprecated in favor of `azurerm_service_plan`",
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "serverFarms"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Web/serverFarms"
       ]
     }
   },
@@ -1187,23 +1121,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Web/sites/publicCertificates"
-      ]
-    }
-  },
-  "azurerm_app_service_slot": {
-    "is_removed": true,
-    "remove_reason": "This is deprecated in favor of `azurerm_linux_web_app_slot` and `azurerm_windows_web_app_slot`",
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "sites",
-        "slots"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Web/sites/slots"
       ]
     }
   },
@@ -1945,21 +1862,6 @@
       ]
     }
   },
-  "azurerm_automation_software_update_configuration": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Automation",
-      "types": [
-        "automationAccounts",
-        "softwareUpdateConfigurations"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Automation/automationAccounts/softwareUpdateConfigurations"
-      ]
-    }
-  },
   "azurerm_automation_source_control": {
     "management_plane": {
       "scopes": [
@@ -2229,21 +2131,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Batch/batchAccounts/applications"
-      ]
-    }
-  },
-  "azurerm_batch_certificate": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Batch",
-      "types": [
-        "batchAccounts",
-        "certificates"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Batch/batchAccounts/certificates"
       ]
     }
   },
@@ -4661,21 +4548,6 @@
       ]
     }
   },
-  "azurerm_data_protection_backup_instance_postgresql": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DataProtection",
-      "types": [
-        "backupVaults",
-        "backupInstances"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DataProtection/backupVaults/backupInstances"
-      ]
-    }
-  },
   "azurerm_data_protection_backup_instance_postgresql_flexible_server": {
     "management_plane": {
       "scopes": [
@@ -4752,21 +4624,6 @@
     }
   },
   "azurerm_data_protection_backup_policy_mysql_flexible_server": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DataProtection",
-      "types": [
-        "backupVaults",
-        "backupPolicies"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DataProtection/backupVaults/backupPolicies"
-      ]
-    }
-  },
-  "azurerm_data_protection_backup_policy_postgresql": {
     "management_plane": {
       "scopes": [
         "/subscriptions/resourceGroups"
@@ -6354,22 +6211,6 @@
       ]
     }
   },
-  "azurerm_function_app": {
-    "is_removed": true,
-    "remove_reason": "This is deprecated in favor of `azurerm_linux_function_app` and `azurerm_windows_function_app`",
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "sites"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Web/sites"
-      ]
-    }
-  },
   "azurerm_function_app_active_slot": {
     "is_removed": true,
     "remove_reason": "This is a property rather than a resource",
@@ -6442,23 +6283,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Web/sites/hybridConnectionNamespaces/relays"
-      ]
-    }
-  },
-  "azurerm_function_app_slot": {
-    "is_removed": true,
-    "remove_reason": "This is deprecated in favor of `azurerm_linux_function_app_slot` and `azurerm_windows_function_app_slot`",
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "sites",
-        "slots"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Web/sites/slots"
       ]
     }
   },
@@ -6677,80 +6501,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.HealthcareApis/workspaces"
-      ]
-    }
-  },
-  "azurerm_hpc_cache": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.StorageCache",
-      "types": [
-        "caches"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StorageCache/caches"
-      ]
-    }
-  },
-  "azurerm_hpc_cache_access_policy": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.StorageCache",
-      "types": [
-        "caches",
-        "cacheAccessPolicies"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StorageCache/caches/cacheAccessPolicies"
-      ]
-    }
-  },
-  "azurerm_hpc_cache_blob_nfs_target": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.StorageCache",
-      "types": [
-        "caches",
-        "storageTargets"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StorageCache/caches/storageTargets"
-      ]
-    }
-  },
-  "azurerm_hpc_cache_blob_target": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.StorageCache",
-      "types": [
-        "caches",
-        "storageTargets"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StorageCache/caches/storageTargets"
-      ]
-    }
-  },
-  "azurerm_hpc_cache_nfs_target": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.StorageCache",
-      "types": [
-        "caches",
-        "storageTargets"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.StorageCache/caches/storageTargets"
       ]
     }
   },
@@ -8806,21 +8556,6 @@
       ]
     }
   },
-  "azurerm_maps_creator": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Maps",
-      "types": [
-        "accounts",
-        "creators"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Maps/accounts/creators"
-      ]
-    }
-  },
   "azurerm_marketplace_agreement": {
     "management_plane": {
       "scopes": [
@@ -10767,49 +10502,6 @@
       ]
     }
   },
-  "azurerm_orbital_contact": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Orbital",
-      "types": [
-        "spacecrafts",
-        "contacts"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Orbital/spacecrafts/contacts"
-      ]
-    }
-  },
-  "azurerm_orbital_contact_profile": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Orbital",
-      "types": [
-        "contactProfiles"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Orbital/contactProfiles"
-      ]
-    }
-  },
-  "azurerm_orbital_spacecraft": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Orbital",
-      "types": [
-        "spacecrafts"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Orbital/spacecrafts"
-      ]
-    }
-  },
   "azurerm_orchestrated_virtual_machine_scale_set": {
     "management_plane": {
       "scopes": [
@@ -11082,66 +10774,6 @@
       ]
     }
   },
-  "azurerm_postgresql_active_directory_administrator": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforPostgreSQL",
-      "types": [
-        "servers",
-        "administrators"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/servers"
-      ]
-    }
-  },
-  "azurerm_postgresql_configuration": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforPostgreSQL",
-      "types": [
-        "servers",
-        "configurations"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/servers/configurations"
-      ]
-    }
-  },
-  "azurerm_postgresql_database": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforPostgreSQL",
-      "types": [
-        "servers",
-        "databases"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/servers/databases"
-      ]
-    }
-  },
-  "azurerm_postgresql_firewall_rule": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforPostgreSQL",
-      "types": [
-        "servers",
-        "firewallRules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/servers/firewallRules"
-      ]
-    }
-  },
   "azurerm_postgresql_flexible_server": {
     "management_plane": {
       "scopes": [
@@ -11243,50 +10875,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/flexibleServers/virtualEndpoints"
-      ]
-    }
-  },
-  "azurerm_postgresql_server": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforPostgreSQL",
-      "types": [
-        "servers"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/servers"
-      ]
-    }
-  },
-  "azurerm_postgresql_server_key": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforPostgreSQL",
-      "types": [
-        "servers",
-        "keys"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/servers/keys"
-      ]
-    }
-  },
-  "azurerm_postgresql_virtual_network_rule": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.DBforPostgreSQL",
-      "types": [
-        "servers",
-        "virtualNetworkRules"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.DBforPostgreSQL/servers/virtualNetworkRules"
       ]
     }
   },
@@ -11708,39 +11296,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.Cache/redis/accessPolicyAssignments"
-      ]
-    }
-  },
-  "azurerm_redis_enterprise_cluster": {
-    "is_removed": true,
-    "remove_reason": "Deprecated",
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Cache",
-      "types": [
-        "redisEnterprise"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Cache/redisEnterprise"
-      ]
-    }
-  },
-  "azurerm_redis_enterprise_database": {
-    "is_removed": true,
-    "remove_reason": "Deprecated",
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Cache",
-      "types": [
-        "redisEnterprise",
-        "databases"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Cache/redisEnterprise/databases"
       ]
     }
   },
@@ -12227,20 +11782,6 @@
       ],
       "import_specs": [
         "/subscriptions/Microsoft.Security/assessmentMetadata"
-      ]
-    }
-  },
-  "azurerm_security_center_auto_provisioning": {
-    "management_plane": {
-      "scopes": [
-        "/subscriptions"
-      ],
-      "provider": "Microsoft.Security",
-      "types": [
-        "autoProvisioningSettings"
-      ],
-      "import_specs": [
-        "/subscriptions/Microsoft.Security/autoProvisioningSettings"
       ]
     }
   },
@@ -13966,39 +13507,6 @@
       ],
       "import_specs": [
         "/subscriptions/resourceGroups/Microsoft.AzureStackHCI/virtualHardDisks"
-      ]
-    }
-  },
-  "azurerm_static_site": {
-    "is_removed": true,
-    "remove_reason": "This is deprecated in favor of `azurerm_static_web_app`",
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "staticSites"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Web/staticSites"
-      ]
-    }
-  },
-  "azurerm_static_site_custom_domain": {
-    "is_removed": true,
-    "remove_reason": "This is deprecated in favor of `azurerm_static_web_app_custom_domain`",
-    "management_plane": {
-      "scopes": [
-        "/subscriptions/resourceGroups"
-      ],
-      "provider": "Microsoft.Web",
-      "types": [
-        "staticSites",
-        "customDomains"
-      ],
-      "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Web/staticSites/customDomains"
       ]
     }
   },
