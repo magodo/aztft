@@ -13,7 +13,6 @@ type dataProtectionBackupInstancesResolver struct{}
 
 func (dataProtectionBackupInstancesResolver) ResourceTypes() []string {
 	return []string{
-		"azurerm_data_protection_backup_instance_postgresql",
 		"azurerm_data_protection_backup_instance_postgresql_flexible_server",
 		"azurerm_data_protection_backup_instance_disk",
 		"azurerm_data_protection_backup_instance_blob_storage",

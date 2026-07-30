@@ -14,7 +14,6 @@ type dataProtectionBackupPoliciesResolver struct{}
 
 func (dataProtectionBackupPoliciesResolver) ResourceTypes() []string {
 	return []string{
-		"azurerm_data_protection_backup_policy_postgresql",
 		"azurerm_data_protection_backup_policy_disk",
 		"azurerm_data_protection_backup_policy_blob_storage",
 		"azurerm_data_protection_backup_policy_kubernetes_cluster",
