@@ -61,14 +61,14 @@
   "azurerm_advanced_threat_protection": {
     "management_plane": {
       "scopes": [
-        "/subscriptions/resourceGroups/Microsoft.Storage/storageAccounts"
+        "/subscriptions/resourceGroups/Microsoft.DocumentDB/databaseAccounts"
       ],
       "provider": "Microsoft.Security",
       "types": [
         "advancedThreatProtectionSettings"
       ],
       "import_specs": [
-        "/subscriptions/resourceGroups/Microsoft.Storage/storageAccounts/Microsoft.Security/advancedThreatProtectionSettings"
+        "/subscriptions/resourceGroups/Microsoft.DocumentDB/databaseAccounts/Microsoft.Security/advancedThreatProtectionSettings"
       ]
     }
   },
