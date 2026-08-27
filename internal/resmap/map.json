@@ -10688,6 +10688,20 @@
       ]
     }
   },
+  "azurerm_playwright_workspace": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.LoadTestService",
+      "types": [
+        "playwrightWorkspaces"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.LoadTestService/playwrightWorkspaces"
+      ]
+    }
+  },
   "azurerm_point_to_site_vpn_gateway": {
     "management_plane": {
       "scopes": [
