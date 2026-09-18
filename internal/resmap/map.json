@@ -13761,6 +13761,20 @@
       ]
     }
   },
+  "azurerm_storage_discovery_workspace": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.StorageDiscovery",
+      "types": [
+        "storageDiscoveryWorkspaces"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.StorageDiscovery/storageDiscoveryWorkspaces"
+      ]
+    }
+  },
   "azurerm_storage_encryption_scope": {
     "management_plane": {
       "scopes": [
