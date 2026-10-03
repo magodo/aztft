@@ -16,6 +16,7 @@ func (oracleAutonomousDatabaseResolver) ResourceTypes() []string {
 		"azurerm_oracle_autonomous_database",
 		"azurerm_oracle_autonomous_database_clone_from_database",
 		"azurerm_oracle_autonomous_database_clone_from_backup",
+		"azurerm_oracle_autonomous_database_cross_region_disaster_recovery",
 	}
 }
 
@@ -40,6 +41,8 @@ func (oracleAutonomousDatabaseResolver) Resolve(b *client.ClientBuilder, id armi
 		return "azurerm_oracle_autonomous_database_clone_from_database", nil
 	case *armoracledatabase.AutonomousDatabaseFromBackupTimestampProperties:
 		return "azurerm_oracle_autonomous_database_clone_from_backup", nil
+	case *armoracledatabase.AutonomousDatabaseCrossRegionDisasterRecoveryProperties:
+		return "azurerm_oracle_autonomous_database_cross_region_disaster_recovery", nil
 	default:
 		return "", fmt.Errorf("unknown database properties type: %T", props)
 	}

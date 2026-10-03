@@ -10329,6 +10329,20 @@
       ]
     }
   },
+  "azurerm_oracle_autonomous_database_cross_region_disaster_recovery": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Oracle.Database",
+      "types": [
+        "autonomousDatabases"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Oracle.Database/autonomousDatabases"
+      ]
+    }
+  },
   "azurerm_oracle_cloud_vm_cluster": {
     "management_plane": {
       "scopes": [
