@@ -4578,6 +4578,21 @@
       ]
     }
   },
+  "azurerm_data_protection_backup_policy_cosmosdb_account": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.DataProtection",
+      "types": [
+        "backupVaults",
+        "backupPolicies"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.DataProtection/backupVaults/backupPolicies"
+      ]
+    }
+  },
   "azurerm_data_protection_backup_policy_data_lake_storage": {
     "management_plane": {
       "scopes": [
