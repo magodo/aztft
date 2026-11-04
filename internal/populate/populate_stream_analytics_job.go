@@ -33,6 +33,6 @@ func populateStreamAnalyticsJob(b *client.ClientBuilder, id armid.ResourceId) ([
 
 	sid := id.Clone().(*armid.ScopedResourceId)
 	sid.AttrTypes = append(sid.AttrTypes, "storageAccounts")
-	sid.AttrNames = append(sid.AttrTypes, *props.JobStorageAccount.AccountName)
+	sid.AttrNames = append(sid.AttrNames, *props.JobStorageAccount.AccountName)
 	return []armid.ResourceId{sid}, nil
 }

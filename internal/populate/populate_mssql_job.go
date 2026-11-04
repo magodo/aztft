@@ -29,6 +29,6 @@ func populateMssqlJob(b *client.ClientBuilder, id armid.ResourceId) ([]armid.Res
 
 	sid := id.Clone().(*armid.ScopedResourceId)
 	sid.AttrTypes = append(sid.AttrTypes, "schedules")
-	sid.AttrNames = append(sid.AttrTypes, "default")
+	sid.AttrNames = append(sid.AttrNames, "default")
 	return []armid.ResourceId{sid}, nil
 }
