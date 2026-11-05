@@ -29,7 +29,7 @@ func populateContainerAppEnv(b *client.ClientBuilder, id armid.ResourceId) ([]ar
 		if cfg.DNSSuffix != nil {
 			cid := id.Clone().(*armid.ScopedResourceId)
 			cid.AttrTypes = append(cid.AttrTypes, "customDomains")
-			cid.AttrNames = append(cid.AttrTypes, "default")
+			cid.AttrNames = append(cid.AttrNames, "default")
 			result = append(result, cid)
 		}
 	}
