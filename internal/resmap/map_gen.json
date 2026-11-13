@@ -2812,6 +2812,22 @@
       ]
     }
   },
+  "azurerm_cognitive_account_project_connection_entra_id": {
+    "management_plane": {
+      "scopes": [
+        "/subscriptions/resourceGroups"
+      ],
+      "provider": "Microsoft.CognitiveServices",
+      "types": [
+        "accounts",
+        "projects",
+        "connections"
+      ],
+      "import_specs": [
+        "/subscriptions/resourceGroups/Microsoft.CognitiveServices/accounts/projects/connections"
+      ]
+    }
+  },
   "azurerm_cognitive_account_rai_blocklist": {
     "management_plane": {
       "scopes": [
