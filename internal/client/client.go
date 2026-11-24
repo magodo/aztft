@@ -40,6 +40,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicessiterecovery/v2"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/redisenterprise/armredisenterprise"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armdeploymentscripts/v2"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/search/armsearch/v2"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/securityinsights/armsecurityinsights/v2"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/sql/armsql"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
@@ -754,4 +755,8 @@ func (b *ClientBuilder) NewNetAppVolumeBucketClient(subscriptionId string) (*arm
 
 func (b *ClientBuilder) NewKubernetesClusterClient(subscription string) (*armcontainerservice.ManagedClustersClient, error) {
 	return armcontainerservice.NewManagedClustersClient(subscription, b.Cred, &b.ClientOpt)
+}
+
+func (b *ClientBuilder) NewSearchServicesClient(subscription string) (*armsearch.ServicesClient, error) {
+	return armsearch.NewServicesClient(subscription, b.Cred, &b.ClientOpt)
 }

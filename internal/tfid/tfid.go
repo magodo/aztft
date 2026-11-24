@@ -34,6 +34,7 @@ var dynamicBuilders = map[string]builderFunc{
 	"azurerm_storage_data_lake_gen2_path":                            buildStorageDfsPath,
 	"azurerm_api_management_api":                                     buildApiManagementApi,
 	"azurerm_automation_job_schedule":                                buildAutomationJobSchedule,
+	"azurerm_search_service_datasource_blob":                         buildSearchServiceDataSource,
 }
 
 func NeedsAPI(rt string) bool {

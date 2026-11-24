@@ -447,6 +447,16 @@ var HardcodedTypes = map[string]*HardCodedTypeInfo{
 		},
 		caughtErr: ErrSyntheticId,
 	},
+	"azurerm_search_service_datasource_blob": {
+		mapItem: &resmap.TF2ARMIdMapItem{
+			ManagementPlane: &resmap.MapManagementPlane{
+				ParentScopes: []string{"/subscriptions/resourceGroups"},
+				Provider:     "Microsoft.Search",
+				Types:        []string{"searchService", "datasources"},
+			},
+		},
+		caughtErr: ErrDataPlaneId,
+	},
 }
 
 const usage = `aztft-generate-static <provider root dir>`
